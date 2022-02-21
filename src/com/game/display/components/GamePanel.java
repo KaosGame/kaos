@@ -5,13 +5,22 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import com.game.entities.EntityID;
+import com.game.entities.Player;
+import com.game.main.Game;
+
 public class GamePanel extends JPanel implements Runnable {
 
 	private Thread gameThread;
 	private final int FPS;
 	
 	public GamePanel() {
+		
 		this.FPS = 60;
+		
+		Game.ENTITY_HANDLER.add(new Player(0f, 0f, 0f, 0f, 64, 64, EntityID.PLAYER, Game.TEXTRA_ALICE.getImageFrom(0, 0, 16, 16)));
+		
+		
 	}
 	
 	public void startGameLoop() {
@@ -65,6 +74,8 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	private void update() {
 		
+		Game.ENTITY_HANDLER.update();
+		
 	}
 	
 	@Override
@@ -74,7 +85,7 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
-		
+		Game.ENTITY_HANDLER.draw(g2d);
 		
 		
 	}
