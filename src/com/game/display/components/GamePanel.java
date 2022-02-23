@@ -85,8 +85,16 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
+		this.drawBackground(g2d);
+		
 		Game.ENTITY_HANDLER.draw(g2d);
 		
+		
+	}
+	
+	private void drawBackground(Graphics2D g2d) {
+		
+		g2d.drawImage(Game.TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), 0, 0, Game.WIDTH, Game.HEIGHT, null);
 		
 	}
 	
