@@ -2,6 +2,7 @@ package com.game.main;
 
 import javax.swing.JFrame;
 
+import com.game.collision.objects.ChangeMapCollidableObject;
 import com.game.collision.objects.CollidableObject;
 import com.game.collision.objects.CollisionObject;
 import com.game.collision.objects.ObjectType;
@@ -28,7 +29,7 @@ public class Game {
 	public static CollisionObject[][] BASE_MAPS = {
 			
 			{
-				
+				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.CHANGE_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16), 1),
 				new CollidableObject(125, 81, 135, 100, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16)),
 				new CollidableObject(25, 200, 100, 300, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(32, 0, 16, 16)),
 				new CollidableObject(25, 500, 100, 100, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(48, 0, 16, 16)),
@@ -38,6 +39,12 @@ public class Game {
 				new CollidableObject(100, 275, 170, 100, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
 				new CollidableObject(100, 375, 170, 100, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
 				new CollidableObject(100, 475, 170, 50, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16))
+				
+			},
+			
+			{
+				
+				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.CHANGE_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 0)
 				
 			}
 			
@@ -107,7 +114,7 @@ public class Game {
 		
 		
 		Game.PLAYER.setYv(0f);
-		Game.PLAYER.setX((float) ((float) (Game.HEIGHT / 2) - 64));
+		Game.PLAYER.setY((float) ((float) (Game.HEIGHT / 2) - 64));
 		
 		
 	}

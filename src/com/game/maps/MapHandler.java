@@ -20,7 +20,7 @@ public class MapHandler {
 		
 	}
 	
-	public static Map currentMap() {
+	public static Map currentMap() throws IndexOutOfBoundsException {
 		
 		return MapHandler.MAPS.get(MapHandler.CURRENT_MAP_ID);
 		

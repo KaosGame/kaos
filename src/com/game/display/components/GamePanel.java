@@ -21,9 +21,8 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		this.FPS = 60;
 		
-		MapHandler.addMap(
-								new Map(Game.BASE_MAPS[0])
-						);
+		MapHandler.addMap(new Map(Game.BASE_MAPS[0]));
+		MapHandler.addMap(new Map(Game.BASE_MAPS[1]));
 		
 		
 		this.keyControls = new KeyControls();

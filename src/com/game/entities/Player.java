@@ -58,6 +58,12 @@ public class Player extends Entity {
 			
 			CollisionObject tempObj = tempList.get(i);
 			
+			if (this.getRectangle().intersects(tempObj.getRectangle())) {
+				
+				tempObj.collide();
+				
+			}
+			
 			if (
 					tempObj.getType() == ObjectType.WALL &&
 					tempObj instanceof CollidableObject &&
