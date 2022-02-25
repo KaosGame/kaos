@@ -62,5 +62,11 @@ public class EntityHandler implements Updatable, Drawable {
 		}
 		
 	}
+	
+	public Entity get(int index) {
+		
+		return this.list.get(index);
+		
+	}
 
 }

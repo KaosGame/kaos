@@ -1,6 +1,7 @@
 package com.game.entities;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import com.game.main.Drawable;
@@ -8,16 +9,16 @@ import com.game.main.Updatable;
 
 public abstract class Entity implements Drawable, Updatable {
 	
-	private float x;
-	private float y;
-	private float xv;
-	private float yv;
+	protected float x;
+	protected float y;
+	protected float xv;
+	protected float yv;
 	
-	private int width;
-	private int height;
+	protected int width;
+	protected int height;
 	
-	private EntityID id;
-	private BufferedImage image;
+	protected EntityID id;
+	protected BufferedImage image;
 	
 	
 	
@@ -110,7 +111,11 @@ public abstract class Entity implements Drawable, Updatable {
 		this.image = image;
 	}
 	
-	
+	public Rectangle getRectangle() {
+		
+		return new Rectangle((int) this.x, (int) this.y, this.width, this.height);
+		
+	}
 	
 	
 
