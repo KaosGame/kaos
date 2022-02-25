@@ -91,13 +91,13 @@ public class Map implements Updatable, Drawable {
 		
 	}
 	
-	public void add(CollisionObject o) {
+	public void addObject(CollisionObject o) {
 		
 		this.objectList.add(o);
 		
 	}
 	
-	public CollisionObject get(int index) {
+	public CollisionObject getObject(int index) {
 		
 		return this.objectList.get(index);
 		

@@ -2,8 +2,13 @@ package com.game.entities;
 
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
+import java.util.LinkedList;
 
+import com.game.collision.objects.CollidableObject;
+import com.game.collision.objects.CollisionObject;
+import com.game.collision.objects.ObjectType;
 import com.game.main.Game;
+import com.game.maps.MapHandler;
 
 public class Player extends Entity {
 	
@@ -38,8 +43,33 @@ public class Player extends Entity {
 		
 		this.addVPos();
 		
+		this.handleCollidableObjects(OLD_X, OLD_Y);
+		
 		this.x = Game.clamp(this.x, (float) (Game.WIDTH - this.width), 0f);
 		this.y = Game.clamp(this.y, (float) (Game.HEIGHT - (float) (this.height * 1.3f)), 0f);
+		
+	}
+
+	private void handleCollidableObjects(final float OLD_X, final float OLD_Y) {
+		
+		LinkedList<CollisionObject> tempList = MapHandler.currentMap().getObjectList();
+		
+		for (int i = 0; i < tempList.size(); i++) {
+			
+			CollisionObject tempObj = tempList.get(i);
+			
+			if (
+					tempObj.getType() == ObjectType.WALL &&
+					tempObj instanceof CollidableObject &&
+					this.getRectangle().intersects(tempObj.getRectangle())
+				) {
+				
+				this.x = OLD_X;
+				this.y = OLD_Y;
+				
+			}
+			
+		}
 		
 	}
 
