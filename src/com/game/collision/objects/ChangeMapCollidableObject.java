@@ -1,11 +1,13 @@
 package com.game.collision.objects;
 
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import com.game.main.Drawable;
 import com.game.main.Game;
 import com.game.maps.MapHandler;
 
-public class ChangeMapCollidableObject extends CollisionObject {
+public class ChangeMapCollidableObject extends CollisionObject implements Drawable {
 	
 	private int loadMapID;
 
@@ -36,6 +38,11 @@ public class ChangeMapCollidableObject extends CollisionObject {
 		
 	}
 	
-	
+	@Override
+	public void draw(Graphics2D g2d) {
+		
+		g2d.drawImage(this.image, this.x, this.y, this.width, this.height, null);
+		
+	}
 
 }

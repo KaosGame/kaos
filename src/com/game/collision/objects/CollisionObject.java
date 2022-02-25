@@ -1,21 +1,18 @@
 package com.game.collision.objects;
 
-import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import com.game.main.Drawable;
-
-public abstract class CollisionObject implements Drawable {
+public abstract class CollisionObject {
 	
-	private int x;
-	private int y;
+	protected int x;
+	protected int y;
 	
-	private int width;
-	private int height;
+	protected int width;
+	protected int height;
 	
-	private ObjectType type;
-	private BufferedImage image;
+	protected ObjectType type;
+	protected BufferedImage image;
 	
 	
 	
@@ -36,13 +33,6 @@ public abstract class CollisionObject implements Drawable {
 	}
 	
 	public abstract void collide();
-	
-	@Override
-	public void draw(Graphics2D g2d) {
-		
-		g2d.drawImage(this.image, this.x, this.y, this.width, this.height, null);
-		
-	}
 
 	public int getX() {
 		return this.x;
