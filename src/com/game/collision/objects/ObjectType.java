@@ -2,7 +2,9 @@ package com.game.collision.objects;
 
 public enum ObjectType {
 	
-	OBJECT(false);
+	OBJECT(false),
+	WOOD_1(true),
+	WALL(false);
 	
 	private final boolean TRANSPARENT;
 	
