@@ -41,6 +41,7 @@ public class PlayerHotbar {
 			if (tempItem.getId() == item.getId()) {
 				
 				this.list[i].setCount((int) (this.list[i].getCount() + item.getCount()));
+				this.list[i].setCount(Game.clamp(this.list[i].getCount(), Item.MAX_COUNT, 1));
 				
 				return;
 				
