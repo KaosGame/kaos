@@ -1,4 +1,4 @@
-package com.game.entities;
+package com.game.entities.player;
 
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import com.game.collision.objects.CollidableObject;
 import com.game.collision.objects.CollisionObject;
 import com.game.collision.objects.ObjectType;
+import com.game.entities.Entity;
+import com.game.entities.EntityID;
 import com.game.main.Game;
 import com.game.maps.MapHandler;
 

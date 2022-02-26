@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 import com.game.annotations.Empty;
 import com.game.annotations.Unused;
-import com.game.entities.Player;
+import com.game.entities.player.Player;
 import com.game.main.Game;
 
 public class KeyControls implements KeyListener {

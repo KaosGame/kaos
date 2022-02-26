@@ -13,7 +13,7 @@ import com.game.collision.objects.TextSignObject;
 import com.game.display.HUD;
 import com.game.display.components.GamePanel;
 import com.game.entities.EntityID;
-import com.game.entities.Player;
+import com.game.entities.player.Player;
 import com.game.textures.BufferedImageLoader;
 import com.game.textures.TextraAlice;
 
