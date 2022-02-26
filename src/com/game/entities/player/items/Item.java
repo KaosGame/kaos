@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 public abstract class Item {
 	
+	public static final int MAX_COUNT = 320;
+	
 	protected int count;
 	
 	protected ItemID id;

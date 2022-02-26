@@ -97,6 +97,80 @@ public class KeyControls implements KeyListener {
 			
 		}
 		
+		
+		
+		if (KeyEvent.VK_1 == key) {
+			
+			Game.PLAYER.getHotbar().currentItemIndex = 0;
+			
+		}
+		
+		if (KeyEvent.VK_2 == key) {
+			
+			Game.PLAYER.getHotbar().currentItemIndex = 1;
+			
+		}
+		
+		if (KeyEvent.VK_3 == key) {
+			
+			Game.PLAYER.getHotbar().currentItemIndex = 2;
+			
+		}
+		
+		if (KeyEvent.VK_4 == key) {
+			
+			Game.PLAYER.getHotbar().currentItemIndex = 3;
+			
+		}
+		
+		if (KeyEvent.VK_5 == key) {
+			
+			Game.PLAYER.getHotbar().currentItemIndex = 4;
+			
+		}
+		
+		if (KeyEvent.VK_6 == key) {
+			
+			Game.PLAYER.getHotbar().currentItemIndex = 5;
+			
+		}
+		
+		if (KeyEvent.VK_7 == key) {
+			
+			Game.PLAYER.getHotbar().currentItemIndex = 6;
+			
+		}
+		
+		if (KeyEvent.VK_8 == key) {
+			
+			Game.PLAYER.getHotbar().currentItemIndex = 7;
+			
+		}
+		
+		
+		
+		if (KeyEvent.VK_X == key) {
+			
+			Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+			
+		}
+		
+		if (KeyEvent.VK_Z == key) {
+			
+			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null) {
+				
+				Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].setCount((int) (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].getCount() - 1));
+				
+				if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].getCount() <= 0) {
+					
+					Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+					
+				}
+				
+			}
+			
+		}
+		
 	}
 
 }

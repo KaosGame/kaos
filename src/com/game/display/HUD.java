@@ -1,5 +1,7 @@
 package com.game.display;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 
 import com.game.entities.player.items.Item;
@@ -27,13 +29,19 @@ public class HUD implements Drawable, Updatable {
 			
 			Item item = Game.PLAYER.getHotbar().list[i];
 			
+			xDraw += 64;
+			
 			if (item != null) {
 				
-				g2d.drawImage(item.getImage(), xDraw, (int) (Game.HEIGHT - 96), 64, 64, null);
+				g2d.drawImage(item.getImage(), (int) (xDraw - 64), (int) (Game.HEIGHT - 96), 64, 64, null);	
 				
-				xDraw += 64;
+				
+				g2d.setColor(new Color(0x000000));
+				g2d.setFont(new Font("Verdana", Font.PLAIN, 16));
+				g2d.drawString(String.valueOf(item.getCount()), (int) (xDraw - 48), (int) (Game.HEIGHT - 37));
 				
 			}
+			
 			
 		}
 		

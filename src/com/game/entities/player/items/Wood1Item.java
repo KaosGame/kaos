@@ -1,0 +1,37 @@
+package com.game.entities.player.items;
+
+import java.awt.image.BufferedImage;
+
+import com.game.collision.objects.ObjectType;
+import com.game.collision.objects.PlayerObject;
+import com.game.main.Game;
+import com.game.maps.MapHandler;
+
+public class Wood1Item extends Item {
+
+	public Wood1Item(int count, ItemID id, BufferedImage image) {
+		
+		super(count, id, image);
+		
+	}
+	
+	@Override
+	public void use() {
+	
+		this.count--;
+		
+		if (this.count <= 0) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+		
+		MapHandler.currentMap().addObject(new PlayerObject(
+																(int) Game.PLAYER.getX(),
+																(int) Game.PLAYER.getY(),
+																64,
+																64,
+																ObjectType.WOOD_1,
+																Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)
+															));
+		
+	}
+	
+
+}
