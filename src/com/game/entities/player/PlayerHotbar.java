@@ -64,5 +64,42 @@ public class PlayerHotbar {
 		}
 		
 	}
+	
+	public boolean returnBooleanAndAddItem(Item item) {
+		
+		for (int i = 0; i < this.list.length; i++) {
+			
+			Item tempItem = this.list[i];
+			
+			if (tempItem == null || tempItem.getCount() >= Item.MAX_COUNT) continue;
+			
+			if (tempItem.getId() == item.getId()) {
+				
+				this.list[i].setCount((int) (this.list[i].getCount() + item.getCount()));
+				this.list[i].setCount(Game.clamp(this.list[i].getCount(), Item.MAX_COUNT, 1));
+				
+				return true;
+				
+			}
+			
+		}
+		
+		for (int i = 0; i < this.list.length; i++) {
+			
+			Item tempItem = this.list[i];
+			
+			if (tempItem == null) {
+				
+				this.list[i] = item;
+				
+				return true;
+				
+			}
+			
+		}
+		
+		return false;
+		
+	}
 
 }

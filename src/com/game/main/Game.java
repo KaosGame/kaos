@@ -3,6 +3,7 @@ package com.game.main;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
@@ -14,7 +15,10 @@ import com.game.collision.objects.TextSignObject;
 import com.game.display.HUD;
 import com.game.display.components.GamePanel;
 import com.game.entities.EntityID;
+import com.game.entities.ItemEntity;
 import com.game.entities.player.Player;
+import com.game.entities.player.items.Item;
+import com.game.maps.MapHandler;
 import com.game.textures.BufferedImageLoader;
 import com.game.textures.TextraAlice;
 
@@ -135,6 +139,12 @@ public class Game {
 	public static Rectangle getRectangle(int x, int y, int width, int height) {
 		
 		return new Rectangle(x, y, width, height);
+		
+	}
+	
+	public static void addItemEntity(float x, float y, Item item, BufferedImage image, int size) {
+		
+		MapHandler.currentMap().getEntityHandler().add(new ItemEntity(x, y, 0, 0, size, size, EntityID.ITEM, image, item));
 		
 	}
 

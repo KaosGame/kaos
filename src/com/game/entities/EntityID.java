@@ -2,6 +2,7 @@ package com.game.entities;
 
 public enum EntityID {
 	
-	PLAYER();
+	PLAYER(),
+	ITEM();
 
 }

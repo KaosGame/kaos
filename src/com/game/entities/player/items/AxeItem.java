@@ -55,8 +55,25 @@ public class AxeItem extends WeaponItem {
 				
 				Random random = new Random();
 				
-				Game.PLAYER.getHotbar().addItem(new Wood1Item((int) (random.nextInt(5) + 2), ItemID.WOOD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16)));
-				Game.PLAYER.getHotbar().addItem(new Tree1Item((int) (random.nextInt(2) + 1), ItemID.TREE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 0, 16, 16)));
+				float[] pos = this.getRandomItemPos();
+				
+				Game.addItemEntity(
+									pos[0],
+									pos[1],
+									new Wood1Item((int) (random.nextInt(5) + 2), ItemID.WOOD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16)),
+									Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16),
+									64
+								);
+				
+				pos = this.getRandomItemPos();
+				
+				Game.addItemEntity(
+									pos[0],
+									pos[1],
+									new Tree1Item((int) (random.nextInt(2) + 1), ItemID.TREE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 0, 16, 16)),
+									Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 0, 16, 16),
+									64
+								);
 				
 			}
 			
@@ -74,11 +91,54 @@ public class AxeItem extends WeaponItem {
 				
 				MapHandler.currentMap().removeObject(tempObj);
 				
-				Game.PLAYER.getHotbar().addItem(new Wood1Item(1, ItemID.WOOD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16)));
+				float[] pos = this.getRandomItemPos();
+				
+				Game.addItemEntity(
+									pos[0],
+									pos[1],
+									new Wood1Item(1, ItemID.WOOD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16)),
+									Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16),
+									64
+								);
 				
 			}
 			
 		}
+		
+	}
+	
+	private float[] getRandomItemPos() {
+		
+		Random random = new Random();
+		
+		float itemX = 0f;
+		float itemY = 0f;
+		
+		final int OFFSET = 128; 
+		
+		if (random.nextBoolean()) {
+			
+			itemX = (float) (Game.PLAYER.getX() + random.nextInt((int) (OFFSET + 1)));
+			
+		} else {
+			
+			itemX = (float) (Game.PLAYER.getX() + (float) (random.nextInt((int) (OFFSET + 1)) * -1f));
+			
+		}
+		
+		if (random.nextBoolean()) {
+			
+			itemY = (float) (Game.PLAYER.getY() + random.nextInt((int) (OFFSET + 1)));
+			
+		} else {
+			
+			itemY = (float) (Game.PLAYER.getY() + (float) (random.nextInt((int) (OFFSET + 1)) * -1f));
+			
+		}
+		
+		float[] res = {itemX, itemY};
+		
+		return res;
 		
 	}
 
