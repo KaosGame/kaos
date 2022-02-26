@@ -97,6 +97,12 @@ public class Map implements Updatable, Drawable {
 		
 	}
 	
+	public void removeObject(CollisionObject o) {
+		
+		this.objectList.remove(o);
+		
+	}
+	
 	public CollisionObject getObject(int index) {
 		
 		return this.objectList.get(index);

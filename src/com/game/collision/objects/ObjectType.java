@@ -6,7 +6,8 @@ public enum ObjectType {
 	WOOD_1(true),
 	WALL(false),
 	CHANGE_MAP(true),
-	SIGN_1(true);
+	SIGN_1(true),
+	TREE_1(true);
 	
 	private final boolean TRANSPARENT;
 	

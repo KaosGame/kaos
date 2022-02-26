@@ -53,6 +53,12 @@ public class KeyControls implements KeyListener {
 			
 		}
 		
+		if (KeyEvent.VK_SPACE == key) {
+			
+			Game.PLAYER.useItem();
+			
+		}
+		
 	}
 
 	@Override

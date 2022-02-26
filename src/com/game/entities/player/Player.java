@@ -21,6 +21,8 @@ public class Player extends Entity {
 	
 	private boolean[] keysDown;
 
+	private PlayerHotbar hotbar;
+	
 	public Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image) {
 		
 		super(x, y, xv, yv, width, height, id, image);
@@ -28,6 +30,8 @@ public class Player extends Entity {
 		
 		this.keysDown = new boolean[4];
 		Arrays.fill(this.keysDown, false);
+		
+		this.hotbar = new PlayerHotbar();
 		
 		
 	}
@@ -140,9 +144,19 @@ public class Player extends Entity {
 	public void setKeysDown(boolean[] keysDown) {
 		this.keysDown = keysDown;
 	}
+
+	public PlayerHotbar getHotbar() {
+		return this.hotbar;
+	}
+
+	public void setHotbar(PlayerHotbar hotbar) {
+		this.hotbar = hotbar;
+	}
 	
-	
-	
-	
+	public void useItem() {
+		
+		this.hotbar.list[0].use();
+		
+	}
 
 }
