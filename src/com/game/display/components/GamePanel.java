@@ -89,6 +89,8 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		Game.PLAYER.update();
 		
+		Game.HUD.update();
+		
 		
 	}
 	
@@ -104,6 +106,8 @@ public class GamePanel extends JPanel implements Runnable {
 		MapHandler.currentMap().draw(g2d);
 		
 		Game.PLAYER.draw(g2d);
+		
+		Game.HUD.draw(g2d);
 		
 		
 	}

@@ -10,6 +10,7 @@ import com.game.collision.objects.CollidableObject;
 import com.game.collision.objects.CollisionObject;
 import com.game.collision.objects.ObjectType;
 import com.game.collision.objects.TextSignObject;
+import com.game.display.HUD;
 import com.game.display.components.GamePanel;
 import com.game.entities.EntityID;
 import com.game.entities.Player;
@@ -26,9 +27,11 @@ public class Game {
 	
 	private static BufferedImageLoader OBJECT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/object-textra-alice.png");
 	private static BufferedImageLoader PLAYER_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/player-textra-alice.png");
+	private static BufferedImageLoader HUD_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/hud-textra-alice.png");
 	
 	public static TextraAlice OBJECT_TEXTRA_ALICE = new TextraAlice(Game.OBJECT_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice PLAYER_TEXTRA_ALICE = new TextraAlice(Game.PLAYER_TEXTRA_ALICE_LOADER.getImage());
+	public static TextraAlice HUD_TEXTRA_ALICE = new TextraAlice(Game.HUD_TEXTRA_ALICE_LOADER.getImage());
 	
 	public static CollisionObject[][] BASE_MAPS = {
 			
@@ -56,6 +59,7 @@ public class Game {
 	};
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+	public static HUD HUD = new HUD();
 	
 	
 	public Game(String title) {
