@@ -28,8 +28,6 @@ public class Player extends Entity {
 		Arrays.fill(this.keysDown, false);
 		
 		
-		
-		
 	}
 
 	@Override
