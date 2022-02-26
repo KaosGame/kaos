@@ -67,7 +67,8 @@ public class Player extends Entity {
 			if (
 					tempObj.getType() == ObjectType.WALL &&
 					tempObj instanceof CollidableObject &&
-					this.getRectangle().intersects(tempObj.getRectangle())
+					this.getRectangle().intersects(tempObj.getRectangle()) &&
+					!tempObj.getType().isTRANSPARENT()
 				) {
 				
 				this.x = OLD_X;

@@ -1,11 +1,15 @@
 package com.game.main;
 
+import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JFrame;
 
 import com.game.collision.objects.ChangeMapCollidableObject;
 import com.game.collision.objects.CollidableObject;
 import com.game.collision.objects.CollisionObject;
 import com.game.collision.objects.ObjectType;
+import com.game.collision.objects.TextSignObject;
 import com.game.display.components.GamePanel;
 import com.game.entities.EntityID;
 import com.game.entities.Player;
@@ -44,7 +48,8 @@ public class Game {
 			
 			{
 				
-				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.CHANGE_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 0)
+				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.CHANGE_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 0),
+				new TextSignObject(256, 128, 128, 128, ObjectType.SIGN_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16), "This is a sign!", new Color(0x000000), new Font("Verdana", Font.PLAIN, 16), 10, 32)
 				
 			}
 			
