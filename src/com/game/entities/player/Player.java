@@ -155,7 +155,7 @@ public class Player extends Entity {
 	
 	public void useItem() {
 		
-		this.hotbar.list[0].use();
+		this.hotbar.useCurrentItem();
 		
 	}
 

@@ -10,14 +10,23 @@ import com.game.main.Game;
 public class PlayerHotbar {
 	
 	public Item[] list;
+	public byte currentItemIndex;
 	
 	public PlayerHotbar() {
 		
 		this.list = new Item[8];
 		
+		this.currentItemIndex = 0;
+		
 		Arrays.fill(this.list, null);
 		
 		this.list[0] = new AxeItem(1, ItemID.AXE, Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), 1f);
+		
+	}
+
+	public void useCurrentItem() {
+		
+		this.list[this.currentItemIndex].use();
 		
 	}
 
