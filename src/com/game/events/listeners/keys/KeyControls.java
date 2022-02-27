@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import com.game.annotations.Empty;
 import com.game.annotations.Unused;
 import com.game.entities.player.Player;
+import com.game.entities.player.items.FoodItem;
 import com.game.entities.player.items.Item;
 import com.game.entities.player.items.WeaponItem;
 import com.game.main.Game;
@@ -179,23 +180,12 @@ public class KeyControls implements KeyListener {
 				
 				float[] pos = Game.getRandomItemPos();
 				
-				if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] instanceof WeaponItem) {
-					
-					WeaponItem<?> dropItem = (WeaponItem<?>) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].cloneType();
-					
-					dropItem.setCount(1);
-					
-					Game.addItemEntity(pos[0], pos[1], dropItem, dropItem.getImage(), 64);
-					
-				} else if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] instanceof Item) {
-					
-					Item<?> dropItem = (Item<?>) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].cloneType();
-					
-					dropItem.setCount(1);
-					
-					Game.addItemEntity(pos[0], pos[1], dropItem, dropItem.getImage(), 64);
-					
-				}
+				
+				Item<?> dropItem = (Item<?>) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].cloneType();
+				
+				dropItem.setCount(1);
+				
+				Game.addItemEntity(pos[0], pos[1], dropItem, dropItem.getImage(), 64);
 				
 				Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].setCount((int) (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].getCount() - 1));
 				
@@ -204,6 +194,42 @@ public class KeyControls implements KeyListener {
 					Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
 					
 				}
+			
+				
+				
+//				if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] instanceof WeaponItem) {
+//					
+//					WeaponItem<?> dropItem = (WeaponItem<?>) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].cloneType();
+//					
+//					dropItem.setCount(1);
+//					
+//					Game.addItemEntity(pos[0], pos[1], dropItem, dropItem.getImage(), 64);
+//					
+//				} else if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] instanceof FoodItem) {
+//					
+//					FoodItem<?> dropItem = (FoodItem<?>) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].cloneType();
+//					
+//					dropItem.setCount(1);
+//					
+//					Game.addItemEntity(pos[0], pos[1], dropItem, dropItem.getImage(), 64);
+//					
+//				} else if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] instanceof Item) {
+//					
+//					Item<?> dropItem = (Item<?>) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].cloneType();
+//					
+//					dropItem.setCount(1);
+//					
+//					Game.addItemEntity(pos[0], pos[1], dropItem, dropItem.getImage(), 64);
+//					
+//				}
+//				
+//				Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].setCount((int) (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].getCount() - 1));
+//				
+//				if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].getCount() <= 0) {
+//					
+//					Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+//					
+//				}
 				
 			}
 			
