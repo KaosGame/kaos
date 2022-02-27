@@ -210,6 +210,27 @@ public class KeyControls implements KeyListener {
 			
 		}
 		
+		if (KeyEvent.VK_PERIOD == key) {
+			
+			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null) {
+				
+				float[] pos = this.getRandomItemPos();
+				
+				Game.addItemEntity(
+									pos[0],
+									pos[1],
+									Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex],
+									Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].getImage(),
+									64
+								);
+				
+				
+				Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+				
+			}
+			
+		}
+		
 	}
 	
 	private float[] getRandomItemPos() {

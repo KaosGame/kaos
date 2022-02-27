@@ -8,9 +8,9 @@ import com.game.maps.MapHandler;
 
 public class ItemEntity extends Entity {
 	
-	private Item item;
+	private Item<?> item;
 
-	public ItemEntity(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image, Item item) {
+	public ItemEntity(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image, Item<?> item) {
 		
 		super(x, y, xv, yv, width, height, id, image);
 		this.item = item;
@@ -21,6 +21,9 @@ public class ItemEntity extends Entity {
 	@Override
 	public void update() {
 		
+		this.x = Game.clamp(this.x, (float) (Game.WIDTH - this.width), 0f);
+		this.y = Game.clamp(this.y, (float) (Game.HEIGHT - (float) (this.height * 1.3f)), 0f);
+		
 		if (
 				this.getRectangle().intersects(Game.PLAYER.getRectangle()) &&
 				Game.PLAYER.getHotbar().returnBooleanAndAddItem(this.item)
@@ -28,18 +31,16 @@ public class ItemEntity extends Entity {
 		
 	}
 
-	public Item getItem() {
+	public Item<?> getItem() {
 		
 		return this.item;
 		
 	}
 
-	public void setItem(Item item) {
+	public void setItem(Item<?> item) {
 		
 		this.item = item;
 		
 	}
 	
-	
-
 }

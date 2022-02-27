@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		MapHandler.addMap(new Map(Game.BASE_MAPS[0]));
 		MapHandler.addMap(new Map(Game.BASE_MAPS[1]));
+		MapHandler.addMap(new Map(Game.BASE_MAPS[2]));
 		
 		
 		this.keyControls = new KeyControls();
