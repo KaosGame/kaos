@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.swing.JFrame;
 
@@ -153,6 +154,41 @@ public class Game {
 	public static void addItemEntity(float x, float y, Item<?> item, BufferedImage image, int size) {
 		
 		MapHandler.currentMap().getEntityHandler().add(new ItemEntity(x, y, 0, 0, size, size, EntityID.ITEM, image, item));
+		
+	}
+	
+	public static float[] getRandomItemPos() {
+		
+		Random random = new Random();
+		
+		float itemX = 0f;
+		float itemY = 0f;
+		
+		final int OFFSET = 128; 
+		
+		if (random.nextBoolean()) {
+			
+			itemX = (float) (Game.PLAYER.getX() + random.nextInt((int) (OFFSET + 1)));
+			
+		} else {
+			
+			itemX = (float) (Game.PLAYER.getX() + (float) (random.nextInt((int) (OFFSET + 1)) * -1f));
+			
+		}
+		
+		if (random.nextBoolean()) {
+			
+			itemY = (float) (Game.PLAYER.getY() + random.nextInt((int) (OFFSET + 1)));
+			
+		} else {
+			
+			itemY = (float) (Game.PLAYER.getY() + (float) (random.nextInt((int) (OFFSET + 1)) * -1f));
+			
+		}
+		
+		float[] res = {itemX, itemY};
+		
+		return res;
 		
 	}
 
