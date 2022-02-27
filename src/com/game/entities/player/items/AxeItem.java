@@ -10,7 +10,7 @@ import com.game.collision.objects.PlayerObject;
 import com.game.main.Game;
 import com.game.maps.MapHandler;
 
-public class AxeItem extends WeaponItem {
+public class AxeItem extends WeaponItem<AxeItem> {
 
 	public AxeItem(int count, ItemID id, BufferedImage image, float damage) {
 		
@@ -141,5 +141,13 @@ public class AxeItem extends WeaponItem {
 		return res;
 		
 	}
+
+	@Override
+	public AxeItem cloneType() {
+		
+		return new AxeItem(this.count, this.id, this.image, this.damage);
+		
+	}
+
 
 }

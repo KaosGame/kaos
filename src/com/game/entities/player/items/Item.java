@@ -2,7 +2,9 @@ package com.game.entities.player.items;
 
 import java.awt.image.BufferedImage;
 
-public abstract class Item {
+import com.game.main.CloneableType;
+
+public abstract class Item<CT> implements CloneableType<CT> {
 	
 	public static final int MAX_COUNT = 320;
 	

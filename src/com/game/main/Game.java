@@ -142,7 +142,7 @@ public class Game {
 		
 	}
 	
-	public static void addItemEntity(float x, float y, Item item, BufferedImage image, int size) {
+	public static void addItemEntity(float x, float y, Item<?> item, BufferedImage image, int size) {
 		
 		MapHandler.currentMap().getEntityHandler().add(new ItemEntity(x, y, 0, 0, size, size, EntityID.ITEM, image, item));
 		

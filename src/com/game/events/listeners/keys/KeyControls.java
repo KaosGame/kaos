@@ -2,10 +2,13 @@ package com.game.events.listeners.keys;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 
 import com.game.annotations.Empty;
 import com.game.annotations.Unused;
 import com.game.entities.player.Player;
+import com.game.entities.player.items.Item;
+import com.game.entities.player.items.WeaponItem;
 import com.game.main.Game;
 
 public class KeyControls implements KeyListener {
@@ -170,6 +173,77 @@ public class KeyControls implements KeyListener {
 			}
 			
 		}
+		
+		if (KeyEvent.VK_COMMA == key) {
+			
+			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null) {
+				
+				float[] pos = this.getRandomItemPos();
+				
+				if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] instanceof WeaponItem) {
+					
+					WeaponItem<?> dropItem = (WeaponItem<?>) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].cloneType();
+					
+					dropItem.setCount(1);
+					
+					Game.addItemEntity(pos[0], pos[1], dropItem, dropItem.getImage(), 64);
+					
+				} else if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] instanceof Item) {
+					
+					Item<?> dropItem = (Item<?>) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].cloneType();
+					
+					dropItem.setCount(1);
+					
+					Game.addItemEntity(pos[0], pos[1], dropItem, dropItem.getImage(), 64);
+					
+				}
+				
+				Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].setCount((int) (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].getCount() - 1));
+				
+				if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].getCount() <= 0) {
+					
+					Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+	private float[] getRandomItemPos() {
+		
+		Random random = new Random();
+		
+		float itemX = 0f;
+		float itemY = 0f;
+		
+		final int OFFSET = 128; 
+		
+		if (random.nextBoolean()) {
+			
+			itemX = (float) (Game.PLAYER.getX() + random.nextInt((int) (OFFSET + 1)));
+			
+		} else {
+			
+			itemX = (float) (Game.PLAYER.getX() + (float) (random.nextInt((int) (OFFSET + 1)) * -1f));
+			
+		}
+		
+		if (random.nextBoolean()) {
+			
+			itemY = (float) (Game.PLAYER.getY() + random.nextInt((int) (OFFSET + 1)));
+			
+		} else {
+			
+			itemY = (float) (Game.PLAYER.getY() + (float) (random.nextInt((int) (OFFSET + 1)) * -1f));
+			
+		}
+		
+		float[] res = {itemX, itemY};
+		
+		return res;
 		
 	}
 

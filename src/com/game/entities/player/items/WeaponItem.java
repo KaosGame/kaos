@@ -2,7 +2,7 @@ package com.game.entities.player.items;
 
 import java.awt.image.BufferedImage;
 
-public abstract class WeaponItem extends Item {
+public abstract class WeaponItem<CT> extends Item<CT> {
 	
 	protected float damage;
 
@@ -24,7 +24,6 @@ public abstract class WeaponItem extends Item {
 		this.damage = damage;
 		
 	}
-	
 	
 
 }

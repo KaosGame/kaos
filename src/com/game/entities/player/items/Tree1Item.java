@@ -7,7 +7,7 @@ import com.game.collision.objects.PlayerObject;
 import com.game.main.Game;
 import com.game.maps.MapHandler;
 
-public class Tree1Item extends Item {
+public class Tree1Item extends Item<Tree1Item> {
 
 	public Tree1Item(int count, ItemID id, BufferedImage image) {
 		
@@ -32,6 +32,11 @@ public class Tree1Item extends Item {
 																Game.OBJECT_TEXTRA_ALICE.getImageFrom(160, 0, 16, 16)
 															));
 		
+	}
+
+	@Override
+	public Tree1Item cloneType() {
+		return new Tree1Item(this.count, this.id, this.image);
 	}
 
 }

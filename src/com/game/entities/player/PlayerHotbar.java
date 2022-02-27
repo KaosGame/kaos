@@ -9,12 +9,12 @@ import com.game.main.Game;
 
 public class PlayerHotbar {
 	
-	public Item[] list;
+	public Item<?>[] list;
 	public byte currentItemIndex;
 	
 	public PlayerHotbar() {
 		
-		this.list = new Item[8];
+		this.list = new Item<?>[8];
 		
 		this.currentItemIndex = 0;
 		
@@ -30,11 +30,11 @@ public class PlayerHotbar {
 		
 	}
 
-	public void addItem(Item item) {
+	public void addItem(Item<?> item) {
 		
 		for (int i = 0; i < this.list.length; i++) {
 			
-			Item tempItem = this.list[i];
+			Item<?> tempItem = this.list[i];
 			
 			if (tempItem == null || tempItem.getCount() >= Item.MAX_COUNT) continue;
 			
@@ -51,7 +51,7 @@ public class PlayerHotbar {
 		
 		for (int i = 0; i < this.list.length; i++) {
 			
-			Item tempItem = this.list[i];
+			Item<?> tempItem = this.list[i];
 			
 			if (tempItem == null) {
 				
@@ -65,11 +65,11 @@ public class PlayerHotbar {
 		
 	}
 	
-	public boolean returnBooleanAndAddItem(Item item) {
+	public boolean returnBooleanAndAddItem(Item<?> item) {
 		
 		for (int i = 0; i < this.list.length; i++) {
 			
-			Item tempItem = this.list[i];
+			Item<?> tempItem = this.list[i];
 			
 			if (tempItem == null || tempItem.getCount() >= Item.MAX_COUNT) continue;
 			
@@ -86,7 +86,7 @@ public class PlayerHotbar {
 		
 		for (int i = 0; i < this.list.length; i++) {
 			
-			Item tempItem = this.list[i];
+			Item<?> tempItem = this.list[i];
 			
 			if (tempItem == null) {
 				

@@ -7,7 +7,7 @@ import com.game.collision.objects.PlayerObject;
 import com.game.main.Game;
 import com.game.maps.MapHandler;
 
-public class Wood1Item extends Item {
+public class Wood1Item extends Item<Wood1Item> {
 
 	public Wood1Item(int count, ItemID id, BufferedImage image) {
 		
@@ -31,6 +31,11 @@ public class Wood1Item extends Item {
 																Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)
 															));
 		
+	}
+
+	@Override
+	public Wood1Item cloneType() {
+		return new Wood1Item(this.count, this.id, this.image);
 	}
 	
 
