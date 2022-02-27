@@ -11,6 +11,7 @@ public abstract class Item<CT> implements CloneableType<CT> {
 	protected int count;
 	
 	protected ItemID id;
+	
 	protected BufferedImage image;
 	
 	public Item(int count, ItemID id, BufferedImage image) {
@@ -57,6 +58,11 @@ public abstract class Item<CT> implements CloneableType<CT> {
 	public void setImage(BufferedImage image) {
 		
 		this.image = image;
+		
+	}
+
+	public void update() {
+		// TODO Auto-generated method stub
 		
 	}
 	

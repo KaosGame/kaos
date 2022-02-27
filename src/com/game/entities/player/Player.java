@@ -16,6 +16,9 @@ public class Player extends Entity {
 	
 	public static final float DEFAULT_SPEED = 4f;
 	public static final float DASH_SPEED = (float) (Player.DEFAULT_SPEED * 2.5f);
+	
+	public static final int MAX_HUNGER = 20;
+	public static final int MIN_HUNGER = 0;
 
 	public static float SPEED = Player.DEFAULT_SPEED;
 	
@@ -23,10 +26,14 @@ public class Player extends Entity {
 
 	private PlayerHotbar hotbar;
 	
+	private int hunger;
+	
+	
 	public Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image) {
 		
 		super(x, y, xv, yv, width, height, id, image);
 		
+		this.hunger = Player.MAX_HUNGER;
 		
 		this.keysDown = new boolean[4];
 		Arrays.fill(this.keysDown, false);
@@ -156,6 +163,28 @@ public class Player extends Entity {
 	public void useItem() {
 		
 		this.hotbar.useCurrentItem();
+		
+	}
+
+	public int getHunger() {
+		return this.hunger;
+	}
+
+	public void setHunger(int hunger) {
+		this.hunger = hunger;
+	}
+	
+	public void addHungerValue(int hunger) {
+		
+		this.hunger += hunger;
+		this.hunger = Game.clamp(this.hunger, Player.MAX_HUNGER, Player.MIN_HUNGER);
+		
+	}
+	
+	public void removeHungerValue(int hunger) {
+		
+		this.hunger -= hunger;
+		this.hunger = Game.clamp(this.hunger, Player.MAX_HUNGER, Player.MIN_HUNGER);
 		
 	}
 

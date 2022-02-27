@@ -27,7 +27,7 @@ public class HUD implements Drawable, Updatable {
 		
 		for (int i = 0; i < Game.PLAYER.getHotbar().list.length; i++) {
 			
-			Item item = Game.PLAYER.getHotbar().list[i];
+			Item<?> item = Game.PLAYER.getHotbar().list[i];
 			
 			xDraw += 64;
 			
