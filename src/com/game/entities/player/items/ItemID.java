@@ -6,6 +6,7 @@ public enum ItemID {
 	WOOD_1(),
 	TREE_1(),
 	APPLE_TREE_1(),
-	APPLE_1();
+	APPLE_1(),
+	PIE_1();
 
 }

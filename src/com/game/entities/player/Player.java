@@ -3,30 +3,41 @@ package com.game.entities.player;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Random;
+
+import javax.swing.JOptionPane;
 
 import com.game.collision.objects.CollidableObject;
 import com.game.collision.objects.CollisionObject;
 import com.game.collision.objects.ObjectType;
+import com.game.entities.Dieable;
 import com.game.entities.Entity;
+import com.game.entities.EntityDeathMessages;
 import com.game.entities.EntityID;
+import com.game.entities.player.items.Item;
 import com.game.main.Game;
 import com.game.maps.MapHandler;
 
-public class Player extends Entity {
+public class Player extends Entity implements Dieable {
 	
 	public static final float DEFAULT_SPEED = 4f;
 	public static final float DASH_SPEED = (float) (Player.DEFAULT_SPEED * 2.5f);
 	
 	public static final int MAX_HUNGER = 20;
 	public static final int MIN_HUNGER = 0;
+	
+	public static final float MAX_HEALTH = 20;
+	public static final float MIN_HEALTH = 0;
 
 	public static float SPEED = Player.DEFAULT_SPEED;
 	
 	private boolean[] keysDown;
+	private boolean dashKeyDown;
 
 	private PlayerHotbar hotbar;
 	
 	private int hunger;
+	private float health;
 	
 	
 	public Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image) {
@@ -34,6 +45,9 @@ public class Player extends Entity {
 		super(x, y, xv, yv, width, height, id, image);
 		
 		this.hunger = Player.MAX_HUNGER;
+		this.health = Player.MAX_HEALTH;
+		
+		this.dashKeyDown = false;
 		
 		this.keysDown = new boolean[4];
 		Arrays.fill(this.keysDown, false);
@@ -58,6 +72,70 @@ public class Player extends Entity {
 		
 		this.x = Game.clamp(this.x, (float) (Game.WIDTH - this.width), 0f);
 		this.y = Game.clamp(this.y, (float) (Game.HEIGHT - (float) (this.height * 1.3f)), 0f);
+		
+		this.handleHunger();
+		this.handleHungerValue();
+		
+		this.dieIfNeeded();
+		
+	}
+
+	private void dieIfNeeded() {
+		
+		if (this.health == 0 && this.hunger == 0) this.die(EntityDeathMessages.STARVING);
+		
+	}
+
+	private void handleHungerValue() {
+		
+		Random random = new Random();
+		
+		if (
+				this.hunger == Player.MIN_HUNGER &&
+				Math.random() < 0.1 &&
+				Math.random() > 0.1 &&
+				Math.random() < 0.1 &&
+				Math.random() > 0.1 &&
+				random.nextBoolean() &&
+				!random.nextBoolean()
+			) {
+			
+			this.removeHealth(1f);
+			
+			
+		}
+		
+		if (this.hunger == Player.MIN_HUNGER) {
+			
+			Player.SPEED = Player.DEFAULT_SPEED;
+			
+		}
+		
+	}
+	
+	public void removeHealth(float val) {
+		
+		this.health -= val;
+		this.health = Game.clamp(this.health, Player.MAX_HEALTH, Player.MIN_HEALTH);
+		
+	}
+
+	private void handleHunger() {
+		
+		Random random = new Random();
+		
+		if (
+				this.dashKeyDown &&
+				Math.random() < 0.1 &&
+				Math.random() > 0.1 &&
+				random.nextBoolean() &&
+				!random.nextBoolean() &&
+				(this.xv != 0 || this.yv != 0)
+			) {
+			
+			this.removeHungerValue(1);
+			
+		}
 		
 	}
 
@@ -187,5 +265,55 @@ public class Player extends Entity {
 		this.hunger = Game.clamp(this.hunger, Player.MAX_HUNGER, Player.MIN_HUNGER);
 		
 	}
+
+	public boolean hasDashKeyDown() {
+		return this.dashKeyDown;
+	}
+
+	public void setDashKeyDown(boolean dashKeyDown) {
+		this.dashKeyDown = dashKeyDown;
+	}
+
+	public float getHealth() {
+		return this.health;
+	}
+
+	public void setHealth(float health) {
+		this.health = health;
+	}
+
+	@Override
+	public void die(EntityDeathMessages message) {
+		
+		this.health = Player.MAX_HEALTH;
+		this.hunger = Player.MAX_HUNGER;
+		
+		this.dropAllItems();
+		
+		JOptionPane.showMessageDialog(null, message.getDeathMessage(), "Info", JOptionPane.INFORMATION_MESSAGE);
+		
+		MapHandler.CURRENT_MAP_ID = 0;
+		
+		Game.resetPlayerPosToCenter();
+		
+	}
+	
+	public void dropAllItems() {
+		
+		for (int i = 0; i < this.hotbar.list.length; i++) {
+			
+			Item<?> item = this.hotbar.list[i];
+			
+			if (item == null) continue;
+			
+			Game.makeItemAtRandomWithItem(item);
+			
+			this.hotbar.list[i] = null;
+			
+		}
+		
+	}
+	
+	
 
 }

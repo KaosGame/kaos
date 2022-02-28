@@ -28,6 +28,8 @@ public class KeyControls implements KeyListener {
 			
 			Player.SPEED = Player.DASH_SPEED;
 			
+			Game.PLAYER.setDashKeyDown(true);
+			
 		}
 		
 		if (KeyEvent.VK_W == key || KeyEvent.VK_UP == key) {
@@ -71,6 +73,8 @@ public class KeyControls implements KeyListener {
 		if (KeyEvent.VK_SHIFT == key) {
 			
 			Player.SPEED = Player.DEFAULT_SPEED;
+			
+			Game.PLAYER.setDashKeyDown(false);
 			
 		}
 		

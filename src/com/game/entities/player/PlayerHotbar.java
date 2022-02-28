@@ -5,6 +5,7 @@ import java.util.Arrays;
 import com.game.entities.player.items.AxeItem;
 import com.game.entities.player.items.Item;
 import com.game.entities.player.items.ItemID;
+import com.game.entities.player.items.Pie1Item;
 import com.game.main.Game;
 
 public class PlayerHotbar {
@@ -21,6 +22,7 @@ public class PlayerHotbar {
 		Arrays.fill(this.list, null);
 		
 		this.list[0] = new AxeItem(1, ItemID.AXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), 1f);
+		this.list[7] = new Pie1Item(8, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16));
 		
 	}
 

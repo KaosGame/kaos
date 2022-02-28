@@ -2,6 +2,9 @@ package com.game.entities.player.items;
 
 import java.awt.image.BufferedImage;
 
+import com.game.entities.player.Player;
+import com.game.main.Game;
+
 public abstract class FoodItem<CT> extends Item<CT> {
 	
 	protected int hungerValue;
@@ -21,7 +24,20 @@ public abstract class FoodItem<CT> extends Item<CT> {
 		
 	}
 	
-	public abstract void eat();
+	public void eat() {
+		
+		if (Game.PLAYER.getHunger() != Player.MAX_HUNGER) {
+			
+			this.count--;
+			
+			if (this.count <= 0) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+			
+			Game.PLAYER.addHungerValue(this.hungerValue);
+			
+			
+		}
+		
+	}
 
 	public int getHungerValue() {
 		

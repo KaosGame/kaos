@@ -191,5 +191,13 @@ public class Game {
 		return res;
 		
 	}
+	
+	public static void makeItemAtRandomWithItem(Item<?> item) {
+		
+		float[] pos = Game.getRandomItemPos();
+		
+		MapHandler.currentMap().getEntityHandler().add(new ItemEntity(pos[0], pos[1], 0, 0, 64, 64, EntityID.ITEM, item.getImage(), item));
+		
+	}
 
 }
