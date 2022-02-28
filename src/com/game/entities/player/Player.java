@@ -119,6 +119,13 @@ public class Player extends Entity implements Dieable {
 		this.health = Game.clamp(this.health, Player.MAX_HEALTH, Player.MIN_HEALTH);
 		
 	}
+	
+	public void addHealth(float val) {
+		
+		this.health += val;
+		this.health = Game.clamp(this.health, Player.MAX_HEALTH, Player.MIN_HEALTH);
+		
+	}
 
 	private void handleHunger() {
 		
@@ -134,6 +141,25 @@ public class Player extends Entity implements Dieable {
 			) {
 			
 			this.removeHungerValue(1);
+			
+		}
+		
+		if (
+				Math.random() < 0.1 &&
+				Math.random() > 0.1 &&
+				random.nextBoolean() &&
+				!random.nextBoolean() &&
+				this.hunger == Player.MAX_HUNGER &&
+				this.health != Player.MAX_HEALTH
+			) {
+			
+			this.addHealth(1);
+			
+			if (random.nextBoolean() && !random.nextBoolean()) {
+				
+				this.removeHungerValue(1);
+				
+			}
 			
 		}
 		
