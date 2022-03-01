@@ -2,7 +2,8 @@ package com.game.entities;
 
 public enum EntityDeathMessages {
 	
-	STARVING("You starved to death!");
+	STARVING("You starved to death!"),
+	COMMAND("You have died to a command!");
 	
 	
 	private final String MESSAGE;
