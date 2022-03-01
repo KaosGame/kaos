@@ -25,6 +25,7 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		
 		Commands.add("Game.Player.dropItems();", new DropPlayersItemsCommand());
+		Commands.add("Game.Player.dropAllItems();", new DropPlayersItemsCommand());
 		
 		
 		MapHandler.addMap(new Map(Game.BASE_MAPS[0]));
