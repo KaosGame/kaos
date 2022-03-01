@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import com.game.collision.objects.CollisionObject;
 import com.game.collision.objects.ObjectType;
 import com.game.collision.objects.PlayerObject;
+import com.game.entities.player.items.base.ItemID;
+import com.game.entities.player.items.base.WeaponItem;
 import com.game.loot.tables.handler.LootTableHandler;
 import com.game.loot.tables.handler.LootTableID;
 import com.game.main.Game;

@@ -5,6 +5,8 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import com.game.commands.DropPlayersItemsCommand;
+import com.game.commands.base.Commands;
 import com.game.events.listeners.keys.KeyControls;
 import com.game.main.Game;
 import com.game.maps.Map;
@@ -20,6 +22,10 @@ public class GamePanel extends JPanel implements Runnable {
 	public GamePanel() {
 		
 		this.FPS = 60;
+		
+		
+		Commands.add("Game.Player.dropItems();", new DropPlayersItemsCommand());
+		
 		
 		MapHandler.addMap(new Map(Game.BASE_MAPS[0]));
 		MapHandler.addMap(new Map(Game.BASE_MAPS[1]));

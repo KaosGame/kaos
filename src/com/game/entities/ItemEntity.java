@@ -2,7 +2,7 @@ package com.game.entities;
 
 import java.awt.image.BufferedImage;
 
-import com.game.entities.player.items.Item;
+import com.game.entities.player.items.base.Item;
 import com.game.main.Game;
 import com.game.maps.MapHandler;
 

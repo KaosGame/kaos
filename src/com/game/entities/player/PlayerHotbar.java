@@ -3,9 +3,9 @@ package com.game.entities.player;
 import java.util.Arrays;
 
 import com.game.entities.player.items.AxeItem;
-import com.game.entities.player.items.Item;
-import com.game.entities.player.items.ItemID;
 import com.game.entities.player.items.Pie1Item;
+import com.game.entities.player.items.base.Item;
+import com.game.entities.player.items.base.ItemID;
 import com.game.main.Game;
 
 public class PlayerHotbar {

@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 
-import com.game.entities.player.items.Item;
+import com.game.entities.player.items.base.Item;
 import com.game.main.Drawable;
 import com.game.main.Game;
 import com.game.main.Updatable;

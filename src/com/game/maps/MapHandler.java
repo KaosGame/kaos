@@ -25,5 +25,11 @@ public class MapHandler {
 		return MapHandler.MAPS.get(MapHandler.CURRENT_MAP_ID);
 		
 	}
+	
+	public static Map get(int index) {
+		
+		return MapHandler.MAPS.get(index);
+		
+	}
 
 }

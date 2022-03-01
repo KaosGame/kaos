@@ -2,9 +2,9 @@ package com.game.loot.tables;
 
 import java.util.Random;
 
-import com.game.entities.player.items.ItemID;
 import com.game.entities.player.items.Tree1Item;
 import com.game.entities.player.items.Wood1Item;
+import com.game.entities.player.items.base.ItemID;
 import com.game.main.Game;
 
 public class Tree1ItemLootTable {

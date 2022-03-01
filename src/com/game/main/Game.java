@@ -18,7 +18,7 @@ import com.game.display.components.GamePanel;
 import com.game.entities.EntityID;
 import com.game.entities.ItemEntity;
 import com.game.entities.player.Player;
-import com.game.entities.player.items.Item;
+import com.game.entities.player.items.base.Item;
 import com.game.maps.MapHandler;
 import com.game.textures.BufferedImageLoader;
 import com.game.textures.TextraAlice;

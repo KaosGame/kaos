@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 import com.game.collision.objects.ObjectType;
 import com.game.collision.objects.PlayerObject;
+import com.game.entities.player.items.base.Item;
+import com.game.entities.player.items.base.ItemID;
 import com.game.main.Game;
 import com.game.maps.MapHandler;
 

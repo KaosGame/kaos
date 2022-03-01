@@ -2,6 +2,9 @@ package com.game.entities.player.items;
 
 import java.awt.image.BufferedImage;
 
+import com.game.entities.player.items.base.FoodItem;
+import com.game.entities.player.items.base.ItemID;
+
 public class Pie1Item extends FoodItem<Pie1Item> {
 
 	public Pie1Item(int count, ItemID id, BufferedImage image) {

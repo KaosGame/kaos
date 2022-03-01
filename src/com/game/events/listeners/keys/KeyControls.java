@@ -3,10 +3,13 @@ package com.game.events.listeners.keys;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.JOptionPane;
+
 import com.game.annotations.Empty;
 import com.game.annotations.Unused;
+import com.game.commands.base.Commands;
 import com.game.entities.player.Player;
-import com.game.entities.player.items.Item;
+import com.game.entities.player.items.base.Item;
 import com.game.main.Game;
 
 public class KeyControls implements KeyListener {
@@ -216,6 +219,18 @@ public class KeyControls implements KeyListener {
 				
 				
 				Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+				
+			}
+			
+		}
+		
+		if (KeyEvent.VK_C == key) {
+			
+			String res = JOptionPane.showInputDialog(null, "Enter a command to run", "Question", JOptionPane.QUESTION_MESSAGE);
+			
+			if (res != null && !res.isEmpty()) {
+				
+				Commands.run(res);
 				
 			}
 			

@@ -1,4 +1,4 @@
-package com.game.entities.player.items;
+package com.game.entities.player.items.base;
 
 public enum ItemID {
 	
