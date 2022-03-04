@@ -171,7 +171,7 @@ public class Game {
 		float itemX = 0f;
 		float itemY = 0f;
 		
-		final int OFFSET = 128; 
+		final int OFFSET = 128;
 		
 		if (random.nextBoolean()) {
 			
