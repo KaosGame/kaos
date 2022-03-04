@@ -7,7 +7,6 @@ import com.game.collision.objects.PlayerObject;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.base.ItemID;
 import com.game.main.Game;
-import com.game.maps.MapHandler;
 
 public class Wood1Item extends Item<Wood1Item> {
 
@@ -24,7 +23,7 @@ public class Wood1Item extends Item<Wood1Item> {
 		
 		if (this.count <= 0) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
 		
-		MapHandler.currentMap().addObject(new PlayerObject(
+		Game.MAP_HANDLER.currentMap().addObject(new PlayerObject(
 																(int) Game.PLAYER.getX(),
 																(int) Game.PLAYER.getY(),
 																64,

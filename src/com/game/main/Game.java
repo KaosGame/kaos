@@ -94,6 +94,7 @@ public class Game {
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
+	public static MapHandler MAP_HANDLER = new MapHandler();
 	
 	
 	public Game(String title) {
@@ -170,7 +171,7 @@ public class Game {
 	
 	public static void addItemEntity(float x, float y, Item<?> item, BufferedImage image, int size) {
 		
-		MapHandler.currentMap().getEntityHandler().add(new ItemEntity(x, y, 0, 0, size, size, EntityID.ITEM, image, item));
+		Game.MAP_HANDLER.currentMap().getEntityHandler().add(new ItemEntity(x, y, 0, 0, size, size, EntityID.ITEM, image, item));
 		
 	}
 	
@@ -213,7 +214,7 @@ public class Game {
 		
 		float[] pos = Game.getRandomItemPos();
 		
-		MapHandler.currentMap().getEntityHandler().add(new ItemEntity(pos[0], pos[1], 0, 0, 64, 64, EntityID.ITEM, item.getImage(), item));
+		Game.MAP_HANDLER.currentMap().getEntityHandler().add(new ItemEntity(pos[0], pos[1], 0, 0, 64, 64, EntityID.ITEM, item.getImage(), item));
 		
 	}
 

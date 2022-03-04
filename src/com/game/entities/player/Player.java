@@ -17,7 +17,6 @@ import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.vilagers.VillagerEntity;
 import com.game.main.Game;
-import com.game.maps.MapHandler;
 
 public class Player extends Entity implements Dieable {
 	
@@ -88,9 +87,9 @@ public class Player extends Entity implements Dieable {
 	
 	public void trade() {
 		
-		for (int i = 0; i < MapHandler.currentMap().getEntityHandler().getList().size(); i++) {
+		for (int i = 0; i < Game.MAP_HANDLER.currentMap().getEntityHandler().getList().size(); i++) {
 			
-			Entity e = MapHandler.currentMap().getEntityHandler().get(i);
+			Entity e = Game.MAP_HANDLER.currentMap().getEntityHandler().get(i);
 			
 			if (e instanceof VillagerEntity && e.getRectangle().intersects(this.getRectangle())) {
 				
@@ -104,9 +103,9 @@ public class Player extends Entity implements Dieable {
 	
 	public void tradeAll() {
 		
-		for (int i = 0; i < MapHandler.currentMap().getEntityHandler().getList().size(); i++) {
+		for (int i = 0; i < Game.MAP_HANDLER.currentMap().getEntityHandler().getList().size(); i++) {
 			
-			Entity e = MapHandler.currentMap().getEntityHandler().get(i);
+			Entity e = Game.MAP_HANDLER.currentMap().getEntityHandler().get(i);
 			
 			if (e instanceof VillagerEntity && e.getRectangle().intersects(this.getRectangle())) {
 				
@@ -205,7 +204,7 @@ public class Player extends Entity implements Dieable {
 
 	private void handleCollidableObjects(final float OLD_X, final float OLD_Y) {
 		
-		LinkedList<CollisionObject> tempList = MapHandler.currentMap().getObjectList();
+		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER.currentMap().getObjectList();
 		
 		for (int i = 0; i < tempList.size(); i++) {
 			
@@ -356,7 +355,7 @@ public class Player extends Entity implements Dieable {
 		
 		JOptionPane.showMessageDialog(null, message.getDeathMessage(), "Info", JOptionPane.INFORMATION_MESSAGE);
 		
-		MapHandler.CURRENT_MAP_ID = 0;
+		Game.MAP_HANDLER.CURRENT_MAP_ID = 0;
 		
 		Game.resetPlayerPosToCenter();
 		

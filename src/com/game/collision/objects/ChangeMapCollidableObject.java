@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 
 import com.game.main.Drawable;
 import com.game.main.Game;
-import com.game.maps.MapHandler;
 
 public class ChangeMapCollidableObject extends CollisionObject implements Drawable {
 	
@@ -21,7 +20,7 @@ public class ChangeMapCollidableObject extends CollisionObject implements Drawab
 	@Override
 	public void collide() {
 		
-		MapHandler.CURRENT_MAP_ID = this.loadMapID;
+		Game.MAP_HANDLER.CURRENT_MAP_ID = this.loadMapID;
 		Game.resetPlayerPosToCenter();
 		
 	}

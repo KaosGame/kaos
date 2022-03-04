@@ -4,31 +4,31 @@ import java.util.LinkedList;
 
 public class MapHandler {
 	
-	public static int CURRENT_MAP_ID = 0;
+	public int CURRENT_MAP_ID = 0;
 	
-	private static LinkedList<Map> MAPS = new LinkedList<Map>();
+	private LinkedList<Map> maps = new LinkedList<Map>();
 	
-	public static void addMap(Map m) {
+	public void addMap(Map m) {
 		
-		MapHandler.MAPS.add(m);
+		this.maps.add(m);
 		
 	}
 	
-	public static LinkedList<Map> getMAPS() {
+	public LinkedList<Map> getMAPS() {
 		
-		return MapHandler.MAPS;
-		
-	}
-	
-	public static Map currentMap() throws IndexOutOfBoundsException {
-		
-		return MapHandler.MAPS.get(MapHandler.CURRENT_MAP_ID);
+		return this.maps;
 		
 	}
 	
-	public static Map get(int index) {
+	public Map currentMap() throws IndexOutOfBoundsException {
 		
-		return MapHandler.MAPS.get(index);
+		return this.maps.get(this.CURRENT_MAP_ID);
+		
+	}
+	
+	public Map get(int index) {
+		
+		return this.maps.get(index);
 		
 	}
 

@@ -6,7 +6,6 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.Item;
 import com.game.main.Game;
-import com.game.maps.MapHandler;
 
 public class ItemEntity extends Entity {
 	
@@ -29,7 +28,7 @@ public class ItemEntity extends Entity {
 		if (
 				this.getRectangle().intersects(Game.PLAYER.getRectangle()) &&
 				Game.PLAYER.getHotbar().returnBooleanAndAddItem(this.item)
-			) MapHandler.currentMap().getEntityHandler().remove(this);
+			) Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
 		
 	}
 

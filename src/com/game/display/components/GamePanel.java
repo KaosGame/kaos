@@ -14,7 +14,6 @@ import com.game.entities.vilagers.VillagerTrades;
 import com.game.events.listeners.keys.KeyControls;
 import com.game.main.Game;
 import com.game.maps.Map;
-import com.game.maps.MapHandler;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -33,15 +32,15 @@ public class GamePanel extends JPanel implements Runnable {
 		Commands.add("Game.Player.die();", new KillPlayerCommand());
 		
 		
-		MapHandler.addMap(new Map(Game.BASE_MAPS[0]));
-		MapHandler.addMap(new Map(Game.BASE_MAPS[1]));
-		MapHandler.addMap(new Map(Game.BASE_MAPS[2]));
-		MapHandler.addMap(new Map(Game.BASE_MAPS[3]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[0]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[1]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[2]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[3]));
 		
-		MapHandler.get(2).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_COIN));
+		Game.MAP_HANDLER.get(2).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_COIN));
 		
-		MapHandler.get(3).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_TACO));
-		MapHandler.get(3).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.APPLE_TO_COIN));
+		Game.MAP_HANDLER.get(3).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_TACO));
+		Game.MAP_HANDLER.get(3).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.APPLE_TO_COIN));
 		
 		
 		this.keyControls = new KeyControls();
@@ -104,7 +103,7 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	private void update() {
 		
-		MapHandler.currentMap().update();
+		Game.MAP_HANDLER.currentMap().update();
 		
 		Game.PLAYER.update();
 		
@@ -122,7 +121,7 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		this.drawBackground(g2d);
 		
-		MapHandler.currentMap().draw(g2d);
+		Game.MAP_HANDLER.currentMap().draw(g2d);
 		
 		Game.PLAYER.draw(g2d);
 		
