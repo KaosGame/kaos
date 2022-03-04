@@ -13,6 +13,8 @@ public class BufferedImageLoader {
 		
 		super();
 		
+		this.image = null;
+		
 	}
 	
 	public BufferedImageLoader(String path) {

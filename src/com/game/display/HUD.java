@@ -111,6 +111,11 @@ public class HUD implements Drawable, Updatable {
 				
 			}
 			
+			if ((int) Game.PLAYER.getHotbar().currentItemIndex == i) {
+				
+				g2d.drawImage(Game.HUD_ITEM_CURRENT_LOADER.getImage(), (int) (xDraw - 64), (int) (Game.HEIGHT - 96), 64, 64, null);
+				
+			}
 			
 		}
 		
