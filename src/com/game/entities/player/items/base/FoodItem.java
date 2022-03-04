@@ -50,6 +50,29 @@ public abstract class FoodItem<CT> extends Item<CT> {
 		this.hungerValue = hungerValue;
 		
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + hungerValue;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FoodItem<?> other = (FoodItem<?>) obj;
+		if (hungerValue != other.hungerValue)
+			return false;
+		return true;
+	}
+	
 	
 	
 

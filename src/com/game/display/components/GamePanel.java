@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import com.game.commands.DropPlayersItemsCommand;
 import com.game.commands.KillPlayerCommand;
 import com.game.commands.base.Commands;
+import com.game.entities.base.EntityID;
+import com.game.entities.vilagers.VillagerEntity;
+import com.game.entities.vilagers.VillagerTrades;
 import com.game.events.listeners.keys.KeyControls;
 import com.game.main.Game;
 import com.game.maps.Map;
@@ -33,6 +36,8 @@ public class GamePanel extends JPanel implements Runnable {
 		MapHandler.addMap(new Map(Game.BASE_MAPS[0]));
 		MapHandler.addMap(new Map(Game.BASE_MAPS[1]));
 		MapHandler.addMap(new Map(Game.BASE_MAPS[2]));
+		
+		MapHandler.get(2).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.ALLPE_TO_COIN));
 		
 		
 		this.keyControls = new KeyControls();

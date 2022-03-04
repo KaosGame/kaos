@@ -236,6 +236,18 @@ public class KeyControls implements KeyListener {
 			
 		}
 		
+		if (KeyEvent.VK_T == key) {
+			
+			Game.PLAYER.trade();
+			
+		}
+		
+		if (KeyEvent.VK_Y == key) {
+			
+			Game.PLAYER.tradeAll();
+			
+		}
+		
 	}
 
 }

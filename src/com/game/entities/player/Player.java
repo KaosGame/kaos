@@ -10,11 +10,12 @@ import javax.swing.JOptionPane;
 import com.game.collision.objects.CollidableObject;
 import com.game.collision.objects.CollisionObject;
 import com.game.collision.objects.ObjectType;
-import com.game.entities.Dieable;
-import com.game.entities.Entity;
-import com.game.entities.EntityDeathMessages;
-import com.game.entities.EntityID;
+import com.game.entities.base.Dieable;
+import com.game.entities.base.Entity;
+import com.game.entities.base.EntityDeathMessages;
+import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.Item;
+import com.game.entities.vilagers.VillagerEntity;
 import com.game.main.Game;
 import com.game.maps.MapHandler;
 
@@ -32,12 +33,15 @@ public class Player extends Entity implements Dieable {
 	public static float SPEED = Player.DEFAULT_SPEED;
 	
 	private boolean[] keysDown;
+	
 	private boolean dashKeyDown;
 
 	private PlayerHotbar hotbar;
 	
 	private int hunger;
 	private float health;
+	
+	private long coins;
 	
 	
 	public Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image) {
@@ -53,6 +57,8 @@ public class Player extends Entity implements Dieable {
 		Arrays.fill(this.keysDown, false);
 		
 		this.hotbar = new PlayerHotbar();
+		
+		this.coins = 0L;
 		
 		
 	}
@@ -77,6 +83,38 @@ public class Player extends Entity implements Dieable {
 		this.handleHungerValue();
 		
 		this.dieIfNeeded();
+		
+	}
+	
+	public void trade() {
+		
+		for (int i = 0; i < MapHandler.currentMap().getEntityHandler().getList().size(); i++) {
+			
+			Entity e = MapHandler.currentMap().getEntityHandler().get(i);
+			
+			if (e instanceof VillagerEntity && e.getRectangle().intersects(this.getRectangle())) {
+				
+				((VillagerEntity) e).trade();
+				
+			}
+			
+		}
+		
+	}
+	
+	public void tradeAll() {
+		
+		for (int i = 0; i < MapHandler.currentMap().getEntityHandler().getList().size(); i++) {
+			
+			Entity e = MapHandler.currentMap().getEntityHandler().get(i);
+			
+			if (e instanceof VillagerEntity && e.getRectangle().intersects(this.getRectangle())) {
+				
+				((VillagerEntity) e).tradeAll();
+				
+			}
+			
+		}
 		
 	}
 
@@ -339,7 +377,26 @@ public class Player extends Entity implements Dieable {
 		}
 		
 	}
+
+
+	public long getCoins() {
+		return this.coins;
+	}
+
+	public void setCoins(long coins) {
+		this.coins = coins;
+	}
 	
+	public void addCoins(long coins) {
+		
+		this.coins += coins;
+		
+	}
 	
+	public void removeCoins(long coins) {
+		
+		this.coins -= coins;
+		
+	}
 
 }

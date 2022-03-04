@@ -8,7 +8,8 @@ public enum ObjectType {
 	CHANGE_MAP(true),
 	SIGN_1(true),
 	TREE_1(true),
-	APPLE_TREE_1(true);
+	APPLE_TREE_1(true),
+	HOUSE_1(false);
 	
 	private final boolean TRANSPARENT;
 	

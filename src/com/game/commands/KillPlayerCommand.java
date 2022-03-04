@@ -1,7 +1,7 @@
 package com.game.commands;
 
 import com.game.commands.base.CommandBase;
-import com.game.entities.EntityDeathMessages;
+import com.game.entities.base.EntityDeathMessages;
 import com.game.main.Game;
 
 public class KillPlayerCommand implements CommandBase {

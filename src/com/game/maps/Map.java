@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.util.LinkedList;
 
 import com.game.collision.objects.CollisionObject;
-import com.game.entities.EntityHandler;
+import com.game.entities.base.EntityHandler;
 import com.game.main.Drawable;
 import com.game.main.Updatable;
 

@@ -1,4 +1,4 @@
-package com.game.entities;
+package com.game.entities.base;
 
 import java.awt.Graphics2D;
 import java.util.LinkedList;

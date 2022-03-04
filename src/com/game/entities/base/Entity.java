@@ -1,4 +1,4 @@
-package com.game.entities;
+package com.game.entities.base;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -115,6 +115,52 @@ public abstract class Entity implements Drawable, Updatable {
 		
 		return new Rectangle((int) this.x, (int) this.y, this.width, this.height);
 		
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + height;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + width;
+		result = prime * result + Float.floatToIntBits(x);
+		result = prime * result + Float.floatToIntBits(xv);
+		result = prime * result + Float.floatToIntBits(y);
+		result = prime * result + Float.floatToIntBits(yv);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Entity other = (Entity) obj;
+		if (height != other.height)
+			return false;
+		if (id != other.id)
+			return false;
+		if (width != other.width)
+			return false;
+		if (Float.floatToIntBits(x) != Float.floatToIntBits(other.x))
+			return false;
+		if (Float.floatToIntBits(xv) != Float.floatToIntBits(other.xv))
+			return false;
+		if (Float.floatToIntBits(y) != Float.floatToIntBits(other.y))
+			return false;
+		if (Float.floatToIntBits(yv) != Float.floatToIntBits(other.yv))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Entity [x=" + x + ", y=" + y + ", xv=" + xv + ", yv=" + yv + ", width=" + width + ", height=" + height
+				+ ", id=" + id + ", image=" + image + "]";
 	}
 	
 	

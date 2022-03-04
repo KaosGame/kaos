@@ -12,6 +12,7 @@ public class Commands {
 		CommandBase c = Commands.COMMANDS.get(command.toLowerCase());
 		
 		if (c != null) c.run(command);
+		if (c == null) System.out.println(command);
 		
 	}
 	

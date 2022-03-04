@@ -37,8 +37,20 @@ public class HUD implements Drawable, Updatable {
 		this.drawHotbar(g2d);
 		this.drawHungerBar(g2d);
 		this.drawHealthBar(g2d);
+		this.drawCoins(g2d);
+		
 	}
 
+
+	private void drawCoins(Graphics2D g2d) {
+		
+		g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 25, 25, 48, 48, null);
+		
+		g2d.setColor(new Color(0x000000));
+		g2d.setFont(new Font("Verdana", Font.PLAIN, 32));
+		g2d.drawString(String.valueOf(Game.PLAYER.getCoins()), 80, 60);
+		
+	}
 
 	private void drawHealthBar(Graphics2D g2d) {
 		
