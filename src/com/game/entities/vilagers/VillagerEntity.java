@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.items.Apple1Item;
+import com.game.entities.player.items.Taco1Item;
 import com.game.entities.player.items.Wood1Item;
 import com.game.entities.player.items.base.ItemID;
 import com.game.main.Game;
@@ -65,15 +66,13 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
-		} else if (this.tradeItem == VillagerTrades.APPLE_TO_COIN) {
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_TACO) {
 			
-			Apple1Item tempItem = new Apple1Item(2, ItemID.APPLE_1, null);
-			
-			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 2) {
+			if (Game.PLAYER.getCoins() >= 2) {
 				
-				Game.PLAYER.getHotbar().removeItem(tempItem);
+				Game.PLAYER.removeCoins(2L);
 				
-				Game.PLAYER.addCoins(3L);
+				Game.PLAYER.getHotbar().addItem(new Taco1Item(1, ItemID.TACO_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)));
 				
 			}
 			
@@ -96,15 +95,13 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
-		} else if (this.tradeItem == VillagerTrades.APPLE_TO_COIN) {
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_TACO) {
 			
-			Apple1Item tempItem = new Apple1Item(2, ItemID.APPLE_1, null);
-			
-			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 2) {
+			while (Game.PLAYER.getCoins() >= 2) {
 				
-				Game.PLAYER.getHotbar().removeItem(tempItem);
+				Game.PLAYER.removeCoins(2L);
 				
-				Game.PLAYER.addCoins(3L);
+				Game.PLAYER.getHotbar().addItem(new Taco1Item(1, ItemID.TACO_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)));
 				
 			}
 			
@@ -139,15 +136,15 @@ public class VillagerEntity extends Entity implements Trading {
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
 			
-		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.APPLE_TO_COIN) {
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.COIN_TO_TACO) {
 			
-			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16), 325, 25, 64, 64, null);
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
 			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
-			g2d.drawString("2  -->  3", 400, 50);
+			g2d.drawString("2  -->  1", 400, 50);
 			
-			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16), 490, 25, 64, 64, null);
 			
 		}
 		
