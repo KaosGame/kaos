@@ -7,7 +7,6 @@ import java.awt.image.BufferedImage;
 
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
-import com.game.entities.player.items.Apple1Item;
 import com.game.entities.player.items.Taco1Item;
 import com.game.entities.player.items.Wood1Item;
 import com.game.entities.player.items.base.ItemID;
