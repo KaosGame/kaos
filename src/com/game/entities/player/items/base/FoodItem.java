@@ -7,6 +7,11 @@ import com.game.main.Game;
 
 public abstract class FoodItem<CT> extends Item<CT> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7680095722181226342L;
+	
 	protected int hungerValue;
 
 	public FoodItem(int count, ItemID id, BufferedImage image, int hungerValue) {

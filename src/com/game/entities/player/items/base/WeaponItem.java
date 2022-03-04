@@ -4,6 +4,11 @@ import java.awt.image.BufferedImage;
 
 public abstract class WeaponItem<CT> extends Item<CT> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6251990828524976307L;
+	
 	protected float damage;
 
 	public WeaponItem(int count, ItemID id, BufferedImage image, float damage) {

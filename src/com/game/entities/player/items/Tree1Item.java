@@ -10,6 +10,11 @@ import com.game.main.Game;
 
 public class Tree1Item extends Item<Tree1Item> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5238918464923717123L;
+
 	public Tree1Item(int count, ItemID id, BufferedImage image) {
 		
 		super(count, id, image);

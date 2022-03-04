@@ -1,18 +1,24 @@
 package com.game.entities.player.items.base;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 import com.game.main.CloneableType;
 
-public abstract class Item<CT> implements CloneableType<CT> {
+public abstract class Item<CT> implements CloneableType<CT>, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -890486929127632571L;
+
 	public static final int MAX_COUNT = 320;
 	
 	protected int count;
 	
 	protected ItemID id;
 	
-	protected BufferedImage image;
+	transient protected BufferedImage image;
 	
 	public Item(int count, ItemID id, BufferedImage image) {
 		

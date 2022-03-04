@@ -10,6 +10,11 @@ import com.game.main.Game;
 
 public class Wood1Item extends Item<Wood1Item> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6972677228091459779L;
+
 	public Wood1Item(int count, ItemID id, BufferedImage image) {
 		
 		super(count, id, image);

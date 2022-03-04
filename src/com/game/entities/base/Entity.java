@@ -3,11 +3,17 @@ package com.game.entities.base;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 import com.game.main.Drawable;
 import com.game.main.Updatable;
 
-public abstract class Entity implements Drawable, Updatable {
+public abstract class Entity implements Drawable, Updatable, Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2958734346042384939L;
 	
 	protected float x;
 	protected float y;
@@ -18,7 +24,7 @@ public abstract class Entity implements Drawable, Updatable {
 	protected int height;
 	
 	protected EntityID id;
-	protected BufferedImage image;
+	transient protected BufferedImage image;
 	
 	
 	

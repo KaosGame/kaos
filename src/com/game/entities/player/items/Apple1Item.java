@@ -7,6 +7,11 @@ import com.game.entities.player.items.base.ItemID;
 
 public class Apple1Item extends FoodItem<Apple1Item> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6509771826426839999L;
+
 	public Apple1Item(int count, ItemID id, BufferedImage image) {
 		
 		super(count, id, image, 3);

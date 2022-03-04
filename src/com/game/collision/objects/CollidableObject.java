@@ -9,6 +9,11 @@ import com.game.main.Drawable;
 
 public class CollidableObject extends CollisionObject implements Drawable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2260707677425910302L;
+
 	public CollidableObject(int x, int y, int width, int height, ObjectType type, BufferedImage image) {
 		
 		super(x, y, width, height, type, image);

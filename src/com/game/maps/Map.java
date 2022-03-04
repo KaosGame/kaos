@@ -1,6 +1,7 @@
 package com.game.maps;
 
 import java.awt.Graphics2D;
+import java.io.Serializable;
 import java.util.LinkedList;
 
 import com.game.collision.objects.CollisionObject;
@@ -8,7 +9,12 @@ import com.game.entities.base.EntityHandler;
 import com.game.main.Drawable;
 import com.game.main.Updatable;
 
-public class Map implements Updatable, Drawable {
+public class Map implements Updatable, Drawable, Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3668298662107521492L;
 	
 	private LinkedList<CollisionObject> objectList;
 	private EntityHandler entityHandler;

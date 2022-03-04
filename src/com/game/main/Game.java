@@ -20,6 +20,8 @@ import com.game.entities.base.EntityID;
 import com.game.entities.player.Player;
 import com.game.entities.player.items.base.Item;
 import com.game.maps.MapHandler;
+import com.game.saving.GameVersion;
+import com.game.saving.SavingThread1;
 import com.game.textures.BufferedImageLoader;
 import com.game.textures.TextraAlice;
 
@@ -91,6 +93,8 @@ public class Game {
 			}
 			
 	};
+	
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.1");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
@@ -215,6 +219,15 @@ public class Game {
 		float[] pos = Game.getRandomItemPos();
 		
 		Game.MAP_HANDLER.currentMap().getEntityHandler().add(new ItemEntity(pos[0], pos[1], 0, 0, 64, 64, EntityID.ITEM, item.getImage(), item));
+		
+	}
+	
+	public static void save() throws InterruptedException {
+		
+		Thread saveThread = new Thread(new SavingThread1());
+		
+		saveThread.setDaemon(false);
+		saveThread.start();
 		
 	}
 

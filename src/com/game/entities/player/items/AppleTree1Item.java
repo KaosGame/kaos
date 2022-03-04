@@ -10,6 +10,11 @@ import com.game.main.Game;
 
 public class AppleTree1Item extends Item<AppleTree1Item> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6566645115592068848L;
+
 	public AppleTree1Item(int count, ItemID id, BufferedImage image) {
 		
 		super(count, id, image);

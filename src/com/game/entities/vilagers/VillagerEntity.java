@@ -15,6 +15,11 @@ import com.game.main.Game;
 
 public class VillagerEntity extends Entity implements Trading {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -728672425856786000L;
+
 	private boolean touchingPlayer;
 	
 	private VillagerTrades tradeItem;

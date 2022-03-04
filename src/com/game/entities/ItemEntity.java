@@ -9,6 +9,11 @@ import com.game.main.Game;
 
 public class ItemEntity extends Entity {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2657561911904129356L;
+	
 	private Item<?> item;
 
 	public ItemEntity(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image, Item<?> item) {

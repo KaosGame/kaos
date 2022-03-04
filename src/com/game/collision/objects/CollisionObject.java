@@ -2,8 +2,14 @@ package com.game.collision.objects;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
-public abstract class CollisionObject {
+public abstract class CollisionObject implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6886433752352944048L;
 	
 	protected int x;
 	protected int y;
@@ -12,7 +18,7 @@ public abstract class CollisionObject {
 	protected int height;
 	
 	protected ObjectType type;
-	protected BufferedImage image;
+	transient BufferedImage image;
 	
 	
 	

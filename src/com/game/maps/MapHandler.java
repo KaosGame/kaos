@@ -1,12 +1,21 @@
 package com.game.maps;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class MapHandler {
+import com.game.main.CloneableType;
+
+public class MapHandler implements Serializable, CloneableType<MapHandler> {
 	
-	public int CURRENT_MAP_ID = 0;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2582107661902420758L;
+
+	public int CURRENT_MAP_ID;
 	
-	private LinkedList<Map> maps = new LinkedList<Map>();
+	private LinkedList<Map> maps;
 	
 	public void addMap(Map m) {
 		
@@ -14,6 +23,25 @@ public class MapHandler {
 		
 	}
 	
+	
+	public MapHandler() {
+		
+		this.CURRENT_MAP_ID = 0;
+		this.maps = new LinkedList<Map>();
+		
+	}
+	
+	private MapHandler(int CURRENT_MAP_ID, LinkedList<Map> maps) {
+		
+		super();
+		
+		this.CURRENT_MAP_ID = CURRENT_MAP_ID;
+		this.maps = maps;
+		
+	}
+
+
+
 	public LinkedList<Map> getMAPS() {
 		
 		return this.maps;
@@ -30,6 +58,11 @@ public class MapHandler {
 		
 		return this.maps.get(index);
 		
+	}
+
+	@Override
+	public MapHandler cloneType() {
+		return new MapHandler(this.CURRENT_MAP_ID, this.maps);
 	}
 
 }

@@ -1,12 +1,18 @@
 package com.game.entities.base;
 
 import java.awt.Graphics2D;
+import java.io.Serializable;
 import java.util.LinkedList;
 
 import com.game.main.Drawable;
 import com.game.main.Updatable;
 
-public class EntityHandler implements Updatable, Drawable {
+public class EntityHandler implements Updatable, Drawable, Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9010496619070360598L;
 	
 	private LinkedList<Entity> list;
 	

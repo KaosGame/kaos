@@ -1,14 +1,21 @@
 package com.game.entities.player;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 import com.game.entities.player.items.AxeItem;
 import com.game.entities.player.items.Pie1Item;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.base.ItemID;
+import com.game.main.CloneableType;
 import com.game.main.Game;
 
-public class PlayerHotbar {
+public class PlayerHotbar implements CloneableType<PlayerHotbar>, Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9135414757537261342L;
 	
 	public Item<?>[] list;
 	public byte currentItemIndex;
@@ -25,6 +32,19 @@ public class PlayerHotbar {
 		this.list[7] = new Pie1Item(8, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16));
 		
 	}
+	
+	
+
+	private PlayerHotbar(Item<?>[] list, byte currentItemIndex) {
+		
+		super();
+		
+		this.list = list;
+		this.currentItemIndex = currentItemIndex;
+		
+	}
+
+
 
 	public void useCurrentItem() {
 		
@@ -197,6 +217,11 @@ public class PlayerHotbar {
 		
 		return false;
 		
+	}
+
+	@Override
+	public PlayerHotbar cloneType() {
+		return new PlayerHotbar(this.list, this.currentItemIndex);
 	}
 
 }

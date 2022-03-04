@@ -9,6 +9,11 @@ import com.game.main.Drawable;
 
 public class PlayerObject extends CollisionObject implements Drawable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4578070229877414941L;
+
 	public PlayerObject(int x, int y, int width, int height, ObjectType type, BufferedImage image) {
 		
 		super(x, y, width, height, type, image);

@@ -14,6 +14,11 @@ import com.game.main.Game;
 
 public class AxeItem extends WeaponItem<AxeItem> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6791978238671428013L;
+
 	public AxeItem(int count, ItemID id, BufferedImage image, float damage) {
 		
 		super(count, id, image, damage);

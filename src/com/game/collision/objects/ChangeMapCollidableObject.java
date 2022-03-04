@@ -8,6 +8,11 @@ import com.game.main.Game;
 
 public class ChangeMapCollidableObject extends CollisionObject implements Drawable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1398257669261204022L;
+	
 	private int loadMapID;
 
 	public ChangeMapCollidableObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, int loadMapID) {

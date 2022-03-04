@@ -11,6 +11,11 @@ import com.game.main.Drawable;
 
 public class TextSignObject extends CollisionObject implements Drawable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4486559343751644333L;
+	
 	private String text;
 	private Color textColor;
 	private Font textFont;

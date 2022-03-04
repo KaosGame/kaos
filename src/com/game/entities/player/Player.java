@@ -1,6 +1,7 @@
 package com.game.entities.player;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Random;
@@ -16,9 +17,17 @@ import com.game.entities.base.EntityDeathMessages;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.vilagers.VillagerEntity;
+import com.game.main.CloneableType;
 import com.game.main.Game;
 
-public class Player extends Entity implements Dieable {
+public class Player extends Entity implements Dieable, Serializable, CloneableType<Player> {
+	
+
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2433885122852695817L;
 	
 	public static final float DEFAULT_SPEED = 4f;
 	public static final float DASH_SPEED = (float) (Player.DEFAULT_SPEED * 2.5f);
@@ -61,6 +70,25 @@ public class Player extends Entity implements Dieable {
 		
 		
 	}
+	
+	
+
+	private Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image,
+			boolean[] keysDown, boolean dashKeyDown, PlayerHotbar hotbar, int hunger, float health, long coins) {
+		
+		super(x, y, xv, yv, width, height, id, image);
+		
+		this.keysDown = keysDown;
+		this.dashKeyDown = dashKeyDown;
+		this.hotbar = hotbar;
+		this.hunger = hunger;
+		this.health = health;
+		this.coins = coins;
+		
+		
+	}
+
+
 
 	@Override
 	public void update() {
@@ -396,6 +424,11 @@ public class Player extends Entity implements Dieable {
 		
 		this.coins -= coins;
 		
+	}
+
+	@Override
+	public Player cloneType() {
+		return new Player(this.x, this.y, this.xv, this.yv, this.width, this.height, this.id, this.image, this.keysDown, this.dashKeyDown, this.hotbar.cloneType(), this.hunger, this.health, this.coins);
 	}
 
 }
