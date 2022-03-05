@@ -36,11 +36,14 @@ public class GamePanel extends JPanel implements Runnable {
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[1]));
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[2]));
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[3]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[4]));
 		
 		Game.MAP_HANDLER.get(2).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_COIN));
 		
 		Game.MAP_HANDLER.get(3).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_TACO));
 		Game.MAP_HANDLER.get(3).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.APPLE_TO_COIN));
+		
+		Game.MAP_HANDLER.get(4).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_PIE));
 		
 		
 		this.keyControls = new KeyControls();

@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.items.Apple1Item;
+import com.game.entities.player.items.Pie1Item;
 import com.game.entities.player.items.Taco1Item;
 import com.game.entities.player.items.Wood1Item;
 import com.game.entities.player.items.base.ItemID;
@@ -15,6 +16,8 @@ import com.game.main.Game;
 
 public class VillagerEntity extends Entity implements Trading {
 	
+	
+
 	/**
 	 * 
 	 */
@@ -93,6 +96,16 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_PIE) {
+			
+			if (Game.PLAYER.getCoins() >= 4) {
+				
+				Game.PLAYER.removeCoins(4L);
+				
+				Game.PLAYER.getHotbar().addItem(new Pie1Item(1, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16)));
+				
+			}
+			
 		}
 		
 	}
@@ -131,6 +144,16 @@ public class VillagerEntity extends Entity implements Trading {
 				Game.PLAYER.getHotbar().removeItem(tempItem);
 				
 				Game.PLAYER.addCoins(5L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_PIE) {
+			
+			while (Game.PLAYER.getCoins() >= 4) {
+				
+				Game.PLAYER.removeCoins(4L);
+				
+				Game.PLAYER.getHotbar().addItem(new Pie1Item(1, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16)));
 				
 			}
 			
@@ -184,6 +207,16 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawString("2  -->  5", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		}  else if (this.touchingPlayer && this.tradeItem == VillagerTrades.COIN_TO_PIE) {
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("4  -->  1", 400, 50);
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16), 490, 25, 64, 64, null);
 			
 		}
 		
