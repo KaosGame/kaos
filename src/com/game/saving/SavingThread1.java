@@ -19,10 +19,13 @@ public class SavingThread1 implements Runnable {
 			File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
 			
 			try {
+				
 				SavingGame.saveGame(file.getPath());
+				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
+				
 			}
 			
 		}

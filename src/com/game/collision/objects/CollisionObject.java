@@ -6,10 +6,12 @@ import java.io.Serializable;
 
 public abstract class CollisionObject implements Serializable {
 	
+	
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6886433752352944048L;
+	private static final long serialVersionUID = 3250218174640775534L;
 	
 	protected int x;
 	protected int y;
@@ -92,6 +94,46 @@ public abstract class CollisionObject implements Serializable {
 		
 		return new Rectangle(this.x, this.y, this.width, this.height);
 		
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + height;
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + width;
+		result = prime * result + x;
+		result = prime * result + y;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CollisionObject other = (CollisionObject) obj;
+		if (height != other.height)
+			return false;
+		if (type != other.type)
+			return false;
+		if (width != other.width)
+			return false;
+		if (x != other.x)
+			return false;
+		if (y != other.y)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "CollisionObject [x=" + x + ", y=" + y + ", width=" + width + ", height=" + height + ", type=" + type
+				+ "]";
 	}
 	
 	

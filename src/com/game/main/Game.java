@@ -10,17 +10,22 @@ import javax.swing.JFrame;
 
 import com.game.collision.objects.ChangeMapCollidableObject;
 import com.game.collision.objects.CollidableObject;
+import com.game.collision.objects.CollidableWallObject;
 import com.game.collision.objects.CollisionObject;
 import com.game.collision.objects.ObjectType;
 import com.game.collision.objects.TextSignObject;
 import com.game.display.HUD;
 import com.game.display.components.GamePanel;
 import com.game.entities.ItemEntity;
+import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.Player;
 import com.game.entities.player.items.base.Item;
+import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
+import com.game.maps.Map;
 import com.game.maps.MapHandler;
 import com.game.saving.GameVersion;
+import com.game.saving.LoadingThread2;
 import com.game.saving.SavingThread1;
 import com.game.textures.BufferedImageLoader;
 import com.game.textures.TextraAlice;
@@ -51,12 +56,12 @@ public class Game {
 	public static CollisionObject[][] BASE_MAPS = {
 			
 			{
-				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.CHANGE_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16), 1),
-				new CollidableObject(125, 81, 135, 100, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16)),
-				new CollidableObject(25, 200, 100, 300, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(32, 0, 16, 16)),
-				new CollidableObject(25, 500, 100, 100, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(48, 0, 16, 16)),
-				new CollidableObject(125, 500, 150, 100, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16)),
-				new CollidableObject(25, 100, 100, 100, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16)),
+				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16), 1),
+				new CollidableWallObject(125, 81, 135, 100, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16), CollidableWallObject.ImageBase.TYPE_1),
+				new CollidableWallObject(25, 200, 100, 300, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(32, 0, 16, 16), CollidableWallObject.ImageBase.TYPE_2),
+				new CollidableWallObject(25, 500, 100, 100, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(48, 0, 16, 16), CollidableWallObject.ImageBase.TYPE_3),
+				new CollidableWallObject(125, 500, 150, 100, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16), CollidableWallObject.ImageBase.TYPE_1),
+				new CollidableWallObject(25, 100, 100, 100, ObjectType.WALL, Game.OBJECT_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16), CollidableWallObject.ImageBase.TYPE_4),
 				new CollidableObject(100, 175, 170, 100, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
 				new CollidableObject(100, 275, 170, 100, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
 				new CollidableObject(100, 375, 170, 100, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
@@ -66,8 +71,8 @@ public class Game {
 			
 			{
 				
-				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.CHANGE_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 0),
-				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.CHANGE_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16), 2),
+				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 0),
+				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16), 2),
 				new TextSignObject(256, 128, 128, 128, ObjectType.SIGN_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16), "This is a sign!", new Color(0x000000), new Font("Verdana", Font.PLAIN, 16), 10, 32),
 				new CollidableObject(100, 300, 128, 128, ObjectType.TREE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(160, 0, 16, 16))
 				
@@ -75,8 +80,8 @@ public class Game {
 			
 			{
 				
-				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.CHANGE_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16), 3),
-				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.CHANGE_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 1),
+				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16), 3),
+				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 1),
 				new CollidableObject(100, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
 				new CollidableObject(75, 240, 128, 128, ObjectType.APPLE_TREE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16)),
 				new TextSignObject(500, 128, 128, 128, ObjectType.SIGN_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16), "Village", new Color(0x000000), new Font("Verdana", Font.PLAIN, 16), 35, 32)
@@ -85,7 +90,7 @@ public class Game {
 			
 			{
 				
-				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.CHANGE_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 2),
+				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 2),
 				new CollidableObject(100, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
 				new CollidableObject(75, 240, 128, 128, ObjectType.APPLE_TREE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16)),
 				new CollidableObject(400, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
@@ -228,6 +233,185 @@ public class Game {
 		
 		saveThread.setDaemon(false);
 		saveThread.start();
+		
+	}
+
+	public static void load() {
+		
+		Thread loadThread = new Thread(new LoadingThread2());
+		
+		loadThread.setDaemon(false);
+		loadThread.start();
+		
+	}
+
+	public static void fixImagesForCurrentMap(Map map) throws NotEnoughInformationToRestoreImageException {
+		
+		Game.PLAYER.setImage(Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+		
+		for (int i = 0; i < Game.PLAYER.getHotbar().list.length; i++) {
+			
+			Item<?> item =  Game.PLAYER.getHotbar().list[i];
+			
+			if (item == null) continue;
+			
+			switch (item.getId()) {
+			
+				case AXE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					break;
+					
+				case PIE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16));
+					break;
+					
+				case APPLE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16));
+					break;
+					
+				case APPLE_TREE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(48, 0, 16, 16));
+					break;
+					
+				case TACO_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16));
+					break;
+					
+				case TREE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 0, 16, 16));
+					break;
+					
+				case WOOD_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
+					break;
+			
+			}
+			
+		}
+		
+		for (int i = 0; i < map.getEntityHandler().getList().size(); i++) {
+			
+			Entity e = map.getEntityHandler().get(i);
+			
+			switch (e.getId()) {
+			
+				case PLAYER:
+					break;
+				
+				case VILAGER:
+					e.setImage(Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					break;
+					
+				case ITEM:
+					
+					if (e instanceof ItemEntity) {
+						
+						Item<?> item = ((ItemEntity) e).getItem();
+						
+						switch (item.getId()) {
+						
+							case AXE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+								break;
+								
+							case PIE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16));
+								break;
+								
+							case APPLE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16));
+								break;
+								
+							case APPLE_TREE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(48, 0, 16, 16));
+								break;
+								
+							case TACO_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16));
+								break;
+								
+							case TREE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 0, 16, 16));
+								break;
+								
+							case WOOD_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
+								break;
+					
+						}
+						
+						e.setImage(item.getImage());
+						
+						((ItemEntity) e).setItem(item);
+						
+					}
+					
+					break;
+			
+			}
+			
+		}
+		
+		for (int i = 0; i < map.getObjectList().size(); i++) {
+			
+			CollisionObject o = map.getObject(i);
+			
+			switch (o.getType()) {
+			
+				case APPLE_TREE_1:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16));
+					break;
+					
+				case HOUSE_1:
+					o.setImage(Game.HOUSE_1_IMAGE_LOADER.getImage());
+					break;
+					
+				case LAST_MAP:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16));
+					break;
+					
+				case NEXT_MAP:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16));
+					break;
+					
+				case OBJECT:
+					throw new NotEnoughInformationToRestoreImageException("Can not restore image from: " + o.toString());
+					
+				case SIGN_1:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
+					break;
+					
+				case TREE_1:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(160, 0, 16, 16));
+					break;
+					
+				case WOOD_1:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16));
+					break;
+					
+				case WALL:
+					
+					if (o instanceof CollidableWallObject) {
+						
+						BufferedImage image = ((CollidableWallObject) o).getImageType().getIMAGE();
+						
+						o.setImage(image);
+						
+					}
+			
+			}
+			
+		}
+		
+	}
+	
+	public static void fixAllImages() throws NotEnoughInformationToRestoreImageException {
+		
+		for (int i = 0; i < Game.MAP_HANDLER.getMAPS().size(); i++) {
+			
+			Game.fixImagesForCurrentMap(Game.MAP_HANDLER.getMAPS().get(i));
+			
+		}
 		
 	}
 

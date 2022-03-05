@@ -9,6 +9,7 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 import com.game.collision.objects.CollidableObject;
+import com.game.collision.objects.CollidableWallObject;
 import com.game.collision.objects.CollisionObject;
 import com.game.collision.objects.ObjectType;
 import com.game.entities.base.Dieable;
@@ -246,7 +247,7 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 			
 			if (
 					tempObj.getType() == ObjectType.WALL &&
-					tempObj instanceof CollidableObject &&
+					(tempObj instanceof CollidableObject || tempObj instanceof CollidableWallObject) &&
 					this.getRectangle().intersects(tempObj.getRectangle()) &&
 					!tempObj.getType().isTRANSPARENT()
 				) {
@@ -430,5 +431,5 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 	public Player cloneType() {
 		return new Player(this.x, this.y, this.xv, this.yv, this.width, this.height, this.id, this.image, this.keysDown, this.dashKeyDown, this.hotbar.cloneType(), this.hunger, this.health, this.coins);
 	}
-
+	
 }

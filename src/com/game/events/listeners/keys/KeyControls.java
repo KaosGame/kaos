@@ -262,6 +262,12 @@ public class KeyControls implements KeyListener {
 			
 		}
 		
+		if (KeyEvent.VK_0 == key) {
+			
+			Game.load();
+			
+		}
+		
 	}
 
 }
