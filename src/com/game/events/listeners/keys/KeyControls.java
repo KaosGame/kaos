@@ -260,7 +260,7 @@ public class KeyControls implements KeyListener {
 			
 		}
 		
-		if (KeyEvent.VK_MINUS == key || KeyEvent.VK_UNDERSCORE == key) {
+		if (KeyEvent.VK_MINUS == key) {
 			
 			Game.reset();
 			
