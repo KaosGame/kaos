@@ -250,15 +250,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_9 == key) {
 			
-			try {
-				
-				Game.save();
-				
-			} catch (InterruptedException e) {
-				
-				e.printStackTrace();
-				
-			}
+			Game.save();
 			
 		}
 		

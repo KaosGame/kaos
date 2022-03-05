@@ -4,8 +4,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 import com.game.collision.objects.ChangeMapCollidableObject;
@@ -25,8 +28,8 @@ import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageExc
 import com.game.maps.Map;
 import com.game.maps.MapHandler;
 import com.game.saving.GameVersion;
-import com.game.saving.LoadingThread2;
-import com.game.saving.SavingThread1;
+import com.game.saving.SaveableObject;
+import com.game.saving.SavingGame;
 import com.game.textures.BufferedImageLoader;
 import com.game.textures.TextraAlice;
 
@@ -227,21 +230,64 @@ public class Game {
 		
 	}
 	
-	public static void save() throws InterruptedException {
+	public static void save() {
 		
-		Thread saveThread = new Thread(new SavingThread1());
+		JFileChooser fileChooser = new JFileChooser();
 		
-		saveThread.setDaemon(false);
-		saveThread.start();
+		int res = fileChooser.showSaveDialog(null);
+		
+		if (res == JFileChooser.APPROVE_OPTION) {
+			
+			File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+			
+			try {
+				
+				SavingGame.saveGame(file.getPath());
+				
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+		}
 		
 	}
 
 	public static void load() {
 		
-		Thread loadThread = new Thread(new LoadingThread2());
+		JFileChooser fileChooser = new JFileChooser();
 		
-		loadThread.setDaemon(false);
-		loadThread.start();
+		int res = fileChooser.showOpenDialog(null);
+		
+		if (res == JFileChooser.APPROVE_OPTION) {
+			
+			File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+			
+			try {
+				
+				SaveableObject obj = SavingGame.loadGame(file.getPath());
+				
+				if (obj.getVersionHashcode() == Game.VERSION.hashCode()) {
+					
+					Game.MAP_HANDLER = obj.getMapHandler();
+					Game.PLAYER = obj.getPlayer();
+					
+					Game.fixAllImages();
+					
+				}
+				
+			} catch (ClassNotFoundException | IOException e) {
+				
+				e.printStackTrace();
+				
+			} catch (NotEnoughInformationToRestoreImageException e) {
+				
+				System.out.println(e.toString());
+				
+			}
+			
+		}
 		
 	}
 
