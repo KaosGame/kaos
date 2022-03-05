@@ -25,6 +25,8 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.Player;
 import com.game.entities.player.items.base.Item;
+import com.game.entities.vilagers.VillagerEntity;
+import com.game.entities.vilagers.VillagerTrades;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
 import com.game.maps.Map;
 import com.game.maps.MapHandler;
@@ -472,6 +474,26 @@ public class Game {
 			Game.fixImagesForCurrentMap(Game.MAP_HANDLER.getMAPS().get(i));
 			
 		}
+		
+	}
+
+	public static void reset() {
+		
+		Game.MAP_HANDLER = new MapHandler();
+		Game.PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+		
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[0]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[1]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[2]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[3]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[4]));
+		
+		Game.MAP_HANDLER.get(2).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_COIN));
+		
+		Game.MAP_HANDLER.get(3).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_TACO));
+		Game.MAP_HANDLER.get(3).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.APPLE_TO_COIN));
+		
+		Game.MAP_HANDLER.get(4).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_PIE));
 		
 	}
 
