@@ -20,6 +20,7 @@ import com.game.collision.objects.ObjectType;
 import com.game.collision.objects.TextSignObject;
 import com.game.display.HUD;
 import com.game.display.components.GamePanel;
+import com.game.entities.BirdEntity;
 import com.game.entities.ItemEntity;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
@@ -33,6 +34,7 @@ import com.game.maps.MapHandler;
 import com.game.saving.GameVersion;
 import com.game.saving.SaveableObject;
 import com.game.saving.SavingGame;
+import com.game.spawning.base.Spawner;
 import com.game.textures.BufferedImageLoader;
 import com.game.textures.TextraAlice;
 
@@ -124,6 +126,8 @@ public class Game {
 	
 	
 	public Game(String title) {
+		
+		Spawner.add(new BirdEntity());
 		
 		this.frame = new JFrame();
 		this.gamePanel = new GamePanel();

@@ -10,6 +10,7 @@ import com.game.commands.KillPlayerCommand;
 import com.game.commands.base.Commands;
 import com.game.events.listeners.keys.KeyControls;
 import com.game.main.Game;
+import com.game.spawning.base.Spawner;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -96,6 +97,8 @@ public class GamePanel extends JPanel implements Runnable {
 		Game.PLAYER.update();
 		
 		Game.HUD.update();
+		
+		Spawner.spwan();
 		
 		
 	}
