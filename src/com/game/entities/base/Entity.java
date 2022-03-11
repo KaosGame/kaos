@@ -169,6 +169,8 @@ public abstract class Entity implements Drawable, Updatable, Serializable {
 				+ ", id=" + id + ", image=" + image + "]";
 	}
 	
-	
+	public String toMemString() {
+        return this.getClass().getName() + "@" + Integer.toHexString(this.hashCode());
+    }
 
 }

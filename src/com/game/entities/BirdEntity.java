@@ -35,7 +35,12 @@ public class BirdEntity extends Entity implements Spawnable {
 		this.x += this.xv;
 		this.y += this.yv;
 		
-		if (this.x > Game.WIDTH || this.x < 0f || this.y > Game.HEIGHT || this.y < 0f || (this.xv == 0f && this.yv == 0f)) Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+		if (this.x > Game.WIDTH || this.x < 0f || this.y > Game.HEIGHT || this.y < 0f || (this.xv == 0f && this.yv == 0f)) {
+			
+			Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+			System.out.println(this.toMemString() + " successfully removed!");
+			
+		}
 		
 	}
 
