@@ -110,9 +110,18 @@ public class Game {
 			
 			{
 				
+				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16), 5),
 				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 3),
 				new CollidableObject(100, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
 				new CollidableObject(75, 240, 128, 128, ObjectType.APPLE_TREE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16))
+				
+			},
+			
+			{
+				
+				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 4),
+				new CollidableObject(100, 25, 256, 64, ObjectType.BRICK_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16)),
+				new CollidableObject(100, 89, 256, 128, ObjectType.BRICK_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16)),
 				
 			}
 			
@@ -470,6 +479,11 @@ public class Game {
 						o.setImage(image);
 						
 					}
+					break;
+					
+				case BRICK_1:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -497,6 +511,7 @@ public class Game {
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[2]));
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[3]));
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[4]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[5]));
 		
 		Game.MAP_HANDLER.get(2).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_COIN));
 		

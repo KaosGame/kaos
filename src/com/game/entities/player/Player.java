@@ -246,7 +246,7 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 			}
 			
 			if (
-					tempObj.getType() == ObjectType.WALL &&
+					(tempObj.getType() == ObjectType.WALL || tempObj.getType() == ObjectType.BRICK_1) &&
 					(tempObj instanceof CollidableObject || tempObj instanceof CollidableWallObject) &&
 					this.getRectangle().intersects(tempObj.getRectangle()) &&
 					!tempObj.getType().isTRANSPARENT()
