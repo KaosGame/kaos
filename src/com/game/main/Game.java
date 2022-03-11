@@ -47,6 +47,7 @@ public class Game {
 	private static BufferedImageLoader OBJECT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/object-textra-alice.png");
 	private static BufferedImageLoader PLAYER_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/player-textra-alice.png");
 	private static BufferedImageLoader VILAGER_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/vilager-textra-alice.png");
+	private static BufferedImageLoader BIRD_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/bird-textra-alice.png");
 	private static BufferedImageLoader HUD_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/hud/hud-textra-alice.png");
 	private static BufferedImageLoader ITEM_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/item-textra-alice.png");
 	
@@ -58,6 +59,7 @@ public class Game {
 	public static TextraAlice HUD_TEXTRA_ALICE = new TextraAlice(Game.HUD_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice ITEM_TEXTRA_ALICE = new TextraAlice(Game.ITEM_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice VILAGER_TEXTRA_ALICE = new TextraAlice(Game.VILAGER_TEXTRA_ALICE_LOADER.getImage());
+	public static TextraAlice BIRD_TEXTRA_ALICE = new TextraAlice(Game.BIRD_TEXTRA_ALICE_LOADER.getImage());
 	
 	public static CollisionObject[][] BASE_MAPS = {
 			
@@ -114,7 +116,7 @@ public class Game {
 			
 	};
 	
-	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.1.1");
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.1.2");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
@@ -408,6 +410,10 @@ public class Game {
 						
 					}
 					
+					break;
+					
+				case BIRD:
+					e.setImage(Game.BIRD_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 					break;
 			
 			}

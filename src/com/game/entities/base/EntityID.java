@@ -4,6 +4,7 @@ public enum EntityID {
 	
 	PLAYER(),
 	ITEM(),
-	VILAGER();
+	VILAGER(),
+	BIRD();
 
 }
