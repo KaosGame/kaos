@@ -44,12 +44,6 @@ public class ItemEntity extends Entity {
 			
 			CollisionObject tempObj = tempList.get(i);
 			
-			if (this.getRectangle().intersects(tempObj.getRectangle())) {
-				
-				tempObj.collide();
-				
-			}
-			
 			if (
 					this.getRectangle().intersects(tempObj.getRectangle()) &&
 					!tempObj.getType().isTRANSPARENT()

@@ -5,12 +5,12 @@ public enum ObjectType {
 	OBJECT(false),
 	WOOD_1(true),
 	WALL(false),
-	NEXT_MAP(true),
-	LAST_MAP(true),
+	NEXT_MAP(false),
+	LAST_MAP(false),
 	SIGN_1(true),
 	TREE_1(true),
 	APPLE_TREE_1(true),
-	HOUSE_1(false),
+	HOUSE_1(true),
 	CHEST(true);
 	
 	private final boolean TRANSPARENT;

@@ -7,6 +7,7 @@ import java.util.Stack;
 import com.game.annotations.Empty;
 import com.game.annotations.Unused;
 import com.game.entities.player.items.base.Item;
+import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
 import com.game.main.Drawable;
 import com.game.main.Game;
 
@@ -85,7 +86,15 @@ public class ChestTransparentObject extends CollisionObject implements Drawable 
 			
 		}
 		
-		
+		try {
+			
+			Game.fixAllImages();
+			
+		} catch (NotEnoughInformationToRestoreImageException e) {
+			
+			System.out.println("NotEnoughInformationToRestoreImageException: " + e.toString());
+			
+		}
 		
 	}
 

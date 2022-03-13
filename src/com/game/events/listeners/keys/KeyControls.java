@@ -13,6 +13,7 @@ import com.game.collision.objects.ObjectType;
 import com.game.commands.base.Commands;
 import com.game.entities.player.Player;
 import com.game.entities.player.items.base.Item;
+import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
 import com.game.main.Game;
 
 public class KeyControls implements KeyListener {
@@ -289,6 +290,16 @@ public class KeyControls implements KeyListener {
 				
 			}
 			
+			try {
+				
+				Game.fixAllImages();
+				
+			} catch (NotEnoughInformationToRestoreImageException e) {
+				
+				System.out.println("NotEnoughInformationToRestoreImageException: " + e.toString());
+				
+			}
+			
 		}
 		
 		if (KeyEvent.VK_U == key) {
@@ -306,6 +317,16 @@ public class KeyControls implements KeyListener {
 					}
 					
 				}
+				
+			}
+			
+			try {
+				
+				Game.fixAllImages();
+				
+			} catch (NotEnoughInformationToRestoreImageException e) {
+				
+				System.out.println("NotEnoughInformationToRestoreImageException: " + e.toString());
 				
 			}
 			
