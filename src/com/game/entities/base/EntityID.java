@@ -2,9 +2,23 @@ package com.game.entities.base;
 
 public enum EntityID {
 	
-	PLAYER(),
-	ITEM(),
-	VILAGER(),
-	BIRD();
+	PLAYER(false),
+	ITEM(true),
+	VILAGER(false),
+	BIRD(true);
+	
+	private final boolean CAN_DELETE;
+	
+	private EntityID(final boolean CAN_DELETE) {
+		
+		this.CAN_DELETE = CAN_DELETE;
+		
+	}
+	
+	public boolean canDelete() {
+		
+		return this.CAN_DELETE;
+		
+	}
 
 }

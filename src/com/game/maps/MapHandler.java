@@ -12,6 +12,9 @@ public class MapHandler implements Serializable, CloneableType<MapHandler> {
 	 * 
 	 */
 	private static final long serialVersionUID = -2582107661902420758L;
+	
+	public static final int MAX_ENTITIES = 1024;
+	public static final int MAX_OBJECTS = 1024;
 
 	public int CURRENT_MAP_ID;
 	

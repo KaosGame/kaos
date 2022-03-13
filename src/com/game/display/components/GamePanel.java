@@ -6,11 +6,13 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import com.game.commands.DropPlayersItemsCommand;
+import com.game.commands.GetNumberOfEntitiesCommand;
 import com.game.commands.GetPlayerPosCommand;
 import com.game.commands.KillPlayerCommand;
 import com.game.commands.base.Commands;
 import com.game.events.listeners.keys.KeyControls;
 import com.game.main.Game;
+import com.game.maps.OverflowHandler;
 import com.game.spawning.base.Spawner;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -19,6 +21,7 @@ public class GamePanel extends JPanel implements Runnable {
 	private final int FPS;
 	
 	private KeyControls keyControls;
+	private OverflowHandler overflowHandler;
 	
 	public GamePanel() {
 		
@@ -29,12 +32,15 @@ public class GamePanel extends JPanel implements Runnable {
 		Commands.add("Game.Player.dropAllItems();", new DropPlayersItemsCommand());
 		Commands.add("Game.Player.die();", new KillPlayerCommand());
 		Commands.add("Game.Player.getPos();", new GetPlayerPosCommand());
+		Commands.add("Game.countE();", new GetNumberOfEntitiesCommand());
 		
 		
 		Game.reset();
 		
 		
 		this.keyControls = new KeyControls();
+		
+		this.overflowHandler = new OverflowHandler();
 		
 		this.addKeyListener(this.keyControls);
 		
@@ -94,13 +100,28 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	private void update() {
 		
-		Game.MAP_HANDLER.currentMap().update();
 		
-		Game.PLAYER.update();
-		
-		Game.HUD.update();
-		
-		Spawner.spwan();
+		try {
+			
+			Game.MAP_HANDLER.currentMap().update();
+			
+			Game.PLAYER.update();
+			
+			Game.HUD.update();
+			
+			Spawner.spwan();
+			
+			this.overflowHandler.handle();
+			
+		} catch (NullPointerException e) {
+			
+			e.printStackTrace();
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
 		
 		
 	}
