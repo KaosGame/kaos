@@ -12,6 +12,11 @@ import com.game.main.Game;
 
 public class ChestTransparentObject extends CollisionObject implements Drawable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1500721024614185753L;
+	
 	private Stack<Item<?>> stack;
 
 	public ChestTransparentObject(int x, int y, int width, int height, ObjectType type, BufferedImage image) {

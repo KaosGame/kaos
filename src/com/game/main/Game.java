@@ -398,6 +398,10 @@ public class Game {
 				case WOOD_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
 					break;
+					
+				case CHEST_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -450,6 +454,10 @@ public class Game {
 								
 							case WOOD_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
+								break;
+								
+							case CHEST_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16));
 								break;
 					
 						}
