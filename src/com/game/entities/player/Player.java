@@ -10,8 +10,8 @@ import javax.swing.JOptionPane;
 
 import com.game.collision.objects.CollidableObject;
 import com.game.collision.objects.CollidableWallObject;
-import com.game.collision.objects.CollisionObject;
-import com.game.collision.objects.ObjectType;
+import com.game.collision.objects.base.CollisionObject;
+import com.game.collision.objects.base.ObjectType;
 import com.game.entities.base.Dieable;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityDeathMessages;

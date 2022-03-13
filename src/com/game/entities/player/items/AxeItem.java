@@ -4,9 +4,9 @@ import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
 import com.game.collision.objects.ChestTransparentObject;
-import com.game.collision.objects.CollisionObject;
-import com.game.collision.objects.ObjectType;
 import com.game.collision.objects.PlayerObject;
+import com.game.collision.objects.base.CollisionObject;
+import com.game.collision.objects.base.ObjectType;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.base.WeaponItem;
 import com.game.loot.tables.handler.LootTableHandler;

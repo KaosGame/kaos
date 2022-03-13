@@ -24,7 +24,7 @@ public abstract class Entity implements Drawable, Updatable, Serializable {
 	protected int height;
 	
 	protected EntityID id;
-	transient protected BufferedImage image;
+	protected transient BufferedImage image;
 	
 	
 	

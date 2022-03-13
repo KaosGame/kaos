@@ -3,7 +3,7 @@ package com.game.entities;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
-import com.game.collision.objects.CollisionObject;
+import com.game.collision.objects.base.CollisionObject;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.Item;

@@ -6,6 +6,8 @@ import java.util.Stack;
 
 import com.game.annotations.Empty;
 import com.game.annotations.Unused;
+import com.game.collision.objects.base.CollisionObject;
+import com.game.collision.objects.base.ObjectType;
 import com.game.entities.player.items.base.Item;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
 import com.game.main.Drawable;

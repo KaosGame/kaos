@@ -3,6 +3,8 @@ package com.game.collision.objects;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import com.game.collision.objects.base.CollisionObject;
+import com.game.collision.objects.base.ObjectType;
 import com.game.main.Drawable;
 import com.game.main.Game;
 

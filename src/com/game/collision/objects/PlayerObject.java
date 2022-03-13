@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 
 import com.game.annotations.Empty;
 import com.game.annotations.Unused;
+import com.game.collision.objects.base.CollisionObject;
+import com.game.collision.objects.base.ObjectType;
 import com.game.main.Drawable;
 
 public class PlayerObject extends CollisionObject implements Drawable {

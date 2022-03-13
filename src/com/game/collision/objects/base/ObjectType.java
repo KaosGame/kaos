@@ -1,4 +1,4 @@
-package com.game.collision.objects;
+package com.game.collision.objects.base;
 
 public enum ObjectType {
 	
