@@ -80,7 +80,13 @@ public class VillagerEntity extends Entity implements Trading {
 				
 				Game.PLAYER.removeCoins(2L);
 				
-				Game.PLAYER.getHotbar().addItem(new Taco1Item(1, ItemID.TACO_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)));
+				Taco1Item item = new Taco1Item(1, ItemID.TACO_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
 				
 			}
 			
@@ -102,7 +108,13 @@ public class VillagerEntity extends Entity implements Trading {
 				
 				Game.PLAYER.removeCoins(4L);
 				
-				Game.PLAYER.getHotbar().addItem(new Pie1Item(1, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16)));
+				Pie1Item item = new Pie1Item(1, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
 				
 			}
 			
@@ -131,7 +143,13 @@ public class VillagerEntity extends Entity implements Trading {
 				
 				Game.PLAYER.removeCoins(2L);
 				
-				Game.PLAYER.getHotbar().addItem(new Taco1Item(1, ItemID.TACO_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)));
+				Taco1Item item = new Taco1Item(1, ItemID.TACO_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
 				
 			}
 			
@@ -153,7 +171,13 @@ public class VillagerEntity extends Entity implements Trading {
 				
 				Game.PLAYER.removeCoins(4L);
 				
-				Game.PLAYER.getHotbar().addItem(new Pie1Item(1, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16)));
+				Pie1Item item = new Pie1Item(1, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
 				
 			}
 			
