@@ -7,6 +7,9 @@ import javax.swing.JOptionPane;
 
 import com.game.annotations.Empty;
 import com.game.annotations.Unused;
+import com.game.collision.objects.ChestTransparentObject;
+import com.game.collision.objects.CollisionObject;
+import com.game.collision.objects.ObjectType;
 import com.game.commands.base.Commands;
 import com.game.entities.player.Player;
 import com.game.entities.player.items.base.Item;
@@ -263,6 +266,48 @@ public class KeyControls implements KeyListener {
 		if (KeyEvent.VK_MINUS == key) {
 			
 			Game.reset();
+			
+		}
+		
+		if (KeyEvent.VK_I == key) {
+			
+			for (int i = 0; i < Game.MAP_HANDLER.currentMap().getObjectList().size(); i++) {
+				
+				CollisionObject o = Game.MAP_HANDLER.currentMap().getObject(i);
+				
+				if (o.getType() == ObjectType.CHEST && o instanceof ChestTransparentObject && Game.PLAYER.getRectangle().intersects(o.getRectangle())) {
+					
+					if (Game.PLAYER.getHotbar().getCurrentItem() != null) {
+						
+						((ChestTransparentObject) o).push(Game.PLAYER.getHotbar().getCurrentItem());
+						
+						Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+						
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+		if (KeyEvent.VK_U == key) {
+			
+			for (int i = 0; i < Game.MAP_HANDLER.currentMap().getObjectList().size(); i++) {
+				
+				CollisionObject o = Game.MAP_HANDLER.currentMap().getObject(i);
+				
+				if (o.getType() == ObjectType.CHEST && o instanceof ChestTransparentObject && Game.PLAYER.getRectangle().intersects(o.getRectangle())) {
+					
+					if (Game.PLAYER.getHotbar().getCurrentItem() == null && ((ChestTransparentObject) o).isNotEmpty()) {
+						
+						Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = ((ChestTransparentObject) o).pop();
+						
+					}
+					
+				}
+				
+			}
 			
 		}
 		

@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import com.game.commands.DropPlayersItemsCommand;
+import com.game.commands.GetPlayerPosCommand;
 import com.game.commands.KillPlayerCommand;
 import com.game.commands.base.Commands;
 import com.game.events.listeners.keys.KeyControls;
@@ -27,6 +28,7 @@ public class GamePanel extends JPanel implements Runnable {
 		Commands.add("Game.Player.dropItems();", new DropPlayersItemsCommand());
 		Commands.add("Game.Player.dropAllItems();", new DropPlayersItemsCommand());
 		Commands.add("Game.Player.die();", new KillPlayerCommand());
+		Commands.add("Game.Player.getPos();", new GetPlayerPosCommand());
 		
 		
 		Game.reset();

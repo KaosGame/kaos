@@ -218,6 +218,18 @@ public class PlayerHotbar implements CloneableType<PlayerHotbar>, Serializable {
 		return false;
 		
 	}
+	
+	public Item<?> getCurrentItem() {
+		
+		return this.list[this.currentItemIndex];
+		
+	}
+	
+	public void setCurrentItem(Item<?> item) {
+		
+		this.list[this.currentItemIndex] = item;
+		
+	}
 
 	@Override
 	public PlayerHotbar cloneType() {

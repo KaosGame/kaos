@@ -1,7 +1,9 @@
 package com.game.entities;
 
 import java.awt.image.BufferedImage;
+import java.util.LinkedList;
 
+import com.game.collision.objects.CollisionObject;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.Item;
@@ -34,6 +36,33 @@ public class ItemEntity extends Entity {
 				this.getRectangle().intersects(Game.PLAYER.getRectangle()) &&
 				Game.PLAYER.getHotbar().returnBooleanAndAddItem(this.item)
 			) Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+		
+		
+		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER.currentMap().getObjectList();
+		
+		for (int i = 0; i < tempList.size(); i++) {
+			
+			CollisionObject tempObj = tempList.get(i);
+			
+			if (this.getRectangle().intersects(tempObj.getRectangle())) {
+				
+				tempObj.collide();
+				
+			}
+			
+			if (
+					this.getRectangle().intersects(tempObj.getRectangle()) &&
+					!tempObj.getType().isTRANSPARENT()
+				) {
+				
+				float[] pos = Game.getRandomItemPos(this.x, this.y);
+				
+				this.x = pos[0];
+				this.y = pos[1];
+				
+			}
+			
+		}
 		
 	}
 

@@ -8,6 +8,7 @@ public enum ItemID {
 	APPLE_TREE_1(),
 	APPLE_1(),
 	PIE_1(),
-	TACO_1();
+	TACO_1(),
+	CHEST_1();
 
 }

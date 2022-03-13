@@ -3,6 +3,7 @@ package com.game.entities.player.items;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
+import com.game.collision.objects.ChestTransparentObject;
 import com.game.collision.objects.CollisionObject;
 import com.game.collision.objects.ObjectType;
 import com.game.collision.objects.PlayerObject;
@@ -98,6 +99,27 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				Game.MAP_HANDLER.currentMap().removeObject(tempObj);
 				
 				LootTableHandler.createLootAtRandom(LootTableID.APPLE_TREE_1_LOOT);
+				
+			}
+			
+			if (
+					Game.getRectangle(
+									(int) Game.PLAYER.getX(),
+									(int) Game.PLAYER.getY(),
+									Game.PLAYER.getWidth(),
+									Game.PLAYER.getHeight()
+					).intersects(tempObj.getRectangle()) &&
+					tempObj.getType() == ObjectType.CHEST &&
+					Math.random() < 0.50 && tempObj instanceof ChestTransparentObject
+				) {
+				
+				ChestTransparentObject chest = (ChestTransparentObject) tempObj;
+				
+				LootTableHandler.createLootAtRandom(LootTableID.CHEST_1);
+				
+				chest.breakItem();
+				
+				Game.MAP_HANDLER.currentMap().removeObject(tempObj);
 				
 			}
 			

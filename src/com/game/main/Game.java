@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import com.game.collision.objects.ChangeMapCollidableObject;
+import com.game.collision.objects.ChestTransparentObject;
 import com.game.collision.objects.CollidableObject;
 import com.game.collision.objects.CollidableWallObject;
 import com.game.collision.objects.CollisionObject;
@@ -75,7 +76,9 @@ public class Game {
 				new CollidableObject(100, 175, 170, 100, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
 				new CollidableObject(100, 275, 170, 100, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
 				new CollidableObject(100, 375, 170, 100, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
-				new CollidableObject(100, 475, 170, 50, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16))
+				new CollidableObject(100, 475, 170, 50, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
+				new ChestTransparentObject(126, 184, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16))
+				
 				
 			},
 			
@@ -118,7 +121,7 @@ public class Game {
 			
 	};
 	
-	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.1.2");
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.1.3");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
@@ -240,9 +243,52 @@ public class Game {
 		
 	}
 	
+	public static float[] getRandomItemPos(float x, float y) {
+		
+		Random random = new Random();
+		
+		float itemX = 0f;
+		float itemY = 0f;
+		
+		final int OFFSET = 128;
+		
+		if (random.nextBoolean()) {
+			
+			itemX = (float) (x + random.nextInt((int) (OFFSET + 1)));
+			
+		} else {
+			
+			itemX = (float) (x + (float) (random.nextInt((int) (OFFSET + 1)) * -1f));
+			
+		}
+		
+		if (random.nextBoolean()) {
+			
+			itemY = (float) (y + random.nextInt((int) (OFFSET + 1)));
+			
+		} else {
+			
+			itemY = (float) (y + (float) (random.nextInt((int) (OFFSET + 1)) * -1f));
+			
+		}
+		
+		float[] res = {itemX, itemY};
+		
+		return res;
+		
+	}
+	
 	public static void makeItemAtRandomWithItem(Item<?> item) {
 		
 		float[] pos = Game.getRandomItemPos();
+		
+		Game.MAP_HANDLER.currentMap().getEntityHandler().add(new ItemEntity(pos[0], pos[1], 0, 0, 64, 64, EntityID.ITEM, item.getImage(), item));
+		
+	}
+	
+	public static void makeItemAtRandomWithItem(Item<?> item, float x, float y) {
+		
+		float[] pos = Game.getRandomItemPos(x, y);
 		
 		Game.MAP_HANDLER.currentMap().getEntityHandler().add(new ItemEntity(pos[0], pos[1], 0, 0, 64, 64, EntityID.ITEM, item.getImage(), item));
 		
@@ -470,6 +516,11 @@ public class Game {
 						o.setImage(image);
 						
 					}
+					break;
+					
+				case CHEST:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
+					break;
 			
 			}
 			

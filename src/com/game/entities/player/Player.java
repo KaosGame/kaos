@@ -426,6 +426,14 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 		this.coins -= coins;
 		
 	}
+	
+	public float[] getPos() {
+		
+		float[] pos = {this.x, this.y};
+		
+		return pos;
+		
+	}
 
 	@Override
 	public Player cloneType() {

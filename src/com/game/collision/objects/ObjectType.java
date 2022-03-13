@@ -10,7 +10,8 @@ public enum ObjectType {
 	SIGN_1(true),
 	TREE_1(true),
 	APPLE_TREE_1(true),
-	HOUSE_1(false);
+	HOUSE_1(false),
+	CHEST(true);
 	
 	private final boolean TRANSPARENT;
 	
