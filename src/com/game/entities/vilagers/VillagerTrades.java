@@ -6,6 +6,7 @@ public enum VillagerTrades {
 	APPLE_TO_COIN(),
 	COIN_TO_TACO(),
 	COIN_TO_PIE(),
-	COIN_TO_CHEST();
+	COIN_TO_CHEST(),
+	WOOD_TO_SIGN();
 
 }
