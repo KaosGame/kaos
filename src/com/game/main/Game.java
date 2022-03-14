@@ -410,6 +410,10 @@ public class Game {
 				case CHEST_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16));
 					break;
+					
+				case SIGN_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -467,6 +471,11 @@ public class Game {
 							case CHEST_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16));
 								break;
+								
+							case SIGN_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16));
+								break;
+							
 					
 						}
 						

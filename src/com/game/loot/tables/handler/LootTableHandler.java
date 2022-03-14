@@ -2,6 +2,7 @@ package com.game.loot.tables.handler;
 
 import com.game.loot.tables.AppleTree1ItemLootTable;
 import com.game.loot.tables.Chest1ItemLootTable;
+import com.game.loot.tables.Sign1ItemLootTable;
 import com.game.loot.tables.Tree1ItemLootTable;
 import com.game.loot.tables.Wood1ItemLootTable;
 
@@ -36,6 +37,13 @@ public class LootTableHandler {
 			case CHEST_1:
 				
 				Chest1ItemLootTable.makeLootAtRandom();
+				
+				break;
+				
+			case SIGN_1:
+				
+				
+				Sign1ItemLootTable.makeLootAtRandom();
 				
 				break;
 				

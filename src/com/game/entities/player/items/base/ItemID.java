@@ -9,6 +9,7 @@ public enum ItemID {
 	APPLE_1(),
 	PIE_1(),
 	TACO_1(),
-	CHEST_1();
+	CHEST_1(),
+	SIGN_1();
 
 }

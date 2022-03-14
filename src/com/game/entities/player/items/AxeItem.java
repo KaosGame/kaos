@@ -123,6 +123,23 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				
 			}
 			
+			if (
+					Game.getRectangle(
+									(int) Game.PLAYER.getX(),
+									(int) Game.PLAYER.getY(),
+									Game.PLAYER.getWidth(),
+									Game.PLAYER.getHeight()
+					).intersects(tempObj.getRectangle()) &&
+					tempObj.getType() == ObjectType.SIGN_1 &&
+					Math.random() < 0.50
+				) {
+				
+				Game.MAP_HANDLER.currentMap().removeObject(tempObj);
+				
+				LootTableHandler.createLootAtRandom(LootTableID.SIGN_1);
+				
+			}
+			
 		}
 		
 	}
