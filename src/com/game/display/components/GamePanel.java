@@ -129,17 +129,29 @@ public class GamePanel extends JPanel implements Runnable {
 	@Override
 	protected void paintComponent(Graphics g) {
 		
-		super.paintComponent(g);
-		
-		Graphics2D g2d = (Graphics2D) g;
-		
-		this.drawBackground(g2d);
-		
-		Game.MAP_HANDLER.currentMap().draw(g2d);
-		
-		Game.PLAYER.draw(g2d);
-		
-		Game.HUD.draw(g2d);
+		try {
+			
+			super.paintComponent(g);
+			
+			Graphics2D g2d = (Graphics2D) g;
+			
+			this.drawBackground(g2d);
+			
+			Game.MAP_HANDLER.currentMap().draw(g2d);
+			
+			Game.PLAYER.draw(g2d);
+			
+			Game.HUD.draw(g2d);
+			
+		} catch (NullPointerException e) {
+			
+			e.printStackTrace();
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
 		
 		
 	}
