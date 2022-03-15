@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
+import java.util.Stack;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -27,6 +28,8 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.Player;
 import com.game.entities.player.items.base.Item;
+import com.game.entities.player.items.base.ItemID;
+import com.game.entities.player.items.tools.PickaxeItem;
 import com.game.entities.vilagers.VillagerEntity;
 import com.game.entities.vilagers.VillagerTrades;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
@@ -76,8 +79,7 @@ public class Game {
 				new CollidableObject(100, 175, 170, 100, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
 				new CollidableObject(100, 275, 170, 100, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
 				new CollidableObject(100, 375, 170, 100, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
-				new CollidableObject(100, 475, 170, 50, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16)),
-				new ChestTransparentObject(126, 184, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16))
+				new CollidableObject(100, 475, 170, 50, ObjectType.WOOD_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16))
 				
 				
 			},
@@ -646,6 +648,12 @@ public class Game {
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[4]));
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[5]));
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[6]));
+		
+		Stack<Item<?>> itemsForFistChest = new Stack<Item<?>>();
+		
+		itemsForFistChest.push(new PickaxeItem(1, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16)));
+		
+		Game.MAP_HANDLER.get(0).addObject(new ChestTransparentObject(126, 184, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), itemsForFistChest));
 		
 		Game.MAP_HANDLER.get(2).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_COIN));
 		
