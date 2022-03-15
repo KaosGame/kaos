@@ -12,7 +12,11 @@ import com.game.entities.player.items.food.Apple1Item;
 import com.game.entities.player.items.food.Pie1Item;
 import com.game.entities.player.items.food.Taco1Item;
 import com.game.entities.player.items.objects.Chest1Item;
+import com.game.entities.player.items.objects.DiamondOre1Item;
+import com.game.entities.player.items.objects.GoldOre1Item;
+import com.game.entities.player.items.objects.IronOre1Item;
 import com.game.entities.player.items.objects.Sign1Item;
+import com.game.entities.player.items.objects.Stone1Item;
 import com.game.entities.player.items.objects.Wood1Item;
 import com.game.main.Game;
 
@@ -154,6 +158,54 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.STONE_TO_COIN) {
+			
+			Stone1Item tempItem = new Stone1Item(1, ItemID.STONE_1, null);
+			
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(5L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.IRON_ORE_TO_COIN) {
+			
+			IronOre1Item tempItem = new IronOre1Item(1, ItemID.IRON_ORE_1, null);
+			
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(10L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.GOLD_ORE_TO_COIN) {
+			
+			GoldOre1Item tempItem = new GoldOre1Item(1, ItemID.GOLD_ORE_1, null);
+			
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(15L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.DIAMOND_ORE_TO_COIN) {
+			
+			DiamondOre1Item tempItem = new DiamondOre1Item(1, ItemID.DIAMOND_ORE_1, null);
+			
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(20L);
+				
+			}
+			
 		}
 		
 	}
@@ -251,6 +303,54 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.STONE_TO_COIN) {
+			
+			Stone1Item tempItem = new Stone1Item(1, ItemID.STONE_1, null);
+			
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(5L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.IRON_ORE_TO_COIN) {
+			
+			IronOre1Item tempItem = new IronOre1Item(1, ItemID.IRON_ORE_1, null);
+			
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(10L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.GOLD_ORE_TO_COIN) {
+			
+			GoldOre1Item tempItem = new GoldOre1Item(1, ItemID.GOLD_ORE_1, null);
+			
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(15L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.DIAMOND_ORE_TO_COIN) {
+			
+			DiamondOre1Item tempItem = new DiamondOre1Item(1, ItemID.DIAMOND_ORE_1, null);
+			
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(20L);
+				
+			}
+			
 		}
 		
 	}
@@ -331,6 +431,46 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawString("7  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.STONE_TO_COIN) {
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(160, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1  -->  5", 400, 50);
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.IRON_ORE_TO_COIN) {
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1  -->  10", 400, 50);
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.GOLD_ORE_TO_COIN) {
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1  -->  15", 400, 50);
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.DIAMOND_ORE_TO_COIN) {
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1  -->  20", 400, 50);
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
 			
 		}
 		
