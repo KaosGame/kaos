@@ -10,6 +10,11 @@ public enum ItemID {
 	PIE_1(),
 	TACO_1(),
 	CHEST_1(),
-	SIGN_1();
+	SIGN_1(),
+	PICKAXE_1(),
+	STONE_1(),
+	IRON_ORE_1(),
+	GOLD_ORE_1(),
+	DIAMOND_ORE_1();
 
 }

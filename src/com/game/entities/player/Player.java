@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 import com.game.collision.objects.CollidableObject;
 import com.game.collision.objects.CollidableWallObject;
+import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
 import com.game.entities.base.Dieable;
@@ -246,10 +247,38 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 			}
 			
 			if (
-					tempObj.getType() == ObjectType.WALL &&
+					(
+						tempObj.getType() == ObjectType.WALL ||
+						tempObj.getType() == ObjectType.STONE_1 ||
+						tempObj.getType() == ObjectType.IRON_ORE_1 ||
+						tempObj.getType() == ObjectType.GOLD_ORE_1 ||
+						tempObj.getType() == ObjectType.DIAMOND_ORE_1
+							
+					) &&
 					(tempObj instanceof CollidableObject || tempObj instanceof CollidableWallObject) &&
 					this.getRectangle().intersects(tempObj.getRectangle()) &&
 					!tempObj.getType().isTRANSPARENT()
+				) {
+				
+				this.x = OLD_X;
+				this.y = OLD_Y;
+				
+			}
+			
+			if (
+					
+					(
+							tempObj.getType() == ObjectType.WALL ||
+							tempObj.getType() == ObjectType.STONE_1 ||
+							tempObj.getType() == ObjectType.IRON_ORE_1 ||
+							tempObj.getType() == ObjectType.GOLD_ORE_1 ||
+							tempObj.getType() == ObjectType.DIAMOND_ORE_1
+								
+					) &&
+					tempObj instanceof PlayerObject &&
+					this.getRectangle().intersects(tempObj.getRectangle()) &&
+					!tempObj.getType().isTRANSPARENT()
+					
 				) {
 				
 				this.x = OLD_X;

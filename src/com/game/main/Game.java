@@ -122,16 +122,29 @@ public class Game {
 			
 			{
 				
+				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16), 6),
 				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 4),
 				new CollidableObject(100, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
 				new CollidableObject(75, 240, 128, 128, ObjectType.APPLE_TREE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16)),
 				new CollidableObject(400, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
 				
+			},
+			
+			{
+				
+				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 5),
+				new CollidableObject(0, 0, 64, 64, ObjectType.IRON_ORE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16)),
+				new CollidableObject(64, 0, 64, 64, ObjectType.GOLD_ORE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(240, 0, 16, 16)),
+				new CollidableObject(0, 64, 64, 64, ObjectType.DIAMOND_ORE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(256, 0, 16, 16)),
+				new CollidableObject(64, 64, 64, 64, ObjectType.STONE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16)),
+				new CollidableObject(128, 0, 64, 64, ObjectType.STONE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16)),
+				new CollidableObject(0, 128, 64, 64, ObjectType.STONE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16))
+				
 			}
 			
 	};
 	
-	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.1.3");
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.1.4");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
@@ -416,6 +429,10 @@ public class Game {
 				case SIGN_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16));
 					break;
+					
+				case PICKAXE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -476,6 +493,10 @@ public class Game {
 								
 							case SIGN_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16));
+								break;
+								
+							case PICKAXE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
 								break;
 							
 					
@@ -548,6 +569,22 @@ public class Game {
 				case CHEST:
 					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
 					break;
+					
+				case STONE_1:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16));
+					break;
+					
+				case IRON_ORE_1:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16));
+					break;
+					
+				case GOLD_ORE_1:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(240, 0, 16, 16));
+					break;
+					
+				case DIAMOND_ORE_1:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(256, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -576,6 +613,7 @@ public class Game {
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[3]));
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[4]));
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[5]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[6]));
 		
 		Game.MAP_HANDLER.get(2).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_COIN));
 		

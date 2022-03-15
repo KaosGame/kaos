@@ -11,7 +11,11 @@ public enum ObjectType {
 	TREE_1(true),
 	APPLE_TREE_1(true),
 	HOUSE_1(true),
-	CHEST(true);
+	CHEST(true),
+	STONE_1(false),
+	IRON_ORE_1(false),
+	GOLD_ORE_1(false),
+	DIAMOND_ORE_1(false);
 	
 	private final boolean TRANSPARENT;
 	

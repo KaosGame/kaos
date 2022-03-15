@@ -2,7 +2,11 @@ package com.game.loot.tables.handler;
 
 import com.game.loot.tables.AppleTree1ItemLootTable;
 import com.game.loot.tables.Chest1ItemLootTable;
+import com.game.loot.tables.DiamondOre1ItemLootTable;
+import com.game.loot.tables.GoldOre1ItemLootTable;
+import com.game.loot.tables.IronOre1ItemLootTable;
 import com.game.loot.tables.Sign1ItemLootTable;
+import com.game.loot.tables.Stone1ItemLootTable;
 import com.game.loot.tables.Tree1ItemLootTable;
 import com.game.loot.tables.Wood1ItemLootTable;
 
@@ -47,8 +51,28 @@ public class LootTableHandler {
 				
 				break;
 				
+			case STONE_1:
 				
-			default:
+				Stone1ItemLootTable.makeLootAtRandom();
+				
+				break;
+				
+			case IRON_ORE_1:
+				
+				IronOre1ItemLootTable.makeLootAtRandom();
+				
+				break;
+				
+				
+			case GOLD_ORE_1:
+				
+				GoldOre1ItemLootTable.makeLootAtRandom();
+				
+				break;
+				
+			case DIAMOND_ORE_1:
+				
+				DiamondOre1ItemLootTable.makeLootAtRandom();
 				
 				break;
 				
