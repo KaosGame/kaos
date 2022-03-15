@@ -332,6 +332,15 @@ public class KeyControls implements KeyListener {
 			
 		}
 		
+		if (KeyEvent.VK_G == key) {
+			
+			float[] pos = Game.getRandomItemPos();
+			
+			Game.PLAYER.setX(pos[0]);
+			Game.PLAYER.setY(pos[1]);
+			
+		}
+		
 	}
 
 }

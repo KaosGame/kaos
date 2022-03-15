@@ -43,6 +43,15 @@ public class DiamondOre1Item extends Item<DiamondOre1Item> {
 																Game.OBJECT_TEXTRA_ALICE.getImageFrom(256, 0, 16, 16)
 															));
 		
+		for (int i = 0; i < 10; i++) {
+			
+			float[] pos = Game.getRandomItemPos();
+			
+			Game.PLAYER.setX(pos[0]);
+			Game.PLAYER.setY(pos[1]);
+			
+		}
+		
 	}
 
 }
