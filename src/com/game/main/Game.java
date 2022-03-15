@@ -433,6 +433,22 @@ public class Game {
 				case PICKAXE_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
 					break;
+					
+				case STONE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(160, 0, 16, 16));
+					break;
+					
+				case IRON_ORE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16));
+					break;
+					
+				case GOLD_ORE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16));
+					break;
+					
+				case DIAMOND_ORE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -497,6 +513,22 @@ public class Game {
 								
 							case PICKAXE_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
+								break;
+								
+							case STONE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(160, 0, 16, 16));
+								break;
+								
+							case IRON_ORE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16));
+								break;
+								
+							case GOLD_ORE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16));
+								break;
+								
+							case DIAMOND_ORE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16));
 								break;
 							
 					
