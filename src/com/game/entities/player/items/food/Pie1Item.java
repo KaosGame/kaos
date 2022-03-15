@@ -1,4 +1,4 @@
-package com.game.entities.player.items;
+package com.game.entities.player.items.food;
 
 import java.awt.image.BufferedImage;
 

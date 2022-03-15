@@ -3,10 +3,10 @@ package com.game.entities.player;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import com.game.entities.player.items.AxeItem;
-import com.game.entities.player.items.Pie1Item;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.base.ItemID;
+import com.game.entities.player.items.food.Pie1Item;
+import com.game.entities.player.items.tools.AxeItem;
 import com.game.main.CloneableType;
 import com.game.main.Game;
 

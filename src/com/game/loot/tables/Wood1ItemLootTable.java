@@ -1,7 +1,7 @@
 package com.game.loot.tables;
 
-import com.game.entities.player.items.Wood1Item;
 import com.game.entities.player.items.base.ItemID;
+import com.game.entities.player.items.objects.Wood1Item;
 import com.game.main.Game;
 
 public class Wood1ItemLootTable {

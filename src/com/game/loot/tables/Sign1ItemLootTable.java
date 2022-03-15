@@ -1,7 +1,7 @@
 package com.game.loot.tables;
 
-import com.game.entities.player.items.Sign1Item;
 import com.game.entities.player.items.base.ItemID;
+import com.game.entities.player.items.objects.Sign1Item;
 import com.game.main.Game;
 
 public class Sign1ItemLootTable {

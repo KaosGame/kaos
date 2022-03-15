@@ -7,13 +7,13 @@ import java.awt.image.BufferedImage;
 
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
-import com.game.entities.player.items.Apple1Item;
-import com.game.entities.player.items.Chest1Item;
-import com.game.entities.player.items.Pie1Item;
-import com.game.entities.player.items.Sign1Item;
-import com.game.entities.player.items.Taco1Item;
-import com.game.entities.player.items.Wood1Item;
 import com.game.entities.player.items.base.ItemID;
+import com.game.entities.player.items.food.Apple1Item;
+import com.game.entities.player.items.food.Pie1Item;
+import com.game.entities.player.items.food.Taco1Item;
+import com.game.entities.player.items.objects.Chest1Item;
+import com.game.entities.player.items.objects.Sign1Item;
+import com.game.entities.player.items.objects.Wood1Item;
 import com.game.main.Game;
 
 public class VillagerEntity extends Entity implements Trading {

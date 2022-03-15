@@ -2,10 +2,10 @@ package com.game.loot.tables;
 
 import java.util.Random;
 
-import com.game.entities.player.items.Apple1Item;
-import com.game.entities.player.items.AppleTree1Item;
-import com.game.entities.player.items.Wood1Item;
 import com.game.entities.player.items.base.ItemID;
+import com.game.entities.player.items.food.Apple1Item;
+import com.game.entities.player.items.objects.AppleTree1Item;
+import com.game.entities.player.items.objects.Wood1Item;
 import com.game.main.Game;
 
 public class AppleTree1ItemLootTable {
