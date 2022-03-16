@@ -216,6 +216,21 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 				Math.random() > 0.1 &&
 				random.nextBoolean() &&
 				!random.nextBoolean() &&
+				Math.random() < 0.48 &&
+				Math.random() > 0.48 &&
+				random.nextBoolean() &&
+				!random.nextBoolean()
+			) {
+			
+			this.removeHungerValue(1);
+			
+		}
+		
+		if (
+				Math.random() < 0.1 &&
+				Math.random() > 0.1 &&
+				random.nextBoolean() &&
+				!random.nextBoolean() &&
 				this.hunger == Player.MAX_HUNGER &&
 				this.health != Player.MAX_HEALTH
 			) {

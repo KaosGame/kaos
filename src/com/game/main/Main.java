@@ -1,3 +1,9 @@
+/*
+ * 
+ *  Author: David Liam Terpin
+ * 
+ */
+
 package com.game.main;
 
 public class Main {
