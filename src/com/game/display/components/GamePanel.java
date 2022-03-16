@@ -18,6 +18,11 @@ import com.game.spawning.base.Spawner;
 
 public class GamePanel extends JPanel implements Runnable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7631405450944947366L;
+	
 	private Thread gameThread;
 	private final int FPS;
 	
