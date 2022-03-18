@@ -1,4 +1,4 @@
-package com.game.loot.tables;
+package com.game.loot.tables.items;
 
 import java.util.Random;
 

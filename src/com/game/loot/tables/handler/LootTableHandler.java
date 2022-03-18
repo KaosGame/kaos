@@ -1,14 +1,14 @@
 package com.game.loot.tables.handler;
 
-import com.game.loot.tables.AppleTree1ItemLootTable;
-import com.game.loot.tables.Chest1ItemLootTable;
-import com.game.loot.tables.DiamondOre1ItemLootTable;
-import com.game.loot.tables.GoldOre1ItemLootTable;
-import com.game.loot.tables.IronOre1ItemLootTable;
-import com.game.loot.tables.Sign1ItemLootTable;
-import com.game.loot.tables.Stone1ItemLootTable;
-import com.game.loot.tables.Tree1ItemLootTable;
-import com.game.loot.tables.Wood1ItemLootTable;
+import com.game.loot.tables.items.AppleTree1ItemLootTable;
+import com.game.loot.tables.items.Chest1ItemLootTable;
+import com.game.loot.tables.items.DiamondOre1ItemLootTable;
+import com.game.loot.tables.items.GoldOre1ItemLootTable;
+import com.game.loot.tables.items.IronOre1ItemLootTable;
+import com.game.loot.tables.items.Sign1ItemLootTable;
+import com.game.loot.tables.items.Stone1ItemLootTable;
+import com.game.loot.tables.items.Tree1ItemLootTable;
+import com.game.loot.tables.items.Wood1ItemLootTable;
 
 public class LootTableHandler {
 	

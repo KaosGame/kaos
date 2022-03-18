@@ -1,4 +1,4 @@
-package com.game.loot.tables;
+package com.game.loot.tables.items;
 
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.objects.Chest1Item;
