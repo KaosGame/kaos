@@ -3,6 +3,8 @@ package com.game.loot.tables.handler;
 import java.util.Arrays;
 import java.util.Random;
 
+import com.game.entities.player.items.Heart1Item;
+import com.game.entities.player.items.Medkit1Item;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.food.Apple1Item;
@@ -202,6 +204,94 @@ public class LootTableHandler {
 						listOfItems[i] = new Stone1Item(count, ItemID.STONE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(160, 0, 16, 16));
 						
 					}
+					
+				} else if (chance.firstChoose(0.26)) {
+					
+					// Medkit
+					
+					int count = (int) (random.nextInt(3) + 1);
+					
+					listOfItems[i] = new Medkit1Item(count, ItemID.MEDKIT_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(256, 0, 16, 16));
+					
+				}
+				
+			}
+			
+		} while (Game.arrayContains(listOfItems, null));
+		
+		return listOfItems;
+		
+	}
+	
+	public static Item<?>[] returnRandomLootItemsForMedkit1() {
+		
+		Random random = new Random();
+		
+		Item<?>[] listOfItems = new Item<?>[(int) (random.nextInt(10) + 1)];
+		
+		Arrays.fill(listOfItems, null);
+		
+		do {
+			
+			for (int i = 0; i < listOfItems.length; i++) {
+				
+				RandomChance chance = new RandomChance();
+				
+				if (chance.firstChoose(0.25)) {
+					
+					// Food
+					
+					int countOfFood = (int) (random.nextInt(15) + 1);
+					
+					if (chance.firstChoose(0.25)) {
+						
+						listOfItems[i] = new OrangeJuce1Item(countOfFood, ItemID.ORANGE_JUCE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16));
+						
+					} else if (chance.firstChoose(0.15)) {
+						
+						listOfItems[i] = new Pie1Item(countOfFood, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16));
+						
+					} else if (chance.firstChoose(0.10)) {
+						
+						listOfItems[i] = new Taco1Item(countOfFood, ItemID.TACO_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16));
+						
+					} else {
+						
+						if (chance.lastChoose(0.50)) {
+							
+							listOfItems[i] = new Banana1Item(countOfFood, ItemID.BANANA_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(240, 0, 16, 16));
+							
+						} else {
+							
+							listOfItems[i] = new Apple1Item(countOfFood, ItemID.APPLE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16));
+							
+						}
+						
+					}
+					
+				} else if (chance.firstChoose(0.28)) {
+					
+					// Tools
+					
+					final int COUNT = 1;
+					
+					if (chance.firstChoose(0.50)) {
+						
+						listOfItems[i] = new AxeItem(COUNT, ItemID.AXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+						
+					} else {
+						
+						listOfItems[i] = new PickaxeItem(COUNT, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
+						
+					}
+					
+				} else if (chance.firstChoose(0.17)) {
+					
+					// Heart
+					
+					int count = (int) (random.nextInt(4) + 1);
+					
+					listOfItems[i] = new Heart1Item(count, ItemID.HEART_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16));
 					
 				}
 				

@@ -158,7 +158,7 @@ public class Game {
 			
 	};
 	
-	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.1.4");
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.2.0");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
@@ -469,6 +469,14 @@ public class Game {
 				case BANANA_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(240, 0, 16, 16));
 					break;
+					
+				case HEART_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16));
+					break;
+					
+				case MEDKIT_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(256, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -557,6 +565,14 @@ public class Game {
 							
 							case BANANA_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(240, 0, 16, 16));
+								break;
+								
+							case HEART_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16));
+								break;
+								
+							case MEDKIT_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(256, 0, 16, 16));
 								break;
 							
 					
@@ -772,6 +788,18 @@ public class Game {
 		}
 		
 		return false;
+		
+	}
+	
+	public static void addItemOrItemEntity(Item<?> item) {
+		
+		if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+			
+			float[] pos = Game.getRandomItemPos();
+			
+			Game.addItemEntity(pos[0], pos[1], item, item.getImage(), 64);
+			
+		}
 		
 	}
 	

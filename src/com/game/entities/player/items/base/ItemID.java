@@ -17,6 +17,8 @@ public enum ItemID {
 	GOLD_ORE_1(),
 	DIAMOND_ORE_1(),
 	ORANGE_JUCE_1(),
-	BANANA_1();
+	BANANA_1(),
+	HEART_1(),
+	MEDKIT_1();
 
 }
