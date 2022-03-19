@@ -5,7 +5,9 @@ public enum EntityID {
 	PLAYER(false),
 	ITEM(true),
 	VILAGER(false),
-	BIRD(true);
+	BIRD(true),
+	ITEM_PLANE(true),
+	ITEM_PLANE_FALLING_CHEST(true);
 	
 	private final boolean CAN_DELETE;
 	

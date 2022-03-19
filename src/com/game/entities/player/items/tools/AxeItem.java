@@ -26,6 +26,13 @@ public class AxeItem extends WeaponItem<AxeItem> {
 		
 		
 	}
+	
+	public AxeItem(int count, ItemID id, BufferedImage image) {
+		
+		super(count, id, image, 1f);
+		
+		
+	}
 
 	@Override
 	public void use() {

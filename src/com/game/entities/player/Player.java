@@ -33,6 +33,7 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 	
 	public static final float DEFAULT_SPEED = 4f;
 	public static final float DASH_SPEED = (float) (Player.DEFAULT_SPEED * 2.5f);
+	public static final float ORANGE_JUCE_1_SPEED = (float) (Player.DEFAULT_SPEED * 1.952f);
 	
 	public static final int MAX_HUNGER = 20;
 	public static final int MIN_HUNGER = 0;

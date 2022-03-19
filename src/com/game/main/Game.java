@@ -54,6 +54,7 @@ public class Game {
 	private static BufferedImageLoader PLAYER_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/player-textra-alice.png");
 	private static BufferedImageLoader VILAGER_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/vilager-textra-alice.png");
 	private static BufferedImageLoader BIRD_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/bird-textra-alice.png");
+	private static BufferedImageLoader PLANE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/plane-textra-alice.png");
 	private static BufferedImageLoader HUD_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/hud/hud-textra-alice.png");
 	private static BufferedImageLoader ITEM_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/item-textra-alice.png");
 	
@@ -66,6 +67,7 @@ public class Game {
 	public static TextraAlice ITEM_TEXTRA_ALICE = new TextraAlice(Game.ITEM_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice VILAGER_TEXTRA_ALICE = new TextraAlice(Game.VILAGER_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice BIRD_TEXTRA_ALICE = new TextraAlice(Game.BIRD_TEXTRA_ALICE_LOADER.getImage());
+	public static TextraAlice PLANE_TEXTRA_ALICE = new TextraAlice(Game.PLANE_TEXTRA_ALICE_LOADER.getImage());
 	
 	public static CollisionObject[][] BASE_MAPS = {
 			
@@ -462,6 +464,10 @@ public class Game {
 				case DIAMOND_ORE_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16));
 					break;
+					
+				case ORANGE_JUCE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -542,6 +548,10 @@ public class Game {
 								
 							case DIAMOND_ORE_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16));
+								break;
+								
+							case ORANGE_JUCE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16));
 								break;
 							
 					
@@ -646,6 +656,24 @@ public class Game {
 		}
 		
 	}
+	
+	public static void addEntity(Entity e) {
+		
+		Game.MAP_HANDLER.currentMap().getEntityHandler().add(e);
+		
+	}
+	
+	public static void removeEntity(Entity e) {
+		
+		Game.MAP_HANDLER.currentMap().getEntityHandler().remove(e);
+		
+	}
+	
+	public static void addObject(CollisionObject o) {
+		
+		Game.MAP_HANDLER.currentMap().addObject(o);
+		
+	}
 
 	public static void reset() {
 		
@@ -682,6 +710,32 @@ public class Game {
 		
 		Game.MAP_HANDLER.get(7).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.GOLD_ORE_TO_COIN));
 		Game.MAP_HANDLER.get(7).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.DIAMOND_ORE_TO_COIN));
+		
+	}
+
+	public static <L, O> boolean arrayContains(L[] list, O thing) {
+		
+		boolean has = false;
+		
+		for (int i = 0; i < list.length; i++) {
+			
+			if (thing == null && list[i] == thing) {
+				
+				has = true;
+				
+				break;
+				
+			} else if (thing != null && list[i] != null && list[i].getClass() == thing.getClass()) {
+				
+				has = true;
+				
+				break;
+				
+			}
+			
+		}
+		
+		return has;
 		
 	}
 
