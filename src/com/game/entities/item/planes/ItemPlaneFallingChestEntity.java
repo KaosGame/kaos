@@ -33,7 +33,17 @@ public class ItemPlaneFallingChestEntity extends Entity {
 		
 		this.updateV();
 		
-		if (this.x > Game.WIDTH || this.x < 0f || this.y > Game.HEIGHT || this.y < 0f || (this.xv == 0f && this.yv == 0f)) Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+		if (this.x >= (float) (Game.WIDTH - this.width) || this.x <= 0f) {
+			
+			Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+			
+		}
+		
+		if (this.y >= (float) (Game.HEIGHT - (float) (this.height * 1.4f)) || this.y <= 0f) {
+			
+			Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+			
+		}
 		
 		Random random = new Random();
 		
@@ -42,15 +52,19 @@ public class ItemPlaneFallingChestEntity extends Entity {
 				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean()
 			) {
 			
-			Item<?>[] list = LootTableHandler.returnRandomLootItemsForFallingChestFromItemPlane();
-			
-			Stack<Item<?>> stack = new Stack<Item<?>>();
-			
-			for (int i = 0; i < list.length; i++) if (list[i] != null) stack.push(list[i]);
-			
-			Game.addObject(new ChestTransparentObject((int) this.x, (int) this.y, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), stack));
-			
-			Game.removeEntity(this);
+			if (!Game.touchingSomething(this.getRectangle())) {
+				
+				Item<?>[] list = LootTableHandler.returnRandomLootItemsForFallingChestFromItemPlane();
+				
+				Stack<Item<?>> stack = new Stack<Item<?>>();
+				
+				for (int i = 0; i < list.length; i++) if (list[i] != null) stack.push(list[i]);
+				
+				Game.addObject(new ChestTransparentObject((int) this.x, (int) this.y, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), stack));
+				
+				Game.removeEntity(this);
+				
+			}
 			
 		}
 		

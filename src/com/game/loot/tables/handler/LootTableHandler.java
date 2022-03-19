@@ -6,10 +6,15 @@ import java.util.Random;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.food.Apple1Item;
+import com.game.entities.player.items.food.Banana1Item;
 import com.game.entities.player.items.food.OrangeJuce1Item;
 import com.game.entities.player.items.food.Pie1Item;
 import com.game.entities.player.items.food.Taco1Item;
 import com.game.entities.player.items.objects.AppleTree1Item;
+import com.game.entities.player.items.objects.DiamondOre1Item;
+import com.game.entities.player.items.objects.GoldOre1Item;
+import com.game.entities.player.items.objects.IronOre1Item;
+import com.game.entities.player.items.objects.Stone1Item;
 import com.game.entities.player.items.objects.Tree1Item;
 import com.game.entities.player.items.tools.AxeItem;
 import com.game.entities.player.items.tools.PickaxeItem;
@@ -118,7 +123,7 @@ public class LootTableHandler {
 					
 					if (chance.firstChoose(0.25)) {
 						
-						listOfItems[i] = new Apple1Item(countOfFood, ItemID.APPLE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16));
+						listOfItems[i] = new OrangeJuce1Item(countOfFood, ItemID.ORANGE_JUCE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16));
 						
 					} else if (chance.firstChoose(0.15)) {
 						
@@ -130,7 +135,15 @@ public class LootTableHandler {
 						
 					} else {
 						
-						listOfItems[i] = new OrangeJuce1Item(countOfFood, ItemID.ORANGE_JUCE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16));
+						if (chance.lastChoose(0.50)) {
+							
+							listOfItems[i] = new Banana1Item(countOfFood, ItemID.BANANA_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(240, 0, 16, 16));
+							
+						} else {
+							
+							listOfItems[i] = new Apple1Item(countOfFood, ItemID.APPLE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16));
+							
+						}
 						
 					}
 					
@@ -163,6 +176,30 @@ public class LootTableHandler {
 					} else {
 						
 						listOfItems[i] = new PickaxeItem(COUNT, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
+						
+					}
+					
+				} else if (chance.firstChoose(0.41)) {
+					
+					// Ores and stone
+					
+					int count = (int) (random.nextInt(3) + 1);
+					
+					if (chance.firstChoose(0.17)) {
+						
+						listOfItems[i] = new IronOre1Item(count, ItemID.IRON_ORE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16));
+						
+					} else if (chance.firstChoose(0.14)) {
+						
+						listOfItems[i] = new GoldOre1Item(count, ItemID.GOLD_ORE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16));
+						
+					} else if (chance.firstChoose(0.10)) {
+						
+						listOfItems[i] = new DiamondOre1Item(count, ItemID.DIAMOND_ORE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16));
+						
+					} else {
+						
+						listOfItems[i] = new Stone1Item(count, ItemID.STONE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(160, 0, 16, 16));
 						
 					}
 					

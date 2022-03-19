@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Random;
 import java.util.Stack;
 
@@ -22,7 +23,6 @@ import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
 import com.game.display.HUD;
 import com.game.display.components.GamePanel;
-import com.game.entities.BirdEntity;
 import com.game.entities.ItemEntity;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
@@ -38,7 +38,6 @@ import com.game.maps.MapHandler;
 import com.game.saving.GameVersion;
 import com.game.saving.SaveableObject;
 import com.game.saving.SavingGame;
-import com.game.spawning.base.Spawner;
 import com.game.textures.BufferedImageLoader;
 import com.game.textures.TextraAlice;
 
@@ -167,8 +166,6 @@ public class Game {
 	
 	
 	public Game(String title) {
-		
-		Spawner.add(new BirdEntity());
 		
 		this.frame = new JFrame();
 		this.gamePanel = new GamePanel();
@@ -468,6 +465,10 @@ public class Game {
 				case ORANGE_JUCE_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16));
 					break;
+				
+				case BANANA_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(240, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -554,6 +555,10 @@ public class Game {
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16));
 								break;
 							
+							case BANANA_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(240, 0, 16, 16));
+								break;
+							
 					
 						}
 						
@@ -567,6 +572,14 @@ public class Game {
 					
 				case BIRD:
 					e.setImage(Game.BIRD_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					break;
+					
+				case ITEM_PLANE:
+					e.setImage(Game.PLANE_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
+					break;
+					
+				case ITEM_PLANE_FALLING_CHEST:
+					e.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
 					break;
 			
 			}
@@ -738,5 +751,28 @@ public class Game {
 		return has;
 		
 	}
-
+	
+	public static boolean touchingSomething(Rectangle rect) {
+		
+		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER.currentMap().getObjectList();
+		
+		for (int i = 0; i < tempList.size(); i++) {
+			
+			CollisionObject tempObj = tempList.get(i);
+			
+			if (
+					rect.intersects(tempObj.getRectangle()) &&
+					!tempObj.getType().isTRANSPARENT()
+				) {
+				
+				return true;
+				
+			}
+			
+		}
+		
+		return false;
+		
+	}
+	
 }

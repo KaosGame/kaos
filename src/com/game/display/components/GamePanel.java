@@ -14,6 +14,8 @@ import com.game.commands.GetPlayerPosCommand;
 import com.game.commands.GivePlayerPickaxeItemCommand;
 import com.game.commands.KillPlayerCommand;
 import com.game.commands.base.Commands;
+import com.game.entities.BirdEntity;
+import com.game.entities.item.planes.ItemPlaneEntity;
 import com.game.events.listeners.keys.KeyControls;
 import com.game.main.Game;
 import com.game.maps.OverflowHandler;
@@ -35,6 +37,10 @@ public class GamePanel extends JPanel implements Runnable {
 	public GamePanel() {
 		
 		this.FPS = 60;
+		
+		
+		Spawner.add(new BirdEntity());
+		Spawner.add(new ItemPlaneEntity());
 		
 		
 		Commands.add("Game.Player.dropItems();", new DropPlayersItemsCommand());

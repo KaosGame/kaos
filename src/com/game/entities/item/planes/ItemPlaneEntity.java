@@ -6,8 +6,9 @@ import java.util.Random;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.main.Game;
+import com.game.spawning.base.Spawnable;
 
-public class ItemPlaneEntity extends Entity {
+public class ItemPlaneEntity extends Entity implements Spawnable {
 	
 	/**
 	 * 
@@ -23,6 +24,12 @@ public class ItemPlaneEntity extends Entity {
 		this.showChest = showChest;
 		this.droppedChest = false;
 		
+		
+	}
+	
+	public ItemPlaneEntity() {
+		
+		this(0, 0, 0, 0, 0, 0, null, null, true);
 		
 	}
 
@@ -47,9 +54,21 @@ public class ItemPlaneEntity extends Entity {
 			) {
 			
 			this.droppedChest = true;
+			this.showChest = false;
+			
 			
 			Game.addEntity(new ItemPlaneFallingChestEntity(this.x, (float) (this.y + this.height), 0, 0, 64, 64, EntityID.ITEM_PLANE_FALLING_CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16)));
 			
+			
+		}
+		
+		if (this.showChest) {
+			
+			this.image = Game.PLANE_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16);
+			
+		} else {
+			
+			this.image = Game.PLANE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16);
 			
 		}
 		
@@ -77,9 +96,13 @@ public class ItemPlaneEntity extends Entity {
 
 	public void setDroppedChest(boolean droppedChest) {
 		this.droppedChest = droppedChest;
+	}
+
+	@Override
+	public void spawn() {
+		
+		Game.MAP_HANDLER.currentMap().getEntityHandler().add(new ItemPlaneEntity((int) (Game.WIDTH - 64), 0, 0, 0, 64, 64, EntityID.ITEM_PLANE, Game.PLANE_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), true));
+		
 	}	
 	
-	
-	
-
 }
