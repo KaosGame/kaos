@@ -6,6 +6,7 @@ import java.util.Random;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.main.Game;
+import com.game.random.RandomChance;
 import com.game.spawning.base.Spawnable;
 
 public class ItemPlaneEntity extends Entity implements Spawnable {
@@ -96,6 +97,23 @@ public class ItemPlaneEntity extends Entity implements Spawnable {
 
 	public void setDroppedChest(boolean droppedChest) {
 		this.droppedChest = droppedChest;
+	}
+	
+	@Override
+	public void randomSpawn() {
+		
+		Random random = new Random();
+		RandomChance chance = new RandomChance();
+		
+		if (
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() &&
+				random.nextBoolean() && !random.nextBoolean() && chance.firstChoose(0.25)
+			) {
+			
+			this.spawn();
+			
+		}
+		
 	}
 
 	@Override
