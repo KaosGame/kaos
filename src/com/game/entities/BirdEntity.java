@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
+import com.game.logging.LogType;
 import com.game.main.Game;
 import com.game.spawning.base.Spawnable;
 
@@ -85,6 +86,8 @@ public class BirdEntity extends Entity implements Spawnable {
 			e.setYv(tempYv);
 			
 			Game.MAP_HANDLER.currentMap().getEntityHandler().add(e);
+			
+			Game.logln("New Bird Summoned successfully", LogType.SUCCESS);
 			
 			
 		}

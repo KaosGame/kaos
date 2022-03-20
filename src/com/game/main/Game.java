@@ -33,6 +33,8 @@ import com.game.entities.player.items.tools.PickaxeItem;
 import com.game.entities.vilagers.VillagerEntity;
 import com.game.entities.vilagers.VillagerTrades;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
+import com.game.logging.LogType;
+import com.game.logging.Logger;
 import com.game.maps.Map;
 import com.game.maps.MapHandler;
 import com.game.saving.GameVersion;
@@ -164,8 +166,12 @@ public class Game {
 	public static HUD HUD = new HUD();
 	public static MapHandler MAP_HANDLER = new MapHandler();
 	
+	public static Logger LOGGER = new Logger();
+	
 	
 	public Game(String title) {
+		
+		Game.logln("Game class created", LogType.SUCCESS);
 		
 		this.frame = new JFrame();
 		this.gamePanel = new GamePanel();
@@ -186,6 +192,18 @@ public class Game {
 		this.frame.setVisible(true);
 		
 		this.gamePanel.startGameLoop();
+		
+	}
+	
+	public static <T> void logln(T t, LogType type) {
+		
+		Game.LOGGER.logln(t, type);
+		
+	}
+	
+	public static <T> void log(T t, LogType type) {
+		
+		Game.LOGGER.log(t, type);
 		
 	}
 	
@@ -373,6 +391,8 @@ public class Game {
 					Game.PLAYER = obj.getPlayer();
 					
 					Game.fixAllImages();
+					
+					Game.logln("Loaded game", LogType.SUCCESS);
 					
 				} else {
 					
@@ -739,6 +759,8 @@ public class Game {
 		
 		Game.MAP_HANDLER.get(7).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.GOLD_ORE_TO_COIN));
 		Game.MAP_HANDLER.get(7).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.DIAMOND_ORE_TO_COIN));
+		
+		Game.logln("Reset game", LogType.SUCCESS);
 		
 	}
 

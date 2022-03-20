@@ -7,6 +7,9 @@ import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import com.game.logging.LogType;
+import com.game.main.Game;
+
 public class SavingGame {
 	
 	public static void saveGame(String path) throws IOException {
@@ -20,6 +23,8 @@ public class SavingGame {
 		
 		out.close();
 		fileOut.close();
+		
+		Game.logln("Saved game", LogType.SUCCESS);
 		
 	}
 	

@@ -19,6 +19,7 @@ import com.game.entities.base.EntityDeathMessages;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.vilagers.VillagerEntity;
+import com.game.logging.LogType;
 import com.game.main.CloneableType;
 import com.game.main.Game;
 
@@ -432,6 +433,8 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 		Game.MAP_HANDLER.CURRENT_MAP_ID = 0;
 		
 		Game.resetPlayerPosToCenter();
+		
+		Game.logln("Player died :(", LogType.INFO);
 		
 	}
 	

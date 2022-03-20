@@ -9,6 +9,7 @@ import com.game.collision.objects.base.ObjectType;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.Item;
+import com.game.logging.LogType;
 import com.game.loot.tables.handler.LootTableHandler;
 import com.game.main.Game;
 
@@ -36,12 +37,14 @@ public class ItemPlaneFallingChestEntity extends Entity {
 		if (this.x >= (float) (Game.WIDTH - this.width) || this.x <= 0f) {
 			
 			Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+			Game.logln("Removed " + this.getClass(), LogType.SUCCESS);
 			
 		}
 		
 		if (this.y >= (float) (Game.HEIGHT - (float) (this.height * 1.4f)) || this.y <= 0f) {
 			
 			Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+			Game.logln("Removed " + this.getClass(), LogType.SUCCESS);
 			
 		}
 		
@@ -61,6 +64,8 @@ public class ItemPlaneFallingChestEntity extends Entity {
 				for (int i = 0; i < list.length; i++) if (list[i] != null) stack.push(list[i]);
 				
 				Game.addObject(new ChestTransparentObject((int) this.x, (int) this.y, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), stack));
+				
+				Game.logln(String.format("Falling Item Plane Falling Chest droped at X: %f, Y: %f", this.x, this.y), LogType.SUCCESS);
 				
 				Game.removeEntity(this);
 				

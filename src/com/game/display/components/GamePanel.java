@@ -17,6 +17,7 @@ import com.game.commands.base.Commands;
 import com.game.entities.BirdEntity;
 import com.game.entities.item.planes.ItemPlaneEntity;
 import com.game.events.listeners.keys.KeyControls;
+import com.game.logging.LogType;
 import com.game.main.Game;
 import com.game.maps.OverflowHandler;
 import com.game.spawning.base.Spawner;
@@ -35,6 +36,8 @@ public class GamePanel extends JPanel implements Runnable {
 	private OverflowHandler overflowHandler;
 	
 	public GamePanel() {
+		
+		Game.logln("GamePanel class created", LogType.SUCCESS);
 		
 		this.FPS = 60;
 		
@@ -62,6 +65,8 @@ public class GamePanel extends JPanel implements Runnable {
 		this.overflowHandler = new OverflowHandler();
 		
 		this.addKeyListener(this.keyControls);
+		
+		Game.logln("Game started class created", LogType.SUCCESS);
 		
 		
 	}
@@ -108,7 +113,7 @@ public class GamePanel extends JPanel implements Runnable {
 			}
 			
 			if (timer >= 1000000000) {
-				System.out.println("FPS: " + drawCount);
+				Game.logln("FPS: " + drawCount, LogType.INFO);
 				drawCount = 0;
 				timer = 0L;
 			}

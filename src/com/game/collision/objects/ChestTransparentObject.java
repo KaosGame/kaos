@@ -10,6 +10,7 @@ import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
 import com.game.entities.player.items.base.Item;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
+import com.game.logging.LogType;
 import com.game.main.Drawable;
 import com.game.main.Game;
 
@@ -97,6 +98,8 @@ public class ChestTransparentObject extends CollisionObject implements Drawable 
 			System.out.println("NotEnoughInformationToRestoreImageException: " + e.toString());
 			
 		}
+		
+		Game.logln("Player broke chest at X: " + this.x + ", Y: " + this.y, LogType.INFO);
 		
 	}
 

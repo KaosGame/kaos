@@ -14,6 +14,7 @@ import com.game.commands.base.Commands;
 import com.game.entities.player.Player;
 import com.game.entities.player.items.base.Item;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
+import com.game.logging.LogType;
 import com.game.main.Game;
 
 public class KeyControls implements KeyListener {
@@ -114,48 +115,56 @@ public class KeyControls implements KeyListener {
 		if (KeyEvent.VK_1 == key) {
 			
 			Game.PLAYER.getHotbar().currentItemIndex = 0;
+			Game.logln("Player switched to slot 1", LogType.MESSAGE);
 			
 		}
 		
 		if (KeyEvent.VK_2 == key) {
 			
 			Game.PLAYER.getHotbar().currentItemIndex = 1;
+			Game.logln("Player switched to slot 2", LogType.MESSAGE);
 			
 		}
 		
 		if (KeyEvent.VK_3 == key) {
 			
 			Game.PLAYER.getHotbar().currentItemIndex = 2;
+			Game.logln("Player switched to slot 3", LogType.MESSAGE);
 			
 		}
 		
 		if (KeyEvent.VK_4 == key) {
 			
 			Game.PLAYER.getHotbar().currentItemIndex = 3;
+			Game.logln("Player switched to slot 4", LogType.MESSAGE);
 			
 		}
 		
 		if (KeyEvent.VK_5 == key) {
 			
 			Game.PLAYER.getHotbar().currentItemIndex = 4;
+			Game.logln("Player switched to slot 5", LogType.MESSAGE);
 			
 		}
 		
 		if (KeyEvent.VK_6 == key) {
 			
 			Game.PLAYER.getHotbar().currentItemIndex = 5;
+			Game.logln("Player switched to slot 6", LogType.MESSAGE);
 			
 		}
 		
 		if (KeyEvent.VK_7 == key) {
 			
 			Game.PLAYER.getHotbar().currentItemIndex = 6;
+			Game.logln("Player switched to slot 7", LogType.MESSAGE);
 			
 		}
 		
 		if (KeyEvent.VK_8 == key) {
 			
 			Game.PLAYER.getHotbar().currentItemIndex = 7;
+			Game.logln("Player switched to slot 8", LogType.MESSAGE);
 			
 		}
 		
@@ -283,6 +292,7 @@ public class KeyControls implements KeyListener {
 						((ChestTransparentObject) o).push(Game.PLAYER.getHotbar().getCurrentItem());
 						
 						Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+						Game.logln("Player put a item in a chest", LogType.MESSAGE);
 						
 					}
 					
@@ -313,6 +323,7 @@ public class KeyControls implements KeyListener {
 					if (Game.PLAYER.getHotbar().getCurrentItem() == null && ((ChestTransparentObject) o).isNotEmpty()) {
 						
 						Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = ((ChestTransparentObject) o).pop();
+						Game.logln("Player took a item in a chest", LogType.MESSAGE);
 						
 					}
 					
