@@ -1,8 +1,13 @@
 package com.game.logging;
 
-import java.util.Date;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
+import javax.swing.JFileChooser;
 
 public class Logger {
 	
@@ -30,7 +35,7 @@ public class Logger {
 		
 		System.out.printf("Logger: %s", text);
 		
-		this.text.concat(text);
+		this.text = this.text.concat(text);
 		
 	}
 	
@@ -50,11 +55,9 @@ public class Logger {
 		
 		System.out.printf("Logger: %s", text);
 		
-		this.text.concat(text);
+		this.text = this.text.concat(text);
 		
 	}
-	
-	
 	
 	public String getText() {
 		
@@ -62,5 +65,24 @@ public class Logger {
 		
 	}
 	
+	public void saveLogFile() throws IOException {
+		
+		JFileChooser fileChooser = new JFileChooser();
+		
+		int res = fileChooser.showSaveDialog(null);
+		
+		if (res == JFileChooser.APPROVE_OPTION) {
+			
+			FileWriter file = new FileWriter(fileChooser.getSelectedFile().getAbsolutePath());
+			
+			BufferedWriter writer = new BufferedWriter(file);
+			
+			writer.write(this.text);
+			
+			writer.close();
+			
+		}
+		
+	}
 
 }
