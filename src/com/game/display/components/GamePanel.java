@@ -7,8 +7,6 @@ import javax.swing.JPanel;
 
 import com.game.commands.DropPlayersItemsCommand;
 import com.game.commands.ForcePlaneCommand;
-import com.game.commands.GameFMCommand;
-import com.game.commands.GameGCCommand;
 import com.game.commands.GetNumberOfEntitiesCommand;
 import com.game.commands.GetPlayerPosCommand;
 import com.game.commands.GivePlayerPickaxeItemCommand;
@@ -53,8 +51,6 @@ public class GamePanel extends JPanel implements Runnable {
 		Commands.add("Game.countE();", new GetNumberOfEntitiesCommand());
 		Commands.add("Game.Player.give(Pickaxe);", new GivePlayerPickaxeItemCommand());
 		Commands.add("Game.force.item.plane();", new ForcePlaneCommand());
-		Commands.add("Game.gc();", new GameGCCommand());
-		Commands.add("Game.fm();", new GameFMCommand());
 		
 		
 		Game.reset();
