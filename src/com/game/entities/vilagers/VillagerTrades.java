@@ -11,6 +11,7 @@ public enum VillagerTrades {
 	STONE_TO_COIN(),
 	IRON_ORE_TO_COIN(),
 	GOLD_ORE_TO_COIN(),
-	DIAMOND_ORE_TO_COIN();
+	DIAMOND_ORE_TO_COIN(),
+	COIN_TO_RED_MUSHROOM();
 
 }

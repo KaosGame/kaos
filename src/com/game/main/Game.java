@@ -152,9 +152,17 @@ public class Game {
 			
 			{
 				
+				new ChangeMapCollidableObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16), 8),
 				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 6),
 				new CollidableObject(100, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
 				new CollidableObject(400, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage())
+				
+			},
+			
+			{
+				
+				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 7),
+				new CollidableObject(100, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage())
 				
 			}
 			
@@ -497,6 +505,10 @@ public class Game {
 				case MEDKIT_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(256, 0, 16, 16));
 					break;
+					
+				case RED_MUSHROOM_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(288, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -593,6 +605,10 @@ public class Game {
 								
 							case MEDKIT_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(256, 0, 16, 16));
+								break;
+								
+							case RED_MUSHROOM_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(288, 0, 16, 16));
 								break;
 							
 					
@@ -737,6 +753,7 @@ public class Game {
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[5]));
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[6]));
 		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[7]));
+		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[8]));
 		
 		Stack<Item<?>> itemsForFistChest = new Stack<Item<?>>();
 		
@@ -759,6 +776,8 @@ public class Game {
 		
 		Game.MAP_HANDLER.get(7).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.GOLD_ORE_TO_COIN));
 		Game.MAP_HANDLER.get(7).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.DIAMOND_ORE_TO_COIN));
+		
+		Game.MAP_HANDLER.get(8).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_RED_MUSHROOM));
 		
 		Game.logln("Reset game", LogType.SUCCESS);
 		
