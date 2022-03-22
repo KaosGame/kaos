@@ -19,6 +19,7 @@ public enum ItemID {
 	ORANGE_JUCE_1(),
 	BANANA_1(),
 	HEART_1(),
-	MEDKIT_1();
+	MEDKIT_1(),
+	RED_MUSHROOM_1();
 
 }
