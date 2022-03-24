@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
+import com.game.entities.player.items.Heart1Item;
 import com.game.entities.player.items.bad.food.RedMushroom1FoodItem;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.food.Apple1Item;
@@ -223,6 +224,22 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_HEART) {
+			
+			if (Game.PLAYER.getCoins() >= 1) {
+				
+				Game.PLAYER.removeCoins(1L);
+				
+				Heart1Item item = new Heart1Item(1, ItemID.HEART_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
 		}
 		
 	}
@@ -384,6 +401,22 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_HEART) {
+			
+			while (Game.PLAYER.getCoins() >= 1) {
+				
+				Game.PLAYER.removeCoins(1L);
+				
+				Heart1Item item = new Heart1Item(1, ItemID.HEART_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
 		}
 		
 	}
@@ -514,6 +547,16 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawString("1  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(288, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.COIN_TO_HEART) {
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1  -->  1", 400, 50);
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16), 490, 25, 64, 64, null);
 			
 		}
 		

@@ -16,7 +16,7 @@ public class Heart1Item extends Item<Heart1Item> {
 
 	private byte value;
 	
-	public Heart1Item(int count, ItemID id, BufferedImage image, byte value) {
+	private Heart1Item(int count, ItemID id, BufferedImage image, byte value) {
 		
 		super(count, id, image);
 		this.value = value;
