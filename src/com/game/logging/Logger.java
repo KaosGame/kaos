@@ -31,7 +31,7 @@ public class Logger {
 		String dateString = String.format("%s : %d", dateTimeFormatter.format(localDateTime), msTime);
 		
 		
-		String text = String.format("%s : %s :\t" + t.toString() + "\n", dateString, type.toString().toUpperCase());
+		String text = String.format("%s : %s\t: " + t.toString() + "\n", dateString, type.toString().toUpperCase());
 		
 		System.out.printf("Logger: %s", text);
 		
@@ -51,7 +51,7 @@ public class Logger {
 		String dateString = String.format("%s : %d", dateTimeFormatter.format(localDateTime), msTime);
 		
 		
-		String text = String.format("%s : %s :\t" + t.toString(), dateString, type.toString().toUpperCase());
+		String text = String.format("%s : %s\t: " + t.toString(), dateString, type.toString().toUpperCase());
 		
 		System.out.printf("Logger: %s", text);
 		

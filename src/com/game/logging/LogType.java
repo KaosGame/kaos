@@ -9,6 +9,7 @@ public enum LogType {
 	EXCRPTION(),
 	LOG(),
 	SUCCESS(),
+	POSSIBLY_BAD(),
 	OTHER();
 
 }

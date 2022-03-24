@@ -732,12 +732,11 @@ public class Game {
 			
 			DimensionID did = (DimensionID) Game.DIMENSION_HANDLER.getDimensionHashMap().keySet().toArray()[i];
 			
-			
 			MapHandler mp = Game.DIMENSION_HANDLER.get(did).getMapHandler();
 			
-			for (int j = 0; i < mp.getMAPS().size(); i++) {
+			for (int j = 0; j < mp.getMAPS().size(); j++) {
 				
-				Game.fixImagesForCurrentMap(mp.get(j));
+				Game.fixImagesForCurrentMap(mp.getMAPS().get(j));
 				
 			}
 			

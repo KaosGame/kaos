@@ -125,6 +125,12 @@ public class Map implements Updatable, Drawable, Serializable {
 	public EntityHandler getEntityHandler() {
 		return this.entityHandler;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Map [objectList=" + objectList + ", entityHandler=" + entityHandler + "]";
+	}
 	
 	
 
