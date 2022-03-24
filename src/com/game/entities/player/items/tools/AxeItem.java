@@ -37,7 +37,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 	@Override
 	public void use() {
 		
-		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER.currentMap().getObjectList();
+		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER().currentMap().getObjectList();
 		
 		for (int i = 0; i < tempList.size(); i++) {
 			
@@ -66,7 +66,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 					Math.random() < 0.50
 				) {
 				
-				Game.MAP_HANDLER.currentMap().removeObject(tempObj);
+				Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 				
 				LootTableHandler.createLootAtRandom(LootTableID.TREE_1_LOOT);
 				
@@ -84,7 +84,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 					tempObj instanceof PlayerObject
 				) {
 				
-				Game.MAP_HANDLER.currentMap().removeObject(tempObj);
+				Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 				
 				
 				LootTableHandler.createLootAtRandom(LootTableID.WOOD_1_LOOT);
@@ -103,7 +103,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 					Math.random() < 0.50
 				) {
 				
-				Game.MAP_HANDLER.currentMap().removeObject(tempObj);
+				Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 				
 				LootTableHandler.createLootAtRandom(LootTableID.APPLE_TREE_1_LOOT);
 				
@@ -126,7 +126,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				
 				chest.breakItem();
 				
-				Game.MAP_HANDLER.currentMap().removeObject(tempObj);
+				Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 				
 			}
 			
@@ -141,7 +141,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 					Math.random() < 0.50
 				) {
 				
-				Game.MAP_HANDLER.currentMap().removeObject(tempObj);
+				Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 				
 				LootTableHandler.createLootAtRandom(LootTableID.SIGN_1);
 				

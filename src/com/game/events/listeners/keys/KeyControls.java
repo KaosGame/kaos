@@ -282,9 +282,9 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_I == key) {
 			
-			for (int i = 0; i < Game.MAP_HANDLER.currentMap().getObjectList().size(); i++) {
+			for (int i = 0; i < Game.MAP_HANDLER().currentMap().getObjectList().size(); i++) {
 				
-				CollisionObject o = Game.MAP_HANDLER.currentMap().getObject(i);
+				CollisionObject o = Game.MAP_HANDLER().currentMap().getObject(i);
 				
 				if (o.getType() == ObjectType.CHEST && o instanceof ChestTransparentObject && Game.PLAYER.getRectangle().intersects(o.getRectangle())) {
 					
@@ -315,9 +315,9 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_U == key) {
 			
-			for (int i = 0; i < Game.MAP_HANDLER.currentMap().getObjectList().size(); i++) {
+			for (int i = 0; i < Game.MAP_HANDLER().currentMap().getObjectList().size(); i++) {
 				
-				CollisionObject o = Game.MAP_HANDLER.currentMap().getObject(i);
+				CollisionObject o = Game.MAP_HANDLER().currentMap().getObject(i);
 				
 				if (o.getType() == ObjectType.CHEST && o instanceof ChestTransparentObject && Game.PLAYER.getRectangle().intersects(o.getRectangle())) {
 					

@@ -35,6 +35,8 @@ import com.game.entities.vilagers.VillagerTrades;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
 import com.game.logging.LogType;
 import com.game.logging.Logger;
+import com.game.maps.DimensionHandler;
+import com.game.maps.DimensionID;
 import com.game.maps.Map;
 import com.game.maps.MapHandler;
 import com.game.saving.GameVersion;
@@ -168,11 +170,11 @@ public class Game {
 			
 	};
 	
-	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.2.0");
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.2.1");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
-	public static MapHandler MAP_HANDLER = new MapHandler();
+	public static DimensionHandler DIMENSION_HANDLER = new DimensionHandler();
 	
 	public static Logger LOGGER = new Logger();
 	
@@ -200,6 +202,12 @@ public class Game {
 		this.frame.setVisible(true);
 		
 		this.gamePanel.startGameLoop();
+		
+	}
+	
+	public final static MapHandler MAP_HANDLER() {
+		
+		return Game.DIMENSION_HANDLER.currentDimension().getMapHandler();
 		
 	}
 	
@@ -265,7 +273,7 @@ public class Game {
 	
 	public static void addItemEntity(float x, float y, Item<?> item, BufferedImage image, int size) {
 		
-		Game.MAP_HANDLER.currentMap().getEntityHandler().add(new ItemEntity(x, y, 0, 0, size, size, EntityID.ITEM, image, item));
+		Game.MAP_HANDLER().currentMap().getEntityHandler().add(new ItemEntity(x, y, 0, 0, size, size, EntityID.ITEM, image, item));
 		
 	}
 	
@@ -343,7 +351,7 @@ public class Game {
 		
 		float[] pos = Game.getRandomItemPos();
 		
-		Game.MAP_HANDLER.currentMap().getEntityHandler().add(new ItemEntity(pos[0], pos[1], 0, 0, 64, 64, EntityID.ITEM, item.getImage(), item));
+		Game.MAP_HANDLER().currentMap().getEntityHandler().add(new ItemEntity(pos[0], pos[1], 0, 0, 64, 64, EntityID.ITEM, item.getImage(), item));
 		
 	}
 	
@@ -351,7 +359,7 @@ public class Game {
 		
 		float[] pos = Game.getRandomItemPos(x, y);
 		
-		Game.MAP_HANDLER.currentMap().getEntityHandler().add(new ItemEntity(pos[0], pos[1], 0, 0, 64, 64, EntityID.ITEM, item.getImage(), item));
+		Game.MAP_HANDLER().currentMap().getEntityHandler().add(new ItemEntity(pos[0], pos[1], 0, 0, 64, 64, EntityID.ITEM, item.getImage(), item));
 		
 	}
 	
@@ -395,12 +403,12 @@ public class Game {
 				
 				if (obj.getVersionHashcode() == Game.VERSION.hashCode()) {
 					
-					Game.MAP_HANDLER = obj.getMapHandler();
+					Game.DIMENSION_HANDLER = obj.getDimensionHandler();
 					Game.PLAYER = obj.getPlayer();
 					
-					Game.fixAllImages();
-					
 					Game.logln("Loaded game", LogType.SUCCESS);
+					
+					Game.fixAllImages();
 					
 				} else {
 					
@@ -423,6 +431,12 @@ public class Game {
 	}
 
 	public static void fixImagesForCurrentMap(Map map) throws NotEnoughInformationToRestoreImageException {
+		
+		if (Game.DIMENSION_HANDLER.currentDimension().getId() == DimensionID.HOME) {
+			
+			Game.DIMENSION_HANDLER.currentDimension().setBackground(Game.OBJECT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+			
+		}
 		
 		Game.PLAYER.setImage(Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 		
@@ -714,9 +728,19 @@ public class Game {
 	
 	public static void fixAllImages() throws NotEnoughInformationToRestoreImageException {
 		
-		for (int i = 0; i < Game.MAP_HANDLER.getMAPS().size(); i++) {
+		for (int i = 0; i < Game.DIMENSION_HANDLER.getDimensionHashMap().size(); i++) {
 			
-			Game.fixImagesForCurrentMap(Game.MAP_HANDLER.getMAPS().get(i));
+			DimensionID did = (DimensionID) Game.DIMENSION_HANDLER.getDimensionHashMap().keySet().toArray()[i];
+			
+			
+			MapHandler mp = Game.DIMENSION_HANDLER.get(did).getMapHandler();
+			
+			for (int j = 0; i < mp.getMAPS().size(); i++) {
+				
+				Game.fixImagesForCurrentMap(mp.get(j));
+				
+			}
+			
 			
 		}
 		
@@ -724,60 +748,61 @@ public class Game {
 	
 	public static void addEntity(Entity e) {
 		
-		Game.MAP_HANDLER.currentMap().getEntityHandler().add(e);
+		Game.MAP_HANDLER().currentMap().getEntityHandler().add(e);
 		
 	}
 	
 	public static void removeEntity(Entity e) {
 		
-		Game.MAP_HANDLER.currentMap().getEntityHandler().remove(e);
+		Game.MAP_HANDLER().currentMap().getEntityHandler().remove(e);
 		
 	}
 	
 	public static void addObject(CollisionObject o) {
 		
-		Game.MAP_HANDLER.currentMap().addObject(o);
+		Game.MAP_HANDLER().currentMap().addObject(o);
 		
 	}
 
 	public static void reset() {
 		
-		Game.MAP_HANDLER = new MapHandler();
+		Game.DIMENSION_HANDLER = new DimensionHandler();
+		
 		Game.PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 		
-		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[0]));
-		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[1]));
-		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[2]));
-		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[3]));
-		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[4]));
-		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[5]));
-		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[6]));
-		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[7]));
-		Game.MAP_HANDLER.addMap(new Map(Game.BASE_MAPS[8]));
+		Game.MAP_HANDLER().addMap(new Map(Game.BASE_MAPS[0]));
+		Game.MAP_HANDLER().addMap(new Map(Game.BASE_MAPS[1]));
+		Game.MAP_HANDLER().addMap(new Map(Game.BASE_MAPS[2]));
+		Game.MAP_HANDLER().addMap(new Map(Game.BASE_MAPS[3]));
+		Game.MAP_HANDLER().addMap(new Map(Game.BASE_MAPS[4]));
+		Game.MAP_HANDLER().addMap(new Map(Game.BASE_MAPS[5]));
+		Game.MAP_HANDLER().addMap(new Map(Game.BASE_MAPS[6]));
+		Game.MAP_HANDLER().addMap(new Map(Game.BASE_MAPS[7]));
+		Game.MAP_HANDLER().addMap(new Map(Game.BASE_MAPS[8]));
 		
 		Stack<Item<?>> itemsForFistChest = new Stack<Item<?>>();
 		
 		itemsForFistChest.push(new PickaxeItem(1, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16)));
 		
-		Game.MAP_HANDLER.get(0).addObject(new ChestTransparentObject(126, 184, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), itemsForFistChest));
+		Game.MAP_HANDLER().get(0).addObject(new ChestTransparentObject(126, 184, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), itemsForFistChest));
 		
-		Game.MAP_HANDLER.get(2).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_COIN));
+		Game.MAP_HANDLER().get(2).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_COIN));
 		
-		Game.MAP_HANDLER.get(3).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_TACO));
-		Game.MAP_HANDLER.get(3).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.APPLE_TO_COIN));
+		Game.MAP_HANDLER().get(3).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_TACO));
+		Game.MAP_HANDLER().get(3).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.APPLE_TO_COIN));
 		
-		Game.MAP_HANDLER.get(4).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_PIE));
-		Game.MAP_HANDLER.get(4).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.STONE_TO_COIN));
+		Game.MAP_HANDLER().get(4).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_PIE));
+		Game.MAP_HANDLER().get(4).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.STONE_TO_COIN));
 		
-		Game.MAP_HANDLER.get(5).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_CHEST));
-		Game.MAP_HANDLER.get(5).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_SIGN));
+		Game.MAP_HANDLER().get(5).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_CHEST));
+		Game.MAP_HANDLER().get(5).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_SIGN));
 		
-		Game.MAP_HANDLER.get(6).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.IRON_ORE_TO_COIN));
+		Game.MAP_HANDLER().get(6).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.IRON_ORE_TO_COIN));
 		
-		Game.MAP_HANDLER.get(7).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.GOLD_ORE_TO_COIN));
-		Game.MAP_HANDLER.get(7).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.DIAMOND_ORE_TO_COIN));
+		Game.MAP_HANDLER().get(7).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.GOLD_ORE_TO_COIN));
+		Game.MAP_HANDLER().get(7).getEntityHandler().add(new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.DIAMOND_ORE_TO_COIN));
 		
-		Game.MAP_HANDLER.get(8).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_RED_MUSHROOM));
+		Game.MAP_HANDLER().get(8).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_RED_MUSHROOM));
 		
 		Game.logln("Reset game", LogType.SUCCESS);
 		
@@ -811,7 +836,7 @@ public class Game {
 	
 	public static boolean touchingSomething(Rectangle rect) {
 		
-		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER.currentMap().getObjectList();
+		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER().currentMap().getObjectList();
 		
 		for (int i = 0; i < tempList.size(); i++) {
 			

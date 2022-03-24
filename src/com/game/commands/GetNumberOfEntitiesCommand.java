@@ -8,7 +8,7 @@ public class GetNumberOfEntitiesCommand implements CommandBase {
 	@Override
 	public void run(String commandText) {
 		
-		this.print("The number of entities is " + Game.MAP_HANDLER.currentMap().getEntityHandler().getList().size());
+		this.print("The number of entities is " + Game.MAP_HANDLER().currentMap().getEntityHandler().getList().size());
 		
 	}
 

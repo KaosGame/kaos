@@ -1,6 +1,7 @@
 package com.game.maps;
 
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.io.Serializable;
 
 import com.game.main.CloneableType;
@@ -15,21 +16,24 @@ public class Dimension implements Updatable, Drawable, CloneableType<Dimension>,
 	private static final long serialVersionUID = 3256960586029559635L;
 
 	private MapHandler mapHandler;
-	
 	private DimensionID id;
 	
-	public Dimension(DimensionID id) {
+	private transient Image background;
+	
+	public Dimension(DimensionID id, Image background) {
 		
 		this.mapHandler = new MapHandler();
 		this.id = id;
+		this.background = background;
 		
 		
 	}
 	
-	public Dimension(MapHandler mapHandler, DimensionID id) {
+	public Dimension(MapHandler mapHandler, DimensionID id, Image background) {
 		
 		this.mapHandler = mapHandler;
 		this.id = id;
+		this.background = background;
 		
 		
 	}
@@ -63,10 +67,20 @@ public class Dimension implements Updatable, Drawable, CloneableType<Dimension>,
 	public void setId(DimensionID id) {
 		this.id = id;
 	}
+	
+	
 
 	@Override
 	public Dimension cloneType() {
-		return new Dimension(this.mapHandler, this.id);
+		return new Dimension(this.mapHandler, this.id, this.background);
+	}
+
+	public Image getBackground() {
+		return this.background;
+	}
+
+	public void setBackground(Image background) {
+		this.background = background;
 	}
 	
 }

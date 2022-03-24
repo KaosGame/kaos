@@ -34,7 +34,7 @@ public class PickaxeItem extends Item<PickaxeItem> {
 	@Override
 	public void use() {
 		
-		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER.currentMap().getObjectList();
+		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER().currentMap().getObjectList();
 		
 		for (int i = 0; i < tempList.size(); i++) {
 			
@@ -68,7 +68,7 @@ public class PickaxeItem extends Item<PickaxeItem> {
 						
 					) {
 					
-					Game.MAP_HANDLER.currentMap().removeObject(tempObj);
+					Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 					
 					LootTableHandler.createLootAtRandom(LootTableID.STONE_1);
 					
@@ -81,7 +81,7 @@ public class PickaxeItem extends Item<PickaxeItem> {
 						
 					) {
 					
-					Game.MAP_HANDLER.currentMap().removeObject(tempObj);
+					Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 					
 					LootTableHandler.createLootAtRandom(LootTableID.IRON_ORE_1);
 					
@@ -94,7 +94,7 @@ public class PickaxeItem extends Item<PickaxeItem> {
 						
 					) {
 					
-					Game.MAP_HANDLER.currentMap().removeObject(tempObj);
+					Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 					
 					LootTableHandler.createLootAtRandom(LootTableID.GOLD_ORE_1);
 					
@@ -107,7 +107,7 @@ public class PickaxeItem extends Item<PickaxeItem> {
 						
 					) {
 					
-					Game.MAP_HANDLER.currentMap().removeObject(tempObj);
+					Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 					
 					LootTableHandler.createLootAtRandom(LootTableID.DIAMOND_ORE_1);
 					

@@ -36,14 +36,14 @@ public class ItemPlaneFallingChestEntity extends Entity {
 		
 		if (this.x >= (float) (Game.WIDTH - this.width) || this.x <= 0f) {
 			
-			Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+			Game.MAP_HANDLER().currentMap().getEntityHandler().remove(this);
 			Game.logln("Removed " + this.getClass(), LogType.SUCCESS);
 			
 		}
 		
 		if (this.y >= (float) (Game.HEIGHT - (float) (this.height * 1.4f)) || this.y <= 0f) {
 			
-			Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+			Game.MAP_HANDLER().currentMap().getEntityHandler().remove(this);
 			Game.logln("Removed " + this.getClass(), LogType.SUCCESS);
 			
 		}

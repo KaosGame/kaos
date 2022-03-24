@@ -34,7 +34,7 @@ public class Chest1Item extends Item<Chest1Item> {
 		
 		if (this.count <= 0) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
 		
-		Game.MAP_HANDLER.currentMap().addObject(new ChestTransparentObject(
+		Game.MAP_HANDLER().currentMap().addObject(new ChestTransparentObject(
 																(int) Game.PLAYER.getX(),
 																(int) Game.PLAYER.getY(),
 																64,

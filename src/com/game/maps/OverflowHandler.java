@@ -2,6 +2,7 @@ package com.game.maps;
 
 import javax.swing.JOptionPane;
 
+import com.game.collision.objects.ChestTransparentObject;
 import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.entities.base.Entity;
@@ -15,15 +16,15 @@ public class OverflowHandler {
 		
 		long itemsRemoved = 0L;
 		
-		while (Game.MAP_HANDLER.currentMap().getEntityHandler().getList().size() > MapHandler.MAX_ENTITIES) {
+		while (Game.MAP_HANDLER().currentMap().getEntityHandler().getList().size() > MapHandler.MAX_ENTITIES) {
 			
-			for (int i = 0; i < Game.MAP_HANDLER.currentMap().getEntityHandler().getList().size(); i++) {
+			for (int i = 0; i < Game.MAP_HANDLER().currentMap().getEntityHandler().getList().size(); i++) {
 				
-				Entity e = Game.MAP_HANDLER.currentMap().getEntityHandler().get(i);
+				Entity e = Game.MAP_HANDLER().currentMap().getEntityHandler().get(i);
 				
 				if (e.getId().canDelete()) {
 					
-					Game.MAP_HANDLER.currentMap().getEntityHandler().remove(e);
+					Game.MAP_HANDLER().currentMap().getEntityHandler().remove(e);
 					
 					hasDeleted = true;
 					
@@ -38,15 +39,15 @@ public class OverflowHandler {
 		}
 		
 		
-		while (Game.MAP_HANDLER.currentMap().getObjectList().size() > MapHandler.MAX_OBJECTS) {
+		while (Game.MAP_HANDLER().currentMap().getObjectList().size() > MapHandler.MAX_OBJECTS) {
 			
-			for (int i = 0; i < Game.MAP_HANDLER.currentMap().getObjectList().size(); i++) {
+			for (int i = 0; i < Game.MAP_HANDLER().currentMap().getObjectList().size(); i++) {
 				
-				CollisionObject o = Game.MAP_HANDLER.currentMap().getObject(i);
+				CollisionObject o = Game.MAP_HANDLER().currentMap().getObject(i);
 				
-				if (o instanceof PlayerObject) {
+				if (o instanceof PlayerObject || o instanceof ChestTransparentObject) {
 					
-					Game.MAP_HANDLER.currentMap().removeObject(o);
+					Game.MAP_HANDLER().currentMap().removeObject(o);
 					
 					hasDeleted = true;
 					

@@ -34,7 +34,7 @@ public class DiamondOre1Item extends Item<DiamondOre1Item> {
 		
 		if (this.count <= 0) Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
 		
-		Game.MAP_HANDLER.currentMap().addObject(new PlayerObject(
+		Game.MAP_HANDLER().currentMap().addObject(new PlayerObject(
 																(int) Game.PLAYER.getX(),
 																(int) Game.PLAYER.getY(),
 																64,

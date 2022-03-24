@@ -7,6 +7,7 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.logging.LogType;
 import com.game.main.Game;
+import com.game.maps.DimensionID;
 import com.game.random.RandomChance;
 import com.game.spawning.base.Spawnable;
 
@@ -45,7 +46,7 @@ public class ItemPlaneEntity extends Entity implements Spawnable {
 		
 		if (this.x > Game.WIDTH || this.x < 0f || this.y > Game.HEIGHT || this.y < 0f || (this.xv == 0f && this.yv == 0f)) {
 			
-			Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+			Game.MAP_HANDLER().currentMap().getEntityHandler().remove(this);
 			Game.logln("Removed " + this.getClass(), LogType.SUCCESS);
 			
 		}
@@ -115,7 +116,7 @@ public class ItemPlaneEntity extends Entity implements Spawnable {
 		
 		if (
 				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() &&
-				random.nextBoolean() && !random.nextBoolean() && chance.firstChoose(0.25) && random.nextBoolean()
+				random.nextBoolean() && !random.nextBoolean() && chance.firstChoose(0.25) && random.nextBoolean() && Game.DIMENSION_HANDLER.currentDimension().getId() == DimensionID.HOME
 			) {
 			
 			this.spawn();
@@ -127,7 +128,7 @@ public class ItemPlaneEntity extends Entity implements Spawnable {
 	@Override
 	public void spawn() {
 		
-		Game.MAP_HANDLER.currentMap().getEntityHandler().add(new ItemPlaneEntity((int) (Game.WIDTH - 64), 0, 0, 0, 64, 64, EntityID.ITEM_PLANE, Game.PLANE_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), true));
+		Game.MAP_HANDLER().currentMap().getEntityHandler().add(new ItemPlaneEntity((int) (Game.WIDTH - 64), 0, 0, 0, 64, 64, EntityID.ITEM_PLANE, Game.PLANE_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), true));
 		
 		Game.logln("New Item Plane Summoned successfully", LogType.SUCCESS);
 		

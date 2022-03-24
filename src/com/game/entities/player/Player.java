@@ -119,9 +119,9 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 	
 	public void trade() {
 		
-		for (int i = 0; i < Game.MAP_HANDLER.currentMap().getEntityHandler().getList().size(); i++) {
+		for (int i = 0; i < Game.MAP_HANDLER().currentMap().getEntityHandler().getList().size(); i++) {
 			
-			Entity e = Game.MAP_HANDLER.currentMap().getEntityHandler().get(i);
+			Entity e = Game.MAP_HANDLER().currentMap().getEntityHandler().get(i);
 			
 			if (e instanceof VillagerEntity && e.getRectangle().intersects(this.getRectangle())) {
 				
@@ -135,9 +135,9 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 	
 	public void tradeAll() {
 		
-		for (int i = 0; i < Game.MAP_HANDLER.currentMap().getEntityHandler().getList().size(); i++) {
+		for (int i = 0; i < Game.MAP_HANDLER().currentMap().getEntityHandler().getList().size(); i++) {
 			
-			Entity e = Game.MAP_HANDLER.currentMap().getEntityHandler().get(i);
+			Entity e = Game.MAP_HANDLER().currentMap().getEntityHandler().get(i);
 			
 			if (e instanceof VillagerEntity && e.getRectangle().intersects(this.getRectangle())) {
 				
@@ -251,7 +251,7 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 
 	private void handleCollidableObjects(final float OLD_X, final float OLD_Y) {
 		
-		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER.currentMap().getObjectList();
+		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER().currentMap().getObjectList();
 		
 		for (int i = 0; i < tempList.size(); i++) {
 			
@@ -430,7 +430,7 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 		
 		JOptionPane.showMessageDialog(null, message.getDeathMessage(), "Info", JOptionPane.INFORMATION_MESSAGE);
 		
-		Game.MAP_HANDLER.CURRENT_MAP_ID = 0;
+		Game.MAP_HANDLER().CURRENT_MAP_ID = 0;
 		
 		Game.resetPlayerPosToCenter();
 		

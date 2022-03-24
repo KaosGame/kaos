@@ -12,7 +12,7 @@ public class GetPlayerPosCommand implements CommandBase {
 		
 		this.print("Player X = " + pos[0]);
 		this.print("Player Y = " + pos[1]);
-		this.print("Current Map ID = " + Game.MAP_HANDLER.CURRENT_MAP_ID);
+		this.print("Current Map ID = " + Game.MAP_HANDLER().CURRENT_MAP_ID);
 		
 	}
 

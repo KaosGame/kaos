@@ -43,7 +43,7 @@ public class Sign1Item extends Item<Sign1Item> {
 		
 		if (text != null) {
 			
-			Game.MAP_HANDLER.currentMap().addObject(
+			Game.MAP_HANDLER().currentMap().addObject(
 					new TextSignObject(
 							(int) Game.PLAYER.getX(),
 							(int) Game.PLAYER.getY(),

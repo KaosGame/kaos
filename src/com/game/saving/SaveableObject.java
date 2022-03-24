@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.game.entities.player.Player;
 import com.game.main.Game;
-import com.game.maps.MapHandler;
+import com.game.maps.DimensionHandler;
 
 public class SaveableObject implements Serializable {
 	
@@ -13,7 +13,7 @@ public class SaveableObject implements Serializable {
 	 */
 	private static final long serialVersionUID = 8843059449073582668L;
 	
-	private MapHandler mapHandler;
+	private DimensionHandler dimensionHandler;
 	private Player player;
 	
 	private GameVersion version;
@@ -21,7 +21,7 @@ public class SaveableObject implements Serializable {
 	
 	public SaveableObject() {
 		
-		this.mapHandler = Game.MAP_HANDLER.cloneType();
+		this.dimensionHandler = Game.DIMENSION_HANDLER.cloneType();
 		this.player = Game.PLAYER.cloneType();
 		
 		this.version = Game.VERSION;
@@ -29,16 +29,16 @@ public class SaveableObject implements Serializable {
 		
 	}
 
-	public MapHandler getMapHandler() {
-		return mapHandler;
+	public DimensionHandler getDimensionHandler() {
+		return this.dimensionHandler;
 	}
 
-	public void setMapHandler(MapHandler mapHandler) {
-		this.mapHandler = mapHandler;
+	public void setDimensionHandler(DimensionHandler dimensionHandler) {
+		this.dimensionHandler = dimensionHandler;
 	}
 
 	public Player getPlayer() {
-		return player;
+		return this.player;
 	}
 
 	public void setPlayer(Player player) {
@@ -46,7 +46,7 @@ public class SaveableObject implements Serializable {
 	}
 
 	public GameVersion getVersion() {
-		return version;
+		return this.version;
 	}
 
 	public void setVersion(GameVersion version) {
@@ -54,7 +54,7 @@ public class SaveableObject implements Serializable {
 	}
 
 	public int getVersionHashcode() {
-		return versionHashcode;
+		return this.versionHashcode;
 	}
 
 	public void setVersionHashcode(int versionHashcode) {

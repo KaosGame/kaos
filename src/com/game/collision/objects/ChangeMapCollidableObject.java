@@ -27,7 +27,7 @@ public class ChangeMapCollidableObject extends CollisionObject implements Drawab
 	@Override
 	public void collide() {
 		
-		Game.MAP_HANDLER.CURRENT_MAP_ID = this.loadMapID;
+		Game.MAP_HANDLER().CURRENT_MAP_ID = this.loadMapID;
 		Game.resetPlayerPosToCenter();
 		
 	}

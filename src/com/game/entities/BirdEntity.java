@@ -7,6 +7,7 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.logging.LogType;
 import com.game.main.Game;
+import com.game.maps.DimensionID;
 import com.game.spawning.base.Spawnable;
 
 public class BirdEntity extends Entity implements Spawnable {
@@ -36,7 +37,7 @@ public class BirdEntity extends Entity implements Spawnable {
 		this.x += this.xv;
 		this.y += this.yv;
 		
-		if (this.x > Game.WIDTH || this.x < 0f || this.y > Game.HEIGHT || this.y < 0f || (this.xv == 0f && this.yv == 0f)) Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+		if (this.x > Game.WIDTH || this.x < 0f || this.y > Game.HEIGHT || this.y < 0f || (this.xv == 0f && this.yv == 0f)) Game.MAP_HANDLER().currentMap().getEntityHandler().remove(this);
 		
 	}
 
@@ -85,7 +86,7 @@ public class BirdEntity extends Entity implements Spawnable {
 			e.setXv(tempXv);
 			e.setYv(tempYv);
 			
-			Game.MAP_HANDLER.currentMap().getEntityHandler().add(e);
+			Game.MAP_HANDLER().currentMap().getEntityHandler().add(e);
 			
 			Game.logln("New Bird Summoned successfully", LogType.SUCCESS);
 			
@@ -100,7 +101,8 @@ public class BirdEntity extends Entity implements Spawnable {
 		Random random = new Random();
 		
 		if (
-				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean()
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() &&
+				Game.DIMENSION_HANDLER.currentDimension().getId() == DimensionID.HOME
 			) {
 			
 			this.spawn();

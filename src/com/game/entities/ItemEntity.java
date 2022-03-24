@@ -35,10 +35,10 @@ public class ItemEntity extends Entity {
 		if (
 				this.getRectangle().intersects(Game.PLAYER.getRectangle()) &&
 				Game.PLAYER.getHotbar().returnBooleanAndAddItem(this.item)
-			) Game.MAP_HANDLER.currentMap().getEntityHandler().remove(this);
+			) Game.MAP_HANDLER().currentMap().getEntityHandler().remove(this);
 		
 		
-		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER.currentMap().getObjectList();
+		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER().currentMap().getObjectList();
 		
 		for (int i = 0; i < tempList.size(); i++) {
 			

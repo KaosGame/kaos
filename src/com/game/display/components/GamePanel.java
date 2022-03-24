@@ -125,7 +125,7 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		try {
 			
-			Game.MAP_HANDLER.currentMap().update();
+			Game.MAP_HANDLER().currentMap().update();
 			
 			Game.PLAYER.update();
 			
@@ -159,7 +159,7 @@ public class GamePanel extends JPanel implements Runnable {
 			
 			this.drawBackground(g2d);
 			
-			Game.MAP_HANDLER.currentMap().draw(g2d);
+			Game.MAP_HANDLER().currentMap().draw(g2d);
 			
 			Game.PLAYER.draw(g2d);
 			
@@ -180,7 +180,7 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	private void drawBackground(Graphics2D g2d) {
 		
-		g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), 0, 0, Game.WIDTH, Game.HEIGHT, null);
+		g2d.drawImage(Game.DIMENSION_HANDLER.currentDimension().getBackground(), 0, 0, Game.WIDTH, Game.HEIGHT, null);
 		
 	}
 	
