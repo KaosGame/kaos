@@ -13,7 +13,7 @@ import com.game.collision.objects.CollidableWallObject;
 import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
-import com.game.entities.base.Dieable;
+import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityDeathMessages;
 import com.game.entities.base.EntityID;
@@ -23,14 +23,14 @@ import com.game.logging.LogType;
 import com.game.main.CloneableType;
 import com.game.main.Game;
 
-public class Player extends Entity implements Dieable, Serializable, CloneableType<Player> {
+public class Player extends DamageableEntity implements Serializable, CloneableType<Player> {
 	
-
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -2433885122852695817L;
+	private static final long serialVersionUID = -3962554415862002362L;
+	
 	
 	public static final float DEFAULT_SPEED = 4f;
 	public static final float DASH_SPEED = (float) (Player.DEFAULT_SPEED * 2.5f);
@@ -51,14 +51,13 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 	private PlayerHotbar hotbar;
 	
 	private int hunger;
-	private float health;
 	
 	private long coins;
 	
 	
 	public Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image) {
 		
-		super(x, y, xv, yv, width, height, id, image);
+		super(x, y, xv, yv, width, height, id, image, Player.MAX_HEALTH);
 		
 		this.hunger = Player.MAX_HUNGER;
 		this.health = Player.MAX_HEALTH;
@@ -80,13 +79,12 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 	private Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image,
 			boolean[] keysDown, boolean dashKeyDown, PlayerHotbar hotbar, int hunger, float health, long coins) {
 		
-		super(x, y, xv, yv, width, height, id, image);
+		super(x, y, xv, yv, width, height, id, image, health);
 		
 		this.keysDown = keysDown;
 		this.dashKeyDown = dashKeyDown;
 		this.hotbar = hotbar;
 		this.hunger = hunger;
-		this.health = health;
 		this.coins = coins;
 		
 		
@@ -486,6 +484,25 @@ public class Player extends Entity implements Dieable, Serializable, CloneableTy
 	@Override
 	public Player cloneType() {
 		return new Player(this.x, this.y, this.xv, this.yv, this.width, this.height, this.id, this.image, this.keysDown, this.dashKeyDown, this.hotbar.cloneType(), this.hunger, this.health, this.coins);
+	}
+
+
+
+	@Override
+	public void damage(float num, EntityDeathMessages deathType) {
+		
+		float tempHP = (float) (this.health - num);
+		
+		if (tempHP <= 0) {
+			
+			this.die(deathType);
+			
+		} else {
+			
+			this.health -= num;
+			
+		}
+		
 	}
 	
 }
