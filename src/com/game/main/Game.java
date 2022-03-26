@@ -1,6 +1,8 @@
 package com.game.main;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -192,14 +194,15 @@ public class Game {
 		this.frame.setSize(Game.WIDTH, Game.HEIGHT);
 		this.frame.setTitle(title);
 		this.frame.setResizable(false);
-		this.frame.setLayout(null);
+		this.frame.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 		
 		
-		this.gamePanel.setBounds(0, 0, Game.WIDTH, Game.HEIGHT);
+		this.gamePanel.setPreferredSize(new Dimension(Game.WIDTH, Game.HEIGHT));
 		this.frame.add(this.gamePanel);
 		
 		
 		
+		this.frame.pack();
 		this.frame.setVisible(true);
 		
 		this.gamePanel.startGameLoop();
