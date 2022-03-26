@@ -194,6 +194,8 @@ public class Game {
 		this.frame.setSize(Game.WIDTH, Game.HEIGHT);
 		this.frame.setTitle(title);
 		this.frame.setResizable(false);
+		this.frame.setMinimumSize(new Dimension(Game.WIDTH, Game.HEIGHT));
+		this.frame.setMaximumSize(new Dimension(Game.WIDTH, Game.HEIGHT));
 		this.frame.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 		
 		
@@ -201,8 +203,7 @@ public class Game {
 		this.frame.add(this.gamePanel);
 		
 		
-		
-		this.frame.pack();
+		this.frame.setSize(new Dimension(Game.WIDTH, Game.HEIGHT));
 		this.frame.setVisible(true);
 		
 		this.gamePanel.startGameLoop();
@@ -416,7 +417,7 @@ public class Game {
 					
 				} else {
 					
-					JOptionPane.showMessageDialog(null, "Can not load a save file from " + obj.getVersion().getVersion() + " in " + Game.VERSION.getVersion(), "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Can not load a save file from " + obj.getVersion().getVersion() + " in " + Game.VERSION.getVersion(), "Warning", JOptionPane.WARNING_MESSAGE);
 					
 				}
 				
@@ -424,13 +425,28 @@ public class Game {
 				
 				e.printStackTrace();
 				
+				Game.logln(e.toString(), LogType.EXCRPTION);
+				loadingSaveFileEErrorMessage();
+				
 			} catch (NotEnoughInformationToRestoreImageException e) {
 				
-				System.out.println(e.toString());
+				Game.logln(e.toString(), LogType.EXCRPTION);
+				loadingSaveFileEErrorMessage();
+				
+			} catch (Exception e) {
+				
+				Game.logln(e.toString(), LogType.EXCRPTION);
+				loadingSaveFileEErrorMessage();
 				
 			}
 			
 		}
+		
+	}
+	
+	private static void loadingSaveFileEErrorMessage() {
+		
+		JOptionPane.showMessageDialog(null, "Can not load save file!", "Error", JOptionPane.ERROR_MESSAGE);
 		
 	}
 
