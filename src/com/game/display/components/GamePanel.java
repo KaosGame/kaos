@@ -165,6 +165,9 @@ public class GamePanel extends JPanel implements Runnable {
 			
 			Game.HUD.draw(g2d);
 			
+			g2d.dispose();
+			g.dispose();
+			
 		} catch (NullPointerException e) {
 			
 			e.printStackTrace();
