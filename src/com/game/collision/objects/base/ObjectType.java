@@ -15,7 +15,9 @@ public enum ObjectType {
 	STONE_1(false),
 	IRON_ORE_1(false),
 	GOLD_ORE_1(false),
-	DIAMOND_ORE_1(false);
+	DIAMOND_ORE_1(false),
+	WATER(false),
+	LAVA(false);
 	
 	private final boolean TRANSPARENT;
 	

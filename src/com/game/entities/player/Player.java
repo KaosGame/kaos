@@ -432,7 +432,7 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 		
 		Game.resetPlayerPosToCenter();
 		
-		Game.logln("Player died :(", LogType.INFO);
+		Game.logln(String.format("%s :(", message.getDeathMessage()), LogType.INFO);
 		
 	}
 	

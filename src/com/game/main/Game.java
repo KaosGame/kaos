@@ -20,7 +20,9 @@ import com.game.collision.objects.ChangeMapCollidableObject;
 import com.game.collision.objects.ChestTransparentObject;
 import com.game.collision.objects.CollidableObject;
 import com.game.collision.objects.CollidableWallObject;
+import com.game.collision.objects.LavaTransparentCollisionObject;
 import com.game.collision.objects.TextSignObject;
+import com.game.collision.objects.WaterTransparentCollisionObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
 import com.game.display.HUD;
@@ -126,7 +128,9 @@ public class Game {
 				new ChangeMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 3),
 				new CollidableObject(100, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
 				new CollidableObject(75, 240, 128, 128, ObjectType.APPLE_TREE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16)),
-				new CollidableObject(400, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage())
+				new CollidableObject(400, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
+				new WaterTransparentCollisionObject((int) (Game.WIDTH - 64), (int) (Game.HEIGHT - 85), 64, 64, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
+				new LavaTransparentCollisionObject((int) (Game.WIDTH - 128), (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAVA, Game.OBJECT_TEXTRA_ALICE.getImageFrom(288, 0, 16, 16))
 				
 			},
 			
@@ -738,6 +742,14 @@ public class Game {
 					
 				case DIAMOND_ORE_1:
 					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(256, 0, 16, 16));
+					break;
+					
+				case WATER:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16));
+					break;
+					
+				case LAVA:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(288, 0, 16, 16));
 					break;
 			
 			}

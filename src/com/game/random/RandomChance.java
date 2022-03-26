@@ -2,6 +2,11 @@ package com.game.random;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * RandomChance is a class that can return a random chance
+ * 
+ */
 public class RandomChance implements Serializable {
 	
 	/**
@@ -9,6 +14,11 @@ public class RandomChance implements Serializable {
 	 */
 	private static final long serialVersionUID = -4376254531231893113L;
 
+	/**
+	 * 
+	 * RandomChance is a class that can return a random chance
+	 * 
+	 */
 	public RandomChance() {
 		
 		super();
