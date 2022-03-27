@@ -9,6 +9,7 @@ import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.food.Apple1Item;
 import com.game.entities.player.items.food.Banana1Item;
+import com.game.entities.player.items.food.Cookie1FoodItem;
 import com.game.entities.player.items.food.OrangeJuce1Item;
 import com.game.entities.player.items.food.Pie1Item;
 import com.game.entities.player.items.food.Taco1Item;
@@ -134,6 +135,10 @@ public class LootTableHandler {
 					} else if (chance.firstChoose(0.10)) {
 						
 						listOfItems[i] = new Taco1Item(countOfFood, ItemID.TACO_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16));
+						
+					} else if (chance.firstChoose(0.05)) {
+						
+						listOfItems[i] = new Cookie1FoodItem(countOfFood, ItemID.COOKIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16));
 						
 					} else {
 						

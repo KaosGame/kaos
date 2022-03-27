@@ -547,6 +547,10 @@ public class Game {
 				case RED_MUSHROOM_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(288, 0, 16, 16));
 					break;
+					
+				case COOKIE_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -647,6 +651,10 @@ public class Game {
 								
 							case RED_MUSHROOM_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(288, 0, 16, 16));
+								break;
+								
+							case COOKIE_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16));
 								break;
 							
 					
