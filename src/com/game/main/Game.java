@@ -427,8 +427,6 @@ public class Game {
 				
 			} catch (ClassNotFoundException | IOException e) {
 				
-				e.printStackTrace();
-				
 				Game.logln(e.toString(), LogType.EXCRPTION);
 				loadingSaveFileEErrorMessage();
 				
