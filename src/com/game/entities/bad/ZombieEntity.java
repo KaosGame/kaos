@@ -50,7 +50,7 @@ public class ZombieEntity extends DamageableEntity {
 		
 		if (
 				this.getRectangle().intersects(Game.PLAYER.getRectangle()) &&
-				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean()
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && Math.random() < 0.50
 				
 			) {
 			

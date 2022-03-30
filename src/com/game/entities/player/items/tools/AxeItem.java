@@ -8,6 +8,7 @@ import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
 import com.game.entities.bad.ZombieEntity;
+import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.ItemID;
@@ -165,7 +166,8 @@ public class AxeItem extends WeaponItem<AxeItem> {
 					&& e.getId() == EntityID.ZOMBIE && Math.random() < 0.50) {
 				
 				((ZombieEntity) e).damage(this.damage);
-				Game.logln(String.format("Player did %f!", this.damage), LogType.INFO);
+				Game.logln(String.format("Player did %f to a zombie with the health of %f!", this.damage,
+						((DamageableEntity) e).getHealth()), LogType.INFO);
 				
 			}
 			
