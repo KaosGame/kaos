@@ -29,7 +29,7 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3962554415862002362L;
+	private static final long serialVersionUID = -2433885122852695817L;
 	
 	
 	public static final float DEFAULT_SPEED = 4f;
