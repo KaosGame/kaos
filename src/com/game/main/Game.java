@@ -428,17 +428,17 @@ public class Game {
 			} catch (ClassNotFoundException | IOException e) {
 				
 				Game.logln(e.toString(), LogType.EXCRPTION);
-				loadingSaveFileEErrorMessage();
+				Game.loadingSaveFileEErrorMessage();
 				
 			} catch (NotEnoughInformationToRestoreImageException e) {
 				
 				Game.logln(e.toString(), LogType.EXCRPTION);
-				loadingSaveFileEErrorMessage();
+				Game.loadingSaveFileEErrorMessage();
 				
 			} catch (Exception e) {
 				
 				Game.logln(e.toString(), LogType.EXCRPTION);
-				loadingSaveFileEErrorMessage();
+				Game.loadingSaveFileEErrorMessage();
 				
 			}
 			
