@@ -680,6 +680,10 @@ public class Game {
 				case ITEM_PLANE_FALLING_CHEST:
 					e.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
 					break;
+					
+				case ZOMBIE:
+					e.setImage(Game.ZOMBIE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					break;
 			
 			}
 			
