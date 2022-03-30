@@ -7,7 +7,8 @@ public enum EntityID {
 	VILAGER(false),
 	BIRD(true),
 	ITEM_PLANE(true),
-	ITEM_PLANE_FALLING_CHEST(true);
+	ITEM_PLANE_FALLING_CHEST(true),
+	ZOMBIE(true);
 	
 	private final boolean CAN_DELETE;
 	

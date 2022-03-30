@@ -1,6 +1,7 @@
 package com.game.entities.bad;
 
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.EntityDeathMessages;
@@ -20,8 +21,8 @@ public class ZombieEntity extends DamageableEntity {
 		
 	}
 	
-	public ZombieEntity(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image) {
-		super(x, y, xv, yv, width, height, id, image, 20f);
+	public ZombieEntity(float x, float y, int width, int height, EntityID id, BufferedImage image) {
+		super(x, y, 0f, 0f, width, height, id, image, 20f);
 		
 	}
 
@@ -44,6 +45,18 @@ public class ZombieEntity extends DamageableEntity {
 		
 		this.x = Game.clamp(this.x, (float) (Game.WIDTH - this.width), 0f);
 		this.y = Game.clamp(this.y, (float) (Game.HEIGHT - (float) (this.height * 1.3f)), 0f);
+		
+		Random random = new Random();
+		
+		if (
+				this.getRectangle().intersects(Game.PLAYER.getRectangle()) &&
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean()
+				
+			) {
+			
+			Game.PLAYER.damage(1f);
+			
+		}
 		
 	}
 
