@@ -7,8 +7,12 @@ import com.game.collision.objects.ChestTransparentObject;
 import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
+import com.game.entities.bad.ZombieEntity;
+import com.game.entities.base.Entity;
+import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.base.WeaponItem;
+import com.game.logging.LogType;
 import com.game.loot.tables.handler.LootTableHandler;
 import com.game.loot.tables.handler.LootTableID;
 import com.game.main.Game;
@@ -37,11 +41,11 @@ public class AxeItem extends WeaponItem<AxeItem> {
 	@Override
 	public void use() {
 		
-		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER().currentMap().getObjectList();
+		LinkedList<CollisionObject> tempObjList = Game.MAP_HANDLER().currentMap().getObjectList();
 		
-		for (int i = 0; i < tempList.size(); i++) {
+		for (int i = 0; i < tempObjList.size(); i++) {
 			
-			CollisionObject tempObj = tempList.get(i);
+			CollisionObject tempObj = tempObjList.get(i);
 			
 			if (
 					Game.getRectangle(
@@ -144,6 +148,24 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 				
 				LootTableHandler.createLootAtRandom(LootTableID.SIGN_1);
+				
+			}
+			
+		}
+		
+		LinkedList<Entity> tempEList = Game.MAP_HANDLER().currentMap().getEntityHandler().getList();
+		
+		for (int i = 0; i < tempEList.size(); i++) {
+			
+			Entity e = tempEList.get(i);
+			
+			if (e.equals(Game.PLAYER)) continue;
+			
+			if (e instanceof ZombieEntity && Game.PLAYER.getRectangle().intersects(e.getRectangle())
+					&& e.getId() == EntityID.ZOMBIE && Math.random() < 0.50) {
+				
+				((ZombieEntity) e).damage(this.damage);
+				Game.logln(String.format("Player did %f!", this.damage), LogType.INFO);
 				
 			}
 			

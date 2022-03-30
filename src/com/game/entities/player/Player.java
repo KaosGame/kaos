@@ -541,5 +541,46 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 		this.damage(num, null);
 		
 	}
+
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + (int) (coins ^ (coins >>> 32));
+		result = prime * result + (dashKeyDown ? 1231 : 1237);
+		result = prime * result + ((hotbar == null) ? 0 : hotbar.hashCode());
+		result = prime * result + hunger;
+		result = prime * result + Arrays.hashCode(keysDown);
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Player other = (Player) obj;
+		if (coins != other.coins)
+			return false;
+		if (dashKeyDown != other.dashKeyDown)
+			return false;
+		if (hotbar == null) {
+			if (other.hotbar != null)
+				return false;
+		} else if (!hotbar.equals(other.hotbar))
+			return false;
+		if (hunger != other.hunger)
+			return false;
+		if (!Arrays.equals(keysDown, other.keysDown))
+			return false;
+		return true;
+	}
 	
 }

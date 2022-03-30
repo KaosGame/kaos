@@ -236,4 +236,33 @@ public class PlayerHotbar implements CloneableType<PlayerHotbar>, Serializable {
 		return new PlayerHotbar(this.list, this.currentItemIndex);
 	}
 
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + currentItemIndex;
+		result = prime * result + Arrays.hashCode(list);
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PlayerHotbar other = (PlayerHotbar) obj;
+		if (currentItemIndex != other.currentItemIndex)
+			return false;
+		if (!Arrays.equals(list, other.list))
+			return false;
+		return true;
+	}
+
 }

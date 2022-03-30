@@ -37,7 +37,7 @@ public class RandomChance implements Serializable {
 	 */
 	public boolean firstChoose(float chance) {
 		
-		return (Math.random() < chance);
+		return (boolean) (Math.random() < chance);
 		
 	}
 	
@@ -52,7 +52,7 @@ public class RandomChance implements Serializable {
 	 */
 	public boolean firstChoose(double chance) {
 		
-		return (Math.random() < chance);
+		return (boolean) (Math.random() < chance);
 		
 	}
 	
