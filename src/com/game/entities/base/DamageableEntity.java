@@ -22,5 +22,6 @@ public abstract class DamageableEntity extends Entity implements Dieable {
 	}
 	
 	public abstract void damage(float num, EntityDeathMessages deathType);
+	public abstract void damage(float num);
 
 }

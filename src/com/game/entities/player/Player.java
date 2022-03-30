@@ -420,20 +420,36 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 
 	@Override
 	public void die(EntityDeathMessages message) {
-		
+
 		this.health = Player.MAX_HEALTH;
 		this.hunger = Player.MAX_HUNGER;
-		
+
 		this.dropAllItems();
-		
-		JOptionPane.showMessageDialog(null, message.getDeathMessage(), "Info", JOptionPane.INFORMATION_MESSAGE);
-		
-		Game.MAP_HANDLER().CURRENT_MAP_ID = 0;
-		
-		Game.resetPlayerPosToCenter();
-		
-		Game.logln(String.format("%s :(", message.getDeathMessage()), LogType.INFO);
-		
+
+		if (message != null) {
+
+			JOptionPane.showMessageDialog(null, message.getDeathMessage(), "Info", JOptionPane.INFORMATION_MESSAGE);
+
+			Game.MAP_HANDLER().CURRENT_MAP_ID = 0;
+
+			Game.resetPlayerPosToCenter();
+
+			Game.logln(String.format("%s :(", message.getDeathMessage()), LogType.INFO);
+
+		} else {
+
+			JOptionPane.showMessageDialog(null,
+					String.format("Player has died with the score of %d!", EntityDeathMessages.getPlayerScore()),
+					"Info", JOptionPane.INFORMATION_MESSAGE);
+
+			Game.MAP_HANDLER().CURRENT_MAP_ID = 0;
+
+			Game.resetPlayerPosToCenter();
+
+			Game.logln("Player dead :(", LogType.INFO);
+
+		}
+
 	}
 	
 	public void dropAllItems() {
@@ -483,7 +499,10 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 
 	@Override
 	public Player cloneType() {
-		return new Player(this.x, this.y, this.xv, this.yv, this.width, this.height, this.id, this.image, this.keysDown, this.dashKeyDown, this.hotbar.cloneType(), this.hunger, this.health, this.coins);
+		
+		return new Player(this.x, this.y, this.xv, this.yv, this.width, this.height, this.id, this.image, this.keysDown,
+				this.dashKeyDown, this.hotbar.cloneType(), this.hunger, this.health, this.coins);
+		
 	}
 
 
@@ -502,6 +521,24 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 			this.health -= num;
 			
 		}
+		
+	}
+
+
+
+	@Override
+	public void die() {
+		
+		this.die(null);
+		
+	}
+
+
+
+	@Override
+	public void damage(float num) {
+		
+		this.damage(num, null);
 		
 	}
 	

@@ -22,9 +22,7 @@ public enum EntityDeathMessages {
 	
 	public String getDeathMessage() {
 		
-		long deathScore = Game.PLAYER.getCoins();
-		
-		String text = String.format(this.MESSAGE, deathScore);
+		String text = String.format(this.MESSAGE, EntityDeathMessages.getPlayerScore());
 		
 		return text;
 		
@@ -33,6 +31,14 @@ public enum EntityDeathMessages {
 	public String getTrueText() {
 		
 		return this.MESSAGE;
+		
+	}
+	
+	public static long getPlayerScore() {
+		
+		long deathScore = Game.PLAYER.getCoins();
+		
+		return deathScore;
 		
 	}
 
