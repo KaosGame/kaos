@@ -8,6 +8,7 @@ import com.game.collision.objects.base.CollisionObject;
 import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.EntityDeathMessages;
 import com.game.entities.base.EntityID;
+import com.game.logging.LogType;
 import com.game.main.Game;
 import com.game.spawning.base.Spawnable;
 
@@ -103,7 +104,14 @@ public class ZombieEntity extends DamageableEntity implements Spawnable {
 				this.getRectangle().intersects(Game.PLAYER.getRectangle()) &&
 				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && Math.random() < 0.50
 				
-			) Game.PLAYER.damage(1f, EntityDeathMessages.ZOMBIE);
+			) {
+			
+			final float DAMAGE = 1f;
+			
+			Game.PLAYER.damage(DAMAGE, EntityDeathMessages.ZOMBIE);
+			Game.logln(String.format("Zombie did %f damage to a player with the health of %f!", DAMAGE, Game.PLAYER.getHealth()), LogType.INFO);
+			
+		}
 		
 	}
 
@@ -207,7 +215,7 @@ public class ZombieEntity extends DamageableEntity implements Spawnable {
 		
 		if (
 				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() &&
-				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && Math.random() < 0.50
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && Math.random() < 0.50
 			) {
 			
 			this.spawn();
