@@ -64,7 +64,7 @@ public class OverflowHandler {
 		if (hasDeleted) {
 			
 			JOptionPane.showMessageDialog(null, "Warning some things have being deleted from your world\nbecause you had more that the max", "Warning", JOptionPane.WARNING_MESSAGE);
-			System.out.println("Warning some things have being deleted from your world because you had more that the max so we removed " + itemsRemoved + " things");
+			Game.logln("Warning some things have being deleted from your world because you had more that the max so we removed " + itemsRemoved + " things");
 			
 		}
 		
