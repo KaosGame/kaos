@@ -1,6 +1,7 @@
 package com.game.random;
 
 import java.io.Serializable;
+import java.util.Random;
 
 /**
  * 
@@ -83,6 +84,27 @@ public class RandomChance implements Serializable {
 	public boolean lastChoose(double chance) {
 		
 		return (Math.random() > chance);
+		
+	}
+	
+	/**
+	 * Runs alot of boolean tests and returns and the result
+	 */
+	public boolean alotOfBooleans() {
+		
+		Random random = new Random();
+		
+		if (
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() &&
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean()
+				
+			) {
+			
+			return true;
+			
+		}
+		
+		return false;
 		
 	}
 	

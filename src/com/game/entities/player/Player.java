@@ -257,7 +257,7 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 			
 			if (this.getRectangle().intersects(tempObj.getRectangle())) {
 				
-				tempObj.collide();
+				tempObj.collide(this);
 				
 			}
 			
@@ -425,6 +425,8 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 		this.hunger = Player.MAX_HUNGER;
 
 		this.dropAllItems();
+		
+		Arrays.fill(this.keysDown, false);
 
 		if (message != null) {
 

@@ -7,7 +7,6 @@ import com.game.collision.objects.ChestTransparentObject;
 import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
-import com.game.entities.bad.ZombieEntity;
 import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
@@ -48,17 +47,6 @@ public class AxeItem extends WeaponItem<AxeItem> {
 			
 			CollisionObject tempObj = tempObjList.get(i);
 			
-			if (
-					Game.getRectangle(
-									(int) Game.PLAYER.getX(),
-									(int) Game.PLAYER.getY(),
-									Game.PLAYER.getWidth(),
-									Game.PLAYER.getHeight()
-					).intersects(tempObj.getRectangle())) {
-				
-				tempObj.collide();
-				
-			}
 			
 			if (
 					Game.getRectangle(
@@ -162,10 +150,10 @@ public class AxeItem extends WeaponItem<AxeItem> {
 			
 			if (e.equals(Game.PLAYER)) continue;
 			
-			if (e instanceof ZombieEntity && Game.PLAYER.getRectangle().intersects(e.getRectangle())
+			if (e instanceof DamageableEntity && Game.PLAYER.getRectangle().intersects(e.getRectangle())
 					&& e.getId() == EntityID.ZOMBIE && Math.random() < 0.50) {
 				
-				((ZombieEntity) e).damage(this.damage);
+				((DamageableEntity) e).damage(this.damage);
 				Game.logln(String.format("Player did %f to a zombie with the health of %f!", this.damage,
 						((DamageableEntity) e).getHealth()), LogType.INFO);
 				

@@ -8,6 +8,7 @@ import com.game.annotations.Empty;
 import com.game.annotations.Unused;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
+import com.game.entities.base.Entity;
 import com.game.entities.player.items.base.Item;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
 import com.game.logging.LogType;
@@ -45,7 +46,7 @@ public class ChestTransparentObject extends CollisionObject implements Drawable 
 	@Empty
 	@Unused
 	@Override
-	public void collide() {
+	public void collide(Entity e) {
 		
 		
 		

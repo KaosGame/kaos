@@ -5,9 +5,10 @@ import java.awt.image.BufferedImage;
 
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
+import com.game.entities.base.DamageableEntity;
+import com.game.entities.base.Entity;
 import com.game.entities.base.EntityDeathMessages;
 import com.game.main.Drawable;
-import com.game.main.Game;
 import com.game.random.RandomChance;
 
 public class WaterTransparentCollisionObject extends CollisionObject implements Drawable {
@@ -32,15 +33,15 @@ public class WaterTransparentCollisionObject extends CollisionObject implements 
 	}
 
 	@Override
-	public void collide() {
+	public void collide(Entity e) {
 		
 		RandomChance chance = new RandomChance();
 		
-		if (chance.lastChoose(0.35) && chance.lastChoose(0.76)) {
+		if (chance.alotOfBooleans() && chance.lastChoose(0.31)) {
 			
 			EntityDeathMessages edm = chance.firstChoose(0.50) ? EntityDeathMessages.WATER_DROWNED : EntityDeathMessages.WATER_FALL;
 			
-			Game.PLAYER.damage(1.4f, edm);
+			if (e instanceof DamageableEntity) ((DamageableEntity) e).damage(1.4f, edm);
 			
 		}
 		

@@ -5,9 +5,10 @@ import java.awt.image.BufferedImage;
 
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
+import com.game.entities.base.DamageableEntity;
+import com.game.entities.base.Entity;
 import com.game.entities.base.EntityDeathMessages;
 import com.game.main.Drawable;
-import com.game.main.Game;
 import com.game.random.RandomChance;
 
 public class LavaTransparentCollisionObject extends CollisionObject implements Drawable {
@@ -32,13 +33,13 @@ public class LavaTransparentCollisionObject extends CollisionObject implements D
 	}
 
 	@Override
-	public void collide() {
+	public void collide(Entity e) {
 		
 		RandomChance chance = new RandomChance();
 		
 		if (chance.lastChoose(0.35) && chance.lastChoose(0.76)) {
 			
-			Game.PLAYER.damage(1.864f, EntityDeathMessages.LAVA);
+			if (e instanceof DamageableEntity) ((DamageableEntity) e).damage(1.864f, EntityDeathMessages.LAVA);
 			
 		}
 		

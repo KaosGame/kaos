@@ -4,6 +4,8 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 
+import com.game.entities.base.Entity;
+
 public abstract class CollisionObject implements Serializable {
 	
 	
@@ -40,7 +42,7 @@ public abstract class CollisionObject implements Serializable {
 		
 	}
 	
-	public abstract void collide();
+	public abstract void collide(Entity e);
 
 	public int getX() {
 		return this.x;

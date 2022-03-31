@@ -7,6 +7,7 @@ import com.game.annotations.Empty;
 import com.game.annotations.Unused;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
+import com.game.entities.base.Entity;
 import com.game.main.Drawable;
 
 public class PlayerObject extends CollisionObject implements Drawable {
@@ -26,7 +27,7 @@ public class PlayerObject extends CollisionObject implements Drawable {
 	@Unused
 	@Empty
 	@Override
-	public void collide() {
+	public void collide(Entity e) {
 		
 		
 		

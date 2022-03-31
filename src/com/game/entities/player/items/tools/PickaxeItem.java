@@ -41,18 +41,6 @@ public class PickaxeItem extends Item<PickaxeItem> {
 			CollisionObject tempObj = tempList.get(i);
 			
 			if (
-					Game.getRectangle(
-									(int) Game.PLAYER.getX(),
-									(int) Game.PLAYER.getY(),
-									Game.PLAYER.getWidth(),
-									Game.PLAYER.getHeight()
-					).intersects(tempObj.getRectangle())) {
-				
-				tempObj.collide();
-				
-			}
-			
-			if (
 							tempObj.getType() == ObjectType.STONE_1 ||
 							tempObj.getType() == ObjectType.IRON_ORE_1 ||
 							tempObj.getType() == ObjectType.GOLD_ORE_1 ||
