@@ -100,11 +100,7 @@ public class ZombieEntity extends DamageableEntity {
 				this.getRectangle().intersects(Game.PLAYER.getRectangle()) &&
 				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && Math.random() < 0.50
 				
-			) {
-			
-			Game.PLAYER.damage(1f, EntityDeathMessages.ZOMBIE);
-			
-		}
+			) Game.PLAYER.damage(1f, EntityDeathMessages.ZOMBIE);
 		
 	}
 
