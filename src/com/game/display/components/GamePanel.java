@@ -14,6 +14,7 @@ import com.game.commands.GivePlayerRedMushroomItemCommand;
 import com.game.commands.KillPlayerCommand;
 import com.game.commands.base.Commands;
 import com.game.entities.BirdEntity;
+import com.game.entities.bad.ZombieEntity;
 import com.game.entities.item.planes.ItemPlaneEntity;
 import com.game.events.listeners.keys.KeyControls;
 import com.game.logging.LogType;
@@ -43,6 +44,7 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		Spawner.add(new BirdEntity());
 		Spawner.add(new ItemPlaneEntity());
+		Spawner.add(new ZombieEntity());
 		
 		
 		Commands.add("Game.Player.dropItems();", new DropPlayersItemsCommand());

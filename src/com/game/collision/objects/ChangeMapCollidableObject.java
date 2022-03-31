@@ -6,6 +6,8 @@ import java.awt.image.BufferedImage;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
 import com.game.entities.base.Entity;
+import com.game.entities.base.EntityID;
+import com.game.entities.player.Player;
 import com.game.main.Drawable;
 import com.game.main.Game;
 
@@ -28,8 +30,12 @@ public class ChangeMapCollidableObject extends CollisionObject implements Drawab
 	@Override
 	public void collide(Entity e) {
 		
-		Game.MAP_HANDLER().CURRENT_MAP_ID = this.loadMapID;
-		Game.resetPlayerPosToCenter();
+		if (e instanceof Player && e.getId() == EntityID.PLAYER) {
+			
+			Game.MAP_HANDLER().CURRENT_MAP_ID = this.loadMapID;
+			Game.resetPlayerPosToCenter();
+			
+		}
 		
 	}
 

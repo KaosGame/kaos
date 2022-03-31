@@ -4,17 +4,14 @@ import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 import java.util.Random;
 
-import com.game.collision.objects.CollidableObject;
-import com.game.collision.objects.CollidableWallObject;
-import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
-import com.game.collision.objects.base.ObjectType;
 import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.EntityDeathMessages;
 import com.game.entities.base.EntityID;
 import com.game.main.Game;
+import com.game.spawning.base.Spawnable;
 
-public class ZombieEntity extends DamageableEntity {
+public class ZombieEntity extends DamageableEntity implements Spawnable {
 
 	/**
 	 * 
@@ -29,6 +26,12 @@ public class ZombieEntity extends DamageableEntity {
 	
 	public ZombieEntity(float x, float y, int width, int height, EntityID id, BufferedImage image) {
 		super(x, y, 0f, 0f, width, height, id, image, 20f);
+		
+	}
+	
+	public ZombieEntity() {
+		
+		this(0, 0, 0, 0, null, null);
 		
 	}
 
@@ -143,38 +146,8 @@ public class ZombieEntity extends DamageableEntity {
 			}
 			
 			if (
-					(
-						tempObj.getType() == ObjectType.WALL ||
-						tempObj.getType() == ObjectType.STONE_1 ||
-						tempObj.getType() == ObjectType.IRON_ORE_1 ||
-						tempObj.getType() == ObjectType.GOLD_ORE_1 ||
-						tempObj.getType() == ObjectType.DIAMOND_ORE_1
-							
-					) &&
-					(tempObj instanceof CollidableObject || tempObj instanceof CollidableWallObject) &&
 					this.getRectangle().intersects(tempObj.getRectangle()) &&
 					!tempObj.getType().isTRANSPARENT()
-				) {
-				
-				this.x = OLD_X;
-				this.y = OLD_Y;
-				
-			}
-			
-			if (
-					
-					(
-							tempObj.getType() == ObjectType.WALL ||
-							tempObj.getType() == ObjectType.STONE_1 ||
-							tempObj.getType() == ObjectType.IRON_ORE_1 ||
-							tempObj.getType() == ObjectType.GOLD_ORE_1 ||
-							tempObj.getType() == ObjectType.DIAMOND_ORE_1
-								
-					) &&
-					tempObj instanceof PlayerObject &&
-					this.getRectangle().intersects(tempObj.getRectangle()) &&
-					!tempObj.getType().isTRANSPARENT()
-					
 				) {
 				
 				this.x = OLD_X;
@@ -190,6 +163,40 @@ public class ZombieEntity extends DamageableEntity {
 		
 		this.x += this.xv;
 		this.y += this.yv;
+		
+	}
+
+	@Override
+	public void spawn() {
+		
+		Random random = new Random();
+		
+		float[] offset = {random.nextInt(Game.WIDTH), random.nextInt(Game.HEIGHT)};
+		
+		ZombieEntity zombie = new ZombieEntity(offset[0], offset[1], 64, 64, EntityID.ZOMBIE, Game.ZOMBIE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+		
+		while (Game.touchingSomething(zombie.getRectangle())) {
+			
+			float[] pos = Game.getRandomItemPos(zombie.getX(), zombie.getY());
+			
+			zombie.setPos(pos);
+			
+		}
+		
+		Game.addEntity(zombie);
+		
+	}
+	
+	public void setPos(float x, float y) {
+		
+		this.x = x;
+		this.y = y;
+		
+	}
+	
+	public void setPos(float[] pos) {
+		
+		this.setPos(pos[0], pos[1]);
 		
 	}
 
