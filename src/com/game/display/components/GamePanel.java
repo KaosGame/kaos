@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 
 import com.game.commands.DropPlayersItemsCommand;
 import com.game.commands.ForcePlaneCommand;
+import com.game.commands.ForceZombieCommand;
 import com.game.commands.GetNumberOfEntitiesCommand;
 import com.game.commands.GetPlayerPosCommand;
 import com.game.commands.GivePlayerPickaxeItemCommand;
@@ -55,6 +56,7 @@ public class GamePanel extends JPanel implements Runnable {
 		Commands.add("Game.Player.give(Pickaxe);", new GivePlayerPickaxeItemCommand());
 		Commands.add("Game.force.item.plane();", new ForcePlaneCommand());
 		Commands.add("Game.Player.give(RedMushroom);", new GivePlayerRedMushroomItemCommand());
+		Commands.add("Game.force.zombie();", new ForceZombieCommand());
 		
 		
 		Game.reset();
