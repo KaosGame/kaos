@@ -41,19 +41,7 @@ public class RedMushroom1FoodItem extends FoodItem<RedMushroom1FoodItem> {
 			
 			Game.PLAYER.addHungerValue(this.hungerValue);
 			
-			float tempHP = (float) (Game.PLAYER.getHealth() - this.damage);
-			
-			boolean willDie = (tempHP <= 0f);
-			
-			if (willDie) {
-				
-				Game.PLAYER.die(EntityDeathMessages.RED_MUSHROOM);
-				
-			} else {
-				
-				Game.PLAYER.removeHealth(this.damage);
-				
-			}
+			Game.PLAYER.damage(this.damage, EntityDeathMessages.RED_MUSHROOM);
 			
 			
 		}
