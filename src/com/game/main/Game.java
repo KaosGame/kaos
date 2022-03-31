@@ -28,7 +28,6 @@ import com.game.collision.objects.base.ObjectType;
 import com.game.display.HUD;
 import com.game.display.components.GamePanel;
 import com.game.entities.ItemEntity;
-import com.game.entities.bad.ZombieEntity;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.Player;
@@ -829,7 +828,6 @@ public class Game {
 		itemsForFistChest.push(new PickaxeItem(1, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16)));
 		
 		Game.MAP_HANDLER().get(0).addObject(new ChestTransparentObject(126, 184, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), itemsForFistChest));
-		Game.MAP_HANDLER().get(0).getEntityHandler().add(new ZombieEntity(128, 0, 64, 64, EntityID.ZOMBIE, Game.ZOMBIE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16)));
 		
 		Game.MAP_HANDLER().get(2).getEntityHandler().add(new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.WOOD_TO_COIN));
 		
