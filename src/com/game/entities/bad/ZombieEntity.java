@@ -199,5 +199,21 @@ public class ZombieEntity extends DamageableEntity implements Spawnable {
 		this.setPos(pos[0], pos[1]);
 		
 	}
+	
+	@Override
+	public void randomSpawn() {
+		
+		Random random = new Random();
+		
+		if (
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() &&
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && Math.random() < 0.50
+			) {
+			
+			this.spawn();
+			
+		}
+		
+	}
 
 }
