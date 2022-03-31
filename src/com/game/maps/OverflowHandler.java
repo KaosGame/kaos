@@ -6,6 +6,7 @@ import com.game.collision.objects.ChestTransparentObject;
 import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.entities.base.Entity;
+import com.game.logging.LogType;
 import com.game.main.Game;
 
 public class OverflowHandler {
@@ -64,7 +65,7 @@ public class OverflowHandler {
 		if (hasDeleted) {
 			
 			JOptionPane.showMessageDialog(null, "Warning some things have being deleted from your world\nbecause you had more that the max", "Warning", JOptionPane.WARNING_MESSAGE);
-			Game.logln("Warning some things have being deleted from your world because you had more that the max so we removed " + itemsRemoved + " things");
+			Game.logln("Warning some things have being deleted from your world because you had more that the max so we removed " + itemsRemoved + " things", LogType.POSSIBLY_BAD);
 			
 		}
 		
