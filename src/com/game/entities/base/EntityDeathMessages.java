@@ -9,7 +9,8 @@ public enum EntityDeathMessages {
 	RED_MUSHROOM("You were poisoned by a red mushroom you died you the score of %d!"),
 	WATER_DROWNED("You drowned under water and died with the score of %d!"),
 	WATER_FALL("You fell into a pond and died with the score of %d!"),
-	LAVA("You fell into lava and died with the score of %d!");
+	LAVA("You fell into lava and died with the score of %d!"),
+	ZOMBIE("You died to a zombie with the score of %d!");
 	
 	
 	private final String MESSAGE;
