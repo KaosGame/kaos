@@ -136,7 +136,7 @@ public class LootTableHandler {
 						
 						listOfItems[i] = new Taco1Item(countOfFood, ItemID.TACO_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16));
 						
-					} else if (chance.firstChoose(0.05)) {
+					} else if (chance.firstChoose(0.19563)) {
 						
 						listOfItems[i] = new Cookie1FoodItem(countOfFood, ItemID.COOKIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16));
 						
