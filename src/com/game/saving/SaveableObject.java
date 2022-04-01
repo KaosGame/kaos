@@ -5,6 +5,7 @@ import java.io.Serializable;
 import com.game.entities.player.Player;
 import com.game.main.Game;
 import com.game.maps.DimensionHandler;
+import com.game.random.RandomGen;
 
 public class SaveableObject implements Serializable {
 	
@@ -15,6 +16,7 @@ public class SaveableObject implements Serializable {
 	
 	private DimensionHandler dimensionHandler;
 	private Player player;
+	private RandomGen randomGen;
 	
 	private GameVersion version;
 	private int versionHashcode;
@@ -26,6 +28,8 @@ public class SaveableObject implements Serializable {
 		
 		this.version = Game.VERSION;
 		this.versionHashcode = this.version.hashCode();
+		
+		this.randomGen = Game.RANDOM;
 		
 	}
 
@@ -59,6 +63,14 @@ public class SaveableObject implements Serializable {
 
 	public void setVersionHashcode(int versionHashcode) {
 		this.versionHashcode = versionHashcode;
+	}
+
+	public RandomGen getRandomGen() {
+		return this.randomGen;
+	}
+
+	public void setRandomGen(RandomGen randomGen) {
+		this.randomGen = randomGen;
 	}
 	
 	

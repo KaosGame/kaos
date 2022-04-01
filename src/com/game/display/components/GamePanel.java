@@ -13,6 +13,8 @@ import com.game.commands.GetPlayerPosCommand;
 import com.game.commands.GivePlayerPickaxeItemCommand;
 import com.game.commands.GivePlayerRedMushroomItemCommand;
 import com.game.commands.KillPlayerCommand;
+import com.game.commands.LogRandomGenSeedCommand;
+import com.game.commands.SetSeedForRandomGenCommand;
 import com.game.commands.base.Commands;
 import com.game.entities.BirdEntity;
 import com.game.entities.bad.ZombieEntity;
@@ -57,7 +59,8 @@ public class GamePanel extends JPanel implements Runnable {
 		Commands.add("Game.force.item.plane();", new ForcePlaneCommand());
 		Commands.add("Game.Player.give(RedMushroom);", new GivePlayerRedMushroomItemCommand());
 		Commands.add("Game.force.zombie();", new ForceZombieCommand());
-		
+		Commands.add("Game.getSeed();", new LogRandomGenSeedCommand());
+		Commands.add("Game.setSeed();", new SetSeedForRandomGenCommand());
 		
 		Game.reset();
 		

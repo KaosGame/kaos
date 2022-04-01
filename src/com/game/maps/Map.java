@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 
 import com.game.collision.objects.base.CollisionObject;
+import com.game.entities.base.Entity;
 import com.game.entities.base.EntityHandler;
 import com.game.main.Drawable;
 import com.game.main.Updatable;
@@ -63,6 +64,27 @@ public class Map implements Updatable, Drawable, Serializable {
 		}
 		
 		this.entityHandler = new EntityHandler();
+		
+	}
+	
+	public Map(CollisionObject[] objectList, Entity[] entityList) {
+		
+		
+		this.objectList = new LinkedList<CollisionObject>();
+		
+		for (int i = 0; i < objectList.length; i++) {
+			
+			this.objectList.add(objectList[i]);
+			
+		}
+		
+		this.entityHandler = new EntityHandler();
+		
+		for (int i = 0; i < entityList.length; i++) {
+			
+			this.entityHandler.add(entityList[i]);
+			
+		}
 		
 	}	
 	
