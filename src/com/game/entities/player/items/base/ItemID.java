@@ -21,6 +21,8 @@ public enum ItemID {
 	HEART_1(),
 	MEDKIT_1(),
 	RED_MUSHROOM_1(),
-	COOKIE_1();
+	COOKIE_1(),
+	MUSHROOM_STEW_1(),
+	BOWL_1();
 
 }

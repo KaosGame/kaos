@@ -954,7 +954,9 @@ public class Game {
 		
 	}
 	
-	public static void addItemOrItemEntity(Item<?> item) {
+	public static void addItemOrItemEntity(Item<?> item) throws NullPointerException {
+		
+		if (item == null) throw new NullPointerException("Item can not be null");
 		
 		if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
 			
