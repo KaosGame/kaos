@@ -25,7 +25,7 @@ public class MushroomStewFoodItem extends FoodItem<MushroomStewFoodItem> {
 	
 	public MushroomStewFoodItem(int count, ItemID id, BufferedImage image) {
 		
-		super(count, id, image, 4);
+		super(count, id, image, 10);
 		
 		
 		

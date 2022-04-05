@@ -7,10 +7,13 @@ import java.awt.image.BufferedImage;
 
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
+import com.game.entities.player.items.BowlItem;
 import com.game.entities.player.items.Heart1Item;
 import com.game.entities.player.items.bad.food.RedMushroom1FoodItem;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.food.Apple1Item;
+import com.game.entities.player.items.food.BreadFoodItem;
+import com.game.entities.player.items.food.MushroomStewFoodItem;
 import com.game.entities.player.items.food.Pie1Item;
 import com.game.entities.player.items.food.Taco1Item;
 import com.game.entities.player.items.objects.Chest1Item;
@@ -146,7 +149,7 @@ public class VillagerEntity extends Entity implements Trading {
 			
 			Wood1Item tempItem = new Wood1Item(7, ItemID.WOOD_1, null);
 			
-			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 2) {
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 7) {
 				
 				Game.PLAYER.getHotbar().removeItem(tempItem);
 				
@@ -231,6 +234,60 @@ public class VillagerEntity extends Entity implements Trading {
 				Game.PLAYER.removeCoins(1L);
 				
 				Heart1Item item = new Heart1Item(1, ItemID.HEART_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.WOOD_TO_BOWL) {
+			
+			Wood1Item tempItem = new Wood1Item(3, ItemID.WOOD_1, null);
+			
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 3) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				BowlItem item = new BowlItem(1, ItemID.BOWL_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(336, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.BOWL_AND_RED_MUSHROOM_TO_MUSHROOM_STEW) {
+			
+			BowlItem tempItem1 = new BowlItem(1, ItemID.BOWL_1, null);
+			RedMushroom1FoodItem tempItem2 = new RedMushroom1FoodItem(3, ItemID.RED_MUSHROOM_1, null); 
+			
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem1) >= 1 && Game.PLAYER.getHotbar().hasItemValue(tempItem2) >= 3) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem1);
+				Game.PLAYER.getHotbar().removeItem(tempItem2);
+				
+				MushroomStewFoodItem item = new MushroomStewFoodItem(1, ItemID.MUSHROOM_STEW_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(320, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_BREAD) {
+			
+			if (Game.PLAYER.getCoins() >= 2) {
+				
+				Game.PLAYER.removeCoins(2L);
+				
+				BreadFoodItem item = new BreadFoodItem(3, ItemID.BREAD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(352, 0, 16, 16));
 				
 				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
 					
@@ -323,7 +380,7 @@ public class VillagerEntity extends Entity implements Trading {
 			
 			Wood1Item tempItem = new Wood1Item(7, ItemID.WOOD_1, null);
 			
-			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 2) {
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 7) {
 				
 				Game.PLAYER.getHotbar().removeItem(tempItem);
 				
@@ -408,6 +465,60 @@ public class VillagerEntity extends Entity implements Trading {
 				Game.PLAYER.removeCoins(1L);
 				
 				Heart1Item item = new Heart1Item(1, ItemID.HEART_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.WOOD_TO_BOWL) {
+			
+			Wood1Item tempItem = new Wood1Item(3, ItemID.WOOD_1, null);
+			
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 3) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				BowlItem item = new BowlItem(1, ItemID.BOWL_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(336, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.BOWL_AND_RED_MUSHROOM_TO_MUSHROOM_STEW) {
+			
+			BowlItem tempItem1 = new BowlItem(1, ItemID.BOWL_1, null);
+			RedMushroom1FoodItem tempItem2 = new RedMushroom1FoodItem(3, ItemID.RED_MUSHROOM_1, null); 
+			
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem1) >= 1 && Game.PLAYER.getHotbar().hasItemValue(tempItem2) >= 3) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem1);
+				Game.PLAYER.getHotbar().removeItem(tempItem2);
+				
+				MushroomStewFoodItem item = new MushroomStewFoodItem(1, ItemID.MUSHROOM_STEW_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(320, 0, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_BREAD) {
+			
+			while (Game.PLAYER.getCoins() >= 2) {
+				
+				Game.PLAYER.removeCoins(2L);
+				
+				BreadFoodItem item = new BreadFoodItem(3, ItemID.BREAD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(352, 0, 16, 16));
 				
 				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
 					
@@ -557,6 +668,39 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawString("1  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.COIN_TO_BREAD) {
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("2  -->  3", 400, 50);
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(352, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.WOOD_TO_BOWL) {
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("3  -->  1", 400, 50);
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(336, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.BOWL_AND_RED_MUSHROOM_TO_MUSHROOM_STEW) {
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(336, 0, 16, 16), 325, 10, 64, 64, null);
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(288, 0, 16, 16), 325, 40, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1", 400, 35);
+			g2d.drawString("   -->  1", 400, 50);
+			g2d.drawString("3", 400, 65);
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(320, 0, 16, 16), 490, 25, 64, 64, null);
 			
 		}
 		
