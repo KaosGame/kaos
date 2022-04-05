@@ -10,6 +10,7 @@ public enum LogType {
 	LOG(),
 	SUCCESS(),
 	POSSIBLY_BAD(),
+	COMMAND_OUTPUT(),
 	OTHER();
 
 }

@@ -39,11 +39,15 @@ public class NextRandomMapCollisionObject extends CollisionObject implements Dra
 		
 		if (e instanceof Player && e.getId() == EntityID.PLAYER && Game.DIMENSION_HANDLER.getCURRENT_DIMENSION_ID() == DimensionID.HOME) {
 			
-			int mapID = Game.RANDOM.nextInt(Game.RANDOM_MAP_HOME.length);
+			if ((int) (Game.MAP_HANDLER().getMAPS().size() - 1) == Game.MAP_HANDLER().CURRENT_MAP_ID) {
 			
-			Map map = new Map(Game.RANDOM_MAP_HOME[mapID], Game.RANDOM_MAP_HOME_ENTITYS[mapID]);
-			
-			Game.MAP_HANDLER().addMap(map);
+				int mapID = Game.RANDOM.nextInt(Game.RANDOM_MAP_HOME.length);
+				
+				Map map = new Map(Game.RANDOM_MAP_HOME[mapID], Game.RANDOM_MAP_HOME_ENTITYS[mapID]);
+				
+				Game.MAP_HANDLER().addMap(map);
+				
+			}
 			
 			Game.MAP_HANDLER().CURRENT_MAP_ID = (int) (Game.MAP_HANDLER().CURRENT_MAP_ID + 1);
 			Game.resetPlayerPosToCenter();

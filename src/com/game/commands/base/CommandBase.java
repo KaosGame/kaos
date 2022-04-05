@@ -9,7 +9,7 @@ public interface CommandBase {
 	
 	public default <T> void print(T text) { 
 		
-		Game.logln("Command output: " + text.toString(), LogType.MESSAGE);
+		Game.logln("Command output: " + text.toString(), LogType.COMMAND_OUTPUT);
 		
 	}
 
