@@ -23,6 +23,7 @@ public enum ItemID {
 	RED_MUSHROOM_1(),
 	COOKIE_1(),
 	MUSHROOM_STEW_1(),
-	BOWL_1();
+	BOWL_1(),
+	BREAD_1();
 
 }

@@ -11,6 +11,7 @@ import com.game.commands.ForceZombieCommand;
 import com.game.commands.GetNumberOfEntitiesCommand;
 import com.game.commands.GetPlayerPosCommand;
 import com.game.commands.GivePlayerBreadItemCommand;
+import com.game.commands.GivePlayerMushroomStewItemCommand;
 import com.game.commands.GivePlayerPickaxeItemCommand;
 import com.game.commands.GivePlayerRedMushroomItemCommand;
 import com.game.commands.KillPlayerCommand;
@@ -46,9 +47,9 @@ public class GamePanel extends JPanel implements Runnable {
 		this.FPS = 60;
 		
 		
-		Spawner.add(new BirdEntity());
-		Spawner.add(new ItemPlaneEntity());
-		Spawner.add(new ZombieEntity());
+		Spawner.addHome(new BirdEntity());
+		Spawner.addHome(new ItemPlaneEntity());
+		Spawner.addHome(new ZombieEntity());
 		
 		
 		Commands.add("Game.Player.dropItems();", new DropPlayersItemsCommand());
@@ -62,7 +63,8 @@ public class GamePanel extends JPanel implements Runnable {
 		Commands.add("Game.force.zombie();", new ForceZombieCommand());
 		Commands.add("Game.getSeed();", new LogRandomGenSeedCommand());
 		Commands.add("Game.setSeed();", new SetSeedForRandomGenCommand());
-		Commands.add("Game.Player.give(MushroomStew);", new GivePlayerBreadItemCommand());
+		Commands.add("Game.Player.give(MushroomStew);", new GivePlayerMushroomStewItemCommand());
+		Commands.add("Game.Player.give(Bread);", new GivePlayerBreadItemCommand());
 		
 		Game.reset();
 		
@@ -73,7 +75,7 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		this.addKeyListener(this.keyControls);
 		
-		Game.logln("Game started class created", LogType.SUCCESS);
+		Game.logln("Game started, class created", LogType.SUCCESS);
 		
 		
 	}
@@ -140,7 +142,7 @@ public class GamePanel extends JPanel implements Runnable {
 			
 			Game.HUD.update();
 			
-			Spawner.spwan();
+			Spawner.spwanHome();
 			
 			this.overflowHandler.handle();
 			

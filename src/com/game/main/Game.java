@@ -253,7 +253,7 @@ public class Game {
 	
 	public static RandomGen RANDOM = new RandomGen(Game.DATE.getTime());
 	
-	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.3.0");
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.3.1");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
@@ -626,6 +626,18 @@ public class Game {
 				case COOKIE_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16));
 					break;
+					
+				case MUSHROOM_STEW_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(320, 0, 16, 16));
+					break;
+					
+				case BOWL_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(336, 0, 16, 16));
+					break;
+				
+				case BREAD_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(352, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -730,6 +742,18 @@ public class Game {
 								
 							case COOKIE_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16));
+								break;
+								
+							case MUSHROOM_STEW_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(320, 0, 16, 16));
+								break;
+								
+							case BOWL_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(336, 0, 16, 16));
+								break;
+							
+							case BREAD_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(352, 0, 16, 16));
 								break;
 							
 					

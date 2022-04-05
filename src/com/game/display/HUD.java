@@ -56,12 +56,15 @@ public class HUD implements Drawable, Updatable {
 		
 		g2d.setColor(new Color(75, 75, 75));
 		g2d.fillRect(176, (int) (Game.HEIGHT - 170), 216, 64);
+		g2d.setColor(new Color(38, 38, 38));
+		g2d.setStroke(new BasicStroke(2));
+		g2d.drawRect(176, (int) (Game.HEIGHT - 170), 216, 64);
 		
 		g2d.setColor(new Color(75, this.healthGreenValue, 0));
 		g2d.fillRect(184, (int) (Game.HEIGHT - 164), (int) (Math.round(Game.PLAYER.getHealth()) * 10), 48);
 		
 		g2d.setColor(new Color(0xC0C0C0));
-		g2d.setStroke(new BasicStroke(1));
+		g2d.setStroke(new BasicStroke(2));
 		g2d.drawRect(184, (int) (Game.HEIGHT - 164), 200, 48);
 		
 		g2d.setColor(new Color(0xFFFFFF));
@@ -74,12 +77,15 @@ public class HUD implements Drawable, Updatable {
 		
 		g2d.setColor(new Color(75, 75, 75));
 		g2d.fillRect(440, (int) (Game.HEIGHT - 170), 216, 64);
+		g2d.setColor(new Color(38, 38, 38));
+		g2d.setStroke(new BasicStroke(2));
+		g2d.drawRect(440, (int) (Game.HEIGHT - 170), 216, 64);
 		
 		g2d.setColor(new Color(75, this.hungerGreenValue, 0));
 		g2d.fillRect(448, (int) (Game.HEIGHT - 164), (int) (Game.PLAYER.getHunger() * 10), 48);
 		
 		g2d.setColor(new Color(0xC0C0C0));
-		g2d.setStroke(new BasicStroke(1));
+		g2d.setStroke(new BasicStroke(2));
 		g2d.drawRect(448, (int) (Game.HEIGHT - 164), 200, 48);
 		
 		g2d.setColor(new Color(0xFFFFFF));

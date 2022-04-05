@@ -4,37 +4,37 @@ import java.util.ArrayList;
 
 public class Spawner {
 	
-	private static ArrayList<Spawnable> LIST = new ArrayList<Spawnable>();
+	private static ArrayList<Spawnable> LIST_HOME = new ArrayList<Spawnable>();
 	
-	public static void add(Spawnable s) {
+	public static void addHome(Spawnable s) {
 		
-		Spawner.LIST.add(s);
+		Spawner.LIST_HOME.add(s);
 		
 	}
 	
-	public static void remove(Spawnable s) {
+	public static void removeHome(Spawnable s) {
 		
-		Spawner.LIST.remove(s);
-		
-	}
-	
-	public static Spawnable get(int index) {
-		
-		return Spawner.LIST.get(index);
+		Spawner.LIST_HOME.remove(s);
 		
 	}
 	
-	public static ArrayList<Spawnable> getList() {
+	public static Spawnable getHome(int index) {
 		
-		return Spawner.LIST;
+		return Spawner.LIST_HOME.get(index);
 		
 	}
 	
-	public static void spwan() {
+	public static ArrayList<Spawnable> getLIST_HOME() {
 		
-		for (int i = 0; i < Spawner.LIST.size(); i++) {
+		return Spawner.LIST_HOME;
+		
+	}
+	
+	public static void spwanHome() {
+		
+		for (int i = 0; i < Spawner.LIST_HOME.size(); i++) {
 			
-			Spawnable s = Spawner.LIST.get(i);
+			Spawnable s = Spawner.LIST_HOME.get(i);
 			
 			s.randomSpawn();
 			
