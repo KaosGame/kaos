@@ -26,7 +26,7 @@ public class ZombieEntity extends DamageableEntity implements Spawnable {
 	}
 	
 	public ZombieEntity(float x, float y, int width, int height, EntityID id, BufferedImage image) {
-		super(x, y, 0f, 0f, width, height, id, image, 20f);
+		super(x, y, 0f, 0f, width, height, id, image, 12.5f);
 		
 	}
 	
@@ -192,6 +192,8 @@ public class ZombieEntity extends DamageableEntity implements Spawnable {
 		}
 		
 		Game.addEntity(zombie);
+		
+		Game.logln("New zombie summoned successfully", LogType.SUCCESS);
 		
 	}
 	
