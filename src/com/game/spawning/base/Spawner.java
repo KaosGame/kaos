@@ -2,6 +2,9 @@ package com.game.spawning.base;
 
 import java.util.ArrayList;
 
+import com.game.main.Game;
+import com.game.maps.DimensionID;
+
 public class Spawner {
 	
 	private static ArrayList<Spawnable> LIST_HOME = new ArrayList<Spawnable>();
@@ -32,11 +35,15 @@ public class Spawner {
 	
 	public static void spwanHome() {
 		
-		for (int i = 0; i < Spawner.LIST_HOME.size(); i++) {
+		if (Game.DIMENSION_HANDLER.getCURRENT_DIMENSION_ID() == DimensionID.HOME) {
 			
-			Spawnable s = Spawner.LIST_HOME.get(i);
-			
-			s.randomSpawn();
+			for (int i = 0; i < Spawner.LIST_HOME.size(); i++) {
+				
+				Spawnable s = Spawner.LIST_HOME.get(i);
+				
+				s.randomSpawn();
+				
+			}
 			
 		}
 		
