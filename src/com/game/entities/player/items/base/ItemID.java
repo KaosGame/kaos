@@ -24,6 +24,9 @@ public enum ItemID {
 	COOKIE_1(),
 	MUSHROOM_STEW_1(),
 	BOWL_1(),
-	BREAD_1();
+	BREAD_1(),
+	MONEY_BAG_1(),
+	MONEY_BAG_2(),
+	MONEY_BAG_3();
 
 }

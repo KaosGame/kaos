@@ -13,6 +13,9 @@ import com.game.entities.player.items.food.Cookie1FoodItem;
 import com.game.entities.player.items.food.OrangeJuce1Item;
 import com.game.entities.player.items.food.Pie1Item;
 import com.game.entities.player.items.food.Taco1Item;
+import com.game.entities.player.items.money.bags.MoneyBag1Item;
+import com.game.entities.player.items.money.bags.MoneyBag2Item;
+import com.game.entities.player.items.money.bags.MoneyBag3Item;
 import com.game.entities.player.items.objects.AppleTree1Item;
 import com.game.entities.player.items.objects.DiamondOre1Item;
 import com.game.entities.player.items.objects.GoldOre1Item;
@@ -217,6 +220,26 @@ public class LootTableHandler {
 					int count = (int) (random.nextInt(3) + 1);
 					
 					listOfItems[i] = new Medkit1Item(count, ItemID.MEDKIT_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(256, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.42)) {
+					
+					// Money bags
+					
+					int count = (int) (random.nextInt(10) + 1);
+					
+					if (chance.firstChoose(0.25)) {
+						
+						listOfItems[i] = new MoneyBag2Item(count, ItemID.MONEY_BAG_2, Game.ITEM_TEXTRA_ALICE.getImageFrom(384, 0, 16, 16));
+						
+					} else if (chance.firstChoose(0.15)) {
+						
+						listOfItems[i] = new MoneyBag3Item(count, ItemID.MONEY_BAG_3, Game.ITEM_TEXTRA_ALICE.getImageFrom(400, 0, 16, 16));
+						
+					} else {
+						
+						listOfItems[i] = new MoneyBag1Item(count, ItemID.MONEY_BAG_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(368, 0, 16, 16));
+						
+					}
 					
 				}
 				

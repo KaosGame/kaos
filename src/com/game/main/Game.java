@@ -667,6 +667,18 @@ public class Game {
 				case BREAD_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(352, 0, 16, 16));
 					break;
+					
+				case MONEY_BAG_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(368, 0, 16, 16));
+					break;
+					
+				case MONEY_BAG_2:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(384, 0, 16, 16));
+					break;
+					
+				case MONEY_BAG_3:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(400, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -783,6 +795,18 @@ public class Game {
 							
 							case BREAD_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(352, 0, 16, 16));
+								break;
+								
+							case MONEY_BAG_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(368, 0, 16, 16));
+								break;
+								
+							case MONEY_BAG_2:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(384, 0, 16, 16));
+								break;
+								
+							case MONEY_BAG_3:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(400, 0, 16, 16));
 								break;
 							
 					
