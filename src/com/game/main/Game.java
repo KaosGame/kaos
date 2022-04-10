@@ -66,15 +66,14 @@ public class Game {
 	private static BufferedImageLoader BIRD_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/bird-textra-alice.png");
 	private static BufferedImageLoader PLANE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/plane-textra-alice.png");
 	private static BufferedImageLoader ZOMBIE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/zombie-textra-alice.png");
-	private static BufferedImageLoader HUD_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/hud/hud-textra-alice.png");
+	private static BufferedImageLoader HOTBAR_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/hud/hotbar/hotbar-textra-alice.png");
 	private static BufferedImageLoader ITEM_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/item-textra-alice.png");
 	
 	public static BufferedImageLoader HOUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/house_1.png");
-	public static BufferedImageLoader HUD_ITEM_CURRENT_LOADER = new BufferedImageLoader("/assets/images/hud/hud-item-current-image.png");
 	
 	public static TextraAlice OBJECT_TEXTRA_ALICE = new TextraAlice(Game.OBJECT_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice PLAYER_TEXTRA_ALICE = new TextraAlice(Game.PLAYER_TEXTRA_ALICE_LOADER.getImage());
-	public static TextraAlice HUD_TEXTRA_ALICE = new TextraAlice(Game.HUD_TEXTRA_ALICE_LOADER.getImage());
+	public static TextraAlice HOTBAR_TEXTRA_ALICE = new TextraAlice(Game.HOTBAR_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice ITEM_TEXTRA_ALICE = new TextraAlice(Game.ITEM_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice VILAGER_TEXTRA_ALICE = new TextraAlice(Game.VILAGER_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice BIRD_TEXTRA_ALICE = new TextraAlice(Game.BIRD_TEXTRA_ALICE_LOADER.getImage());

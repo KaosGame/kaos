@@ -98,9 +98,9 @@ public class HUD implements Drawable, Updatable {
 		
 		int xDraw = 164;
 		
-		g2d.drawImage(Game.HUD_TEXTRA_ALICE.getImageFrom(0, 0, 512, 64), 164, (int) (Game.HEIGHT - 96), 512, 64, null);
-		
 		for (int i = 0; i < Game.PLAYER.getHotbar().list.length; i++) {
+			
+			g2d.drawImage(Game.HOTBAR_TEXTRA_ALICE.getImageFrom(0, 0, 64, 64), xDraw, (int) (Game.HEIGHT - 96), 64, 64, null);
 			
 			Item<?> item = Game.PLAYER.getHotbar().list[i];
 			
@@ -119,7 +119,7 @@ public class HUD implements Drawable, Updatable {
 			
 			if ((int) Game.PLAYER.getHotbar().currentItemIndex == i) {
 				
-				g2d.drawImage(Game.HUD_ITEM_CURRENT_LOADER.getImage(), (int) (xDraw - 64), (int) (Game.HEIGHT - 96), 64, 64, null);
+				g2d.drawImage(Game.HOTBAR_TEXTRA_ALICE.getImageFrom(64, 0, 64, 64), (int) (xDraw - 64), (int) (Game.HEIGHT - 96), 64, 64, null);
 				
 			}
 			
