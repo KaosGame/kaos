@@ -749,6 +749,26 @@ public class Game {
 				case MONEY_BAG_3:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(400, 0, 16, 16));
 					break;
+					
+				case FISHING_ROD_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16));
+					break;
+					
+				case GOLD_FISH_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(432, 0, 16, 16));
+					break;
+					
+				case BLUE_FISH_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(448, 0, 16, 16));
+					break;
+					
+				case SALMON_FISH_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(464, 0, 16, 16));
+					break;
+					
+				case COD_FISH_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(480, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -877,6 +897,26 @@ public class Game {
 								
 							case MONEY_BAG_3:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(400, 0, 16, 16));
+								break;
+								
+							case FISHING_ROD_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16));
+								break;
+								
+							case GOLD_FISH_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(432, 0, 16, 16));
+								break;
+								
+							case BLUE_FISH_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(448, 0, 16, 16));
+								break;
+								
+							case SALMON_FISH_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(464, 0, 16, 16));
+								break;
+								
+							case COD_FISH_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(480, 0, 16, 16));
 								break;
 							
 					
