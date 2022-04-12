@@ -375,14 +375,12 @@ public class Game {
 		this.frame.setResizable(false);
 		this.frame.setMinimumSize(new Dimension(Game.WIDTH, Game.HEIGHT));
 		this.frame.setMaximumSize(new Dimension(Game.WIDTH, Game.HEIGHT));
-		this.frame.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
-		
 		
 		this.gamePanel.setPreferredSize(new Dimension(Game.WIDTH, Game.HEIGHT));
 		this.frame.add(this.gamePanel);
 		
 		
-		this.frame.setSize(new Dimension(Game.WIDTH, Game.HEIGHT));
+		this.frame.setPreferredSize(new Dimension(Game.WIDTH, Game.HEIGHT));
 		this.frame.setVisible(true);
 		
 		this.gamePanel.startGameLoop();
