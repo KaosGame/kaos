@@ -15,6 +15,10 @@ import com.game.entities.player.items.food.Apple1Item;
 import com.game.entities.player.items.food.BreadFoodItem;
 import com.game.entities.player.items.food.MushroomStewFoodItem;
 import com.game.entities.player.items.food.Pie1Item;
+import com.game.entities.player.items.food.RawBlueFishFoodItem;
+import com.game.entities.player.items.food.RawCodFishFoodItem;
+import com.game.entities.player.items.food.RawGoldFishFoodItem;
+import com.game.entities.player.items.food.RawSalmonFishFoodItem;
 import com.game.entities.player.items.food.Taco1Item;
 import com.game.entities.player.items.objects.Chest1Item;
 import com.game.entities.player.items.objects.DiamondOre1Item;
@@ -314,6 +318,54 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.GOLD_FISH_TO_COIN) {
+			
+			RawGoldFishFoodItem tempItem = new RawGoldFishFoodItem(1, ItemID.GOLD_FISH_1, null);
+			
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(3L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.BLUE_FISH_TO_COIN) {
+			
+			RawBlueFishFoodItem tempItem = new RawBlueFishFoodItem(1, ItemID.BLUE_FISH_1, null);
+			
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(3L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.SALMON_FISH_TO_COIN) {
+			
+			RawSalmonFishFoodItem tempItem = new RawSalmonFishFoodItem(1, ItemID.SALMON_FISH_1, null);
+			
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(3L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.COD_FISH_TO_COIN) {
+			
+			RawCodFishFoodItem tempItem = new RawCodFishFoodItem(1, ItemID.COD_FISH_1, null);
+			
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(3L);
+				
+			}
+			
 		}
 		
 	}
@@ -561,6 +613,54 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.GOLD_FISH_TO_COIN) {
+			
+			RawGoldFishFoodItem tempItem = new RawGoldFishFoodItem(1, ItemID.GOLD_FISH_1, null);
+			
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(3L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.BLUE_FISH_TO_COIN) {
+			
+			RawBlueFishFoodItem tempItem = new RawBlueFishFoodItem(1, ItemID.BLUE_FISH_1, null);
+			
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(3L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.SALMON_FISH_TO_COIN) {
+			
+			RawSalmonFishFoodItem tempItem = new RawSalmonFishFoodItem(1, ItemID.SALMON_FISH_1, null);
+			
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(3L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.COD_FISH_TO_COIN) {
+			
+			RawCodFishFoodItem tempItem = new RawCodFishFoodItem(1, ItemID.COD_FISH_1, null);
+			
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(3L);
+				
+			}
+			
 		}
 		
 	}
@@ -744,6 +844,46 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawString("3  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.GOLD_FISH_TO_COIN) {
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(432, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1  -->  3", 400, 50);
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.BLUE_FISH_TO_COIN) {
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(448, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1  -->  3", 400, 50);
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.SALMON_FISH_TO_COIN) {
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(464, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1  -->  3", 400, 50);
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.COD_FISH_TO_COIN) {
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(480, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1  -->  3", 400, 50);
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
 			
 		}
 		
