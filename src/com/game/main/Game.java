@@ -204,6 +204,16 @@ public class Game {
 				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
 				new CollidableObject(100, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage())
 				
+			},
+			
+			{
+				
+				new NextRandomMapCollisionObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16)),
+				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
+				new CollidableObject(400, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
+				new WaterTransparentCollisionObject(128, 147, 128, 64, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
+				new WaterTransparentCollisionObject(64, 211, 192, 192, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16))
+				
 			}
 			
 	};
@@ -273,6 +283,12 @@ public class Game {
 				
 				new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.BOWL_AND_RED_MUSHROOM_TO_MUSHROOM_STEW)
 				
+			},
+			
+			{
+				
+				new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_FISHING_ROD)
+				
 			}
 			
 	};
@@ -282,7 +298,7 @@ public class Game {
 	
 	public static RandomGen RANDOM = new RandomGen(Game.DATE.getTime());
 	
-	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.3.1");
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.3.2");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();

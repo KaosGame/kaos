@@ -10,8 +10,13 @@ import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.food.Apple1Item;
 import com.game.entities.player.items.food.Banana1Item;
 import com.game.entities.player.items.food.Cookie1FoodItem;
+import com.game.entities.player.items.food.MushroomStewFoodItem;
 import com.game.entities.player.items.food.OrangeJuce1Item;
 import com.game.entities.player.items.food.Pie1Item;
+import com.game.entities.player.items.food.RawBlueFishFoodItem;
+import com.game.entities.player.items.food.RawCodFishFoodItem;
+import com.game.entities.player.items.food.RawGoldFishFoodItem;
+import com.game.entities.player.items.food.RawSalmonFishFoodItem;
 import com.game.entities.player.items.food.Taco1Item;
 import com.game.entities.player.items.money.bags.MoneyBag1Item;
 import com.game.entities.player.items.money.bags.MoneyBag2Item;
@@ -23,6 +28,7 @@ import com.game.entities.player.items.objects.IronOre1Item;
 import com.game.entities.player.items.objects.Stone1Item;
 import com.game.entities.player.items.objects.Tree1Item;
 import com.game.entities.player.items.tools.AxeItem;
+import com.game.entities.player.items.tools.FishingRodItem;
 import com.game.entities.player.items.tools.PickaxeItem;
 import com.game.loot.tables.items.AppleTree1ItemLootTable;
 import com.game.loot.tables.items.Chest1ItemLootTable;
@@ -183,6 +189,10 @@ public class LootTableHandler {
 						
 						listOfItems[i] = new AxeItem(COUNT, ItemID.AXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 						
+					} else if (chance.firstChoose(0.25)) {
+						
+						listOfItems[i] = new FishingRodItem(COUNT, ItemID.FISHING_ROD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16));
+						
 					} else {
 						
 						listOfItems[i] = new PickaxeItem(COUNT, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
@@ -307,6 +317,10 @@ public class LootTableHandler {
 						
 						listOfItems[i] = new AxeItem(COUNT, ItemID.AXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 						
+					} else if (chance.firstChoose(0.25)) {
+						
+						listOfItems[i] = new FishingRodItem(COUNT, ItemID.FISHING_ROD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16));
+						
 					} else {
 						
 						listOfItems[i] = new PickaxeItem(COUNT, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
@@ -328,6 +342,132 @@ public class LootTableHandler {
 		} while (Game.arrayContains(listOfItems, null));
 		
 		return listOfItems;
+		
+	}
+
+	public static Item<?> returnRandomLootItemForFishingRodItem() {
+		
+		Item<?> item = null;
+		
+		RandomChance chance = new RandomChance();
+		
+		final int COUNT = 1;
+		
+		do {
+			
+			if (chance.firstChoose(0.75)) {
+				
+				// Fish
+				
+				if (chance.firstChoose(0.20)) {
+					
+					// Gold fish
+					
+					item = new RawGoldFishFoodItem(COUNT, ItemID.GOLD_FISH_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(432, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.27)) {
+					
+					// Salmon
+					
+					item = new RawSalmonFishFoodItem(COUNT, ItemID.SALMON_FISH_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(464, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.34)) {
+					
+					// Cod
+					
+					item = new RawCodFishFoodItem(COUNT, ItemID.COD_FISH_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(480, 0, 16, 16));
+					
+				} else {
+					
+					// Bluefish
+					
+					item = new RawBlueFishFoodItem(COUNT, ItemID.BLUE_FISH_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(448, 0, 16, 16));
+					
+				}
+				
+			} else if (chance.firstChoose(0.10)) {
+				
+				if (chance.firstChoose(0.42)) {
+					
+					// Money bags
+					
+					if (chance.firstChoose(0.25)) {
+						
+						item = new MoneyBag2Item(COUNT, ItemID.MONEY_BAG_2, Game.ITEM_TEXTRA_ALICE.getImageFrom(384, 0, 16, 16));
+						
+					} else if (chance.firstChoose(0.15)) {
+						
+						item = new MoneyBag3Item(COUNT, ItemID.MONEY_BAG_3, Game.ITEM_TEXTRA_ALICE.getImageFrom(400, 0, 16, 16));
+						
+					} else {
+						
+						item = new MoneyBag1Item(COUNT, ItemID.MONEY_BAG_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(368, 0, 16, 16));
+						
+					}
+					
+				}
+				
+			} else if (chance.firstChoose(0.15)) {
+				
+				// Food
+				
+				if (chance.firstChoose(0.25)) {
+					
+					item = new OrangeJuce1Item(COUNT, ItemID.ORANGE_JUCE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.15)) {
+					
+					item = new Pie1Item(COUNT, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.10)) {
+					
+					item = new Taco1Item(COUNT, ItemID.TACO_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.19563)) {
+					
+					item = new Cookie1FoodItem(COUNT, ItemID.COOKIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.1856)) {
+					
+					item = new MushroomStewFoodItem(COUNT, ItemID.MUSHROOM_STEW_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(320, 0, 16, 16));
+					
+				} else {
+					
+					if (chance.lastChoose(0.50)) {
+						
+						item = new Banana1Item(COUNT, ItemID.BANANA_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(240, 0, 16, 16));
+						
+					} else {
+						
+						item = new Apple1Item(COUNT, ItemID.APPLE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16));
+						
+					}
+					
+				}
+				
+			} else if (chance.firstChoose(0.21)) {
+				
+				// Tools
+				
+				if (chance.firstChoose(0.50)) {
+					
+					item = new AxeItem(COUNT, ItemID.AXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.25)) {
+					
+					item = new FishingRodItem(COUNT, ItemID.FISHING_ROD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16));
+					
+				} else {
+					
+					item = new PickaxeItem(COUNT, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
+					
+				}
+				
+			}
+			
+		} while (item == null);
+		
+		return item;
 		
 	}
 

@@ -27,6 +27,11 @@ public enum ItemID {
 	BREAD_1(),
 	MONEY_BAG_1(),
 	MONEY_BAG_2(),
-	MONEY_BAG_3();
+	MONEY_BAG_3(),
+	FISHING_ROD_1(),
+	GOLD_FISH_1(),
+	BLUE_FISH_1(),
+	SALMON_FISH_1(),
+	COD_FISH_1();
 
 }
