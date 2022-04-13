@@ -56,8 +56,8 @@ public class Game {
 	private JFrame frame;
 	private GamePanel gamePanel;
 	
-	public static final int WIDTH = 800;
-	public static final int HEIGHT = 684;
+	public static final int WIDTH = 820;
+	public static final int HEIGHT = 724;
 	
 	private static BufferedImageLoader OBJECT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/object-textra-alice.png");
 	private static BufferedImageLoader PLAYER_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/player-textra-alice.png");
