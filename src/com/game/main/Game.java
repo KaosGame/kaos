@@ -351,7 +351,7 @@ public class Game {
 	
 	public static RandomGen RANDOM = new RandomGen(Game.DATE.getTime());
 	
-	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.3.3");
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.3.2");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
