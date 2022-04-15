@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.Random;
-import java.util.Stack;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -33,8 +32,6 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.Player;
 import com.game.entities.player.items.base.Item;
-import com.game.entities.player.items.base.ItemID;
-import com.game.entities.player.items.tools.PickaxeItem;
 import com.game.entities.vilagers.VillagerEntity;
 import com.game.entities.vilagers.VillagerTrades;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
@@ -1092,15 +1089,15 @@ public class Game {
 		
 		Game.DIMENSION_HANDLER = new DimensionHandler();
 		
-		Game.PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+		Game.PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f,
+				0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 		
 		Game.MAP_HANDLER().addMap(new Map(Game.HOME_MAP_HOME));
 		
-		Stack<Item<?>> itemsForFistChest = new Stack<Item<?>>();
-		
-		itemsForFistChest.push(new PickaxeItem(1, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16)));
-		
-		Game.MAP_HANDLER().get(0).addObject(new ChestTransparentObject(126, 184, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), itemsForFistChest));
+		Game.MAP_HANDLER().get(0)
+				.addObject(new ChestTransparentObject(126, 184, 64, 64, ObjectType.CHEST,
+						Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16),
+						ChestTransparentObject.LootTable.HOME_FIRT_MAP_CHEST));
 		
 		
 		Game.logln("Reset game", LogType.SUCCESS);
