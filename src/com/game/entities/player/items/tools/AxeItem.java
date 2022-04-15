@@ -153,8 +153,8 @@ public class AxeItem extends WeaponItem<AxeItem> {
 			if (e instanceof DamageableEntity && Game.PLAYER.getRectangle().intersects(e.getRectangle())
 					&& e.getId() == EntityID.ZOMBIE && Math.random() < 0.50) {
 				
-				((DamageableEntity) e).damage(this.damage);
-				Game.logln(String.format("Player did %f to a zombie with the health of %f!", this.damage,
+				((DamageableEntity) e).damage(Game.PLAYER.calculateAttackDamage(this.damage));
+				Game.logln(String.format("Player did %f to a zombie with the health of %f!", Game.PLAYER.calculateAttackDamage(this.damage),
 						((DamageableEntity) e).getHealth()), LogType.INFO);
 				
 			}

@@ -108,7 +108,7 @@ public class ZombieEntity extends DamageableEntity implements Spawnable {
 			
 			final float DAMAGE = 1.5f;
 			
-			Game.PLAYER.damage(DAMAGE, EntityDeathMessages.ZOMBIE);
+			Game.PLAYER.damage(Game.PLAYER.calculateDamage(DAMAGE), EntityDeathMessages.ZOMBIE);
 			Game.logln(String.format("Zombie did %f damage to a player with the health of %f!", Game.PLAYER.calculateDamage(DAMAGE), Game.PLAYER.getHealth()), LogType.INFO);
 			
 		}
