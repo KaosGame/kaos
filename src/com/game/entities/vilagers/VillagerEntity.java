@@ -366,6 +366,26 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_ATTACK_STAT) {
+			
+			if (Game.PLAYER.getCoins() >= 1500) {
+				
+				Game.PLAYER.removeCoins(1500L);
+				
+				Game.PLAYER.addAttack(1L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_DEFENCE_STAT) {
+			
+			if (Game.PLAYER.getCoins() >= 1500) {
+				
+				Game.PLAYER.removeCoins(1500L);
+				
+				Game.PLAYER.addDefence(1L);
+				
+			}
+			
 		}
 		
 	}
@@ -661,6 +681,26 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_ATTACK_STAT) {
+			
+			while (Game.PLAYER.getCoins() >= 1500) {
+				
+				Game.PLAYER.removeCoins(1500L);
+				
+				Game.PLAYER.addAttack(1L);
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_DEFENCE_STAT) {
+			
+			while (Game.PLAYER.getCoins() >= 1500) {
+				
+				Game.PLAYER.removeCoins(1500L);
+				
+				Game.PLAYER.addDefence(1L);
+				
+			}
+			
 		}
 		
 	}
@@ -884,6 +924,26 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawString("1  -->  3", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.COIN_TO_ATTACK_STAT) {
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1500  -->  1", 400, 50);
+			
+			g2d.drawImage(Game.STAT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.COIN_TO_DEFENCE_STAT) {
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1500  -->  1", 400, 50);
+			
+			g2d.drawImage(Game.STAT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), 490, 25, 64, 64, null);
 			
 		}
 		
