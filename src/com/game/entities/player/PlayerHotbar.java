@@ -6,7 +6,7 @@ import java.util.Arrays;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.food.Pie1Item;
-import com.game.entities.player.items.tools.AxeItem;
+import com.game.entities.player.items.tools.weapon.AxeItem;
 import com.game.main.CloneableType;
 import com.game.main.Game;
 

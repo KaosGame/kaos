@@ -1,4 +1,4 @@
-package com.game.entities.player.items.tools;
+package com.game.entities.player.items.tools.weapon;
 
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;

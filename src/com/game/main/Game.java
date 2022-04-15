@@ -781,7 +781,11 @@ public class Game {
 				case COD_FISH_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(480, 0, 16, 16));
 					break;
-			
+					
+				case SWORD_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(496, 0, 16, 16));
+					break;
+					
 			}
 			
 		}
@@ -929,6 +933,10 @@ public class Game {
 								
 							case COD_FISH_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(480, 0, 16, 16));
+								break;
+								
+							case SWORD_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(496, 0, 16, 16));
 								break;
 							
 					

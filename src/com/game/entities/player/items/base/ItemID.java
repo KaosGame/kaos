@@ -32,6 +32,7 @@ public enum ItemID {
 	GOLD_FISH_1(),
 	BLUE_FISH_1(),
 	SALMON_FISH_1(),
-	COD_FISH_1();
+	COD_FISH_1(),
+	SWORD_1();
 
 }
