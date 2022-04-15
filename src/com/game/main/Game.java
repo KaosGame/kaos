@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -642,9 +643,19 @@ public class Game {
 
 	public static void fixImagesForCurrentMap(Map map) throws NotEnoughInformationToRestoreImageException {
 		
-		if (Game.DIMENSION_HANDLER.currentDimension().getId() == DimensionID.HOME) {
+		Iterator<com.game.maps.Dimension> dimsListIt = Game.DIMENSION_HANDLER.getDimensionHashMap().values().iterator();
+		
+		while (dimsListIt.hasNext()) {
 			
-			Game.DIMENSION_HANDLER.currentDimension().setBackground(Game.OBJECT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+			com.game.maps.Dimension dim = dimsListIt.next();
+			
+			switch (dim.getId()) {
+			
+				case HOME:
+					dim.setBackground(Game.OBJECT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					break;
+				
+			}
 			
 		}
 		
