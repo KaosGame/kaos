@@ -22,8 +22,8 @@ public class PlayerStatHanlder implements Serializable, Updatable, Drawable {
 	
 	public PlayerStatHanlder() {
 		
-		this.attack = 2L;
-		this.defence = 2L;
+		this.attack = 0L;
+		this.defence = 0L;
 		
 	}
 	
