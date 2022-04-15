@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.io.Serializable;
 
+import com.game.annotations.Empty;
 import com.game.main.Drawable;
 import com.game.main.Game;
 import com.game.main.Updatable;
@@ -85,7 +86,8 @@ public class PlayerStatHanlder implements Serializable, Updatable, Drawable {
 		g2d.drawString(String.valueOf(this.defence), 80, 170);
 		
 	}
-
+	
+	@Empty
 	@Override
 	public void update() {
 		
