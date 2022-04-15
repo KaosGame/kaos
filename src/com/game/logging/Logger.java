@@ -21,7 +21,7 @@ public class Logger {
 	
 	public <T> void logln(T t, LogType type) {
 		
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/YYYY hh:mm:ss");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/YYYY hh:mm:ss a");
 		LocalDateTime localDateTime = LocalDateTime.now();
 		
 		Date date = new Date();
@@ -41,7 +41,7 @@ public class Logger {
 	
 	public <T> void log(T t, LogType type) {
 		
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/YYYY hh:mm:ss");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/YYYY hh:mm:ss a");
 		LocalDateTime localDateTime = LocalDateTime.now();
 		
 		Date date = new Date();
