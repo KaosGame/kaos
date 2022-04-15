@@ -23,8 +23,8 @@ public class SaveableObject implements Serializable {
 	
 	public SaveableObject() {
 		
-		this.dimensionHandler = Game.DIMENSION_HANDLER.cloneType();
-		this.player = Game.PLAYER.cloneType();
+		this.dimensionHandler = Game.DIMENSION_HANDLER;
+		this.player = Game.PLAYER;
 		
 		this.version = Game.VERSION;
 		this.versionHashcode = this.version.hashCode();

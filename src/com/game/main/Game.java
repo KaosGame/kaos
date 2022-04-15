@@ -67,6 +67,7 @@ public class Game {
 	private static BufferedImageLoader ZOMBIE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/zombie-textra-alice.png");
 	private static BufferedImageLoader HOTBAR_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/hud/hotbar/hotbar-textra-alice.png");
 	private static BufferedImageLoader ITEM_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/item-textra-alice.png");
+	private static BufferedImageLoader STAT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/stat-textra-alice.png");
 	
 	public static BufferedImageLoader HOUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/house_1.png");
 	
@@ -78,6 +79,7 @@ public class Game {
 	public static TextraAlice BIRD_TEXTRA_ALICE = new TextraAlice(Game.BIRD_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice PLANE_TEXTRA_ALICE = new TextraAlice(Game.PLANE_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice ZOMBIE_TEXTRA_ALICE = new TextraAlice(Game.ZOMBIE_TEXTRA_ALICE_LOADER.getImage());
+	public static TextraAlice STAT_TEXTRA_ALICE = new TextraAlice(Game.STAT_TEXTRA_ALICE_LOADER.getImage());
 	
 	public static CollisionObject[] HOME_MAP_HOME = {
 			

@@ -27,7 +27,7 @@ public class HUD implements Drawable, Updatable {
 	public void update() {
 		
 		this.hungerGreenValue = (short) (Game.PLAYER.getHunger() * 12);
-		this.healthGreenValue = (short) (Game.PLAYER.getHealth() * 12);
+		this.healthGreenValue = (short) (Math.round(Game.PLAYER.getHealth()) * 12);
 		
 	}
 
@@ -38,6 +38,7 @@ public class HUD implements Drawable, Updatable {
 		this.drawHungerBar(g2d);
 		this.drawHealthBar(g2d);
 		this.drawCoins(g2d);
+		Game.PLAYER.getStatHandler().draw(g2d);
 		
 	}
 

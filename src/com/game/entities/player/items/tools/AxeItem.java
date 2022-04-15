@@ -33,7 +33,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 	
 	public AxeItem(int count, ItemID id, BufferedImage image) {
 		
-		super(count, id, image, 1f);
+		super(count, id, image, 2f);
 		
 		
 	}

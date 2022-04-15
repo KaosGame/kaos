@@ -20,10 +20,9 @@ import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.vilagers.VillagerEntity;
 import com.game.logging.LogType;
-import com.game.main.CloneableType;
 import com.game.main.Game;
 
-public class Player extends DamageableEntity implements Serializable, CloneableType<Player> {
+public class Player extends DamageableEntity implements Serializable {
 	
 	
 	/**
@@ -39,6 +38,8 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 	public static final int MAX_HUNGER = 20;
 	public static final int MIN_HUNGER = 0;
 	
+	public static final int HUNGER_HEALTH_RESTORE_MIN_VALUE = 10;
+	
 	public static final float MAX_HEALTH = 20;
 	public static final float MIN_HEALTH = 0;
 
@@ -49,6 +50,7 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 	private boolean dashKeyDown;
 
 	private PlayerHotbar hotbar;
+	private PlayerStatHanlder statHandler;
 	
 	private int hunger;
 	
@@ -68,24 +70,10 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 		Arrays.fill(this.keysDown, false);
 		
 		this.hotbar = new PlayerHotbar();
+		this.statHandler = new PlayerStatHanlder();
 		
 		this.coins = 0L;
 		
-		
-	}
-	
-	
-
-	private Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image,
-			boolean[] keysDown, boolean dashKeyDown, PlayerHotbar hotbar, int hunger, float health, long coins) {
-		
-		super(x, y, xv, yv, width, height, id, image, health);
-		
-		this.keysDown = keysDown;
-		this.dashKeyDown = dashKeyDown;
-		this.hotbar = hotbar;
-		this.hunger = hunger;
-		this.coins = coins;
 		
 		
 	}
@@ -112,6 +100,8 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 		this.handleHungerValue();
 		
 		this.dieIfNeeded();
+		
+		this.statHandler.update();
 		
 	}
 	
@@ -231,7 +221,7 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 				Math.random() > 0.1 &&
 				random.nextBoolean() &&
 				!random.nextBoolean() &&
-				this.hunger == Player.MAX_HUNGER &&
+				this.hunger >= Player.HUNGER_HEALTH_RESTORE_MIN_VALUE &&
 				this.health != Player.MAX_HEALTH
 			) {
 			
@@ -499,20 +489,13 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 		
 	}
 
-	@Override
-	public Player cloneType() {
-		
-		return new Player(this.x, this.y, this.xv, this.yv, this.width, this.height, this.id, this.image, this.keysDown,
-				this.dashKeyDown, this.hotbar.cloneType(), this.hunger, this.health, this.coins);
-		
-	}
 
 
 
 	@Override
 	public void damage(float num, EntityDeathMessages deathType) {
 		
-		float tempHP = (float) (this.health - num);
+		float tempHP = (float) (this.health - this.calculateDamage(num));
 		
 		if (tempHP <= 0) {
 			
@@ -520,13 +503,22 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 			
 		} else {
 			
-			this.health -= num;
+			this.health -= this.calculateDamage(num);
 			
 		}
 		
 	}
 
-
+	public float calculateDamage(float num) {
+		
+		float aws = (float) (num - (float) (this.getDefence() / 2));
+		
+		if (aws <= 0) aws = 0;
+		
+		
+		return aws;
+		
+	}
 
 	@Override
 	public void die() {
@@ -544,7 +536,13 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 		
 	}
 
-
+	public float calculateAttackDamage(float num) {
+		
+		float damagetodo = (float) (num + (float) (this.getAttack() / 2));
+		
+		return damagetodo;
+		
+	}
 
 	@Override
 	public int hashCode() {
@@ -583,6 +581,54 @@ public class Player extends DamageableEntity implements Serializable, CloneableT
 		if (!Arrays.equals(keysDown, other.keysDown))
 			return false;
 		return true;
+	}
+
+
+
+	public PlayerStatHanlder getStatHandler() {
+		return this.statHandler;
+	}
+
+
+
+	public void setStatHandler(PlayerStatHanlder statHandler) {
+		this.statHandler = statHandler;
+	}
+
+
+
+	public void addAttack(long num) {
+		this.statHandler.addAttack(num);
+	}
+
+
+
+	public void removeAttack(long num) {
+		this.statHandler.removeAttack(num);
+	}
+
+
+
+	public void addDefence(long num) {
+		this.statHandler.addDefence(num);
+	}
+
+
+
+	public void removeDefence(long num) {
+		this.statHandler.removeDefence(num);
+	}
+
+
+
+	public long getAttack() {
+		return this.statHandler.getAttack();
+	}
+
+
+
+	public long getDefence() {
+		return this.statHandler.getDefence();
 	}
 	
 }

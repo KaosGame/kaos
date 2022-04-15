@@ -22,7 +22,8 @@ public class RandomGen extends Random {
 	public long getSeed() {
 		return this.seedR;
 	}
-
+	
+	@Override
 	public void setSeed(long seedR) {
 		this.seedR = seedR;
 		super.setSeed(seedR);
