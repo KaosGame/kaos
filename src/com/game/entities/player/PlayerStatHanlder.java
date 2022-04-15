@@ -95,6 +95,4 @@ public class PlayerStatHanlder implements Serializable, Updatable, Drawable {
 		
 	}
 	
-	
-
 }
