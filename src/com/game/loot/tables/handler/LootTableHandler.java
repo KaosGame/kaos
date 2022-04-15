@@ -30,6 +30,7 @@ import com.game.entities.player.items.objects.Tree1Item;
 import com.game.entities.player.items.tools.FishingRodItem;
 import com.game.entities.player.items.tools.PickaxeItem;
 import com.game.entities.player.items.tools.weapon.AxeItem;
+import com.game.entities.player.items.tools.weapon.SwordItem;
 import com.game.loot.tables.items.AppleTree1ItemLootTable;
 import com.game.loot.tables.items.Chest1ItemLootTable;
 import com.game.loot.tables.items.DiamondOre1ItemLootTable;
@@ -456,6 +457,10 @@ public class LootTableHandler {
 				} else if (chance.firstChoose(0.25)) {
 					
 					item = new FishingRodItem(COUNT, ItemID.FISHING_ROD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.19763)) {
+					
+					item = new SwordItem(1, ItemID.SWORD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(496, 0, 16, 16));
 					
 				} else {
 					
