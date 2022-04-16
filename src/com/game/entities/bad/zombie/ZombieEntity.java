@@ -1,4 +1,4 @@
-package com.game.entities.bad;
+package com.game.entities.bad.zombie;
 
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
@@ -72,12 +72,12 @@ public class ZombieEntity extends DamageableEntity implements Spawnable {
 												(double) (
 															(double) (
 															
-															(double) (
-																	this.x - Game.PLAYER.getX()	
-																	) *
-															(double) (
-																	this.x - Game.PLAYER.getX()	
-																	)
+																(double) (
+																		this.x - Game.PLAYER.getX()	
+																		) *
+																(double) (
+																		this.x - Game.PLAYER.getX()	
+																		)
 															
 															) + (double) (
 																	

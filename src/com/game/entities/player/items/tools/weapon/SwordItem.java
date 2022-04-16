@@ -47,7 +47,11 @@ public class SwordItem extends WeaponItem<SwordItem> {
 			if (e.equals(Game.PLAYER)) continue;
 			
 			if (e instanceof DamageableEntity && Game.PLAYER.getRectangle().intersects(e.getRectangle())
-					&& e.getId() == EntityID.ZOMBIE && Math.random() < 0.50) {
+					&& (
+							e.getId() == EntityID.ZOMBIE ||
+							e.getId() == EntityID.ROCK_ZOMBIE
+							
+						) && Math.random() < 0.50) {
 				
 				((DamageableEntity) e).damage(Game.PLAYER.calculateAttackDamage(this.damage));
 				Game.logln(String.format("Player did %f to a zombie with the health of %f!", Game.PLAYER.calculateAttackDamage(this.damage),

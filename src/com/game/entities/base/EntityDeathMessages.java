@@ -10,7 +10,8 @@ public enum EntityDeathMessages {
 	WATER_DROWNED("You drowned under water and died with the score of %d!"),
 	WATER_FALL("You fell into a pond and died with the score of %d!"),
 	LAVA("You fell into lava and died with the score of %d!"),
-	ZOMBIE("You died to a zombie with the score of %d!");
+	ZOMBIE("You died to a zombie with the score of %d!"),
+	ROCK_ZOMBIE_ROCK("You got shot by a rock zombie and died with the score of %d!");
 	
 	
 	private final String MESSAGE;
@@ -37,7 +38,7 @@ public enum EntityDeathMessages {
 	
 	public static long getPlayerScore() {
 		
-		long deathScore = Game.PLAYER.getCoins();
+		long deathScore = (long) (Game.PLAYER.getCoins() + (long) (Game.PLAYER.getAttack() + Game.PLAYER.getDefence()));
 		
 		return deathScore;
 		

@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 
 import com.game.commands.DropPlayersItemsCommand;
 import com.game.commands.ForcePlaneCommand;
+import com.game.commands.ForceRockZombieCommand;
 import com.game.commands.ForceZombieCommand;
 import com.game.commands.GetNumberOfEntitiesCommand;
 import com.game.commands.GetPlayerPosCommand;
@@ -19,7 +20,8 @@ import com.game.commands.LogRandomGenSeedCommand;
 import com.game.commands.SetSeedForRandomGenCommand;
 import com.game.commands.base.Commands;
 import com.game.entities.BirdEntity;
-import com.game.entities.bad.ZombieEntity;
+import com.game.entities.bad.zombie.ZombieEntity;
+import com.game.entities.bad.zombie.rock.RockZombieEntity;
 import com.game.entities.item.planes.ItemPlaneEntity;
 import com.game.events.listeners.keys.KeyControls;
 import com.game.logging.LogType;
@@ -50,6 +52,7 @@ public class GamePanel extends JPanel implements Runnable {
 		Spawner.addHome(new BirdEntity());
 		Spawner.addHome(new ItemPlaneEntity());
 		Spawner.addHome(new ZombieEntity());
+		Spawner.addHome(new RockZombieEntity());
 		
 		
 		Commands.add("Game.Player.dropItems();", new DropPlayersItemsCommand());
@@ -65,6 +68,7 @@ public class GamePanel extends JPanel implements Runnable {
 		Commands.add("Game.setSeed();", new SetSeedForRandomGenCommand());
 		Commands.add("Game.Player.give(MushroomStew);", new GivePlayerMushroomStewItemCommand());
 		Commands.add("Game.Player.give(Bread);", new GivePlayerBreadItemCommand());
+		Commands.add("Game.force.rock.zombie();", new ForceRockZombieCommand());
 		
 		Game.reset();
 		
