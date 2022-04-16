@@ -54,7 +54,7 @@ public class SwordItem extends WeaponItem<SwordItem> {
 						) && Math.random() < 0.50) {
 				
 				((DamageableEntity) e).damage(Game.PLAYER.calculateAttackDamage(this.damage));
-				Game.logln(String.format("Player did %f to a zombie with the health of %f!", Game.PLAYER.calculateAttackDamage(this.damage),
+				Game.logln(String.format("Player did %f to a rock zombie with the health of %f!", Game.PLAYER.calculateAttackDamage(this.damage),
 						((DamageableEntity) e).getHealth()), LogType.INFO);
 				
 			}
