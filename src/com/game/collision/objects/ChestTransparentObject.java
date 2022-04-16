@@ -11,6 +11,7 @@ import com.game.collision.objects.base.ObjectType;
 import com.game.entities.base.Entity;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.base.ItemID;
+import com.game.entities.player.items.tools.FishingRodItem;
 import com.game.entities.player.items.tools.PickaxeItem;
 import com.game.entities.player.items.tools.weapon.SwordItem;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
@@ -50,13 +51,11 @@ public class ChestTransparentObject extends CollisionObject implements Drawable 
 			case HOME_FIRT_MAP_CHEST:
 				
 				this.stack.push(new PickaxeItem(1, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16)));
+				this.stack.push(new FishingRodItem(1, ItemID.FISHING_ROD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16)));
 				this.stack.push(new SwordItem(1, ItemID.SWORD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(496, 0, 16, 16)));
 				
 				break;
 	
-			default:
-				break;
-				
 		}
 		
 		
