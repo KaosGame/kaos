@@ -978,7 +978,7 @@ public class Game {
 					break;
 					
 				case ROCK_ZOMBIE:
-					e.setImage(Game.ZOMBIE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					e.setImage(Game.ZOMBIE_TEXTRA_ALICE.getImageFrom(32, 0, 16, 16));
 					break;
 					
 				case ROCK_ZOMBIE_ROCK:
