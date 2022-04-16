@@ -511,7 +511,7 @@ public class Player extends DamageableEntity implements Serializable {
 
 	public float calculateDamage(float num) {
 		
-		float aws = (float) (num - (float) (this.getDefence() / 2));
+		float aws = (float) (num - (float) (this.getDefence() / 2f));
 		
 		if (aws <= 0) aws = 0;
 		
@@ -538,7 +538,7 @@ public class Player extends DamageableEntity implements Serializable {
 
 	public float calculateAttackDamage(float num) {
 		
-		float damagetodo = (float) (num + (float) (this.getAttack() / 2));
+		float damagetodo = (float) (num + (float) (this.getAttack() / 2f));
 		
 		return damagetodo;
 		
