@@ -11,6 +11,8 @@ import com.game.collision.objects.base.ObjectType;
 import com.game.entities.base.Entity;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.base.ItemID;
+import com.game.entities.player.items.food.BurgerFoodItem;
+import com.game.entities.player.items.food.PizzaFoodItem;
 import com.game.entities.player.items.tools.FishingRodItem;
 import com.game.entities.player.items.tools.PickaxeItem;
 import com.game.entities.player.items.tools.weapon.SwordItem;
@@ -23,7 +25,8 @@ public class ChestTransparentObject extends CollisionObject implements Drawable 
 	
 	public enum LootTable {
 		
-		HOME_FIRT_MAP_CHEST();
+		HOME_FIRT_MAP_CHEST(),
+		START_FTART_MAP_FISH_LAND();
 
 	}
 
@@ -55,6 +58,15 @@ public class ChestTransparentObject extends CollisionObject implements Drawable 
 				this.stack.push(new PickaxeItem(1, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16)));
 				this.stack.push(new FishingRodItem(1, ItemID.FISHING_ROD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16)));
 				this.stack.push(new SwordItem(1, ItemID.SWORD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(496, 0, 16, 16)));
+				
+				break;
+				
+				
+			case START_FTART_MAP_FISH_LAND:
+				
+				this.stack.push(new PizzaFoodItem(2, ItemID.PIZZA_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 16, 16, 16)));
+				this.stack.push(new BurgerFoodItem(5, ItemID.BURGER_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 16, 16, 16)));
+				this.stack.push(new FishingRodItem(1, ItemID.FISHING_ROD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16)));
 				
 				break;
 				

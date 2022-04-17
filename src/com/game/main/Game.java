@@ -402,7 +402,7 @@ public class Game {
 			new WaterTransparentCollisionObject(0, 0, Game.WIDTH, 192, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
 			new WaterTransparentCollisionObject(0, 0, 284, Game.HEIGHT, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
 			new WaterTransparentCollisionObject(599, 0, 221, Game.HEIGHT, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
-			new ChestTransparentObject(470, 242, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16))
+			new ChestTransparentObject(470, 242, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), ChestTransparentObject.LootTable.START_FTART_MAP_FISH_LAND)
 			
 	};
 	
