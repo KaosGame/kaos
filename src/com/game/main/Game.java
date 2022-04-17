@@ -267,6 +267,16 @@ public class Game {
 				new CollidableObject(100, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
 				new CollidableObject(400, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage())
 				
+			},
+			
+			{
+				
+				new NextRandomMapCollisionObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16)),
+				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
+				new CollidableObject(100, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
+				new CollidableObject(75, 240, 128, 128, ObjectType.APPLE_TREE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16)),
+				new CollidableObject(400, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage())
+				
 			}
 			
 	};
@@ -374,6 +384,13 @@ public class Game {
 				new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_PIZZA),
 				new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_BURGER)
 				
+			},
+			
+			{
+				
+				new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_FISH_LAND_DIMENSION_TELEPORTER),
+				new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.SWORD_TO_COIN)
+				
 			}
 			
 	};
@@ -383,7 +400,8 @@ public class Game {
 			new WaterTransparentCollisionObject(0, 479, Game.WIDTH, 245, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
 			new WaterTransparentCollisionObject(0, 0, Game.WIDTH, 192, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
 			new WaterTransparentCollisionObject(0, 0, 284, Game.HEIGHT, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
-			new WaterTransparentCollisionObject(599, 0, 221, Game.HEIGHT, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16))
+			new WaterTransparentCollisionObject(599, 0, 221, Game.HEIGHT, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
+			new ChestTransparentObject(470, 242, 64, 64, ObjectType.CHEST, Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16))
 			
 	};
 	
@@ -834,6 +852,10 @@ public class Game {
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 16, 16, 16));
 					break;
 					
+				case FISH_LAND_TELEPORTER_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 16, 16, 16));
+					break;
+					
 			}
 			
 		}
@@ -993,6 +1015,10 @@ public class Game {
 								
 							case BURGER_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 16, 16, 16));
+								break;
+								
+							case FISH_LAND_TELEPORTER_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 16, 16, 16));
 								break;
 							
 					

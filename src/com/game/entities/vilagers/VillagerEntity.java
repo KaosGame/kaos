@@ -11,6 +11,7 @@ import com.game.entities.player.items.BowlItem;
 import com.game.entities.player.items.Heart1Item;
 import com.game.entities.player.items.bad.food.RedMushroom1FoodItem;
 import com.game.entities.player.items.base.ItemID;
+import com.game.entities.player.items.dimension.teleporters.FishLandDimensionTeleporterItem;
 import com.game.entities.player.items.food.Apple1Item;
 import com.game.entities.player.items.food.BreadFoodItem;
 import com.game.entities.player.items.food.BurgerFoodItem;
@@ -30,6 +31,7 @@ import com.game.entities.player.items.objects.Sign1Item;
 import com.game.entities.player.items.objects.Stone1Item;
 import com.game.entities.player.items.objects.Wood1Item;
 import com.game.entities.player.items.tools.FishingRodItem;
+import com.game.entities.player.items.tools.weapon.SwordItem;
 import com.game.main.Game;
 
 public class VillagerEntity extends Entity implements Trading {
@@ -420,6 +422,34 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_FISH_LAND_DIMENSION_TELEPORTER) {
+			
+			if (Game.PLAYER.getCoins() >= 26) {
+				
+				Game.PLAYER.removeCoins(26L);
+				
+				FishLandDimensionTeleporterItem item = new FishLandDimensionTeleporterItem(1, ItemID.FISH_LAND_TELEPORTER_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 16, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.SWORD_TO_COIN) {
+			
+			SwordItem tempItem = new SwordItem(1, ItemID.SWORD_1, null);
+			
+			if (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(27L);
+				
+			}
+			
 		}
 		
 	}
@@ -767,6 +797,34 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_FISH_LAND_DIMENSION_TELEPORTER) {
+			
+			while (Game.PLAYER.getCoins() >= 26) {
+				
+				Game.PLAYER.removeCoins(26L);
+				
+				FishLandDimensionTeleporterItem item = new FishLandDimensionTeleporterItem(1, ItemID.FISH_LAND_TELEPORTER_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 16, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.SWORD_TO_COIN) {
+			
+			SwordItem tempItem = new SwordItem(1, ItemID.SWORD_1, null);
+			
+			while (Game.PLAYER.getHotbar().hasItemValue(tempItem) >= 1) {
+				
+				Game.PLAYER.getHotbar().removeItem(tempItem);
+				
+				Game.PLAYER.addCoins(27L);
+				
+			}
+			
 		}
 		
 	}
@@ -1030,6 +1088,26 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawString("4  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 16, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.COIN_TO_FISH_LAND_DIMENSION_TELEPORTER) {
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("26  -->  1", 400, 50);
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 16, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.SWORD_TO_COIN) {
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(496, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("1  -->  27", 400, 50);
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
 			
 		}
 		
