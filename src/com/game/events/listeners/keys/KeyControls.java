@@ -67,7 +67,11 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_SPACE == key) {
 			
-			Game.PLAYER.useItem();
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.useItem();
+				
+			}
 			
 		}
 		
@@ -115,57 +119,89 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_1 == key) {
 			
-			Game.PLAYER.getHotbar().currentItemIndex = 0;
-			Game.logln("Player switched to slot 1", LogType.MESSAGE);
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.getHotbar().currentItemIndex = 0;
+				Game.logln("Player switched to slot 1", LogType.MESSAGE);
+				
+			}
 			
 		}
 		
 		if (KeyEvent.VK_2 == key) {
 			
-			Game.PLAYER.getHotbar().currentItemIndex = 1;
-			Game.logln("Player switched to slot 2", LogType.MESSAGE);
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.getHotbar().currentItemIndex = 1;
+				Game.logln("Player switched to slot 2", LogType.MESSAGE);
+				
+			}
 			
 		}
 		
 		if (KeyEvent.VK_3 == key) {
 			
-			Game.PLAYER.getHotbar().currentItemIndex = 2;
-			Game.logln("Player switched to slot 3", LogType.MESSAGE);
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.getHotbar().currentItemIndex = 2;
+				Game.logln("Player switched to slot 3", LogType.MESSAGE);
+				
+			}
 			
 		}
 		
 		if (KeyEvent.VK_4 == key) {
 			
-			Game.PLAYER.getHotbar().currentItemIndex = 3;
-			Game.logln("Player switched to slot 4", LogType.MESSAGE);
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.getHotbar().currentItemIndex = 3;
+				Game.logln("Player switched to slot 4", LogType.MESSAGE);
+				
+			}
 			
 		}
 		
 		if (KeyEvent.VK_5 == key) {
 			
-			Game.PLAYER.getHotbar().currentItemIndex = 4;
-			Game.logln("Player switched to slot 5", LogType.MESSAGE);
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.getHotbar().currentItemIndex = 4;
+				Game.logln("Player switched to slot 5", LogType.MESSAGE);
+				
+			}
 			
 		}
 		
 		if (KeyEvent.VK_6 == key) {
 			
-			Game.PLAYER.getHotbar().currentItemIndex = 5;
-			Game.logln("Player switched to slot 6", LogType.MESSAGE);
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.getHotbar().currentItemIndex = 5;
+				Game.logln("Player switched to slot 6", LogType.MESSAGE);
+				
+			}
 			
 		}
 		
 		if (KeyEvent.VK_7 == key) {
 			
-			Game.PLAYER.getHotbar().currentItemIndex = 6;
-			Game.logln("Player switched to slot 7", LogType.MESSAGE);
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.getHotbar().currentItemIndex = 6;
+				Game.logln("Player switched to slot 7", LogType.MESSAGE);
+				
+			}
 			
 		}
 		
 		if (KeyEvent.VK_8 == key) {
 			
-			Game.PLAYER.getHotbar().currentItemIndex = 7;
-			Game.logln("Player switched to slot 8", LogType.MESSAGE);
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.getHotbar().currentItemIndex = 7;
+				Game.logln("Player switched to slot 8", LogType.MESSAGE);
+				
+			}
 			
 		}
 		
@@ -173,13 +209,17 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_X == key) {
 			
-			Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+				
+			}
 			
 		}
 		
 		if (KeyEvent.VK_Z == key) {
 			
-			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null) {
+			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null && !Game.PAUSED) {
 				
 				Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].setCount((int) (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].getCount() - 1));
 				
@@ -195,7 +235,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_COMMA == key) {
 			
-			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null) {
+			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null && !Game.PAUSED) {
 				
 				float[] pos = Game.getRandomItemPos();
 				
@@ -219,7 +259,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_PERIOD == key) {
 			
-			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null) {
+			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null && !Game.PAUSED) {
 				
 				float[] pos = Game.getRandomItemPos();
 				
@@ -252,13 +292,21 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_T == key) {
 			
-			Game.PLAYER.trade();
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.trade();
+				
+			}
 			
 		}
 		
 		if (KeyEvent.VK_Y == key) {
 			
-			Game.PLAYER.tradeAll();
+			if (!Game.PAUSED) {
+				
+				Game.PLAYER.tradeAll();
+				
+			}
 			
 		}
 		
@@ -282,32 +330,36 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_I == key) {
 			
-			for (int i = 0; i < Game.MAP_HANDLER().currentMap().getObjectList().size(); i++) {
+			if (!Game.PAUSED) {
 				
-				CollisionObject o = Game.MAP_HANDLER().currentMap().getObject(i);
-				
-				if (o.getType() == ObjectType.CHEST && o instanceof ChestTransparentObject && Game.PLAYER.getRectangle().intersects(o.getRectangle())) {
+				for (int i = 0; i < Game.MAP_HANDLER().currentMap().getObjectList().size(); i++) {
 					
-					if (Game.PLAYER.getHotbar().getCurrentItem() != null) {
+					CollisionObject o = Game.MAP_HANDLER().currentMap().getObject(i);
+					
+					if (o.getType() == ObjectType.CHEST && o instanceof ChestTransparentObject && Game.PLAYER.getRectangle().intersects(o.getRectangle())) {
 						
-						((ChestTransparentObject) o).push(Game.PLAYER.getHotbar().getCurrentItem());
-						
-						Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
-						Game.logln("Player put a item in a chest", LogType.MESSAGE);
+						if (Game.PLAYER.getHotbar().getCurrentItem() != null) {
+							
+							((ChestTransparentObject) o).push(Game.PLAYER.getHotbar().getCurrentItem());
+							
+							Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+							Game.logln("Player put a item in a chest", LogType.MESSAGE);
+							
+						}
 						
 					}
 					
 				}
 				
-			}
-			
-			try {
-				
-				Game.fixAllImages();
-				
-			} catch (NotEnoughInformationToRestoreImageException e) {
-				
-				System.out.println("NotEnoughInformationToRestoreImageException: " + e.toString());
+				try {
+					
+					Game.fixAllImages();
+					
+				} catch (NotEnoughInformationToRestoreImageException e) {
+					
+					System.out.println("NotEnoughInformationToRestoreImageException: " + e.toString());
+					
+				}
 				
 			}
 			
@@ -315,30 +367,34 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_U == key) {
 			
-			for (int i = 0; i < Game.MAP_HANDLER().currentMap().getObjectList().size(); i++) {
+			if (!Game.PAUSED) {
 				
-				CollisionObject o = Game.MAP_HANDLER().currentMap().getObject(i);
-				
-				if (o.getType() == ObjectType.CHEST && o instanceof ChestTransparentObject && Game.PLAYER.getRectangle().intersects(o.getRectangle())) {
+				for (int i = 0; i < Game.MAP_HANDLER().currentMap().getObjectList().size(); i++) {
 					
-					if (Game.PLAYER.getHotbar().getCurrentItem() == null && ((ChestTransparentObject) o).isNotEmpty()) {
+					CollisionObject o = Game.MAP_HANDLER().currentMap().getObject(i);
+					
+					if (o.getType() == ObjectType.CHEST && o instanceof ChestTransparentObject && Game.PLAYER.getRectangle().intersects(o.getRectangle())) {
 						
-						Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = ((ChestTransparentObject) o).pop();
-						Game.logln("Player took a item in a chest", LogType.MESSAGE);
+						if (Game.PLAYER.getHotbar().getCurrentItem() == null && ((ChestTransparentObject) o).isNotEmpty()) {
+							
+							Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = ((ChestTransparentObject) o).pop();
+							Game.logln("Player took a item in a chest", LogType.MESSAGE);
+							
+						}
 						
 					}
 					
 				}
 				
-			}
-			
-			try {
-				
-				Game.fixAllImages();
-				
-			} catch (NotEnoughInformationToRestoreImageException e) {
-				
-				System.out.println("NotEnoughInformationToRestoreImageException: " + e.toString());
+				try {
+					
+					Game.fixAllImages();
+					
+				} catch (NotEnoughInformationToRestoreImageException e) {
+					
+					System.out.println("NotEnoughInformationToRestoreImageException: " + e.toString());
+					
+				}
 				
 			}
 			
@@ -346,10 +402,14 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_G == key) {
 			
-			float[] pos = Game.getRandomItemPos();
-			
-			Game.PLAYER.setX(pos[0]);
-			Game.PLAYER.setY(pos[1]);
+			if (!Game.PAUSED) {
+				
+				float[] pos = Game.getRandomItemPos();
+				
+				Game.PLAYER.setX(pos[0]);
+				Game.PLAYER.setY(pos[1]);
+				
+			}
 			
 		}
 		
