@@ -13,8 +13,10 @@ import com.game.entities.player.items.bad.food.RedMushroom1FoodItem;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.food.Apple1Item;
 import com.game.entities.player.items.food.BreadFoodItem;
+import com.game.entities.player.items.food.BurgerFoodItem;
 import com.game.entities.player.items.food.MushroomStewFoodItem;
 import com.game.entities.player.items.food.Pie1Item;
+import com.game.entities.player.items.food.PizzaFoodItem;
 import com.game.entities.player.items.food.RawBlueFishFoodItem;
 import com.game.entities.player.items.food.RawCodFishFoodItem;
 import com.game.entities.player.items.food.RawGoldFishFoodItem;
@@ -386,6 +388,38 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_PIZZA) {
+			
+			if (Game.PLAYER.getCoins() >= 3) {
+				
+				Game.PLAYER.removeCoins(3L);
+				
+				PizzaFoodItem item = new PizzaFoodItem(1, ItemID.PIZZA_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 16, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_BURGER) {
+			
+			if (Game.PLAYER.getCoins() >= 4) {
+				
+				Game.PLAYER.removeCoins(4L);
+				
+				BurgerFoodItem item = new BurgerFoodItem(1, ItemID.BURGER_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 16, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
 		}
 		
 	}
@@ -701,6 +735,38 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_PIZZA) {
+			
+			while (Game.PLAYER.getCoins() >= 3) {
+				
+				Game.PLAYER.removeCoins(3L);
+				
+				PizzaFoodItem item = new PizzaFoodItem(1, ItemID.PIZZA_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 16, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_BURGER) {
+			
+			while (Game.PLAYER.getCoins() >= 4) {
+				
+				Game.PLAYER.removeCoins(4L);
+				
+				BurgerFoodItem item = new BurgerFoodItem(1, ItemID.BURGER_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 16, 16, 16));
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
 		}
 		
 	}
@@ -944,6 +1010,26 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawString("1500  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.STAT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.COIN_TO_PIZZA) {
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("3  -->  1", 400, 50);
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 16, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.COIN_TO_BURGER) {
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.drawString("4  -->  1", 400, 50);
+			
+			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 16, 16, 16), 490, 25, 64, 64, null);
 			
 		}
 		

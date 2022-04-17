@@ -359,8 +359,6 @@ public class KeyControls implements KeyListener {
 				
 				Game.LOGGER.saveLogFile();
 				
-				Game.logln("Save Log file", LogType.INFO);
-				
 			} catch (IOException e) {
 				
 				e.printStackTrace();

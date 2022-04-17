@@ -9,6 +9,8 @@ import java.util.Date;
 
 import javax.swing.JFileChooser;
 
+import com.game.main.Game;
+
 public class Logger {
 	
 	private String text;
@@ -80,6 +82,8 @@ public class Logger {
 			writer.write(this.text);
 			
 			writer.close();
+			
+			Game.logln("Saved Log file", LogType.SUCCESS);
 			
 		}
 		
