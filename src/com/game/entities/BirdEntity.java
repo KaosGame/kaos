@@ -7,7 +7,6 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.logging.LogType;
 import com.game.main.Game;
-import com.game.maps.DimensionID;
 import com.game.spawning.base.Spawnable;
 
 public class BirdEntity extends Entity implements Spawnable {
@@ -101,8 +100,7 @@ public class BirdEntity extends Entity implements Spawnable {
 		Random random = new Random();
 		
 		if (
-				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() &&
-				Game.DIMENSION_HANDLER.currentDimension().getId() == DimensionID.HOME
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean()
 			) {
 			
 			this.spawn();

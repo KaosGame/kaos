@@ -116,7 +116,7 @@ public class ItemPlaneEntity extends Entity implements Spawnable {
 		
 		if (
 				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() &&
-				random.nextBoolean() && !random.nextBoolean() && chance.firstChoose(0.25) && random.nextBoolean() && Game.DIMENSION_HANDLER.currentDimension().getId() == DimensionID.HOME
+				random.nextBoolean() && !random.nextBoolean() && chance.firstChoose(0.25) && random.nextBoolean()
 			) {
 			
 			this.spawn();

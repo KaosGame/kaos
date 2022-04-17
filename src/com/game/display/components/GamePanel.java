@@ -54,6 +54,8 @@ public class GamePanel extends JPanel implements Runnable {
 		Spawner.addHome(new ZombieEntity());
 		Spawner.addHome(new RockZombieEntity());
 		
+		Spawner.addFishLand(new BirdEntity());
+		
 		
 		Commands.add("Game.Player.dropItems();", new DropPlayersItemsCommand());
 		Commands.add("Game.Player.dropAllItems();", new DropPlayersItemsCommand());
