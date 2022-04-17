@@ -7,7 +7,6 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.logging.LogType;
 import com.game.main.Game;
-import com.game.maps.DimensionID;
 import com.game.random.RandomChance;
 import com.game.spawning.base.Spawnable;
 
