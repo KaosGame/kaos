@@ -39,6 +39,7 @@ public class FishLandDimensionTeleporterItem extends Item<FishLandDimensionTelep
 				
 			case FISH_LAND:
 				Game.DIMENSION_HANDLER.setCURRENT_DIMENSION_ID(DimensionID.HOME);
+				Game.resetPlayerPosToCenter();
 				Game.logln("Set dimension to HOME", LogType.SUCCESS);
 				break;
 				
