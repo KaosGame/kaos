@@ -1183,6 +1183,8 @@ public class Game {
 
 	public static void reset() {
 		
+		Game.PAUSED = false;
+		
 		Date date = new Date();
 		
 		Game.RANDOM.setSeed(date.getTime());
