@@ -973,6 +973,14 @@ public class Game {
 							case SWORD_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(496, 0, 16, 16));
 								break;
+								
+							case PIZZA_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 16, 16, 16));
+								break;
+								
+							case BURGER_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 16, 16, 16));
+								break;
 							
 					
 						}
