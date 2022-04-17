@@ -12,9 +12,11 @@ public class SetSeedForRandomGenCommand implements CommandBase {
 		
 		String seedString = JOptionPane.showInputDialog(null, "Enter the new random world seed", "Enter", JOptionPane.QUESTION_MESSAGE);
 		
-		if (seedString == null) return;
+		if (seedString == null || seedString.trim().equals("") || seedString.equals("")) return;
 		
-		long seed = Long.parseLong(seedString);
+		long seed = Game.stringToLong(seedString);
+		
+		this.print(seed);
 		
 		int newWorldOrNot = JOptionPane.showConfirmDialog(null,
 				"Do you want to make a new world\nor chance the current word's seed?", "Question",

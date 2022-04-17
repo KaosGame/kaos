@@ -7,6 +7,8 @@ public enum LogType {
 	DEBUG(),
 	ERROR(),
 	EXCRPTION(),
+	SAFE_EXCRPTION(),
+	POSSIBLY_BAD_EXCRPTION(),
 	LOG(),
 	SUCCESS(),
 	POSSIBLY_BAD(),

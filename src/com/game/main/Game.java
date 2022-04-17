@@ -1271,4 +1271,28 @@ public class Game {
 		
 	}
 	
+	public static final long stringToLong(String text) {
+		
+		Long result = null;
+		
+		try {
+			
+			result = Long.parseLong(text);
+			
+		} catch (NumberFormatException nfe) {
+			
+			Game.logln(nfe, LogType.SAFE_EXCRPTION);
+			
+		}
+		
+		if (result == null) {
+			
+			result = (long) text.hashCode();
+			
+		}
+		
+		return (long) result;
+		
+	}
+	
 }
