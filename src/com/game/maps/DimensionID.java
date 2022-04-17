@@ -2,6 +2,7 @@ package com.game.maps;
 
 public enum DimensionID {
 	
-	HOME();
+	HOME(),
+	FISH_LAND();
 
 }

@@ -378,6 +378,15 @@ public class Game {
 			
 	};
 	
+	public static CollisionObject[] START_MAP_FISH_LAND = {
+			
+			new WaterTransparentCollisionObject(0, 479, Game.WIDTH, 245, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
+			new WaterTransparentCollisionObject(0, 0, Game.WIDTH, 192, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
+			new WaterTransparentCollisionObject(0, 0, 284, Game.HEIGHT, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16)),
+			new WaterTransparentCollisionObject(599, 0, 221, Game.HEIGHT, ObjectType.WATER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16))
+			
+	};
+	
 	
 	private static final Date DATE = new Date();
 	
@@ -668,6 +677,10 @@ public class Game {
 			switch (dim.getId()) {
 			
 				case HOME:
+					dim.setBackground(Game.OBJECT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					break;
+					
+				case FISH_LAND:
 					dim.setBackground(Game.OBJECT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 					break;
 				
@@ -1151,12 +1164,14 @@ public class Game {
 		Game.PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f,
 				0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 		
-		Game.MAP_HANDLER().addMap(new Map(Game.HOME_MAP_HOME));
+		Game.DIMENSION_HANDLER.get(DimensionID.HOME).getMapHandler().addMap(new Map(Game.HOME_MAP_HOME));
 		
-		Game.MAP_HANDLER().get(0)
+		Game.DIMENSION_HANDLER.get(DimensionID.HOME).getMapHandler().get(0)
 				.addObject(new ChestTransparentObject(126, 184, 64, 64, ObjectType.CHEST,
 						Game.OBJECT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16),
 						ChestTransparentObject.LootTable.HOME_FIRT_MAP_CHEST));
+		
+		Game.DIMENSION_HANDLER.get(DimensionID.FISH_LAND).getMapHandler().addMap(new Map(Game.START_MAP_FISH_LAND));
 		
 		
 		Game.logln("Reset game", LogType.SUCCESS);

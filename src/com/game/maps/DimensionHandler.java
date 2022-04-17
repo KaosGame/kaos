@@ -24,9 +24,11 @@ public class DimensionHandler implements Serializable, CloneableType<DimensionHa
 		this.dimensionHashMap = new HashMap<DimensionID, Dimension>();
 		this.CURRENT_DIMENSION_ID = DimensionID.HOME;
 		
-		DimensionHandlerInputObject dhio = new DimensionHandlerInputObject(DimensionID.HOME, new Dimension(DimensionID.HOME, Game.OBJECT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16)));
+		DimensionHandlerInputObject dhio1 = new DimensionHandlerInputObject(DimensionID.HOME, new Dimension(DimensionID.HOME, Game.OBJECT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16)));
+		DimensionHandlerInputObject dhio2 = new DimensionHandlerInputObject(DimensionID.FISH_LAND, new Dimension(DimensionID.FISH_LAND, Game.OBJECT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16)));
 		
-		this.add(dhio);
+		this.add(dhio1);
+		this.add(dhio2);
 		
 	
 	}

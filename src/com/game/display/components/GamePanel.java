@@ -146,7 +146,7 @@ public class GamePanel extends JPanel implements Runnable {
 			
 			Game.HUD.update();
 			
-			Spawner.spwanHome();
+			Spawner.spwan();
 			
 			this.overflowHandler.handle();
 			

@@ -33,7 +33,7 @@ public class Spawner {
 		
 	}
 	
-	public static void spwanHome() {
+	public static void spwan() {
 		
 		if (Game.DIMENSION_HANDLER.getCURRENT_DIMENSION_ID() == DimensionID.HOME) {
 			
