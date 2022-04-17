@@ -3,6 +3,7 @@ package com.game.commands;
 import javax.swing.JOptionPane;
 
 import com.game.commands.base.CommandBase;
+import com.game.logging.LogType;
 import com.game.main.Game;
 
 public class SetSeedForRandomGenCommand implements CommandBase {
@@ -16,8 +17,6 @@ public class SetSeedForRandomGenCommand implements CommandBase {
 		
 		long seed = Game.stringToLong(seedString);
 		
-		this.print(seed);
-		
 		int newWorldOrNot = JOptionPane.showConfirmDialog(null,
 				"Do you want to make a new world\nor chance the current word's seed?", "Question",
 				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -27,9 +26,13 @@ public class SetSeedForRandomGenCommand implements CommandBase {
 			Game.reset();
 			Game.RANDOM.setSeed(seed);
 			
+			Game.logln(String.format("%d was set the seed for a new world", seed), LogType.INFO);
+			
 		} else if (newWorldOrNot == JOptionPane.NO_OPTION) {
 			
 			Game.RANDOM.setSeed(seed);
+			
+			Game.logln(String.format("%d is now the world seed", seed), LogType.INFO);
 			
 		}
 		
