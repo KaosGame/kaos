@@ -142,15 +142,19 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		try {
 			
-			Game.MAP_HANDLER().currentMap().update();
-			
-			Game.PLAYER.update();
-			
-			Game.HUD.update();
-			
-			Spawner.spwan();
-			
-			this.overflowHandler.handle();
+			if (!Game.PAUSED) {
+				
+				Game.MAP_HANDLER().currentMap().update();
+				
+				Game.PLAYER.update();
+				
+				Game.HUD.update();
+				
+				Spawner.spwan();
+				
+				this.overflowHandler.handle();
+				
+			}
 			
 		} catch (NullPointerException e) {
 			
@@ -182,6 +186,8 @@ public class GamePanel extends JPanel implements Runnable {
 			
 			Game.HUD.draw(g2d);
 			
+			this.drawPause(g2d);
+			
 			g2d.dispose();
 			g.dispose();
 			
@@ -198,6 +204,23 @@ public class GamePanel extends JPanel implements Runnable {
 		
 	}
 	
+	private void drawPause(Graphics2D g2d) {
+		
+		if (Game.PAUSED) {
+			
+			int[] center = {
+					
+					(int) ((int) (Game.WIDTH / 2) - 64),
+					(int) ((int) (Game.HEIGHT / 2) - 128)
+					
+			};
+			
+			g2d.drawImage(Game.PAUSE_1_IMAGE_LOADER.getImage(), center[0], center[1], 128, 128, null);
+			
+		}
+		
+	}
+
 	private void drawBackground(Graphics2D g2d) {
 		
 		g2d.drawImage(Game.DIMENSION_HANDLER.currentDimension().getBackground(), 0, 0, Game.WIDTH, Game.HEIGHT, null);

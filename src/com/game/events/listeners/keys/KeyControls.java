@@ -367,6 +367,12 @@ public class KeyControls implements KeyListener {
 			
 		}
 		
+		if (KeyEvent.VK_P == key) {
+			
+			Game.PAUSED = !Game.PAUSED;
+			
+		}
+		
 	}
 
 }
