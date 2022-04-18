@@ -10,7 +10,8 @@ public enum EntityID {
 	ITEM_PLANE_FALLING_CHEST(true),
 	ZOMBIE(true),
 	ROCK_ZOMBIE(true),
-	ROCK_ZOMBIE_ROCK(true);
+	ROCK_ZOMBIE_ROCK(true),
+	PLAYER_BOW_BULLET(true);
 
 	private final boolean CAN_DELETE;
 	

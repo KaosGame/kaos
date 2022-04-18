@@ -69,6 +69,7 @@ public class Game {
 	
 	public static BufferedImageLoader HOUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/house_1.png");
 	public static BufferedImageLoader PAUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/hud/pause.png");
+	public static BufferedImageLoader BULLET_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/entities/bullet.png");
 	
 	public static TextraAlice OBJECT_TEXTRA_ALICE = new TextraAlice(Game.OBJECT_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice PLAYER_TEXTRA_ALICE = new TextraAlice(Game.PLAYER_TEXTRA_ALICE_LOADER.getImage());
@@ -411,7 +412,7 @@ public class Game {
 	
 	public static RandomGen RANDOM = new RandomGen(Game.DATE.getTime());
 	
-	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.3.6");
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.3.7");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
@@ -857,6 +858,14 @@ public class Game {
 				case FISH_LAND_TELEPORTER_1:
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 16, 16, 16));
 					break;
+				
+				case BOW_1:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(48, 16, 16, 16));
+					break;
+					
+				case BOW_2:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 16, 16, 16));
+					break;
 					
 			}
 			
@@ -1022,6 +1031,14 @@ public class Game {
 							case FISH_LAND_TELEPORTER_1:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 16, 16, 16));
 								break;
+								
+							case BOW_1:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(48, 16, 16, 16));
+								break;
+								
+							case BOW_2:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 16, 16, 16));
+								break;
 							
 					
 						}
@@ -1056,6 +1073,10 @@ public class Game {
 					
 				case ROCK_ZOMBIE_ROCK:
 					e.setImage(Game.ZOMBIE_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
+					break;
+					
+				case PLAYER_BOW_BULLET:
+					e.setImage(Game.BULLET_1_IMAGE_LOADER.getImage());
 					break;
 			
 			}

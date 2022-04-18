@@ -181,13 +181,20 @@ public class ZombieEntity extends DamageableEntity implements Spawnable {
 		
 		float[] offset = {random.nextInt(Game.WIDTH), random.nextInt(Game.HEIGHT)};
 		
-		ZombieEntity zombie = new ZombieEntity(offset[0], offset[1], 64, 64, EntityID.ZOMBIE, Game.ZOMBIE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+		ZombieEntity zombie = new ZombieEntity(offset[0], offset[1], 64, 64, EntityID.ZOMBIE,
+				Game.ZOMBIE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+		
+		zombie.setPos(Game.clamp(zombie.getX(), (float) (Game.WIDTH - zombie.getWidth()), 0f),
+				Game.clamp(zombie.getY(), (float) (Game.HEIGHT - (float) (zombie.getHeight() * 1.3f)), 0f));
 		
 		while (Game.touchingSomething(zombie.getRectangle())) {
 			
 			float[] pos = Game.getRandomItemPos(zombie.getX(), zombie.getY());
 			
 			zombie.setPos(pos);
+			
+			zombie.setPos(Game.clamp(zombie.getX(), (float) (Game.WIDTH - zombie.getWidth()), 0f),
+					Game.clamp(zombie.getY(), (float) (Game.HEIGHT - (float) (zombie.getHeight() * 1.3f)), 0f));
 			
 		}
 		

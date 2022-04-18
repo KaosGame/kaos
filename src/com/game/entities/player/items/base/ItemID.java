@@ -36,6 +36,8 @@ public enum ItemID {
 	SWORD_1(),
 	PIZZA_1(),
 	BURGER_1(),
-	FISH_LAND_TELEPORTER_1();
+	FISH_LAND_TELEPORTER_1(),
+	BOW_1(),
+	BOW_2();
 
 }

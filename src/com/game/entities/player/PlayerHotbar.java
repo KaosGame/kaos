@@ -9,8 +9,9 @@ import com.game.entities.player.items.food.Pie1Item;
 import com.game.entities.player.items.tools.weapon.AxeItem;
 import com.game.main.CloneableType;
 import com.game.main.Game;
+import com.game.main.Updatable;
 
-public class PlayerHotbar implements CloneableType<PlayerHotbar>, Serializable {
+public class PlayerHotbar implements CloneableType<PlayerHotbar>, Serializable, Updatable {
 	
 	/**
 	 * 
@@ -263,6 +264,15 @@ public class PlayerHotbar implements CloneableType<PlayerHotbar>, Serializable {
 		if (!Arrays.equals(list, other.list))
 			return false;
 		return true;
+	}
+
+
+
+	@Override
+	public void update() {
+		
+		if (this.getCurrentItem() instanceof Updatable) ((Updatable) this.getCurrentItem()).update();
+		
 	}
 
 }

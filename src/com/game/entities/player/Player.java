@@ -101,6 +101,8 @@ public class Player extends DamageableEntity implements Serializable {
 		
 		this.dieIfNeeded();
 		
+		this.hotbar.update();
+		
 		this.statHandler.update();
 		
 	}
