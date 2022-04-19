@@ -49,7 +49,7 @@ public class BowItemBulletItemEntity extends Entity {
 				
 				Game.MAP_HANDLER().currentMap().getEntityHandler().remove(this);
 				
-				Game.logln("Player did " + this.damage + " to an entity", LogType.INFO);
+				Game.logln("Player did " + Game.PLAYER.calculateAttackDamage(this.damage) + " to an entity", LogType.INFO);
 				
 				break;
 				

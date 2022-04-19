@@ -203,7 +203,7 @@ public class LootTableHandler {
 							
 						} else {
 							
-							listOfItems[i] = new BowStandardItem(COUNT, ItemID.BOW_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 16, 16, 16));
+							listOfItems[i] = new BowStandardItem(COUNT, ItemID.BOW_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(48, 16, 16, 16));
 							
 						}
 						
@@ -479,7 +479,7 @@ public class LootTableHandler {
 						
 					} else {
 						
-						item = new BowStandardItem(COUNT, ItemID.BOW_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 16, 16, 16));
+						item = new BowStandardItem(COUNT, ItemID.BOW_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(48, 16, 16, 16));
 						
 					}
 					
