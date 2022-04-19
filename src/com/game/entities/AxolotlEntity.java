@@ -2,6 +2,7 @@ package com.game.entities;
 
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
+import java.util.Random;
 
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
@@ -10,8 +11,9 @@ import com.game.entities.base.EntityDeathMessages;
 import com.game.entities.base.EntityID;
 import com.game.logging.LogType;
 import com.game.main.Game;
+import com.game.spawning.base.Spawnable;
 
-public class AxolotlEntity extends DamageableEntity {
+public class AxolotlEntity extends DamageableEntity implements Spawnable {
 
 	/**
 	 * 
@@ -36,6 +38,15 @@ public class AxolotlEntity extends DamageableEntity {
 		
 	}
 
+	public AxolotlEntity() {
+		
+		super(0, 0, 0, 0, 0, 0, null, null, 0, false);
+		this.targetTime = 0L;
+		this.waterTime = 10800L;
+		this.targetPos = new float[2];
+		
+	}
+	
 	@Override
 	public void die(EntityDeathMessages message) {
 		
@@ -151,7 +162,7 @@ public class AxolotlEntity extends DamageableEntity {
 		
 	}
 	
-	private void handleImage() {
+	public void handleImage() {
 		
 		if (Game.isPositive(this.xv) && Game.isPositive(this.yv)) {
 			
@@ -200,8 +211,6 @@ public class AxolotlEntity extends DamageableEntity {
 			
 			this.targetPos = target;
 			
-			Game.logln("Axolotl has made it to target position", LogType.SUCCESS);
-			
 		}
 		
 		float[] newV = Game.calculateDirection(this.targetPos[0], this.targetPos[1], AxolotlEntity.SPEED, this.x, this.y);
@@ -212,4 +221,90 @@ public class AxolotlEntity extends DamageableEntity {
 		
 	}
 
+	@Override
+	public void randomSpawn() {
+		
+		Random random = new Random();
+		
+		if (
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() &&
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && Math.random() < 0.50
+			) {
+			
+			this.spawn();
+			
+		}
+		
+	}
+
+	@Override
+	public void spawn() {
+		
+		Random random = new Random();
+		
+		float[] offset = {random.nextInt(Game.WIDTH), random.nextInt(Game.HEIGHT)};
+		
+		AxolotlEntity axolotl = new AxolotlEntity(offset[0], offset[1], 64, 64, EntityID.AXOLOTL,
+				Game.AXOLOTL_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+		
+		axolotl.setPos(Game.clamp(axolotl.getX(), (float) (Game.WIDTH - axolotl.getWidth()), 0f),
+				Game.clamp(axolotl.getY(), (float) (Game.HEIGHT - (float) (axolotl.getHeight() * 1.3f)), 0f));
+		
+		int times = 0;
+		
+		while (!axolotl.inWaterTest()) {
+			
+			times++;
+			
+			if (times >= 25) return;
+			
+			float[] pos = Game.getRandomItemPos(axolotl.getX(), axolotl.getY());
+			
+			axolotl.setPos(pos);
+			
+			axolotl.setPos(Game.clamp(axolotl.getX(), (float) (Game.WIDTH - axolotl.getWidth()), 0f),
+					Game.clamp(axolotl.getY(), (float) (Game.HEIGHT - (float) (axolotl.getHeight() * 1.3f)), 0f));
+			
+			
+		}
+		
+		Game.addEntity(axolotl);
+		
+		Game.logln("New axolotl summoned successfully", LogType.SUCCESS);
+		
+	}
+	
+	public void setPos(float[] pos) {
+		
+		this.setPos(pos[0], pos[1]);
+		
+	}
+	
+	public void setPos(float x, float y) {
+		
+		this.x = x;
+		this.y = y;
+		
+	}
+	
+	public boolean inWaterTest() {
+		
+		LinkedList<CollisionObject> tempCollList = Game.MAP_HANDLER().currentMap().getObjectList();
+		
+		for (int i = 0; i < tempCollList.size(); i++) {
+			
+			CollisionObject o = tempCollList.get(i);
+			
+			if (o.getType() == ObjectType.WATER && this.getRectangle().intersects(o.getRectangle())) {
+				
+				System.out.println("a");return true;
+				
+			}
+			
+		}
+		
+		return false;
+		
+	}
+	
 }

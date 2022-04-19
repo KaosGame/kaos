@@ -19,6 +19,7 @@ import com.game.commands.KillPlayerCommand;
 import com.game.commands.LogRandomGenSeedCommand;
 import com.game.commands.SetSeedForRandomGenCommand;
 import com.game.commands.base.Commands;
+import com.game.entities.AxolotlEntity;
 import com.game.entities.BirdEntity;
 import com.game.entities.bad.zombie.ZombieEntity;
 import com.game.entities.bad.zombie.rock.RockZombieEntity;
@@ -53,8 +54,10 @@ public class GamePanel extends JPanel implements Runnable {
 		Spawner.addHome(new ItemPlaneEntity());
 		Spawner.addHome(new ZombieEntity());
 		Spawner.addHome(new RockZombieEntity());
+		Spawner.addHome(new AxolotlEntity());
 		
 		Spawner.addFishLand(new BirdEntity());
+		Spawner.addFishLand(new AxolotlEntity());
 		
 		
 		Commands.add("Game.Player.dropItems();", new DropPlayersItemsCommand());

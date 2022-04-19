@@ -1081,6 +1081,15 @@ public class Game {
 				case PLAYER_BOW_BULLET:
 					e.setImage(Game.BULLET_1_IMAGE_LOADER.getImage());
 					break;
+					
+				case AXOLOTL:
+					if (e instanceof AxolotlEntity) {
+						
+						((AxolotlEntity) e).handleImage();
+						
+					}
+					if (e.getImage() == null) e.setImage(Game.AXOLOTL_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					break;
 			
 			}
 			
