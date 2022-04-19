@@ -295,11 +295,7 @@ public class AxolotlEntity extends DamageableEntity implements Spawnable {
 			
 			CollisionObject o = tempCollList.get(i);
 			
-			if (o.getType() == ObjectType.WATER && this.getRectangle().intersects(o.getRectangle())) {
-				
-				System.out.println("a");return true;
-				
-			}
+			if (o.getType() == ObjectType.WATER && this.getRectangle().intersects(o.getRectangle())) return true;
 			
 		}
 		
