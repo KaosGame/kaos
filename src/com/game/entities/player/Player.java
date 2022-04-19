@@ -59,7 +59,7 @@ public class Player extends DamageableEntity implements Serializable {
 	
 	public Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image) {
 		
-		super(x, y, xv, yv, width, height, id, image, Player.MAX_HEALTH);
+		super(x, y, xv, yv, width, height, id, image, Player.MAX_HEALTH, false);
 		
 		this.hunger = Player.MAX_HUNGER;
 		this.health = Player.MAX_HEALTH;

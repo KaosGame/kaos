@@ -45,7 +45,7 @@ public class BowItemBulletItemEntity extends Entity {
 			
 			if (this.getRectangle().intersects(e.getRectangle())) {
 				
-				e.damage(this.damage, EntityDeathMessages.PLAYER_BOW_STANDARD_BULLET);
+				e.damage(Game.PLAYER.calculateAttackDamage(this.damage), EntityDeathMessages.PLAYER_BOW_STANDARD_BULLET);
 				
 				Game.MAP_HANDLER().currentMap().getEntityHandler().remove(this);
 				

@@ -28,6 +28,7 @@ import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
 import com.game.display.HUD;
 import com.game.display.components.GamePanel;
+import com.game.entities.AxolotlEntity;
 import com.game.entities.ItemEntity;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
@@ -63,6 +64,7 @@ public class Game {
 	private static BufferedImageLoader BIRD_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/bird-textra-alice.png");
 	private static BufferedImageLoader PLANE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/plane-textra-alice.png");
 	private static BufferedImageLoader ZOMBIE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/zombie-textra-alice.png");
+	private static BufferedImageLoader AXOLOTL_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/axolotl-textra-alice.png");
 	private static BufferedImageLoader HOTBAR_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/hud/hotbar/hotbar-textra-alice.png");
 	private static BufferedImageLoader ITEM_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/item-textra-alice.png");
 	private static BufferedImageLoader STAT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/stat-textra-alice.png");
@@ -79,6 +81,7 @@ public class Game {
 	public static TextraAlice BIRD_TEXTRA_ALICE = new TextraAlice(Game.BIRD_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice PLANE_TEXTRA_ALICE = new TextraAlice(Game.PLANE_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice ZOMBIE_TEXTRA_ALICE = new TextraAlice(Game.ZOMBIE_TEXTRA_ALICE_LOADER.getImage());
+	public static TextraAlice AXOLOTL_TEXTRA_ALICE = new TextraAlice(Game.AXOLOTL_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice STAT_TEXTRA_ALICE = new TextraAlice(Game.STAT_TEXTRA_ALICE_LOADER.getImage());
 	
 	public static CollisionObject[] HOME_MAP_HOME = {
@@ -1224,7 +1227,6 @@ public class Game {
 		
 		Game.DIMENSION_HANDLER.get(DimensionID.FISH_LAND).getMapHandler().addMap(new Map(Game.START_MAP_FISH_LAND));
 		
-		
 		Game.logln("Reset game", LogType.SUCCESS);
 		
 	}
@@ -1278,6 +1280,28 @@ public class Game {
 		
 	}
 	
+	public static boolean touchingSomethingTheTrueOne(Rectangle rect) {
+		
+		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER().currentMap().getObjectList();
+		
+		for (int i = 0; i < tempList.size(); i++) {
+			
+			CollisionObject tempObj = tempList.get(i);
+			
+			if (
+					rect.intersects(tempObj.getRectangle())
+				) {
+				
+				return true;
+				
+			}
+			
+		}
+		
+		return false;
+		
+	}
+	
 	public static void addItemOrItemEntity(Item<?> item) throws NullPointerException {
 		
 		if (item == null) throw new NullPointerException("Item can not be null");
@@ -1313,6 +1337,108 @@ public class Game {
 		}
 		
 		return (long) result;
+		
+	}
+	
+	public static float[] calculateDirection(float targetX, float targetY, final float BASE_SPEED, float x, float y) {
+		
+		float diffX = (float) ((float) (x - targetX) - 8);
+		float diffY = (float) ((float) (y - targetY) - 8);
+		
+		float distance = (float) Math.sqrt(
+												
+												(double) (
+															(double) (
+															
+																(double) (
+																		x - targetX
+																		) *
+																(double) (
+																		x - targetX
+																		)
+															
+															) + (double) (
+																	
+																	(double) (
+																			y - targetY
+																			) *
+																	(double) (
+																			y - targetY
+																			)
+																	
+																	))
+				
+											);
+		
+		final float SPEED = -BASE_SPEED;
+		
+		float xv = (float) ((float) (SPEED / distance) * diffX);
+		float yv = (float) ((float) (SPEED / distance) * diffY);
+		
+		float[] result = {xv, yv};
+		
+		return result;
+		
+	}
+	
+	public static float[] getRandomPosNotInStuff(int width, int height) {
+		
+		Random random = new Random();
+		
+		float startX = random.nextInt(Game.WIDTH);
+		float startY = random.nextInt(Game.HEIGHT);
+		
+		float[] pos = {startX, startY};
+		
+		pos[0] = Game.clamp(pos[0], (float) (Game.WIDTH - width), 0f);
+		pos[1] = Game.clamp(pos[1], (float) (Game.WIDTH - height), 0f);
+		
+		Rectangle rect = new Rectangle((int) pos[0], (int) pos[1], width, height);
+		
+		while (Game.touchingSomething(rect)) {
+			
+			float tempX = random.nextInt(Game.WIDTH);
+			float tempY = random.nextInt(Game.HEIGHT);
+			
+			pos[0] = tempX;
+			pos[1] = tempY;
+			
+			pos[0] = Game.clamp(pos[0], (float) (Game.WIDTH - width), 0f);
+			pos[1] = Game.clamp(pos[1], (float) (Game.WIDTH - height), 0f);
+			
+			rect = new Rectangle((int) pos[0], (int) pos[1], width, height);
+			
+		}
+		
+		return pos;
+		
+	}
+	
+	public static boolean aroundNumber(int number, int targetNumber, int range) {
+		
+		if (number == targetNumber) return true;
+		
+		int temp1 = (int) (targetNumber - range);
+		int temp2 = (int) (targetNumber + range);
+		
+		if (number == temp1) return true;
+		if (number == temp2) return true;
+		
+		if (number > temp1 && number < temp2) return true;
+		
+		return false;
+		
+	}
+	
+	public static boolean isPositive(float number) {
+		
+		return (boolean) (number == Math.abs(number));
+		
+	}
+	
+	public static boolean isNegative(float number) {
+		
+		return !Game.isPositive(number);
 		
 	}
 	

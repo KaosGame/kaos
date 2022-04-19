@@ -21,7 +21,7 @@ public class RockZombieEntity extends DamageableEntity implements Spawnable {
 
 	public RockZombieEntity(float x, float y, float xv, float yv, int width, int height, EntityID id,
 			BufferedImage image) {
-		super(x, y, xv, yv, width, height, id, image, 12.5f);
+		super(x, y, xv, yv, width, height, id, image, 12.5f, true);
 		
 		
 	}

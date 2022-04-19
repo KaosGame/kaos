@@ -21,12 +21,12 @@ public class ZombieEntity extends DamageableEntity implements Spawnable {
 
 	public ZombieEntity(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image,
 			float health) {
-		super(x, y, xv, yv, width, height, id, image, health);
+		super(x, y, xv, yv, width, height, id, image, health, true);
 		
 	}
 	
 	public ZombieEntity(float x, float y, int width, int height, EntityID id, BufferedImage image) {
-		super(x, y, 0f, 0f, width, height, id, image, 12.5f);
+		super(x, y, 0f, 0f, width, height, id, image, 12.5f, true);
 		
 	}
 	

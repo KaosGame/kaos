@@ -84,6 +84,7 @@ public class BowAdvanceItem extends WeaponItem<BowAdvanceItem> implements Updata
 			DamageableEntity e = (DamageableEntity) tempEntityList.get(i);
 			
 			if (e.getId() == EntityID.PLAYER) continue;
+			if (!e.isBad()) continue;
 			
 			tx = (Float) e.getX();
 			ty = (Float) e.getY();
