@@ -39,6 +39,7 @@ public class HUD implements Drawable, Updatable {
 		this.drawHealthBar(g2d);
 		this.drawCoins(g2d);
 		Game.PLAYER.getStatHandler().draw(g2d);
+		Game.PLAYER.getEffectHandler().draw(g2d);
 		
 	}
 

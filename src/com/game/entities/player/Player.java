@@ -13,6 +13,9 @@ import com.game.collision.objects.CollidableWallObject;
 import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
+import com.game.effects.FastGenerationEffect1;
+import com.game.effects.PoisonEffect1;
+import com.game.effects.components.PlayerEffectHandler;
 import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityDeathMessages;
@@ -51,6 +54,7 @@ public class Player extends DamageableEntity implements Serializable {
 
 	private PlayerHotbar hotbar;
 	private PlayerStatHanlder statHandler;
+	private PlayerEffectHandler effectHandler;
 	
 	private int hunger;
 	
@@ -71,6 +75,7 @@ public class Player extends DamageableEntity implements Serializable {
 		
 		this.hotbar = new PlayerHotbar();
 		this.statHandler = new PlayerStatHanlder();
+		this.effectHandler = new PlayerEffectHandler();this.effectHandler.add(new PoisonEffect1(1, 10800));this.effectHandler.add(new FastGenerationEffect1(2, 10800));
 		
 		this.coins = 0L;
 		
@@ -104,6 +109,8 @@ public class Player extends DamageableEntity implements Serializable {
 		this.hotbar.update();
 		
 		this.statHandler.update();
+		
+		this.effectHandler.update();
 		
 	}
 	
@@ -417,6 +424,7 @@ public class Player extends DamageableEntity implements Serializable {
 		this.hunger = Player.MAX_HUNGER;
 
 		this.dropAllItems();
+		this.effectHandler.clear();
 		
 		Arrays.fill(this.keysDown, false);
 
@@ -443,6 +451,8 @@ public class Player extends DamageableEntity implements Serializable {
 			Game.logln("Player dead :(", LogType.INFO);
 
 		}
+		
+		Arrays.fill(this.keysDown, false);
 
 	}
 	
@@ -631,6 +641,18 @@ public class Player extends DamageableEntity implements Serializable {
 
 	public long getDefence() {
 		return this.statHandler.getDefence();
+	}
+
+
+
+	public PlayerEffectHandler getEffectHandler() {
+		return this.effectHandler;
+	}
+
+
+
+	public void setEffectHandler(PlayerEffectHandler effectHandler) {
+		this.effectHandler = effectHandler;
 	}
 	
 }

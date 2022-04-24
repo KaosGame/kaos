@@ -12,7 +12,8 @@ public enum EntityDeathMessages {
 	LAVA("You fell into lava and died with the score of %d!"),
 	ZOMBIE("You died to a zombie with the score of %d!"),
 	ROCK_ZOMBIE_ROCK("You got shot by a rock zombie and died with the score of %d!"),
-	PLAYER_BOW_STANDARD_BULLET("You got shot by a player and died with the score of %d!");
+	PLAYER_BOW_STANDARD_BULLET("You got shot by a player and died with the score of %d!"),
+	POISON_EFFECT_1("You got poisoned to death and died with the score of %d!");
 	
 	
 	private final String MESSAGE;

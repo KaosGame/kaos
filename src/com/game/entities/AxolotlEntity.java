@@ -240,6 +240,14 @@ public class AxolotlEntity extends DamageableEntity implements Spawnable {
 	@Override
 	public void spawn() {
 		
+		short numberOfAxolots = 0;
+		
+		for (int i = 0; i < Game.MAP_HANDLER().currentMap().getEntityHandler().getList().size(); i++)
+			if (Game.MAP_HANDLER().currentMap().getEntityHandler().get(i).getId() == EntityID.AXOLOTL) numberOfAxolots++;
+		
+		
+		if (numberOfAxolots >= 3) return;
+		
 		Random random = new Random();
 		
 		float[] offset = {random.nextInt(Game.WIDTH), random.nextInt(Game.HEIGHT)};
