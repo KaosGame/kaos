@@ -60,6 +60,9 @@ public class Player extends DamageableEntity implements Serializable {
 	
 	private long coins;
 	
+	private float moreDamage;
+	private float moreDefence;
+	
 	
 	public Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image) {
 		
@@ -78,6 +81,9 @@ public class Player extends DamageableEntity implements Serializable {
 		this.effectHandler = new PlayerEffectHandler();this.effectHandler.add(new PoisonEffect1(1, 10800));this.effectHandler.add(new FastGenerationEffect1(2, 10800));
 		
 		this.coins = 0L;
+		
+		this.moreDamage = 0f;
+		this.moreDefence = 0f;
 		
 		
 		
@@ -525,6 +531,8 @@ public class Player extends DamageableEntity implements Serializable {
 		
 		float aws = (float) (num - (float) (this.getDefence() / 2f));
 		
+		aws += this.moreDefence;
+		
 		if (aws <= 0) aws = 0;
 		
 		
@@ -551,6 +559,10 @@ public class Player extends DamageableEntity implements Serializable {
 	public float calculateAttackDamage(float num) {
 		
 		float damagetodo = (float) (num + (float) (this.getAttack() / 2f));
+		
+		damagetodo += this.moreDamage;
+		
+		if (damagetodo <= 0) damagetodo = 0;
 		
 		return damagetodo;
 		
@@ -653,6 +665,90 @@ public class Player extends DamageableEntity implements Serializable {
 
 	public void setEffectHandler(PlayerEffectHandler effectHandler) {
 		this.effectHandler = effectHandler;
+	}
+
+
+
+	public static float getSPEED() {
+		return SPEED;
+	}
+
+
+
+	public static void setSPEED(float sPEED) {
+		SPEED = sPEED;
+	}
+
+
+
+	public float getMoreDamage() {
+		return moreDamage;
+	}
+
+
+
+	public void setMoreDamage(float moreDamage) {
+		this.moreDamage = moreDamage;
+	}
+
+
+
+	public float getMoreDefence() {
+		return moreDefence;
+	}
+
+
+
+	public void setMoreDefence(float moreDefence) {
+		this.moreDefence = moreDefence;
+	}
+
+
+
+	public static float getDefaultSpeed() {
+		return DEFAULT_SPEED;
+	}
+
+
+
+	public static float getDashSpeed() {
+		return DASH_SPEED;
+	}
+
+
+
+	public static float getOrangeJuce1Speed() {
+		return ORANGE_JUCE_1_SPEED;
+	}
+
+
+
+	public static int getMaxHunger() {
+		return MAX_HUNGER;
+	}
+
+
+
+	public static int getMinHunger() {
+		return MIN_HUNGER;
+	}
+
+
+
+	public static int getHungerHealthRestoreMinValue() {
+		return HUNGER_HEALTH_RESTORE_MIN_VALUE;
+	}
+
+
+
+	public static float getMaxHealth() {
+		return MAX_HEALTH;
+	}
+
+
+
+	public static float getMinHealth() {
+		return MIN_HEALTH;
 	}
 	
 }
