@@ -87,12 +87,16 @@ public class PlayerEffectHandler implements Updatable, Drawable, Serializable {
 		this.list.clear();
 	}
 
-	public boolean add(Effect e) {
-		return this.list.add(e);
+	public void add(Effect e) {
+		if (e == null) return;
+		e.onStart();
+		this.list.add(e);
 	}
 
-	public boolean remove(Effect e) {
-		return this.list.remove(e);
+	public void remove(Effect e) {
+		if (e == null) return;
+		e.onEnd();
+		this.list.remove(e);
 	}
 
 	public Effect get(int index) {
