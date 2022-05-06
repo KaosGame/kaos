@@ -37,6 +37,8 @@ public class BetterAttackDamgeEffect1 extends Effect {
 	@Override
 	public void onUpdate() {
 		
+		this.resetDamage();
+		
 		float temp = Game.getCurrentPlayer().getMoreDamage();
 		
 		temp += this.calculateDamage();
@@ -48,11 +50,17 @@ public class BetterAttackDamgeEffect1 extends Effect {
 	@Override
 	public void onEnd() {
 		
-		float temp = Game.getCurrentPlayer().getMoreDamage();
+		this.resetDamage();
+		
+	}
+	
+	private void resetDamage() {
+		
+		float temp = this.getPlayer().getMoreDamage();
 		
 		temp -= this.calculateDamage();
 		
-		Game.getCurrentPlayer().setMoreDamage(temp);
+		this.getPlayer().setMoreDamage(temp);
 		
 	}
 

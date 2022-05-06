@@ -2,6 +2,7 @@ package com.game.effects.base;
 
 import java.io.Serializable;
 
+import com.game.entities.player.Player;
 import com.game.main.Game;
 import com.game.main.Updatable;
 
@@ -47,6 +48,12 @@ public abstract class Effect implements Updatable, Serializable {
 	public abstract void onUpdate();
 	
 	public abstract void onEnd();
+	
+	protected final Player getPlayer() {
+		
+		return Game.getCurrentPlayer();
+		
+	}
 
 	public int getLevel() {
 		return this.level;
