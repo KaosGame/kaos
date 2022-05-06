@@ -13,8 +13,6 @@ import com.game.collision.objects.CollidableWallObject;
 import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
-import com.game.effects.BetterAttackDamgeEffect1;
-import com.game.effects.FastGenerationEffect1;
 import com.game.effects.components.PlayerEffectHandler;
 import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.Entity;
