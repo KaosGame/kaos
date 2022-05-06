@@ -25,6 +25,8 @@ public abstract class Effect implements Updatable, Serializable {
 		
 	}
 	
+	public abstract void onStart();
+	
 	@Override
 	public final void update() {
 		
@@ -32,15 +34,19 @@ public abstract class Effect implements Updatable, Serializable {
 		
 		if (this.time <= 0) {
 			
+			this.onEnd();
+			
 			Game.PLAYER.getEffectHandler().remove(this);
 			
 		}
 		
-		this.updateCode();
+		this.onUpdate();
 		
 	}
 	
-	public abstract void updateCode();
+	public abstract void onUpdate();
+	
+	public abstract void onEnd();
 
 	public int getLevel() {
 		return this.level;

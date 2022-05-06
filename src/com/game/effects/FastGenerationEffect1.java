@@ -17,9 +17,16 @@ public class FastGenerationEffect1 extends Effect {
 		
 		
 	}
+	
+	@Override
+	public void onStart() {
+		
+		
+		
+	}
 
 	@Override
-	public void updateCode() {
+	public void onUpdate() {
 		
 		float health = (float) (0.25f * this.level);
 		
@@ -30,6 +37,13 @@ public class FastGenerationEffect1 extends Effect {
 			Game.PLAYER.addHealth(health);
 			
 		}
+		
+		
+	}
+
+	@Override
+	public void onEnd() {
+		
 		
 		
 	}

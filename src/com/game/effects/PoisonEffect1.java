@@ -20,7 +20,15 @@ public class PoisonEffect1 extends Effect {
 	}
 
 	@Override
-	public void updateCode() {
+	public void onStart() {
+
+		
+		
+		
+	}
+
+	@Override
+	public void onUpdate() {
 		
 		float damage = (float) (0.25f * this.level);
 		
@@ -31,6 +39,13 @@ public class PoisonEffect1 extends Effect {
 			Game.PLAYER.damage(damage, EntityDeathMessages.POISON_EFFECT_1);
 			
 		}
+		
+		
+	}
+
+	@Override
+	public void onEnd() {
+		
 		
 		
 	}
