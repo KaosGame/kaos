@@ -13,8 +13,8 @@ import com.game.collision.objects.CollidableWallObject;
 import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
+import com.game.effects.BetterAttackDamgeEffect1;
 import com.game.effects.FastGenerationEffect1;
-import com.game.effects.PoisonEffect1;
 import com.game.effects.components.PlayerEffectHandler;
 import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.Entity;
@@ -78,7 +78,7 @@ public class Player extends DamageableEntity implements Serializable {
 		
 		this.hotbar = new PlayerHotbar();
 		this.statHandler = new PlayerStatHanlder();
-		this.effectHandler = new PlayerEffectHandler();this.effectHandler.add(new PoisonEffect1(1, 10800));this.effectHandler.add(new FastGenerationEffect1(2, 10800));
+		this.effectHandler = new PlayerEffectHandler();
 		
 		this.coins = 0L;
 		
