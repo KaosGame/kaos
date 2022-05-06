@@ -114,7 +114,7 @@ public class Player extends DamageableEntity implements Serializable {
 		
 		this.statHandler.update();
 		
-		this.effectHandler.update();
+		this.effectHandler.update();System.out.println(this.moreDefence);
 		
 	}
 	
@@ -529,7 +529,7 @@ public class Player extends DamageableEntity implements Serializable {
 		
 		float aws = (float) (num - (float) (this.getDefence() / 2f));
 		
-		aws += this.moreDefence;
+		aws -= this.moreDefence;
 		
 		if (aws <= 0) aws = 0;
 		

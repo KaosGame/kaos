@@ -25,24 +25,22 @@ public class ResistanceEffect1 extends Effect {
 		
 	}
 	
-	@Empty
+
 	@Override
 	public void onStart() {
-		
-		
-		
-	}
-	
-	@Override
-	public void onUpdate() {
-		
-		this.resetDamage();
 		
 		float temp = this.getPlayer().getMoreDefence();
 		
 		temp += this.calculateDamage();
 		
 		this.getPlayer().setMoreDefence(temp);
+		
+	}
+	
+	@Empty
+	@Override
+	public void onUpdate() {
+		
 		
 	}
 

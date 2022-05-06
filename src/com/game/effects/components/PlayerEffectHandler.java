@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import com.game.effects.base.Effect;
@@ -44,12 +45,12 @@ public class PlayerEffectHandler implements Updatable, Drawable, Serializable {
 				
 				g2d.drawImage(e.getId().getImage(), 25, drawY, 48, 48, null);
 				
-				g2d.setColor(new Color(0x000000));
+				g2d.setColor(new Color(0xff5555));
 				g2d.setFont(new Font("Verdana", Font.PLAIN, 20));
 				long displayTime = (long) (e.getTime() / 60);
 				g2d.drawString(String.format("%d sec", displayTime), 75, (int) (drawY + 32));
 				
-				g2d.setColor(new Color(0x000000));
+				g2d.setColor(new Color(0x2299ff));
 				g2d.setFont(new Font("Verdana", Font.PLAIN, 20));
 				g2d.drawString(String.format("%d", e.getLevel()), 170, (int) (drawY + 32));
 				
@@ -84,17 +85,26 @@ public class PlayerEffectHandler implements Updatable, Drawable, Serializable {
 	}
 
 	public void clear() {
+		
+		Iterator<Effect> iterator = this.list.iterator();
+		
+		while (iterator.hasNext()) {
+			
+			Effect e = iterator.next();
+			
+			e.onEnd();
+			
+		}
+		
 		this.list.clear();
 	}
 
 	public void add(Effect e) {
-		if (e == null) return;
 		e.onStart();
 		this.list.add(e);
 	}
 
 	public void remove(Effect e) {
-		if (e == null) return;
 		e.onEnd();
 		this.list.remove(e);
 	}

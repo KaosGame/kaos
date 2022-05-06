@@ -28,6 +28,7 @@ import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
 import com.game.display.HUD;
 import com.game.display.components.GamePanel;
+import com.game.effects.ResistanceEffect1;
 import com.game.entities.AxolotlEntity;
 import com.game.entities.ItemEntity;
 import com.game.entities.base.Entity;
@@ -1237,6 +1238,8 @@ public class Game {
 						ChestTransparentObject.LootTable.HOME_FIRT_MAP_CHEST));
 		
 		Game.DIMENSION_HANDLER.get(DimensionID.FISH_LAND).getMapHandler().addMap(new Map(Game.START_MAP_FISH_LAND));
+		
+		PLAYER.getEffectHandler().add(new ResistanceEffect1(10, 99999));
 		
 		Game.logln("Reset game", LogType.SUCCESS);
 		
