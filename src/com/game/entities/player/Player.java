@@ -114,7 +114,7 @@ public class Player extends DamageableEntity implements Serializable {
 		
 		this.statHandler.update();
 		
-		this.effectHandler.update();System.out.println(this.moreDefence);
+		this.effectHandler.update();
 		
 	}
 	

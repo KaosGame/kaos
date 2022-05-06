@@ -26,24 +26,22 @@ public class BetterAttackDamgeEffect1 extends Effect {
 		
 	}
 	
-	@Empty
+	
 	@Override
 	public void onStart() {
-		
-		
-		
-	}
-
-	@Override
-	public void onUpdate() {
-		
-		this.resetDamage();
 		
 		float temp = Game.getCurrentPlayer().getMoreDamage();
 		
 		temp += this.calculateDamage();
 		
 		Game.getCurrentPlayer().setMoreDamage(temp);
+		
+	}
+	
+	@Empty
+	@Override
+	public void onUpdate() {
+		
 		
 	}
 	
