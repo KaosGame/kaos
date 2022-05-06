@@ -1,5 +1,6 @@
 package com.game.effects;
 
+import com.game.annotations.Empty;
 import com.game.effects.base.Effect;
 import com.game.effects.base.EffectID;
 import com.game.main.Game;
@@ -18,6 +19,7 @@ public class FastGenerationEffect1 extends Effect {
 		
 	}
 	
+	@Empty
 	@Override
 	public void onStart() {
 		
@@ -40,7 +42,8 @@ public class FastGenerationEffect1 extends Effect {
 		
 		
 	}
-
+	
+	@Empty
 	@Override
 	public void onEnd() {
 		
