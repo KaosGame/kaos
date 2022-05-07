@@ -1,7 +1,6 @@
 package com.game.entities.player.items.objects;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JOptionPane;
@@ -53,7 +52,6 @@ public class Sign1Item extends Item<Sign1Item> {
 							Game.OBJECT_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16),
 							text,
 							new Color(0x000000),
-							new Font("Verdana", Font.PLAIN, 16),
 							10,
 							32));
 			

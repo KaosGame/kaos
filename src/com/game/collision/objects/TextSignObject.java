@@ -11,6 +11,7 @@ import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
 import com.game.entities.base.Entity;
 import com.game.main.Drawable;
+import com.game.main.Game;
 
 public class TextSignObject extends CollisionObject implements Drawable {
 	
@@ -21,28 +22,25 @@ public class TextSignObject extends CollisionObject implements Drawable {
 	
 	private String text;
 	private Color textColor;
-	private Font textFont;
 	
 	private int xOff;
 	private int yOff;
 
-	public TextSignObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, String text, Color textColor, Font textFont) {
+	public TextSignObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, String text, Color textColor) {
 		
 		super(x, y, width, height, type, image);
 		this.text = text;
 		this.textColor = textColor;
-		this.textFont = textFont;
 		this.xOff = 0;
 		this.yOff = 0;
 		
 	}
 	
-	public TextSignObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, String text, Color textColor, Font textFont, int xOff, int yOff) {
+	public TextSignObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, String text, Color textColor, int xOff, int yOff) {
 		
 		super(x, y, width, height, type, image);
 		this.text = text;
 		this.textColor = textColor;
-		this.textFont = textFont;
 		this.xOff = xOff;
 		this.yOff = yOff;
 		
@@ -73,7 +71,7 @@ public class TextSignObject extends CollisionObject implements Drawable {
 	public void draw(Graphics2D g2d) {
 		
 		g2d.drawImage(this.image, this.x, this.y, this.width, this.height, null);
-		g2d.setFont(this.textFont);
+		g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.BOLD, 16f));
 		g2d.setColor(this.textColor);
 		g2d.drawString(this.text, (int) (this.x + this.xOff), (int) (this.y + this.yOff));
 		
@@ -89,18 +87,6 @@ public class TextSignObject extends CollisionObject implements Drawable {
 	public void setTextColor(Color textColor) {
 		
 		this.textColor = textColor;
-		
-	}
-
-	public Font getTextFont() {
-		
-		return this.textFont;
-		
-	}
-
-	public void setTextFont(Font textFont) {
-		
-		this.textFont = textFont;
 		
 	}
 
