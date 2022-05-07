@@ -6,6 +6,8 @@ import java.util.Random;
 
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
+import com.game.effects.SwimmingEffect1;
+import com.game.effects.base.EffectID;
 import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.EntityDeathMessages;
 import com.game.entities.base.EntityID;
@@ -132,8 +134,22 @@ public class AxolotlEntity extends DamageableEntity implements Spawnable {
 		
 		this.handleCollidableObjects(OLD_X, OLD_Y);
 		
+		this.handleEffect();
+		
 	}
 	
+	private void handleEffect() {
+		
+		Random random = new Random();
+		
+		if (this.getRectangle().intersects(Game.getCurrentPlayer().getRectangle()) && !Game.getCurrentPlayer().getEffectHandler().has(EffectID.SWIMMING_1)) {
+			
+			Game.getCurrentPlayer().getEffectHandler().add(new SwimmingEffect1((int) (random.nextInt(2) + 1), 1800));
+			
+		}
+		
+	}
+
 	private void handleCollidableObjects(final float OLD_X, final float OLD_Y) {
 		
 		LinkedList<CollisionObject> tempList = Game.MAP_HANDLER().currentMap().getObjectList();
