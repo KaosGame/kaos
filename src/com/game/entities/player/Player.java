@@ -13,6 +13,7 @@ import com.game.collision.objects.CollidableWallObject;
 import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
+import com.game.effects.base.EffectID;
 import com.game.effects.components.PlayerEffectHandler;
 import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.Entity;
@@ -35,6 +36,7 @@ public class Player extends DamageableEntity implements Serializable {
 	public static final float DEFAULT_SPEED = 4f;
 	public static final float DASH_SPEED = (float) (Player.DEFAULT_SPEED * 2.5f);
 	public static final float ORANGE_JUCE_1_SPEED = (float) (Player.DEFAULT_SPEED * 1.952f);
+	public static final float SWIMMING_SPEED = (float) (Player.DEFAULT_SPEED * 1.57856f);
 	
 	public static final int MAX_HUNGER = 20;
 	public static final int MIN_HUNGER = 0;
@@ -510,6 +512,10 @@ public class Player extends DamageableEntity implements Serializable {
 
 	@Override
 	public void damage(float num, EntityDeathMessages deathType) {
+		
+		if (this.effectHandler.has(EffectID.SWIMMING_1) && (deathType.equals(EntityDeathMessages.WATER_FALL)
+				|| deathType.equals(EntityDeathMessages.WATER_DROWNED)))
+			return;
 		
 		float tempHP = (float) (this.health - this.calculateDamage(num));
 		

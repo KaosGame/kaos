@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import com.game.effects.base.Effect;
+import com.game.effects.base.EffectID;
 import com.game.main.Drawable;
 import com.game.main.Updatable;
 
@@ -97,6 +98,22 @@ public class PlayerEffectHandler implements Updatable, Drawable, Serializable {
 		}
 		
 		this.list.clear();
+	}
+	
+	public boolean has(EffectID id) {
+		
+		Iterator<Effect> iterator = this.list.iterator();
+		
+		while (iterator.hasNext()) {
+			
+			Effect e = iterator.next();
+			
+			if (e.getId().equals(id)) return true;
+			
+		}
+		
+		return false;
+		
 	}
 
 	public void add(Effect e) {
