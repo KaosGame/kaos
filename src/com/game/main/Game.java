@@ -427,6 +427,8 @@ public class Game {
 	public static Logger LOGGER = new Logger();
 	
 	public static Font MAIN_GAME_FONT;
+	public static Font HOTBAR_GAME_FONT;
+	public static Font VILAGER_GAME_FONT;
 	
 	
 	public Game(String title) {
@@ -435,7 +437,35 @@ public class Game {
 		
 		try {
 			
-			Game.MAIN_GAME_FONT = Font.createFont(Font.TRUETYPE_FONT, this.getClass().getResourceAsStream("/assets/fonts/SourceCodePro-Light.ttf"));
+			Game.MAIN_GAME_FONT = Font.createFont(Font.TRUETYPE_FONT, this.getClass().getResourceAsStream("/assets/fonts/RobotoMono.ttf"));
+			
+		} catch (FontFormatException ffe) {
+			
+			ffe.printStackTrace();
+			
+		} catch (IOException ioe) {
+			
+			ioe.printStackTrace();
+			
+		}
+		
+		try {
+			
+			Game.HOTBAR_GAME_FONT = Font.createFont(Font.TRUETYPE_FONT, this.getClass().getResourceAsStream("/assets/fonts/ShareTechMono-Regular.ttf"));
+			
+		} catch (FontFormatException ffe) {
+			
+			ffe.printStackTrace();
+			
+		} catch (IOException ioe) {
+			
+			ioe.printStackTrace();
+			
+		}
+		
+		try {
+			
+			Game.VILAGER_GAME_FONT = Font.createFont(Font.TRUETYPE_FONT, this.getClass().getResourceAsStream("/assets/fonts/Poppins-Regular.ttf"));
 			
 		} catch (FontFormatException ffe) {
 			

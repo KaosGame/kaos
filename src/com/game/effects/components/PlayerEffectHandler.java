@@ -48,12 +48,12 @@ public class PlayerEffectHandler implements Updatable, Drawable, Serializable {
 				g2d.drawImage(e.getId().getImage(), 25, drawY, 48, 48, null);
 				
 				g2d.setColor(new Color(0xff5555));
-				g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.BOLD, 20f));
+				g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.PLAIN, 20f));
 				long displayTime = (long) (e.getTime() / 60);
 				g2d.drawString(String.format("%d sec", displayTime), 75, (int) (drawY + 32));
 				
 				g2d.setColor(new Color(0x2299ff));
-				g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.BOLD, 20f));
+				g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.PLAIN, 20f));
 				g2d.drawString(String.format("%d", e.getLevel()), 170, (int) (drawY + 32));
 				
 				drawY += 64;

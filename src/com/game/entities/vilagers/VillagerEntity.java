@@ -1,7 +1,6 @@
 package com.game.entities.vilagers;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -851,7 +850,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("5  -->  2", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
@@ -861,7 +860,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("2  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16), 490, 25, 64, 64, null);
@@ -871,7 +870,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("2  -->  5", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
@@ -881,7 +880,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("4  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16), 490, 25, 64, 64, null);
@@ -891,7 +890,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("8  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16), 490, 25, 64, 64, null);
@@ -901,7 +900,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("7  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16), 490, 25, 64, 64, null);
@@ -911,7 +910,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(160, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1  -->  5", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
@@ -921,7 +920,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1  -->  10", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
@@ -931,7 +930,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1  -->  15", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
@@ -941,7 +940,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1  -->  20", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
@@ -951,7 +950,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(288, 0, 16, 16), 490, 25, 64, 64, null);
@@ -961,7 +960,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(272, 0, 16, 16), 490, 25, 64, 64, null);
@@ -971,7 +970,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("2  -->  3", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(352, 0, 16, 16), 490, 25, 64, 64, null);
@@ -981,7 +980,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("3  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(336, 0, 16, 16), 490, 25, 64, 64, null);
@@ -992,7 +991,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(288, 0, 16, 16), 325, 40, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1", 400, 35);
 			g2d.drawString("   -->  1", 400, 50);
 			g2d.drawString("3", 400, 65);
@@ -1004,7 +1003,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("3  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16), 490, 25, 64, 64, null);
@@ -1014,7 +1013,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(432, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1  -->  3", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
@@ -1024,7 +1023,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(448, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1  -->  3", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
@@ -1034,7 +1033,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(464, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1  -->  3", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
@@ -1044,7 +1043,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(480, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1  -->  3", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
@@ -1054,7 +1053,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1500  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.STAT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), 490, 25, 64, 64, null);
@@ -1064,7 +1063,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1500  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.STAT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), 490, 25, 64, 64, null);
@@ -1074,7 +1073,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("3  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 16, 16, 16), 490, 25, 64, 64, null);
@@ -1084,7 +1083,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("4  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 16, 16, 16), 490, 25, 64, 64, null);
@@ -1094,7 +1093,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("26  -->  1", 400, 50);
 			
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(32, 16, 16, 16), 490, 25, 64, 64, null);
@@ -1104,7 +1103,7 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(496, 0, 16, 16), 325, 25, 64, 64, null);
 			
 			g2d.setColor(new Color(0x000000));
-			g2d.setFont(new Font("Verdana", Font.PLAIN, 18));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
 			g2d.drawString("1  -->  27", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);

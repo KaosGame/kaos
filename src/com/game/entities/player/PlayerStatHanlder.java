@@ -75,14 +75,14 @@ public class PlayerStatHanlder implements Serializable, Updatable, Drawable {
 		g2d.drawImage(Game.STAT_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), 25, 80, 48, 48, null);
 		
 		g2d.setColor(new Color(0x000000));
-		g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.BOLD, 32f));
+		g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.PLAIN, 32f));
 		g2d.drawString(String.valueOf(this.attack), 80, 115);
 		
 		
 		g2d.drawImage(Game.STAT_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16), 25, 135, 48, 48, null);
 		
 		g2d.setColor(new Color(0x000000));
-		g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.BOLD, 32f));
+		g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.PLAIN, 32f));
 		g2d.drawString(String.valueOf(this.defence), 80, 170);
 		
 	}

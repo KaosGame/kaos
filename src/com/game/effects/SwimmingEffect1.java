@@ -49,7 +49,7 @@ public class SwimmingEffect1 extends Effect {
 	@Override
 	public void onEnd() {
 		
-		
+		Player.SPEED = Player.DEFAULT_SPEED;
 		
 	}
 	

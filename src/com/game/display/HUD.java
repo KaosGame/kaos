@@ -49,7 +49,7 @@ public class HUD implements Drawable, Updatable {
 		g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 25, 25, 48, 48, null);
 		
 		g2d.setColor(new Color(0x000000));
-		g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.BOLD, 32f));
+		g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.PLAIN, 32f));
 		g2d.drawString(String.valueOf(Game.PLAYER.getCoins()), 80, 60);
 		
 	}
@@ -70,7 +70,7 @@ public class HUD implements Drawable, Updatable {
 		g2d.drawRect(184, (int) (Game.HEIGHT - 164), 200, 48);
 		
 		g2d.setColor(new Color(0x222222));
-		g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(16f));
+		g2d.setFont(Game.HOTBAR_GAME_FONT.deriveFont(16f));
 		g2d.drawString("Health", 184, (int) (Game.HEIGHT - 150));
 		
 	}
@@ -91,7 +91,7 @@ public class HUD implements Drawable, Updatable {
 		g2d.drawRect(448, (int) (Game.HEIGHT - 164), 200, 48);
 		
 		g2d.setColor(new Color(0x222222));
-		g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(16f));
+		g2d.setFont(Game.HOTBAR_GAME_FONT.deriveFont(16f));
 		g2d.drawString("Hunger", 448, (int) (Game.HEIGHT - 150));
 		
 	}
@@ -114,7 +114,7 @@ public class HUD implements Drawable, Updatable {
 				
 				
 				g2d.setColor(new Color(0x000000));
-				g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(16f));
+				g2d.setFont(Game.HOTBAR_GAME_FONT.deriveFont(16f));
 				g2d.drawString(String.valueOf(item.getCount()), (int) (xDraw - 48), (int) (Game.HEIGHT - 37));
 				
 			}
