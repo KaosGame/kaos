@@ -3,6 +3,12 @@ package com.game.loot.tables.handler;
 import java.util.Arrays;
 import java.util.Random;
 
+import com.game.effects.BetterAttackDamgeEffect1;
+import com.game.effects.FastGenerationEffect1;
+import com.game.effects.PoisonEffect1;
+import com.game.effects.ResistanceEffect1;
+import com.game.effects.SwimmingEffect1;
+import com.game.effects.base.EffectID;
 import com.game.entities.player.items.Heart1Item;
 import com.game.entities.player.items.Medkit1Item;
 import com.game.entities.player.items.base.Item;
@@ -27,6 +33,11 @@ import com.game.entities.player.items.objects.GoldOre1Item;
 import com.game.entities.player.items.objects.IronOre1Item;
 import com.game.entities.player.items.objects.Stone1Item;
 import com.game.entities.player.items.objects.Tree1Item;
+import com.game.entities.player.items.potions.BetterAttackDamageEffect1PotionItem;
+import com.game.entities.player.items.potions.FastGenerationEffect1PotionItem;
+import com.game.entities.player.items.potions.PosionEffect1PotionItem;
+import com.game.entities.player.items.potions.ResistanceEffect1PotionItem;
+import com.game.entities.player.items.potions.SwimmingEffect1PotionItem;
 import com.game.entities.player.items.tools.FishingRodItem;
 import com.game.entities.player.items.tools.PickaxeItem;
 import com.game.entities.player.items.tools.weapon.AxeItem;
@@ -488,6 +499,41 @@ public class LootTableHandler {
 					item = new PickaxeItem(COUNT, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
 					
 				}
+				
+			} else if (chance.firstChoose(0.32)) {
+				
+				// Potions
+				
+				EffectID effect = Game.getRandomItemFrom(EffectID.values());
+				
+				Random random = new Random();
+				
+				final int LEVEL = (int) (random.nextInt(3) + 1);
+				
+				switch (effect) {
+				
+					case ATTACK_1:
+						item = new BetterAttackDamageEffect1PotionItem(COUNT, new BetterAttackDamgeEffect1(LEVEL, 1800));
+						break;
+						
+					case FAST_REGENERATION_1:
+						item = new FastGenerationEffect1PotionItem(COUNT, new FastGenerationEffect1(LEVEL, 1800));
+						break;
+						
+					case POISON_1:
+						item = new PosionEffect1PotionItem(COUNT, new PoisonEffect1(LEVEL, 1800));
+						break;
+						
+					case RESISTANCE_1:
+						item = new ResistanceEffect1PotionItem(COUNT, new ResistanceEffect1(LEVEL, 1800));
+						break;
+						
+					case SWIMMING_1:
+						item = new SwimmingEffect1PotionItem(COUNT, new SwimmingEffect1(LEVEL, 1800));
+						break;
+				
+				}
+				
 				
 			}
 			

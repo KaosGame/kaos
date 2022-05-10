@@ -1626,4 +1626,31 @@ public class Game {
 		
 	}
 	
+	public static <T> T getRandomItemFrom(T[] list) {
+		
+		Random random = new Random();
+		
+		T temp = null;
+		
+		do {
+			
+			for (int i = 0; i < list.length; i++) {
+				
+				T item = list[i];
+				
+				if (random.nextBoolean() && !random.nextBoolean()) {
+					
+					temp = item;
+					break;
+					
+				}
+				
+			}
+			
+		} while (temp == null);
+		
+		return temp;
+		
+	}
+	
 }
