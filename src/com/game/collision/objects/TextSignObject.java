@@ -71,7 +71,7 @@ public class TextSignObject extends CollisionObject implements Drawable {
 	public void draw(Graphics2D g2d) {
 		
 		g2d.drawImage(this.image, this.x, this.y, this.width, this.height, null);
-		g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.BOLD, 16f));
+		g2d.setFont(Game.MAIN_GAME_FONT.deriveFont(Font.PLAIN, 16f));
 		g2d.setColor(this.textColor);
 		g2d.drawString(this.text, (int) (this.x + this.xOff), (int) (this.y + this.yOff));
 		

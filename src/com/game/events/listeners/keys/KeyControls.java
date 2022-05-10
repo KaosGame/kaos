@@ -2,7 +2,6 @@ package com.game.events.listeners.keys;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
@@ -324,7 +323,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_MINUS == key) {
 			
-			Game.reset();
+			System.exit(0);
 			
 		}
 		
@@ -408,20 +407,6 @@ public class KeyControls implements KeyListener {
 				
 				Game.PLAYER.setX(pos[0]);
 				Game.PLAYER.setY(pos[1]);
-				
-			}
-			
-		}
-		
-		if (KeyEvent.VK_L == key) {
-			
-			try {
-				
-				Game.LOGGER.saveLogFile();
-				
-			} catch (IOException e) {
-				
-				e.printStackTrace();
 				
 			}
 			

@@ -508,7 +508,7 @@ public class LootTableHandler {
 				
 				Random random = new Random();
 				
-				final int LEVEL = (int) (random.nextInt(3) + 1);
+				final int LEVEL = (int) (random.nextInt(4) + 1);
 				
 				switch (effect) {
 				
