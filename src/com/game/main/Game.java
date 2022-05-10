@@ -35,6 +35,7 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.Player;
 import com.game.entities.player.items.base.Item;
+import com.game.entities.player.items.potions.base.PotionItem;
 import com.game.entities.vilagers.VillagerEntity;
 import com.game.entities.vilagers.VillagerTrades;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
@@ -918,6 +919,66 @@ public class Game {
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 16, 16, 16));
 					break;
 					
+				case BETTER_ATTACK_DAMAGE_EFFECT_1:
+					
+					if (item instanceof PotionItem<?>) {
+						
+						PotionItem<?> pitem = (PotionItem<?>) item;
+						
+						item.setImage(pitem.getEffectDataClass().getEffectID().getImage());
+						
+					}
+					
+					break;
+					
+				case FAST_GENERATION_EFFECT_1:
+					
+					if (item instanceof PotionItem<?>) {
+						
+						PotionItem<?> pitem = (PotionItem<?>) item;
+						
+						item.setImage(pitem.getEffectDataClass().getEffectID().getImage());
+						
+					}
+					
+					break;
+					
+				case POSION_EFFECT_1:
+					
+					if (item instanceof PotionItem<?>) {
+						
+						PotionItem<?> pitem = (PotionItem<?>) item;
+						
+						item.setImage(pitem.getEffectDataClass().getEffectID().getImage());
+						
+					}
+					
+					break;
+					
+				case RESISTANCE_EFFECT_1:
+					
+					if (item instanceof PotionItem<?>) {
+						
+						PotionItem<?> pitem = (PotionItem<?>) item;
+						
+						item.setImage(pitem.getEffectDataClass().getEffectID().getImage());
+						
+					}
+					
+					break;
+					
+				case SWIMMING_EFFECT_1:
+					
+					if (item instanceof PotionItem<?>) {
+						
+						PotionItem<?> pitem = (PotionItem<?>) item;
+						
+						item.setImage(pitem.getEffectDataClass().getEffectID().getImage());
+						
+					}
+					
+					break;
+					
 			}
 			
 		}
@@ -1089,6 +1150,66 @@ public class Game {
 								
 							case BOW_2:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 16, 16, 16));
+								break;
+								
+							case BETTER_ATTACK_DAMAGE_EFFECT_1:
+								
+								if (item instanceof PotionItem<?>) {
+									
+									PotionItem<?> pitem = (PotionItem<?>) item;
+									
+									item.setImage(pitem.getEffectDataClass().getEffectID().getImage());
+									
+								}
+								
+								break;
+								
+							case FAST_GENERATION_EFFECT_1:
+								
+								if (item instanceof PotionItem<?>) {
+									
+									PotionItem<?> pitem = (PotionItem<?>) item;
+									
+									item.setImage(pitem.getEffectDataClass().getEffectID().getImage());
+									
+								}
+								
+								break;
+								
+							case POSION_EFFECT_1:
+								
+								if (item instanceof PotionItem<?>) {
+									
+									PotionItem<?> pitem = (PotionItem<?>) item;
+									
+									item.setImage(pitem.getEffectDataClass().getEffectID().getImage());
+									
+								}
+								
+								break;
+								
+							case RESISTANCE_EFFECT_1:
+								
+								if (item instanceof PotionItem<?>) {
+									
+									PotionItem<?> pitem = (PotionItem<?>) item;
+									
+									item.setImage(pitem.getEffectDataClass().getEffectID().getImage());
+									
+								}
+								
+								break;
+								
+							case SWIMMING_EFFECT_1:
+								
+								if (item instanceof PotionItem<?>) {
+									
+									PotionItem<?> pitem = (PotionItem<?>) item;
+									
+									item.setImage(pitem.getEffectDataClass().getEffectID().getImage());
+									
+								}
+								
 								break;
 							
 					
