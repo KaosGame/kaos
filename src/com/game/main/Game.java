@@ -761,7 +761,15 @@ public class Game {
 			
 		}
 		
-		Game.PLAYER.setImage(Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+		if (Game.PLAYER.isInCar()) {
+			
+			Game.PLAYER.setImage(Game.PLAYER_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
+			
+		} else {
+			
+			Game.PLAYER.setImage(Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+			
+		}
 		
 		for (int i = 0; i < Game.PLAYER.getHotbar().list.length; i++) {
 			

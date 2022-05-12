@@ -34,9 +34,13 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_SHIFT == key) {
 			
-			Player.SPEED = Player.DASH_SPEED;
-			
-			Game.PLAYER.setDashKeyDown(true);
+			if (!Game.PLAYER.isInCar()) {
+				
+				Player.SPEED = Player.DASH_SPEED;
+				
+				Game.PLAYER.setDashKeyDown(true);
+				
+			}
 			
 		}
 		
@@ -84,9 +88,13 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_SHIFT == key) {
 			
-			Player.SPEED = Player.DEFAULT_SPEED;
-			
-			Game.PLAYER.setDashKeyDown(false);
+			if (!Game.PLAYER.isInCar()) {
+				
+				Player.SPEED = Player.DEFAULT_SPEED;
+				
+				Game.PLAYER.setDashKeyDown(false);
+				
+			}
 			
 		}
 		
@@ -415,6 +423,12 @@ public class KeyControls implements KeyListener {
 		if (KeyEvent.VK_P == key) {
 			
 			Game.PAUSED = !Game.PAUSED;
+			
+		}
+		
+		if (KeyEvent.VK_EQUALS == key) {
+			
+			Game.PLAYER.getInCar();
 			
 		}
 		

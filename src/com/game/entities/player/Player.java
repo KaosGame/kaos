@@ -37,6 +37,7 @@ public class Player extends DamageableEntity implements Serializable {
 	public static final float DASH_SPEED = (float) (Player.DEFAULT_SPEED * 2.5f);
 	public static final float ORANGE_JUCE_1_SPEED = (float) (Player.DEFAULT_SPEED * 1.952f);
 	public static final float SWIMMING_SPEED = (float) (Player.DEFAULT_SPEED * 1.57856f);
+	public static final float CAR_SPEED = 12f;
 	
 	public static final int MAX_HUNGER = 20;
 	public static final int MIN_HUNGER = 0;
@@ -63,6 +64,8 @@ public class Player extends DamageableEntity implements Serializable {
 	private float moreDamage;
 	private float moreDefence;
 	
+	private boolean inCar;
+	
 	
 	public Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image) {
 		
@@ -85,6 +88,7 @@ public class Player extends DamageableEntity implements Serializable {
 		this.moreDamage = 0f;
 		this.moreDefence = 0f;
 		
+		this.inCar = false;
 		
 		
 	}
@@ -177,7 +181,7 @@ public class Player extends DamageableEntity implements Serializable {
 			
 		}
 		
-		if (this.hunger == Player.MIN_HUNGER) {
+		if (this.hunger == Player.MIN_HUNGER && !this.inCar) {
 			
 			Player.SPEED = Player.DEFAULT_SPEED;
 			
@@ -251,6 +255,27 @@ public class Player extends DamageableEntity implements Serializable {
 		}
 		
 	}
+	
+	public void getInCar() {
+		
+		
+		if (this.inCar) {
+			
+			this.inCar = false;
+			this.image = Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16);
+			Player.SPEED = Player.DEFAULT_SPEED;
+			
+		} else {
+			
+			this.inCar = true;
+			this.image = Game.PLAYER_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16);
+			Player.SPEED = Player.CAR_SPEED;
+			
+		}
+		
+		
+	}
+	
 
 	private void handleCollidableObjects(final float OLD_X, final float OLD_Y) {
 		
@@ -753,6 +778,24 @@ public class Player extends DamageableEntity implements Serializable {
 
 	public static float getMinHealth() {
 		return MIN_HEALTH;
+	}
+
+
+
+	public boolean isInCar() {
+		return inCar;
+	}
+
+
+
+	public void setInCar(boolean inCar) {
+		this.inCar = inCar;
+	}
+
+
+
+	public static float getSwimmingSpeed() {
+		return SWIMMING_SPEED;
 	}
 	
 }
