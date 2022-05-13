@@ -21,7 +21,7 @@ public class LastMapCollidableObject extends CollisionObject implements Drawable
 
 	public LastMapCollidableObject(int x, int y, int width, int height, ObjectType type, BufferedImage image) {
 		
-		super(x, y, width, height, type, image);
+		super(x, y, width, height, type, image, false);
 		
 	}
 

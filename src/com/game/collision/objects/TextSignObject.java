@@ -28,7 +28,7 @@ public class TextSignObject extends CollisionObject implements Drawable {
 
 	public TextSignObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, String text, Color textColor) {
 		
-		super(x, y, width, height, type, image);
+		super(x, y, width, height, type, image, true);
 		this.text = text;
 		this.textColor = textColor;
 		this.xOff = 0;
@@ -38,7 +38,7 @@ public class TextSignObject extends CollisionObject implements Drawable {
 	
 	public TextSignObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, String text, Color textColor, int xOff, int yOff) {
 		
-		super(x, y, width, height, type, image);
+		super(x, y, width, height, type, image, true);
 		this.text = text;
 		this.textColor = textColor;
 		this.xOff = xOff;

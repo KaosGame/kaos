@@ -30,6 +30,7 @@ import com.game.collision.objects.base.ObjectType;
 import com.game.display.HUD;
 import com.game.display.components.GamePanel;
 import com.game.entities.AxolotlEntity;
+import com.game.entities.BombEntity;
 import com.game.entities.ItemEntity;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
@@ -71,6 +72,7 @@ public class Game {
 	private static BufferedImageLoader ITEM_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/item-textra-alice.png");
 	private static BufferedImageLoader STAT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/stat-textra-alice.png");
 	private static BufferedImageLoader EFFECT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/effect-textra-alice.png");
+	private static BufferedImageLoader BOMB_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/bomb-textra-alice.png");
 	
 	public static BufferedImageLoader HOUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/house_1.png");
 	public static BufferedImageLoader PAUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/hud/pause.png");
@@ -87,6 +89,7 @@ public class Game {
 	public static TextraAlice AXOLOTL_TEXTRA_ALICE = new TextraAlice(Game.AXOLOTL_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice STAT_TEXTRA_ALICE = new TextraAlice(Game.STAT_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice EFFECT_TEXTRA_ALICE = new TextraAlice(Game.EFFECT_TEXTRA_ALICE_LOADER.getImage());
+	public static TextraAlice BOMB_TEXTRA_ALICE = new TextraAlice(Game.BOMB_TEXTRA_ALICE_LOADER.getImage());
 	
 	public static CollisionObject[] HOME_MAP_HOME = {
 			
@@ -542,6 +545,16 @@ public class Game {
 	}
 	
 	public static double clamp(double var, double max, double min) {
+		if (var >= max) {
+			return max;
+		} else if (var <= min) {
+			return min;
+		} else {
+			return var;
+		}
+	}
+	
+	public static byte clamp(byte var, byte max, byte min) {
 		if (var >= max) {
 			return max;
 		} else if (var <= min) {
@@ -1270,6 +1283,29 @@ public class Game {
 					}
 					if (e.getImage() == null) e.setImage(Game.AXOLOTL_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 					break;
+					
+				case BOMB:
+					
+					if (e instanceof BombEntity) {
+						
+						BombEntity be = (BombEntity) e;
+						
+						if (be.getFrameState() == 0) {
+							
+							be.setImage(Game.BOMB_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+							
+						} else if (be.getFrameState() == 1) {
+							
+							be.setImage(Game.BOMB_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
+							
+						} else if (be.getFrameState() == 2) {
+							
+							be.setImage(Game.BOMB_TEXTRA_ALICE.getImageFrom(32, 0, 16, 16));
+							
+						}
+						
+					}
+				break;
 			
 			}
 			

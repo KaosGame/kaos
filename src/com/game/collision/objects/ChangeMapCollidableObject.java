@@ -22,7 +22,7 @@ public class ChangeMapCollidableObject extends CollisionObject implements Drawab
 
 	public ChangeMapCollidableObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, int loadMapID) {
 		
-		super(x, y, width, height, type, image);
+		super(x, y, width, height, type, image, false);
 		this.loadMapID = loadMapID;
 		
 	}

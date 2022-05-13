@@ -40,7 +40,7 @@ public class ChestTransparentObject extends CollisionObject implements Drawable 
 
 	public ChestTransparentObject(int x, int y, int width, int height, ObjectType type, BufferedImage image) {
 		
-		super(x, y, width, height, type, image);
+		super(x, y, width, height, type, image, false);
 		this.stack = new Stack<Item<?>>();
 		
 		
@@ -48,7 +48,7 @@ public class ChestTransparentObject extends CollisionObject implements Drawable 
 	
 	public ChestTransparentObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, ChestTransparentObject.LootTable table) {
 		
-		super(x, y, width, height, type, image);
+		super(x, y, width, height, type, image, false);
 		this.stack = new Stack<Item<?>>();
 		
 		switch (table) {
@@ -83,7 +83,7 @@ public class ChestTransparentObject extends CollisionObject implements Drawable 
 
 	public ChestTransparentObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, Stack<Item<?>> stack) {
 		
-		super(x, y, width, height, type, image);
+		super(x, y, width, height, type, image, false);
 		this.stack = stack;
 		
 		

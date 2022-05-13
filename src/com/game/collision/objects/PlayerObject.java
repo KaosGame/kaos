@@ -19,7 +19,7 @@ public class PlayerObject extends CollisionObject implements Drawable {
 
 	public PlayerObject(int x, int y, int width, int height, ObjectType type, BufferedImage image) {
 		
-		super(x, y, width, height, type, image);
+		super(x, y, width, height, type, image, true);
 		
 		
 	}

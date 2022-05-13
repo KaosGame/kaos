@@ -45,7 +45,7 @@ public class CollidableWallObject extends CollisionObject implements Drawable {
 	
 	public CollidableWallObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, CollidableWallObject.ImageBase imageType) {
 		
-		super(x, y, width, height, type, image);
+		super(x, y, width, height, type, image, false);
 		
 		this.imageType = imageType;
 		

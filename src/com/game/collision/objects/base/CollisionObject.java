@@ -24,10 +24,11 @@ public abstract class CollisionObject implements Serializable {
 	protected ObjectType type;
 	protected transient BufferedImage image;
 	
+	protected final boolean playerPlaced;
 	
 	
 	
-	public CollisionObject(int x, int y, int width, int height, ObjectType type, BufferedImage image) {
+	public CollisionObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, final boolean playerPlaced) {
 		
 		super();
 		
@@ -39,6 +40,8 @@ public abstract class CollisionObject implements Serializable {
 		
 		this.type = type;
 		this.image = image;
+		
+		this.playerPlaced = playerPlaced;
 		
 	}
 	
@@ -136,6 +139,10 @@ public abstract class CollisionObject implements Serializable {
 	public String toString() {
 		return "CollisionObject [x=" + x + ", y=" + y + ", width=" + width + ", height=" + height + ", type=" + type
 				+ "]";
+	}
+
+	public boolean isPlayerPlaced() {
+		return playerPlaced;
 	}
 	
 	

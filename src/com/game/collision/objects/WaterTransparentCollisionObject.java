@@ -20,7 +20,7 @@ public class WaterTransparentCollisionObject extends CollisionObject implements 
 
 	public WaterTransparentCollisionObject(int x, int y, int width, int height, ObjectType type, BufferedImage image) {
 		
-		super(x, y, width, height, type, image);
+		super(x, y, width, height, type, image, false);
 		
 		
 	}

@@ -12,7 +12,8 @@ public enum EntityID {
 	ROCK_ZOMBIE(true),
 	ROCK_ZOMBIE_ROCK(true),
 	PLAYER_BOW_BULLET(true),
-	AXOLOTL(true);
+	AXOLOTL(true),
+	BOMB(true);
 
 	private final boolean CAN_DELETE;
 	
