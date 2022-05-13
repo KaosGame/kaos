@@ -430,6 +430,7 @@ public class Game {
 	public static Font MAIN_GAME_FONT;
 	public static Font HOTBAR_GAME_FONT;
 	public static Font VILAGER_GAME_FONT;
+	public static Font SIGN_GAME_FONT;
 	
 	
 	public Game(String title) {
@@ -477,6 +478,8 @@ public class Game {
 			ioe.printStackTrace();
 			
 		}
+		
+		Game.SIGN_GAME_FONT = Game.VILAGER_GAME_FONT;
 		
 		this.frame = new JFrame();
 		this.gamePanel = new GamePanel();
