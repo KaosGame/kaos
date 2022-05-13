@@ -27,8 +27,8 @@ public class BombEntity extends Entity {
 	public BombEntity(float x, float y, int width, int height) {
 		super(x, y, 0, 0, width, height, EntityID.BOMB, Game.BOMB_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 		this.frameState = (byte) 0;
-		this.time = 1500L;
-		this.tempTime = 250L;
+		this.time = 1800L;
+		this.tempTime = 500L;
 		
 	}
 
@@ -39,7 +39,7 @@ public class BombEntity extends Entity {
 		
 		if (this.tempTime <= 0) {
 			
-			this.tempTime = 250L;
+			this.tempTime = 500L;
 			
 			this.frameState++;
 			
