@@ -9,6 +9,7 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityHandler;
 import com.game.main.Drawable;
 import com.game.main.Updatable;
+import com.game.particles.Particle;
 
 public class Map implements Updatable, Drawable, Serializable {
 	
@@ -19,6 +20,7 @@ public class Map implements Updatable, Drawable, Serializable {
 	
 	private LinkedList<CollisionObject> objectList;
 	private EntityHandler entityHandler;
+	private LinkedList<Particle> particleList;
 	
 	
 	
@@ -26,6 +28,7 @@ public class Map implements Updatable, Drawable, Serializable {
 		
 		this.objectList = new LinkedList<CollisionObject>();
 		this.entityHandler = new EntityHandler();
+		this.particleList = new LinkedList<Particle>();
 		
 	}
 	
@@ -34,6 +37,7 @@ public class Map implements Updatable, Drawable, Serializable {
 		
 		this.objectList = objectList;
 		this.entityHandler = entityHandler;
+		this.particleList = new LinkedList<Particle>();
 		
 	}
 	
@@ -49,6 +53,7 @@ public class Map implements Updatable, Drawable, Serializable {
 		}
 		
 		this.entityHandler = entityHandler;
+		this.particleList = new LinkedList<Particle>();
 		
 	}
 	
@@ -64,6 +69,7 @@ public class Map implements Updatable, Drawable, Serializable {
 		}
 		
 		this.entityHandler = new EntityHandler();
+		this.particleList = new LinkedList<Particle>();
 		
 	}
 	
@@ -86,6 +92,8 @@ public class Map implements Updatable, Drawable, Serializable {
 			
 		}
 		
+		this.particleList = new LinkedList<Particle>();
+		
 	}	
 	
 	@Override
@@ -102,6 +110,14 @@ public class Map implements Updatable, Drawable, Serializable {
 		
 		this.entityHandler.update();
 		
+		for (int i = 0; i < this.particleList.size(); i++) {
+			
+			Particle p = this.particleList.get(i);
+			
+			if (p instanceof Updatable) ((Updatable) p).update();
+			
+		}
+		
 	}
 	
 	@Override
@@ -116,6 +132,14 @@ public class Map implements Updatable, Drawable, Serializable {
 		}
 		
 		this.entityHandler.draw(g2d);
+		
+		for (int i = 0; i < this.particleList.size(); i++) {
+			
+			Particle p = this.particleList.get(i);
+			
+			if (p instanceof Drawable) ((Drawable) p).draw(g2d);
+			
+		}
 		
 	}
 	
@@ -146,6 +170,12 @@ public class Map implements Updatable, Drawable, Serializable {
 
 	public EntityHandler getEntityHandler() {
 		return this.entityHandler;
+	}
+	
+	public LinkedList<Particle> getParticleList() {
+		
+		return this.particleList;
+		
 	}
 
 

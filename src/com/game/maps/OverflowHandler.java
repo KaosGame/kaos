@@ -8,6 +8,7 @@ import com.game.collision.objects.base.CollisionObject;
 import com.game.entities.base.Entity;
 import com.game.logging.LogType;
 import com.game.main.Game;
+import com.game.particles.Particle;
 
 public class OverflowHandler {
 	
@@ -57,6 +58,24 @@ public class OverflowHandler {
 					continue;
 					
 				}
+				
+			}
+			
+		}
+		
+		while (Game.MAP_HANDLER().currentMap().getParticleList().size() > MapHandler.MAX_PARTICLES) {
+			
+			for (int i = 0; i < Game.MAP_HANDLER().currentMap().getParticleList().size(); i++) {
+				
+				Particle p = Game.MAP_HANDLER().currentMap().getParticleList().get(i);
+				
+				Game.MAP_HANDLER().currentMap().getParticleList().remove(p);
+				
+				hasDeleted = true;
+				
+				itemsRemoved++;
+				
+				continue;
 				
 			}
 			

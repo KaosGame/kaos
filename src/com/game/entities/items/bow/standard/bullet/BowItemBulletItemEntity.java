@@ -1,5 +1,6 @@
 package com.game.entities.items.bow.standard.bullet;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
@@ -9,6 +10,7 @@ import com.game.entities.base.EntityDeathMessages;
 import com.game.entities.base.EntityID;
 import com.game.logging.LogType;
 import com.game.main.Game;
+import com.game.particles.ParticleTypes;
 
 public class BowItemBulletItemEntity extends Entity {
 
@@ -50,6 +52,7 @@ public class BowItemBulletItemEntity extends Entity {
 				Game.MAP_HANDLER().currentMap().getEntityHandler().remove(this);
 				
 				Game.logln("Player did " + Game.PLAYER.calculateAttackDamage(this.damage) + " to an entity", LogType.INFO);
+				this.makeDamageParticle(e.getX(), e.getY());
 				
 				break;
 				
@@ -73,5 +76,11 @@ public class BowItemBulletItemEntity extends Entity {
 	public void setDamage(float damage) {
 		this.damage = damage;
 	}
-
+	
+	private void makeDamageParticle(float x, float y) {
+		
+		ParticleTypes.FALL_3.make(x, y, 8, 8, new Color(146, 0, 0), null, null);
+		
+	}
+	
 }

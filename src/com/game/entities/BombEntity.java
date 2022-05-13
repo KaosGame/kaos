@@ -1,5 +1,6 @@
 package com.game.entities;
 
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 
@@ -9,6 +10,7 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityDeathMessages;
 import com.game.entities.base.EntityID;
 import com.game.main.Game;
+import com.game.particles.ParticleTypes;
 
 public class BombEntity extends Entity {
 
@@ -104,6 +106,11 @@ public class BombEntity extends Entity {
 		}
 		
 		if (rect.intersects(Game.PLAYER.getRectangle())) Game.PLAYER.damage(BombEntity.DAMAGE, EntityDeathMessages.BOMB);
+		
+		ParticleTypes.FALL_4.make(this.x, this.y, 8, 8, new Color(0xc0c0c0), null, null);
+		ParticleTypes.FALL_4.make((double) (this.x - 32), (double) (this.y - 32), 8, 8, new Color(0xc0c0c0), null, null);
+		ParticleTypes.FALL_4.make((double) (this.x - 32), (double) (this.y + 64), 8, 8, new Color(0xc0c0c0), null, null);
+		ParticleTypes.FALL_4.make((double) (this.x + 32), (double) (this.y + 64), 8, 8, new Color(0xc0c0c0), null, null);
 		
 		entityList.remove(this);
 		

@@ -1,5 +1,6 @@
 package com.game.entities.player;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -23,6 +24,7 @@ import com.game.entities.player.items.base.Item;
 import com.game.entities.vilagers.VillagerEntity;
 import com.game.logging.LogType;
 import com.game.main.Game;
+import com.game.particles.ParticleTypes;
 
 public class Player extends DamageableEntity implements Serializable {
 	
@@ -547,12 +549,16 @@ public class Player extends DamageableEntity implements Serializable {
 		if (tempHP <= 0) {
 			
 			this.die(deathType);
+			this.makeDamageParticle(this.x, this.y);
 			
 		} else {
 			
 			this.health -= this.calculateDamage(num);
+			this.makeDamageParticle(this.x, this.y);
 			
 		}
+		
+		
 		
 	}
 
@@ -796,6 +802,12 @@ public class Player extends DamageableEntity implements Serializable {
 
 	public static float getSwimmingSpeed() {
 		return SWIMMING_SPEED;
+	}
+	
+	private void makeDamageParticle(float x, float y) {
+		
+		ParticleTypes.FALL_3.make(x, y, 8, 8, new Color(150, 0, 0), null, null);
+		
 	}
 	
 }

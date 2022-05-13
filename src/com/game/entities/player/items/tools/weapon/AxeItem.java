@@ -1,5 +1,6 @@
 package com.game.entities.player.items.tools.weapon;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
@@ -14,6 +15,7 @@ import com.game.entities.player.items.base.WeaponItem;
 import com.game.loot.tables.handler.LootTableHandler;
 import com.game.loot.tables.handler.LootTableID;
 import com.game.main.Game;
+import com.game.particles.ParticleTypes;
 
 public class AxeItem extends WeaponItem<AxeItem> {
 
@@ -33,6 +35,24 @@ public class AxeItem extends WeaponItem<AxeItem> {
 		
 		super(count, id, image, 2f);
 		
+		
+	}
+	
+	private void makeWoodParticle() {
+		
+		ParticleTypes.FALL_1.make((double) (Game.PLAYER.getX() + 32), (double) (Game.PLAYER.getY() + 32), 8, 8, new Color(0x6e4b00), null, null);
+		
+	}
+	
+	private void makeTreeParticle() {
+		
+		ParticleTypes.FALL_2.make((double) (Game.PLAYER.getX() + 32), (double) (Game.PLAYER.getY() + 80), 8, 8, new Color(0xa55500), null, null);
+		
+	}
+	
+	private void makeDamageParticle(float x, float y) {
+		
+		ParticleTypes.FALL_3.make(x, y, 8, 8, new Color(160, 0, 0), null, null);
 		
 	}
 
@@ -60,6 +80,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 				
 				LootTableHandler.createLootAtRandom(LootTableID.TREE_1_LOOT);
+				this.makeTreeParticle();
 				
 			}
 			
@@ -79,6 +100,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				
 				
 				LootTableHandler.createLootAtRandom(LootTableID.WOOD_1_LOOT);
+				this.makeWoodParticle();
 				
 				
 			}
@@ -97,6 +119,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 				
 				LootTableHandler.createLootAtRandom(LootTableID.APPLE_TREE_1_LOOT);
+				this.makeTreeParticle();
 				
 			}
 			
@@ -119,6 +142,8 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				
 				Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 				
+				this.makeWoodParticle();
+				
 			}
 			
 			if (
@@ -135,6 +160,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 				
 				LootTableHandler.createLootAtRandom(LootTableID.SIGN_1);
+				this.makeWoodParticle();
 				
 			}
 			
@@ -151,6 +177,7 @@ public class AxeItem extends WeaponItem<AxeItem> {
 			if (e instanceof DamageableEntity && Game.PLAYER.getRectangle().intersects(e.getRectangle()) && Math.random() < 0.50) {
 				
 				((DamageableEntity) e).damage(Game.PLAYER.calculateAttackDamage(this.damage));
+				this.makeDamageParticle(e.getX(), e.getY());
 				
 			}
 			

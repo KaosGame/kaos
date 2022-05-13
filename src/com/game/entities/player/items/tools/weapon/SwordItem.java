@@ -1,5 +1,6 @@
 package com.game.entities.player.items.tools.weapon;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
@@ -8,6 +9,7 @@ import com.game.entities.base.Entity;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.base.WeaponItem;
 import com.game.main.Game;
+import com.game.particles.ParticleTypes;
 
 public class SwordItem extends WeaponItem<SwordItem> {
 
@@ -47,10 +49,17 @@ public class SwordItem extends WeaponItem<SwordItem> {
 			if (e instanceof DamageableEntity && Game.PLAYER.getRectangle().intersects(e.getRectangle()) && Math.random() < 0.50) {
 				
 				((DamageableEntity) e).damage(Game.PLAYER.calculateAttackDamage(this.damage));
+				this.makeDamageParticle(e.getX(), e.getY());
 				
 			}
 			
 		}
+		
+	}
+	
+	private void makeDamageParticle(float x, float y) {
+		
+		ParticleTypes.FALL_3.make(x, y, 8, 8, new Color(140, 0, 0), null, null);
 		
 	}
 

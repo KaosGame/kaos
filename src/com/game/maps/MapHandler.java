@@ -15,6 +15,7 @@ public class MapHandler implements Serializable, CloneableType<MapHandler> {
 	
 	public static final int MAX_ENTITIES = 1024;
 	public static final int MAX_OBJECTS = 1024;
+	public static final int MAX_PARTICLES = 2048;
 
 	public int CURRENT_MAP_ID;
 	
