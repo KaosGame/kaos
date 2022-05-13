@@ -22,6 +22,7 @@ import com.game.entities.player.items.food.RawCodFishFoodItem;
 import com.game.entities.player.items.food.RawGoldFishFoodItem;
 import com.game.entities.player.items.food.RawSalmonFishFoodItem;
 import com.game.entities.player.items.food.Taco1Item;
+import com.game.entities.player.items.objects.BombItem;
 import com.game.entities.player.items.objects.Chest1Item;
 import com.game.entities.player.items.objects.DiamondOre1Item;
 import com.game.entities.player.items.objects.GoldOre1Item;
@@ -449,6 +450,22 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_BOMB) {
+			
+			if (Game.PLAYER.getCoins() >= 15) {
+				
+				Game.PLAYER.removeCoins(15L);
+				
+				BombItem item = new BombItem(1);
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
 		}
 		
 	}
@@ -824,6 +841,22 @@ public class VillagerEntity extends Entity implements Trading {
 				
 			}
 			
+		} else if (this.tradeItem == VillagerTrades.COIN_TO_BOMB) {
+			
+			while (Game.PLAYER.getCoins() >= 15) {
+				
+				Game.PLAYER.removeCoins(15L);
+				
+				BombItem item = new BombItem(1);
+				
+				if (!Game.PLAYER.getHotbar().returnBooleanAndAddItem(item)) {
+					
+					Game.makeItemAtRandomWithItem(item);
+					
+				}
+				
+			}
+			
 		}
 		
 	}
@@ -1107,6 +1140,16 @@ public class VillagerEntity extends Entity implements Trading {
 			g2d.drawString("1  -->  27", 400, 50);
 			
 			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 490, 25, 64, 64, null);
+			
+		} else if (this.touchingPlayer && this.tradeItem == VillagerTrades.COIN_TO_BOMB) {
+			
+			g2d.drawImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16), 325, 25, 64, 64, null);
+			
+			g2d.setColor(new Color(0x000000));
+			g2d.setFont(Game.VILAGER_GAME_FONT.deriveFont(18f));
+			g2d.drawString("15  -->  1", 400, 50);
+			
+			g2d.drawImage(Game.BOMB_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), 490, 25, 64, 64, null);
 			
 		}
 		
