@@ -44,6 +44,8 @@ public enum ItemID {
 	FAST_GENERATION_EFFECT_1(),
 	POSION_EFFECT_1(),
 	RESISTANCE_EFFECT_1(),
-	BOMB();
+	BOMB(),
+	WATER_BOWL(),
+	LAVA_BOWL();
 
 }

@@ -20,7 +20,7 @@ public class LavaTransparentCollisionObject extends CollisionObject implements D
 
 	public LavaTransparentCollisionObject(int x, int y, int width, int height, ObjectType type, BufferedImage image) {
 		
-		super(x, y, width, height, type, image, false);
+		super(x, y, width, height, type, image, true);
 		
 		
 	}

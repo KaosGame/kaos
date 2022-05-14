@@ -1024,6 +1024,15 @@ public class Game {
 					
 				case BOMB:
 					item.setImage(Game.BOMB_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					break;
+					
+				case LAVA_BOWL:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 16, 16, 16));
+					break;
+					
+				case WATER_BOWL:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 16, 16, 16));
+					break;
 					
 			}
 			
@@ -1260,6 +1269,15 @@ public class Game {
 								
 							case BOMB:
 								item.setImage(Game.BOMB_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+								break;
+								
+							case LAVA_BOWL:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 16, 16, 16));
+								break;
+								
+							case WATER_BOWL:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 16, 16, 16));
+								break;
 							
 					
 						}
