@@ -6,7 +6,6 @@ import java.util.Arrays;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.food.Pie1Item;
-import com.game.entities.player.items.objects.BombItem;
 import com.game.entities.player.items.tools.weapon.AxeItem;
 import com.game.main.CloneableType;
 import com.game.main.Game;
@@ -32,7 +31,7 @@ public class PlayerHotbar implements CloneableType<PlayerHotbar>, Serializable, 
 		
 		this.list[0] = new AxeItem(1, ItemID.AXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 		this.list[7] = new Pie1Item(8, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16));
-		this.list[1] = new BombItem(320);
+		
 	}
 	
 	
