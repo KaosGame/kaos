@@ -1,6 +1,6 @@
+
 package com.game.entities;
 
-import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 
@@ -10,7 +10,8 @@ import com.game.entities.base.Entity;
 import com.game.entities.base.EntityDeathMessages;
 import com.game.entities.base.EntityID;
 import com.game.main.Game;
-import com.game.particles.ParticleTypes;
+import com.game.particles.images.ImageParticleTypes;
+import com.game.particles.images.ParticleImages;
 
 public class BombEntity extends Entity {
 
@@ -72,8 +73,8 @@ public class BombEntity extends Entity {
 	
 	public void blowup() {
 		
-		Rectangle rect = new Rectangle((int) ((int) this.x - 256), (int) ((int) this.y - 256), (int) (this.width + 512),
-				(int) (this.height + 512));
+		Rectangle rect = new Rectangle((int) ((int) this.x - 128), (int) ((int) this.y - 128), (int) (this.width + 256),
+				(int) (this.height + 256));
 		
 		LinkedList<CollisionObject> objList = Game.MAP_HANDLER().currentMap().getObjectList();
 		
@@ -83,8 +84,7 @@ public class BombEntity extends Entity {
 			
 			if (rect.intersects(o.getRectangle()) && o.isPlayerPlaced()) {
 				
-				objList.remove(o);
-				continue;
+				Game.MAP_HANDLER().currentMap().getObjectList().remove(o);
 				
 			}
 			
@@ -99,7 +99,6 @@ public class BombEntity extends Entity {
 			if (e instanceof DamageableEntity) {
 				
 				((DamageableEntity) e).damage(BombEntity.DAMAGE, EntityDeathMessages.BOMB);
-				continue;
 				
 			}
 			
@@ -107,12 +106,16 @@ public class BombEntity extends Entity {
 		
 		if (rect.intersects(Game.PLAYER.getRectangle())) Game.PLAYER.damage(BombEntity.DAMAGE, EntityDeathMessages.BOMB);
 		
-		ParticleTypes.FALL_4.make(this.x, this.y, 8, 8, new Color(0xc0c0c0), null, null);
-		ParticleTypes.FALL_4.make((double) (this.x - 32), (double) (this.y - 32), 8, 8, new Color(0xc0c0c0), null, null);
-		ParticleTypes.FALL_4.make((double) (this.x - 32), (double) (this.y + 64), 8, 8, new Color(0xc0c0c0), null, null);
-		ParticleTypes.FALL_4.make((double) (this.x + 32), (double) (this.y + 64), 8, 8, new Color(0xc0c0c0), null, null);
+		ImageParticleTypes.FALL_1.make(this.x, this.y, 16, 16, null, null, ParticleImages.SMOKE_1);
+		ImageParticleTypes.FALL_1.make((double) (this.x - 32), (double) (this.y - 32), 16, 16, null, null, ParticleImages.SMOKE_1);
+		ImageParticleTypes.FALL_1.make((double) (this.x - 32), (double) (this.y + 64), 16, 16, null, null, ParticleImages.SMOKE_1);
+		ImageParticleTypes.FALL_1.make((double) (this.x + 32), (double) (this.y + 64), 16, 16, null, null, ParticleImages.SMOKE_1);
+		ImageParticleTypes.FALL_1.make((double) (this.x - 128), (double) (this.y - 128), 16, 16, null, null, ParticleImages.SMOKE_1);
+		ImageParticleTypes.FALL_1.make((double) (this.x - 128), (double) (this.y - 64), 16, 16, null, null, ParticleImages.SMOKE_1);
+		ImageParticleTypes.FALL_1.make((double) (this.x - 64), (double) (this.y - 128), 16, 16, null, null, ParticleImages.SMOKE_1);
+		ImageParticleTypes.FALL_1.make((double) (this.width + 256), (double) (this.height + 256), 16, 16, null, null, ParticleImages.SMOKE_1);
 		
-		entityList.remove(this);
+		Game.MAP_HANDLER().currentMap().getEntityHandler().getList().remove(this);
 		
 	}
 
