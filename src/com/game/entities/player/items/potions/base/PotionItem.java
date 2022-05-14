@@ -1,6 +1,7 @@
 package com.game.entities.player.items.potions.base;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 import com.game.effects.base.Effect;
 import com.game.effects.base.EffectID;
@@ -10,7 +11,12 @@ import com.game.main.Game;
 
 public abstract class PotionItem<CT> extends Item<CT> {
 
-	public class EffectDataClass {
+	public class EffectDataClass implements Serializable {
+		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -625248392921723245L;
 		
 		private Effect effect;
 		private EffectID effectID;
