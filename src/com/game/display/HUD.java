@@ -113,7 +113,7 @@ public class HUD implements Drawable, Updatable {
 				g2d.drawImage(item.getImage(), (int) (xDraw - 64), (int) (Game.HEIGHT - 96), 64, 64, null);	
 				
 				
-				g2d.setColor(new Color(0x000000));
+				g2d.setColor(item.getId().getColor());
 				g2d.setFont(Game.HOTBAR_GAME_FONT.deriveFont(16f));
 				g2d.drawString(String.valueOf(item.getCount()), (int) (xDraw - 48), (int) (Game.HEIGHT - 37));
 				
