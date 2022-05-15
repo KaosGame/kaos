@@ -50,6 +50,7 @@ import com.game.random.RandomGen;
 import com.game.saving.GameVersion;
 import com.game.saving.SaveableObject;
 import com.game.saving.SavingGame;
+import com.game.sound.Sound;
 import com.game.textures.BufferedImageLoader;
 import com.game.textures.TextraAlice;
 
@@ -453,6 +454,10 @@ public class Game {
 	public static Font HOTBAR_GAME_FONT;
 	public static Font VILAGER_GAME_FONT;
 	public static Font SIGN_GAME_FONT;
+	
+	public static final Sound BG_SOUND = new Sound();
+	public static final Sound SE_SOUND = new Sound();
+	public static final Sound ANY_VOLUME_SOUNDS = new Sound();
 	
 	
 	public Game(String title) {
@@ -1495,7 +1500,7 @@ public class Game {
 		
 		Game.DIMENSION_HANDLER.get(DimensionID.FISH_LAND).getMapHandler().addMap(new Map(Game.START_MAP_FISH_LAND));
 		
-		Game.logln("Reset game", LogType.SUCCESS);
+		Game.logln("Reset game", LogType.SUCCESS);Game.MAP_HANDLER().currentMap().getEntityHandler().add(new BombEntity(100, 100, 64, 64));
 		
 	}
 

@@ -28,6 +28,7 @@ import com.game.events.listeners.keys.KeyControls;
 import com.game.logging.LogType;
 import com.game.main.Game;
 import com.game.maps.OverflowHandler;
+import com.game.sound.Sounds;
 import com.game.spawning.base.Spawner;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -83,6 +84,13 @@ public class GamePanel extends JPanel implements Runnable {
 		this.overflowHandler = new OverflowHandler();
 		
 		this.addKeyListener(this.keyControls);
+		
+		Game.BG_SOUND.setSound(Sounds.BASE_BACKGROUND_MUSIC);
+		Game.BG_SOUND.setVolumeScale(2);
+		Game.BG_SOUND.loop();
+		
+		Game.SE_SOUND.setTrueVolumeScale(3);
+		Game.ANY_VOLUME_SOUNDS.setTrueVolumeScale(3);
 		
 		Game.logln("Game started, class created", LogType.SUCCESS);
 		

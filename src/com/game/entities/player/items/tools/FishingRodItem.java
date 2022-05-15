@@ -10,6 +10,7 @@ import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.base.ItemID;
 import com.game.loot.tables.handler.LootTableHandler;
 import com.game.main.Game;
+import com.game.sound.Sounds;
 
 public class FishingRodItem extends Item<FishingRodItem> {
 
@@ -46,6 +47,11 @@ public class FishingRodItem extends Item<FishingRodItem> {
 				Item<?> item = LootTableHandler.returnRandomLootItemForFishingRodItem();
 				
 				Game.addItemOrItemEntity(item);
+				
+				Game.ANY_VOLUME_SOUNDS.setSound(Sounds.POP);
+				Game.ANY_VOLUME_SOUNDS.setVolumeScale(1);
+				Game.ANY_VOLUME_SOUNDS.play();
+				Game.ANY_VOLUME_SOUNDS.setVolumeScale(3);
 				
 				
 			}

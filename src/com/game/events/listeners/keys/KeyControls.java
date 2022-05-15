@@ -16,6 +16,7 @@ import com.game.entities.player.items.base.Item;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
 import com.game.logging.LogType;
 import com.game.main.Game;
+import com.game.sound.Sounds;
 
 public class KeyControls implements KeyListener {
 	
@@ -350,6 +351,12 @@ public class KeyControls implements KeyListener {
 							((ChestTransparentObject) o).push(Game.PLAYER.getHotbar().getCurrentItem());
 							
 							Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
+							
+							Game.ANY_VOLUME_SOUNDS.setSound(Sounds.POP);
+							Game.ANY_VOLUME_SOUNDS.setVolumeScale(1);
+							Game.ANY_VOLUME_SOUNDS.play();
+							Game.ANY_VOLUME_SOUNDS.setVolumeScale(3);
+							
 							Game.logln("Player put a item in a chest", LogType.MESSAGE);
 							
 						}
@@ -385,6 +392,12 @@ public class KeyControls implements KeyListener {
 						if (Game.PLAYER.getHotbar().getCurrentItem() == null && ((ChestTransparentObject) o).isNotEmpty()) {
 							
 							Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = ((ChestTransparentObject) o).pop();
+							
+							Game.ANY_VOLUME_SOUNDS.setSound(Sounds.POP);
+							Game.ANY_VOLUME_SOUNDS.setVolumeScale(1);
+							Game.ANY_VOLUME_SOUNDS.play();
+							Game.ANY_VOLUME_SOUNDS.setVolumeScale(3);
+							
 							Game.logln("Player took a item in a chest", LogType.MESSAGE);
 							
 						}

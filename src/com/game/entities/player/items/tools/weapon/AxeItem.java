@@ -16,6 +16,7 @@ import com.game.loot.tables.handler.LootTableHandler;
 import com.game.loot.tables.handler.LootTableID;
 import com.game.main.Game;
 import com.game.particles.ParticleTypes;
+import com.game.sound.Sounds;
 
 public class AxeItem extends WeaponItem<AxeItem> {
 
@@ -82,6 +83,10 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				LootTableHandler.createLootAtRandom(LootTableID.TREE_1_LOOT);
 				this.makeTreeParticle();
 				
+				Game.SE_SOUND.setSound(Sounds.BREAK);
+				Game.SE_SOUND.play();
+				
+				
 			}
 			
 			if (
@@ -101,6 +106,8 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				
 				LootTableHandler.createLootAtRandom(LootTableID.WOOD_1_LOOT);
 				this.makeWoodParticle();
+				Game.SE_SOUND.setSound(Sounds.BREAK);
+				Game.SE_SOUND.play();
 				
 				
 			}
@@ -120,6 +127,8 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				
 				LootTableHandler.createLootAtRandom(LootTableID.APPLE_TREE_1_LOOT);
 				this.makeTreeParticle();
+				Game.SE_SOUND.setSound(Sounds.BREAK);
+				Game.SE_SOUND.play();
 				
 			}
 			
@@ -143,6 +152,8 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 				
 				this.makeWoodParticle();
+				Game.SE_SOUND.setSound(Sounds.BREAK);
+				Game.SE_SOUND.play();
 				
 			}
 			
@@ -161,6 +172,8 @@ public class AxeItem extends WeaponItem<AxeItem> {
 				
 				LootTableHandler.createLootAtRandom(LootTableID.SIGN_1);
 				this.makeWoodParticle();
+				Game.SE_SOUND.setSound(Sounds.BREAK);
+				Game.SE_SOUND.play();
 				
 			}
 			

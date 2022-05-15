@@ -12,6 +12,7 @@ import com.game.entities.base.EntityID;
 import com.game.main.Game;
 import com.game.particles.images.ImageParticleTypes;
 import com.game.particles.images.ParticleImages;
+import com.game.sound.Sounds;
 
 public class BombEntity extends Entity {
 
@@ -45,6 +46,9 @@ public class BombEntity extends Entity {
 			this.tempTime = 500L;
 			
 			this.frameState++;
+			
+			Game.SE_SOUND.setSound(Sounds.BOMB_FIZZ);
+			Game.SE_SOUND.play();
 			
 			this.frameState = Game.clamp(this.frameState, (byte) 2, (byte) 0);
 			
@@ -116,6 +120,9 @@ public class BombEntity extends Entity {
 		ImageParticleTypes.FALL_1.make((double) (this.width + 256), (double) (this.height + 256), 16, 16, null, null, ParticleImages.SMOKE_1);
 		
 		Game.MAP_HANDLER().currentMap().getEntityHandler().getList().remove(this);
+		
+		Game.SE_SOUND.setSound(Sounds.BOMB_BOOM);
+		Game.SE_SOUND.play();
 		
 	}
 

@@ -25,6 +25,7 @@ import com.game.entities.vilagers.VillagerEntity;
 import com.game.logging.LogType;
 import com.game.main.Game;
 import com.game.particles.ParticleTypes;
+import com.game.sound.Sounds;
 
 public class Player extends DamageableEntity implements Serializable {
 	
@@ -452,6 +453,9 @@ public class Player extends DamageableEntity implements Serializable {
 
 	@Override
 	public void die(EntityDeathMessages message) {
+		
+		Game.SE_SOUND.setSound(Sounds.PLAYER_DEATH);
+		Game.SE_SOUND.play();
 
 		this.health = Player.MAX_HEALTH;
 		this.hunger = Player.MAX_HUNGER;
@@ -558,6 +562,11 @@ public class Player extends DamageableEntity implements Serializable {
 			
 		}
 		
+		Game.ANY_VOLUME_SOUNDS.setSound(Sounds.SOFT_BREAK);
+		Game.ANY_VOLUME_SOUNDS.setVolumeScale(2);
+		Game.ANY_VOLUME_SOUNDS.play();
+		Game.ANY_VOLUME_SOUNDS.setVolumeScale(3);
+		
 		
 		
 	}
@@ -570,6 +579,10 @@ public class Player extends DamageableEntity implements Serializable {
 		
 		if (aws <= 0) aws = 0;
 		
+		Game.ANY_VOLUME_SOUNDS.setSound(Sounds.SOFT_BREAK);
+		Game.ANY_VOLUME_SOUNDS.setVolumeScale(2);
+		Game.ANY_VOLUME_SOUNDS.play();
+		Game.ANY_VOLUME_SOUNDS.setVolumeScale(3);
 		
 		return aws;
 		
@@ -598,6 +611,11 @@ public class Player extends DamageableEntity implements Serializable {
 		damagetodo += this.moreDamage;
 		
 		if (damagetodo <= 0) damagetodo = 0;
+		
+		Game.ANY_VOLUME_SOUNDS.setSound(Sounds.SOFT_BREAK);
+		Game.ANY_VOLUME_SOUNDS.setVolumeScale(2);
+		Game.ANY_VOLUME_SOUNDS.play();
+		Game.ANY_VOLUME_SOUNDS.setVolumeScale(3);
 		
 		return damagetodo;
 		

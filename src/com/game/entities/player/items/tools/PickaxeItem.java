@@ -1,5 +1,6 @@
 package com.game.entities.player.items.tools;
 
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
@@ -11,6 +12,7 @@ import com.game.entities.player.items.base.ItemID;
 import com.game.loot.tables.handler.LootTableHandler;
 import com.game.loot.tables.handler.LootTableID;
 import com.game.main.Game;
+import com.game.particles.ParticleTypes;
 
 public class PickaxeItem extends Item<PickaxeItem> {
 
@@ -23,6 +25,12 @@ public class PickaxeItem extends Item<PickaxeItem> {
 		
 		super(count, id, image);
 		
+		
+	}
+	
+	private void makeStoneParticle() {
+		
+		ParticleTypes.FALL_1.make((double) (Game.PLAYER.getX() + 32), (double) (Game.PLAYER.getY() + 32), 8, 8, new Color(0xc0c0c0), null, null);
 		
 	}
 
@@ -59,6 +67,7 @@ public class PickaxeItem extends Item<PickaxeItem> {
 					Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 					
 					LootTableHandler.createLootAtRandom(LootTableID.STONE_1);
+					this.makeStoneParticle();
 					
 				}
 				
@@ -72,6 +81,7 @@ public class PickaxeItem extends Item<PickaxeItem> {
 					Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 					
 					LootTableHandler.createLootAtRandom(LootTableID.IRON_ORE_1);
+					this.makeStoneParticle();
 					
 				}
 				
@@ -85,6 +95,7 @@ public class PickaxeItem extends Item<PickaxeItem> {
 					Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 					
 					LootTableHandler.createLootAtRandom(LootTableID.GOLD_ORE_1);
+					this.makeStoneParticle();
 					
 				}
 				
@@ -98,6 +109,7 @@ public class PickaxeItem extends Item<PickaxeItem> {
 					Game.MAP_HANDLER().currentMap().removeObject(tempObj);
 					
 					LootTableHandler.createLootAtRandom(LootTableID.DIAMOND_ORE_1);
+					this.makeStoneParticle();
 					
 				}
 				
