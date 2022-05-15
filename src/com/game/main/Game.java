@@ -1500,7 +1500,7 @@ public class Game {
 		
 		Game.DIMENSION_HANDLER.get(DimensionID.FISH_LAND).getMapHandler().addMap(new Map(Game.START_MAP_FISH_LAND));
 		
-		Game.logln("Reset game", LogType.SUCCESS);Game.MAP_HANDLER().currentMap().getEntityHandler().add(new BombEntity(100, 100, 64, 64));
+		Game.logln("Reset game", LogType.SUCCESS);
 		
 	}
 
