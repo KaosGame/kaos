@@ -299,7 +299,7 @@ public class Game {
 				new NextRandomMapCollisionObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16)),
 				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
 				new CollidableObject(100, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage()),
-				new CollidableObject(75, 240, 128, 128, ObjectType.APPLE_TREE_1, Game.OBJECT_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16)),
+				new CollidableObject(75, 240, 64, 64, ObjectType.SUNFLOWER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16)),
 				new CollidableObject(400, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage())
 				
 			}
@@ -1433,6 +1433,10 @@ public class Game {
 					
 				case LAVA:
 					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(288, 0, 16, 16));
+					break;
+					
+				case SUNFLOWER:
+					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16));
 					break;
 			
 			}
