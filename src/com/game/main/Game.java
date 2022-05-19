@@ -32,6 +32,7 @@ import com.game.display.components.GamePanel;
 import com.game.entities.AxolotlEntity;
 import com.game.entities.BombEntity;
 import com.game.entities.ItemEntity;
+import com.game.entities.bad.zombie.WarZombie;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.player.Player;
@@ -51,6 +52,7 @@ import com.game.saving.GameVersion;
 import com.game.saving.SaveableObject;
 import com.game.saving.SavingGame;
 import com.game.sound.Sound;
+import com.game.sound.Sounds;
 import com.game.textures.BufferedImageLoader;
 import com.game.textures.TextraAlice;
 
@@ -442,7 +444,7 @@ public class Game {
 	
 	public static RandomGen RANDOM = new RandomGen(Game.DATE.getTime());
 	
-	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.4.0");
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.4.1");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
@@ -1311,6 +1313,10 @@ public class Game {
 					e.setImage(Game.ZOMBIE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 					break;
 					
+				case WAR_ZOMBIE:
+					e.setImage(Game.ZOMBIE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					break;
+					
 				case ROCK_ZOMBIE:
 					e.setImage(Game.ZOMBIE_TEXTRA_ALICE.getImageFrom(32, 0, 16, 16));
 					break;
@@ -1593,6 +1599,14 @@ public class Game {
 		
 	}
 	
+	public static void addItemEntityWithRandomPos(Item<?> item, float x, float y) {
+		
+		float[] pos = Game.getRandomItemPos(x, y);
+		
+		Game.addItemEntity(pos[0], pos[1], item, item.getImage(), 64);
+		
+	}
+	
 	public static final long stringToLong(String text) {
 		
 		Long result = null;
@@ -1749,6 +1763,19 @@ public class Game {
 		} while (temp == null);
 		
 		return temp;
+		
+	}
+	
+	public static void startWar() {
+		
+		Game.SE_SOUND.setSound(Sounds.WAR_START);
+		Game.SE_SOUND.play();
+		
+		final int TOTAL_ZOMBIES = 7;
+		
+		final WarZombie wz = new WarZombie();
+		
+		for (int i = 0; i < TOTAL_ZOMBIES; i++) wz.spawn();
 		
 	}
 	

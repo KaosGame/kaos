@@ -60,6 +60,8 @@ public class Particle implements Drawable, Updatable, Serializable {
 			
 			if (this.onEnd != null) this.onEnd.run();
 			
+			return;
+			
 		}
 		
 		

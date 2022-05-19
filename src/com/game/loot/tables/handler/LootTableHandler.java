@@ -33,6 +33,7 @@ import com.game.entities.player.items.objects.GoldOre1Item;
 import com.game.entities.player.items.objects.IronOre1Item;
 import com.game.entities.player.items.objects.Stone1Item;
 import com.game.entities.player.items.objects.Tree1Item;
+import com.game.entities.player.items.objects.Wood1Item;
 import com.game.entities.player.items.potions.BetterAttackDamageEffect1PotionItem;
 import com.game.entities.player.items.potions.FastGenerationEffect1PotionItem;
 import com.game.entities.player.items.potions.PosionEffect1PotionItem;
@@ -534,6 +535,206 @@ public class LootTableHandler {
 				
 				}
 				
+				
+			}
+			
+		} while (item == null);
+		
+		return item;
+		
+	}
+	
+	public static Item<?> returnRandomLootItemForWarZombie() {
+		
+		Item<?> item = null;
+		
+		RandomChance chance = new RandomChance();
+		
+		final int COUNT = 1;
+		
+		do {
+			
+			if (chance.firstChoose(0.75)) {
+				
+				// Fish
+				
+				if (chance.firstChoose(0.20)) {
+					
+					// Gold fish
+					
+					item = new RawGoldFishFoodItem(COUNT, ItemID.GOLD_FISH_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(432, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.27)) {
+					
+					// Salmon
+					
+					item = new RawSalmonFishFoodItem(COUNT, ItemID.SALMON_FISH_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(464, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.34)) {
+					
+					// Cod
+					
+					item = new RawCodFishFoodItem(COUNT, ItemID.COD_FISH_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(480, 0, 16, 16));
+					
+				} else {
+					
+					// Bluefish
+					
+					item = new RawBlueFishFoodItem(COUNT, ItemID.BLUE_FISH_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(448, 0, 16, 16));
+					
+				}
+				
+			} else if (chance.firstChoose(0.10)) {
+				
+				if (chance.firstChoose(0.42)) {
+					
+					// Money bags
+					
+					if (chance.firstChoose(0.25)) {
+						
+						item = new MoneyBag2Item(COUNT, ItemID.MONEY_BAG_2, Game.ITEM_TEXTRA_ALICE.getImageFrom(384, 0, 16, 16));
+						
+					} else if (chance.firstChoose(0.15)) {
+						
+						item = new MoneyBag3Item(COUNT, ItemID.MONEY_BAG_3, Game.ITEM_TEXTRA_ALICE.getImageFrom(400, 0, 16, 16));
+						
+					} else {
+						
+						item = new MoneyBag1Item(COUNT, ItemID.MONEY_BAG_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(368, 0, 16, 16));
+						
+					}
+					
+				}
+				
+			} else if (chance.firstChoose(0.15)) {
+				
+				// Food
+				
+				if (chance.firstChoose(0.25)) {
+					
+					item = new OrangeJuce1Item(COUNT, ItemID.ORANGE_JUCE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.15)) {
+					
+					item = new Pie1Item(COUNT, ItemID.PIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.10)) {
+					
+					item = new Taco1Item(COUNT, ItemID.TACO_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.19563)) {
+					
+					item = new Cookie1FoodItem(COUNT, ItemID.COOKIE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.1856)) {
+					
+					item = new MushroomStewFoodItem(COUNT, ItemID.MUSHROOM_STEW_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(320, 0, 16, 16));
+					
+				} else {
+					
+					if (chance.lastChoose(0.50)) {
+						
+						item = new Banana1Item(COUNT, ItemID.BANANA_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(240, 0, 16, 16));
+						
+					} else {
+						
+						item = new Apple1Item(COUNT, ItemID.APPLE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16));
+						
+					}
+					
+				}
+				
+			} else if (chance.firstChoose(0.21)) {
+				
+				// Tools
+				
+				if (chance.firstChoose(0.45)) {
+					
+					item = new AxeItem(COUNT, ItemID.AXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.25)) {
+					
+					item = new FishingRodItem(COUNT, ItemID.FISHING_ROD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.312)) {
+					
+					if (chance.firstChoose(0.23)) {
+						
+						item = new BowAdvanceItem(COUNT, ItemID.BOW_2, Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 16, 16, 16)); 
+						
+					} else {
+						
+						item = new BowStandardItem(COUNT, ItemID.BOW_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(48, 16, 16, 16));
+						
+					}
+					
+				} else {
+					
+					item = new PickaxeItem(COUNT, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
+					
+				}
+				
+			} else if (chance.firstChoose(0.32)) {
+				
+				// Potions
+				
+				EffectID effect = Game.getRandomItemFrom(EffectID.values());
+				
+				Random random = new Random();
+				
+				final int LEVEL = (int) (random.nextInt(4) + 1);
+				
+				switch (effect) {
+				
+					case ATTACK_1:
+						item = new BetterAttackDamageEffect1PotionItem(COUNT, new BetterAttackDamgeEffect1(LEVEL, 1800));
+						break;
+						
+					case FAST_REGENERATION_1:
+						item = new FastGenerationEffect1PotionItem(COUNT, new FastGenerationEffect1(LEVEL, 1800));
+						break;
+						
+					case POISON_1:
+						item = new PosionEffect1PotionItem(COUNT, new PoisonEffect1(LEVEL, 1800));
+						break;
+						
+					case RESISTANCE_1:
+						item = new ResistanceEffect1PotionItem(COUNT, new ResistanceEffect1(LEVEL, 1800));
+						break;
+						
+					case SWIMMING_1:
+						item = new SwimmingEffect1PotionItem(COUNT, new SwimmingEffect1(LEVEL, 1800));
+						break;
+				
+				}
+				
+				
+			} else if (chance.firstChoose(0.41)) {
+				
+				// Ores and stone
+				
+				
+				if (chance.firstChoose(0.17)) {
+					
+					item = new IronOre1Item(COUNT, ItemID.IRON_ORE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(176, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.14)) {
+					
+					item = new GoldOre1Item(COUNT, ItemID.GOLD_ORE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(192, 0, 16, 16));
+					
+				} else if (chance.firstChoose(0.10)) {
+					
+					item = new DiamondOre1Item(COUNT, ItemID.DIAMOND_ORE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(208, 0, 16, 16));
+					
+				} else {
+					
+					item = new Stone1Item(COUNT, ItemID.STONE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(160, 0, 16, 16));
+					
+				}
+				
+			} else if (chance.firstChoose(0.4)) {
+				
+				item = new Wood1Item(COUNT, ItemID.WOOD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
 				
 			}
 			

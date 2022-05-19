@@ -14,6 +14,7 @@ import com.game.collision.objects.CollidableWallObject;
 import com.game.collision.objects.PlayerObject;
 import com.game.collision.objects.base.CollisionObject;
 import com.game.collision.objects.base.ObjectType;
+import com.game.effects.ResistanceEffect1;
 import com.game.effects.base.EffectID;
 import com.game.effects.components.PlayerEffectHandler;
 import com.game.entities.base.DamageableEntity;
@@ -490,6 +491,8 @@ public class Player extends DamageableEntity implements Serializable {
 		}
 		
 		Arrays.fill(this.keysDown, false);
+		
+		this.effectHandler.add(new ResistanceEffect1(5, 3600L));
 
 	}
 	

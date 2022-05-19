@@ -10,7 +10,9 @@ public enum Sounds {
 	BOMB_BOOM("/assets/music/bomb/boom.wav"),
 	BOMB_FIZZ("/assets/music/bomb/fizz.wav"),
 	PLAYER_DEATH("/assets/music/player/player-death.wav"),
-	POP("/assets/music/pop.wav");
+	POP("/assets/music/pop.wav"),
+	WAR_START("/assets/music/war/war-start.wav"),
+	WAR_END("/assets/music/war/war-end.wav");
 	
 	private final URL URL;
 	

@@ -30,6 +30,7 @@ import com.game.main.Game;
 import com.game.maps.OverflowHandler;
 import com.game.sound.Sounds;
 import com.game.spawning.base.Spawner;
+import com.game.war.War;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -56,6 +57,7 @@ public class GamePanel extends JPanel implements Runnable {
 		Spawner.addHome(new ZombieEntity());
 		Spawner.addHome(new RockZombieEntity());
 		Spawner.addHome(new AxolotlEntity());
+		Spawner.addHome(new War());
 		
 		Spawner.addFishLand(new BirdEntity());
 		Spawner.addFishLand(new AxolotlEntity());

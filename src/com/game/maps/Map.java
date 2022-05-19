@@ -135,6 +135,8 @@ public class Map implements Updatable, Drawable, Serializable {
 		
 		for (int i = 0; i < this.particleList.size(); i++) {
 			
+			if (this.particleList.get(i) == null) continue;
+			
 			Particle p = this.particleList.get(i);
 			
 			if (p instanceof Drawable) ((Drawable) p).draw(g2d);

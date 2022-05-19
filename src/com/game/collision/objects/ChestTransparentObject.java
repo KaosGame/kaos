@@ -17,6 +17,7 @@ import com.game.entities.player.items.food.PizzaFoodItem;
 import com.game.entities.player.items.tools.FishingRodItem;
 import com.game.entities.player.items.tools.PickaxeItem;
 import com.game.entities.player.items.tools.weapon.SwordItem;
+import com.game.entities.player.items.tools.weapon.bow.standard.BowStandardItem;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
 import com.game.logging.LogType;
 import com.game.main.Drawable;
@@ -59,6 +60,7 @@ public class ChestTransparentObject extends CollisionObject implements Drawable 
 				this.stack.push(new PickaxeItem(1, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16)));
 				this.stack.push(new FishingRodItem(1, ItemID.FISHING_ROD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16)));
 				this.stack.push(new SwordItem(1, ItemID.SWORD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(496, 0, 16, 16)));
+				this.stack.push(new BowStandardItem(1, ItemID.BOW_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(48, 16, 16, 16)));
 				
 				break;
 				
