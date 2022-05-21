@@ -1372,6 +1372,14 @@ public class Game {
 						
 					}
 				break;
+				
+				case MONSTER_LEATH:
+					e.setImage(Game.MONSTER_LEATH_IMAGE_LOADER.getImage());
+					break;
+					
+				case MONSTER_LEATH_LEATH:
+					e.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16));
+					break;
 			
 			}
 			
@@ -1455,6 +1463,10 @@ public class Game {
 					
 				case SUNFLOWER:
 					o.setImage(Game.OBJECT_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16));
+					break;
+					
+				case START_MONSTER_LEATH_FIGHT:
+					o.setImage(Game.MONSTER_LEATH_IMAGE_LOADER.getImage());
 					break;
 			
 			}
