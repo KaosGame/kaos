@@ -12,7 +12,10 @@ public enum Sounds {
 	PLAYER_DEATH("/assets/music/player/player-death.wav"),
 	POP("/assets/music/pop.wav"),
 	WAR_START("/assets/music/war/war-start.wav"),
-	WAR_END("/assets/music/war/war-end.wav");
+	WAR_END("/assets/music/war/war-end.wav"),
+	MONSTER_LEATH_START("/assets/music/monster/leath/monster-leath-start.wav"),
+	MONSTER_LEATH_END("/assets/music/monster/leath/monster-leath-end.wav"),
+	PLAYER_GET_STAT("/assets/music/player/get-stat.wav");
 	
 	private final URL URL;
 	

@@ -9,6 +9,7 @@ import com.game.annotations.Empty;
 import com.game.main.Drawable;
 import com.game.main.Game;
 import com.game.main.Updatable;
+import com.game.sound.Sounds;
 
 public class PlayerStatHanlder implements Serializable, Updatable, Drawable {
 
@@ -32,6 +33,10 @@ public class PlayerStatHanlder implements Serializable, Updatable, Drawable {
 		
 		this.attack += num;
 		
+		Game.SE_SOUND.setSound(Sounds.PLAYER_GET_STAT);
+		Game.SE_SOUND.play();
+		
+		
 	}
 	
 	public void removeAttack(long num) {
@@ -44,6 +49,9 @@ public class PlayerStatHanlder implements Serializable, Updatable, Drawable {
 	public void addDefence(long num) {
 		
 		this.defence += num;
+		
+		Game.SE_SOUND.setSound(Sounds.PLAYER_GET_STAT);
+		Game.SE_SOUND.play();
 		
 	}
 	

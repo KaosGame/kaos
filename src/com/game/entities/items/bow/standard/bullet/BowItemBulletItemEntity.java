@@ -11,6 +11,8 @@ import com.game.entities.base.EntityID;
 import com.game.logging.LogType;
 import com.game.main.Game;
 import com.game.particles.ParticleTypes;
+import com.game.particles.images.ImageParticleTypes;
+import com.game.particles.images.ParticleImages;
 
 public class BowItemBulletItemEntity extends Entity {
 
@@ -52,7 +54,16 @@ public class BowItemBulletItemEntity extends Entity {
 				Game.MAP_HANDLER().currentMap().getEntityHandler().remove(this);
 				
 				Game.logln("Player did " + Game.PLAYER.calculateAttackDamage(this.damage) + " to an entity", LogType.INFO);
-				this.makeDamageParticle(e.getX(), e.getY());
+				
+				if (!e.getId().equals(EntityID.MONSTER_LEATH)) {
+					
+					this.makeDamageParticle(e.getX(), e.getY());
+					
+				} else {
+					
+					ImageParticleTypes.FALL_1.make((int) (e.getX() + e.getWidth()), e.getY(), 16, 16, null, null, ParticleImages.MONSTER_LEATH_ATTACK_1);
+					
+				}
 				
 				break;
 				

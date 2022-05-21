@@ -23,6 +23,7 @@ import com.game.collision.objects.CollidableWallObject;
 import com.game.collision.objects.LastMapCollidableObject;
 import com.game.collision.objects.LavaTransparentCollisionObject;
 import com.game.collision.objects.NextRandomMapCollisionObject;
+import com.game.collision.objects.StartMonsterLeathFightCollidableObject;
 import com.game.collision.objects.TextSignObject;
 import com.game.collision.objects.WaterTransparentCollisionObject;
 import com.game.collision.objects.base.CollisionObject;
@@ -81,6 +82,7 @@ public class Game {
 	public static BufferedImageLoader HOUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/house_1.png");
 	public static BufferedImageLoader PAUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/hud/pause.png");
 	public static BufferedImageLoader BULLET_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/entities/bullet.png");
+	public static BufferedImageLoader MONSTER_LEATH_IMAGE_LOADER = new BufferedImageLoader("/assets/images/entities/monster-leath.png");
 	
 	public static TextraAlice OBJECT_TEXTRA_ALICE = new TextraAlice(Game.OBJECT_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice PLAYER_TEXTRA_ALICE = new TextraAlice(Game.PLAYER_TEXTRA_ALICE_LOADER.getImage());
@@ -304,6 +306,14 @@ public class Game {
 				new CollidableObject(75, 240, 64, 64, ObjectType.SUNFLOWER, Game.OBJECT_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16)),
 				new CollidableObject(400, 25, 256, 256, ObjectType.HOUSE_1, Game.HOUSE_1_IMAGE_LOADER.getImage())
 				
+			},
+			
+			{
+				
+				new NextRandomMapCollisionObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16)),
+				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
+				new StartMonsterLeathFightCollidableObject(256, 128, 64, 64)
+				
 			}
 			
 	};
@@ -425,7 +435,9 @@ public class Game {
 				new VillagerEntity(200, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_BREAD),
 				new VillagerEntity(500, 200, 0, 0, 64, 64, EntityID.VILAGER, Game.VILAGER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16), VillagerTrades.COIN_TO_BOMB)
 				
-			}
+			},
+			
+			{}
 			
 	};
 	

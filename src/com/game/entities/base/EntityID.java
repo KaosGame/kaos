@@ -14,7 +14,9 @@ public enum EntityID {
 	PLAYER_BOW_BULLET(true),
 	AXOLOTL(true),
 	BOMB(true),
-	WAR_ZOMBIE(true);
+	WAR_ZOMBIE(true),
+	MONSTER_LEATH(true),
+	MONSTER_LEATH_LEATH(true);
 
 	private final boolean CAN_DELETE;
 	

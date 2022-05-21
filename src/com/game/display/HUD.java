@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 
+import com.game.entities.monster.leath.MonsterLeath;
 import com.game.entities.player.items.base.Item;
 import com.game.main.Drawable;
 import com.game.main.Game;
@@ -40,6 +41,8 @@ public class HUD implements Drawable, Updatable {
 		this.drawCoins(g2d);
 		Game.PLAYER.getStatHandler().draw(g2d);
 		Game.PLAYER.getEffectHandler().draw(g2d);
+		
+		if (MonsterLeath.onScreen()) MonsterLeath.drawBossBar(g2d);
 		
 	}
 

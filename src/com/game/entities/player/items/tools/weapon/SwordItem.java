@@ -6,10 +6,13 @@ import java.util.LinkedList;
 
 import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.Entity;
+import com.game.entities.base.EntityID;
 import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.base.WeaponItem;
 import com.game.main.Game;
 import com.game.particles.ParticleTypes;
+import com.game.particles.images.ImageParticleTypes;
+import com.game.particles.images.ParticleImages;
 
 public class SwordItem extends WeaponItem<SwordItem> {
 
@@ -49,7 +52,16 @@ public class SwordItem extends WeaponItem<SwordItem> {
 			if (e instanceof DamageableEntity && Game.PLAYER.getRectangle().intersects(e.getRectangle()) && Math.random() < 0.50) {
 				
 				((DamageableEntity) e).damage(Game.PLAYER.calculateAttackDamage(this.damage));
-				this.makeDamageParticle(e.getX(), e.getY());
+				
+				if (!e.getId().equals(EntityID.MONSTER_LEATH)) {
+					
+					this.makeDamageParticle(e.getX(), e.getY());
+					
+				} else {
+					
+					ImageParticleTypes.FALL_1.make((int) (e.getX() + e.getWidth()), e.getY(), 16, 16, null, null, ParticleImages.MONSTER_LEATH_ATTACK_1);
+					
+				}
 				
 			}
 			

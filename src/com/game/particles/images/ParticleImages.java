@@ -6,7 +6,8 @@ import com.game.main.Game;
 
 public enum ParticleImages {
 	
-	SMOKE_1(Game.PARTICLE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
+	SMOKE_1(Game.PARTICLE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16)),
+	MONSTER_LEATH_ATTACK_1(Game.PARTICLE_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16));
 	
 	private final BufferedImage IMAGE;
 	

@@ -18,7 +18,8 @@ public enum ObjectType {
 	DIAMOND_ORE_1(false),
 	WATER(true),
 	LAVA(true),
-	SUNFLOWER(true);
+	SUNFLOWER(true),
+	START_MONSTER_LEATH_FIGHT(true);
 	
 	private final boolean TRANSPARENT;
 	
