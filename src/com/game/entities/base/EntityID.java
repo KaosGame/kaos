@@ -16,7 +16,8 @@ public enum EntityID {
 	BOMB(true),
 	WAR_ZOMBIE(true),
 	MONSTER_LEATH(true),
-	MONSTER_LEATH_LEATH(true);
+	MONSTER_LEATH_LEATH(true),
+	ISAWAWABUB(true);
 
 	private final boolean CAN_DELETE;
 	

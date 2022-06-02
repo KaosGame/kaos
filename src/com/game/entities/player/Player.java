@@ -465,6 +465,8 @@ public class Player extends DamageableEntity implements Serializable {
 		this.effectHandler.clear();
 		
 		Arrays.fill(this.keysDown, false);
+		
+		Game.PAUSED = true;
 
 		if (message != null) {
 
@@ -493,7 +495,7 @@ public class Player extends DamageableEntity implements Serializable {
 		Arrays.fill(this.keysDown, false);
 		
 		this.effectHandler.add(new ResistanceEffect1(5, 3600L));
-
+		
 	}
 	
 	public void dropAllItems() {

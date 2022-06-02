@@ -1,4 +1,3 @@
-
 package com.game.entities;
 
 import java.awt.Rectangle;

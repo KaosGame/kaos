@@ -15,7 +15,8 @@ public enum EntityDeathMessages {
 	PLAYER_BOW_STANDARD_BULLET("You got shot by a player and died with the score of %d!"),
 	POISON_EFFECT_1("You got poisoned to death and died with the score of %d!"),
 	BOMB("You got blown up by a bomb and died with the score of %d!"),
-	MONSTER_LEATH("You got hit hard by a monster and died with the socre of %d!");
+	MONSTER_LEATH("You got hit hard by a monster and died with the socre of %d!"),
+	ISAWAWABUB("You got killed on by a isawawabub and died with the score of %d!");
 	
 	
 	private final String MESSAGE;

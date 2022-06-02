@@ -32,6 +32,7 @@ import com.game.display.HUD;
 import com.game.display.components.GamePanel;
 import com.game.entities.AxolotlEntity;
 import com.game.entities.BombEntity;
+import com.game.entities.IsawawabubEntity;
 import com.game.entities.ItemEntity;
 import com.game.entities.bad.zombie.WarZombie;
 import com.game.entities.base.Entity;
@@ -73,11 +74,12 @@ public class Game {
 	private static BufferedImageLoader ZOMBIE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/zombie-textra-alice.png");
 	private static BufferedImageLoader AXOLOTL_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/axolotl-textra-alice.png");
 	private static BufferedImageLoader HOTBAR_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/hud/hotbar/hotbar-textra-alice.png");
+	private static BufferedImageLoader ISAWAWABUB_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/isawawabub-textra-alice.png");
 	private static BufferedImageLoader ITEM_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/item-textra-alice.png");
 	private static BufferedImageLoader STAT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/stat-textra-alice.png");
 	private static BufferedImageLoader EFFECT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/effect-textra-alice.png");
 	private static BufferedImageLoader BOMB_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/bomb-textra-alice.png");
-	private static BufferedImageLoader PARTICLE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/particle-textra-alice.png"); 
+	private static BufferedImageLoader PARTICLE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/particle-textra-alice.png");
 	
 	public static BufferedImageLoader HOUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/house_1.png");
 	public static BufferedImageLoader PAUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/hud/pause.png");
@@ -97,6 +99,7 @@ public class Game {
 	public static TextraAlice EFFECT_TEXTRA_ALICE = new TextraAlice(Game.EFFECT_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice BOMB_TEXTRA_ALICE = new TextraAlice(Game.BOMB_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice PARTICLE_TEXTRA_ALICE = new TextraAlice(Game.PARTICLE_TEXTRA_ALICE_LOADER.getImage());
+	public static TextraAlice ISAWAWABUB_TEXTRA_ALICE = new TextraAlice(Game.ISAWAWABUB_TEXTRA_ALICE_LOADER.getImage());
 	
 	public static CollisionObject[] HOME_MAP_HOME = {
 			
@@ -314,6 +317,13 @@ public class Game {
 				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
 				new StartMonsterLeathFightCollidableObject(256, 128, 64, 64)
 				
+			},
+			
+			{
+				
+				new NextRandomMapCollisionObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16)),
+				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
+				
 			}
 			
 	};
@@ -437,7 +447,13 @@ public class Game {
 				
 			},
 			
-			{}
+			{},
+			
+			{
+				
+				new IsawawabubEntity(256, 128)
+				
+			}
 			
 	};
 	
