@@ -1396,6 +1396,16 @@ public class Game {
 				case MONSTER_LEATH_LEATH:
 					e.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16));
 					break;
+					
+				case ISAWAWABUB:
+					if (e instanceof IsawawabubEntity) {
+						
+						IsawawabubEntity isa = (IsawawabubEntity) e;
+						
+						isa.handleImage();
+						
+					}
+					break;
 			
 			}
 			
