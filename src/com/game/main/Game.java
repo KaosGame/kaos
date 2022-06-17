@@ -80,6 +80,8 @@ public class Game {
 	private static BufferedImageLoader EFFECT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/effect-textra-alice.png");
 	private static BufferedImageLoader BOMB_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/bomb-textra-alice.png");
 	private static BufferedImageLoader PARTICLE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/particle-textra-alice.png");
+	private static BufferedImageLoader CAT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/cat-textra-alice.png");
+	private static BufferedImageLoader KITTNASOURS_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/cat-textra-alice.png");
 	
 	public static BufferedImageLoader HOUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/house_1.png");
 	public static BufferedImageLoader PAUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/hud/pause.png");
@@ -100,6 +102,8 @@ public class Game {
 	public static TextraAlice BOMB_TEXTRA_ALICE = new TextraAlice(Game.BOMB_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice PARTICLE_TEXTRA_ALICE = new TextraAlice(Game.PARTICLE_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice ISAWAWABUB_TEXTRA_ALICE = new TextraAlice(Game.ISAWAWABUB_TEXTRA_ALICE_LOADER.getImage());
+	public static TextraAlice CAT_TEXTRA_ALICE = new TextraAlice(Game.CAT_TEXTRA_ALICE_LOADER.getImage());
+	public static TextraAlice KITTNASOURS_TEXTRA_ALICE = new TextraAlice(Game.KITTNASOURS_TEXTRA_ALICE_LOADER.getImage());
 	
 	public static CollisionObject[] HOME_MAP_HOME = {
 			
