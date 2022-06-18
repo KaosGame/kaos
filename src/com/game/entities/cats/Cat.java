@@ -23,8 +23,6 @@ public class Cat extends DamageableEntity implements Spawnable {
 	private float targetX;
 	private float targetY;
 	
-	private long timeToNext; // Max is 3600 (One minute in game ticks) 
-
 	public Cat(float x, float y) {
 		super(x, y, 0, 0, 64, 64, EntityID.CAT, Game.CAT_TEXTRA_ALICE.getImageFrom(0, 0, 32, 32), 20, false);
 		
@@ -51,8 +49,6 @@ public class Cat extends DamageableEntity implements Spawnable {
 		this.targetX = tx;
 		this.targetY = ty;
 		
-		this.timeToNext = 3600L;
-		
 	}
 	
 
@@ -66,15 +62,14 @@ public class Cat extends DamageableEntity implements Spawnable {
 	@Override
 	public void die() {
 		
+		
+		
 		Game.MAP_HANDLER().currentMap().getEntityHandler().remove(this);
 		
 	}
 
 	@Override
 	public void update() {
-		this.timeToNext--;
-		
-		if (this.timeToNext <= 0) this.findTarget();
 		
 		float[] directions = Game.calculateDirection(this.targetX, this.targetY, Cat.SPEED, this.x, this.y);
 		
@@ -82,6 +77,20 @@ public class Cat extends DamageableEntity implements Spawnable {
 		this.yv = directions[1];
 		
 		this.updateImage();
+		
+		
+		boolean goodTargetX = Game.aroundNumber((int) this.x, (int) this.targetX, 16);
+		boolean goodTargetY = Game.aroundNumber((int) this.y, (int) this.targetY, 16);
+		
+		if (goodTargetX && goodTargetY) {
+			
+			this.findTarget();
+			
+		}
+		
+		
+		this.x += this.xv;
+		this.y += this.yv;
 		
 		
 	}
@@ -183,7 +192,8 @@ public class Cat extends DamageableEntity implements Spawnable {
 		Random random = new Random();
 		
 		if (
-				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean()
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() &&
+				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean()
 			) {
 			
 			this.spawn();

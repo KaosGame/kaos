@@ -23,6 +23,7 @@ import com.game.entities.AxolotlEntity;
 import com.game.entities.BirdEntity;
 import com.game.entities.bad.zombie.ZombieEntity;
 import com.game.entities.bad.zombie.rock.RockZombieEntity;
+import com.game.entities.cats.Cat;
 import com.game.entities.item.planes.ItemPlaneEntity;
 import com.game.events.listeners.keys.KeyControls;
 import com.game.logging.LogType;
@@ -58,6 +59,7 @@ public class GamePanel extends JPanel implements Runnable {
 		Spawner.addHome(new RockZombieEntity());
 		Spawner.addHome(new AxolotlEntity());
 		Spawner.addHome(new War());
+		Spawner.addHome(new Cat());
 		
 		Spawner.addFishLand(new BirdEntity());
 		Spawner.addFishLand(new AxolotlEntity());
