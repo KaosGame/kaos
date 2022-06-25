@@ -62,7 +62,14 @@ public class Cat extends DamageableEntity implements Spawnable {
 	@Override
 	public void die() {
 		
+		Random random = new Random();
 		
+		final int OFFSET = 32;
+		
+		float tx = (float) ((int) random.nextInt(((int) Game.WIDTH - OFFSET)) + OFFSET);
+		float ty = (float) ((int) random.nextInt(((int) Game.HEIGHT - OFFSET)) + OFFSET);
+		
+		Game.addEntity(new Kittnasours(tx, ty));
 		
 		Game.MAP_HANDLER().currentMap().getEntityHandler().remove(this);
 		
@@ -95,7 +102,7 @@ public class Cat extends DamageableEntity implements Spawnable {
 		
 	}
 
-	private void updateImage() {
+	public void updateImage() {
 		
 		if (Game.isPositive(this.xv) && Game.isPositive(this.yv)) {
 

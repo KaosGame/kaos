@@ -37,6 +37,8 @@ import com.game.entities.ItemEntity;
 import com.game.entities.bad.zombie.WarZombie;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
+import com.game.entities.cats.Cat;
+import com.game.entities.cats.Kittnasours;
 import com.game.entities.player.Player;
 import com.game.entities.player.items.base.Item;
 import com.game.entities.player.items.potions.base.PotionItem;
@@ -81,7 +83,7 @@ public class Game {
 	private static BufferedImageLoader BOMB_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/bomb-textra-alice.png");
 	private static BufferedImageLoader PARTICLE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/particle-textra-alice.png");
 	private static BufferedImageLoader CAT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/cat-textra-alice.png");
-	private static BufferedImageLoader KITTNASOURS_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/cat-textra-alice.png");
+	private static BufferedImageLoader KITTNASOURS_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/kittnasours-textra-alice.png");
 	
 	public static BufferedImageLoader HOUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/house_1.png");
 	public static BufferedImageLoader PAUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/hud/pause.png");
@@ -1410,6 +1412,31 @@ public class Game {
 						
 					}
 					break;
+					
+				case CAT:
+					
+					if (e instanceof Cat) {
+						
+						Cat c = (Cat) e;
+						
+						c.updateImage();
+						
+					}
+					
+					break;
+					
+				case KITTNASOURS:
+					
+					if (e instanceof Kittnasours) {
+						
+						Kittnasours k = (Kittnasours) e;
+						
+						k.handleImage();
+						
+					}
+					
+					break;
+					
 			
 			}
 			
