@@ -1075,6 +1075,10 @@ public class Game {
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 16, 16, 16));
 					break;
 					
+				case LEAF_BLOWER:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(112, 16, 16, 16));
+					break;
+					
 			}
 			
 		}
@@ -1318,6 +1322,10 @@ public class Game {
 								
 							case WATER_BOWL:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 16, 16, 16));
+								break;
+								
+							case LEAF_BLOWER:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(112, 16, 16, 16));
 								break;
 							
 					

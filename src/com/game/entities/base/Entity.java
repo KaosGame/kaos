@@ -169,6 +169,12 @@ public abstract class Entity implements Drawable, Updatable, Serializable {
 				+ ", id=" + id + ", image=" + image + "]";
 	}
 	
+	public boolean canMove() {
+		
+		return this.id.canMove();
+		
+	}
+	
 	
 
 }

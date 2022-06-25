@@ -14,6 +14,7 @@ import com.game.entities.player.items.base.ItemID;
 import com.game.entities.player.items.dimension.teleporters.FishLandDimensionTeleporterItem;
 import com.game.entities.player.items.food.BurgerFoodItem;
 import com.game.entities.player.items.food.PizzaFoodItem;
+import com.game.entities.player.items.fun.LeafBlower;
 import com.game.entities.player.items.tools.FishingRodItem;
 import com.game.entities.player.items.tools.PickaxeItem;
 import com.game.entities.player.items.tools.weapon.SwordItem;
@@ -61,6 +62,7 @@ public class ChestTransparentObject extends CollisionObject implements Drawable 
 				this.stack.push(new FishingRodItem(1, ItemID.FISHING_ROD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(416, 0, 16, 16)));
 				this.stack.push(new SwordItem(1, ItemID.SWORD_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(496, 0, 16, 16)));
 				this.stack.push(new BowStandardItem(1, ItemID.BOW_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(48, 16, 16, 16)));
+				this.stack.push(new LeafBlower(1));
 				
 				break;
 				

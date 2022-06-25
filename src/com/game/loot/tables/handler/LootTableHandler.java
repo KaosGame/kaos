@@ -24,6 +24,7 @@ import com.game.entities.player.items.food.RawCodFishFoodItem;
 import com.game.entities.player.items.food.RawGoldFishFoodItem;
 import com.game.entities.player.items.food.RawSalmonFishFoodItem;
 import com.game.entities.player.items.food.Taco1Item;
+import com.game.entities.player.items.fun.LeafBlower;
 import com.game.entities.player.items.money.bags.MoneyBag1Item;
 import com.game.entities.player.items.money.bags.MoneyBag2Item;
 import com.game.entities.player.items.money.bags.MoneyBag3Item;
@@ -219,9 +220,13 @@ public class LootTableHandler {
 							
 						}
 						
-					} else {
+					} else if (chance.firstChoose(0.3125)) {
 						
 						listOfItems[i] = new PickaxeItem(COUNT, ItemID.PICKAXE_1, Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 0, 16, 16));
+						
+					} else {
+						
+						listOfItems[i] = new LeafBlower(COUNT);
 						
 					}
 					

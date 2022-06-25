@@ -48,7 +48,8 @@ public enum ItemID {
 	RESISTANCE_EFFECT_1(new Color(0x000000)),
 	BOMB(new Color(0x888888)),
 	WATER_BOWL(new Color(0x000000)),
-	LAVA_BOWL(new Color(0x000000));
+	LAVA_BOWL(new Color(0x000000)),
+	LEAF_BLOWER(new Color(0x000000));
 	
 	private final Color COLOR;
 	
