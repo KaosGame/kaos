@@ -18,7 +18,8 @@ public enum Sounds {
 	PLAYER_GET_STAT("/assets/music/player/get-stat.wav"),
 	ISAWAWABUB_ATTACK("/assets/music/isawawabub/attack.wav"),
 	ISAWAWABUB_END("/assets/music/isawawabub/end.wav"),
-	LEAF_BLOWER_MOVE("/assets/music/fun/leaf-blower-move.wav");
+	LEAF_BLOWER_MOVE("/assets/music/fun/leaf-blower-move.wav"),
+	CATACHILLER_HISS("/assets/music/catachiller/hiss.wav");
 	
 	private final URL URL;
 	

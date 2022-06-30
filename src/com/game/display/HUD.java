@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 
 import com.game.entities.IsawawabubEntity;
+import com.game.entities.cats.Catachiller;
 import com.game.entities.monster.leath.MonsterLeath;
 import com.game.entities.player.items.base.Item;
 import com.game.main.Drawable;
@@ -44,8 +45,8 @@ public class HUD implements Drawable, Updatable {
 		Game.PLAYER.getEffectHandler().draw(g2d);
 		
 		if (MonsterLeath.onScreen()) MonsterLeath.drawBossBar(g2d);
-		
 		if (IsawawabubEntity.onScreen()) IsawawabubEntity.drawBossBar(g2d);
+		if (Catachiller.onScreen()) Catachiller.drawBossBar(g2d);
 		
 	}
 

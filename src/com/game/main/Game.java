@@ -38,6 +38,7 @@ import com.game.entities.bad.zombie.WarZombie;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityID;
 import com.game.entities.cats.Cat;
+import com.game.entities.cats.Catachiller;
 import com.game.entities.cats.Kittnasours;
 import com.game.entities.player.Player;
 import com.game.entities.player.items.base.Item;
@@ -84,6 +85,7 @@ public class Game {
 	private static BufferedImageLoader PARTICLE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/particle-textra-alice.png");
 	private static BufferedImageLoader CAT_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/cat-textra-alice.png");
 	private static BufferedImageLoader KITTNASOURS_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/kittnasours-textra-alice.png");
+	private static BufferedImageLoader CATACHILLER_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/catachiller-textra-alice.png");
 	
 	public static BufferedImageLoader HOUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/house_1.png");
 	public static BufferedImageLoader PAUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/hud/pause.png");
@@ -106,6 +108,7 @@ public class Game {
 	public static TextraAlice ISAWAWABUB_TEXTRA_ALICE = new TextraAlice(Game.ISAWAWABUB_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice CAT_TEXTRA_ALICE = new TextraAlice(Game.CAT_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice KITTNASOURS_TEXTRA_ALICE = new TextraAlice(Game.KITTNASOURS_TEXTRA_ALICE_LOADER.getImage());
+	public static TextraAlice CATACHILLER_TEXTRA_ALICE = new TextraAlice(Game.CATACHILLER_TEXTRA_ALICE_LOADER.getImage());
 	
 	public static CollisionObject[] HOME_MAP_HOME = {
 			
@@ -330,6 +333,13 @@ public class Game {
 				new NextRandomMapCollisionObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16)),
 				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
 				
+			},
+			
+			{
+				
+				new NextRandomMapCollisionObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16)),
+				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
+				
 			}
 			
 	};
@@ -458,6 +468,12 @@ public class Game {
 			{
 				
 				new IsawawabubEntity(256, 128)
+				
+			},
+			
+			{
+				
+				new Catachiller(256, 128)
 				
 			}
 			
@@ -1440,6 +1456,18 @@ public class Game {
 						Kittnasours k = (Kittnasours) e;
 						
 						k.handleImage();
+						
+					}
+					
+					break;
+					
+				case CATACHILLER:
+					
+					if (e instanceof Catachiller) {
+						
+						Catachiller c = (Catachiller) e;
+						
+						c.handleImage();
 						
 					}
 					

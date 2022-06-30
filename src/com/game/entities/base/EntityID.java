@@ -19,7 +19,8 @@ public enum EntityID {
 	MONSTER_LEATH_LEATH(true, true),
 	ISAWAWABUB(true, true),
 	KITTNASOURS(true, true),
-	CAT(true, true);
+	CAT(true, true),
+	CATACHILLER(true, true);
 
 	private final boolean CAN_DELETE;
 	private final boolean CAN_MOVE;
