@@ -18,9 +18,9 @@ public class Map implements Updatable, Drawable, Serializable {
 	 */
 	private static final long serialVersionUID = -3668298662107521492L;
 	
-	private LinkedList<CollisionObject> objectList;
-	private EntityHandler entityHandler;
-	private LinkedList<Particle> particleList;
+	private volatile LinkedList<CollisionObject> objectList;
+	private volatile EntityHandler entityHandler;
+	private volatile LinkedList<Particle> particleList;
 	
 	
 	

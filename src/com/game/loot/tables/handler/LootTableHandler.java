@@ -24,6 +24,7 @@ import com.game.entities.player.items.food.RawCodFishFoodItem;
 import com.game.entities.player.items.food.RawGoldFishFoodItem;
 import com.game.entities.player.items.food.RawSalmonFishFoodItem;
 import com.game.entities.player.items.food.Taco1Item;
+import com.game.entities.player.items.fun.BankMaskItem;
 import com.game.entities.player.items.fun.LeafBlower;
 import com.game.entities.player.items.money.bags.MoneyBag1Item;
 import com.game.entities.player.items.money.bags.MoneyBag2Item;
@@ -748,5 +749,124 @@ public class LootTableHandler {
 		return item;
 		
 	}
+	
+	public static Item<?>[] returnRandomLootItemsForBank() {
+
+		Random random = new Random();
+
+		Item<?>[] listOfItems = new Item<?>[(int) (random.nextInt(17) + 1)];
+
+		Arrays.fill(listOfItems, null);
+
+		do {
+
+			for (int i = 0; i < listOfItems.length; i++) {
+
+				RandomChance chance = new RandomChance();
+
+				if (chance.firstChoose(0.25)) {
+
+					// Food
+
+					int countOfFood = (int) (random.nextInt(15) + 1);
+
+					if (chance.firstChoose(0.25)) {
+
+						listOfItems[i] = new OrangeJuce1Item(countOfFood, ItemID.ORANGE_JUCE_1,
+								Game.ITEM_TEXTRA_ALICE.getImageFrom(224, 0, 16, 16));
+
+					} else if (chance.firstChoose(0.15)) {
+
+						listOfItems[i] = new Pie1Item(countOfFood, ItemID.PIE_1,
+								Game.ITEM_TEXTRA_ALICE.getImageFrom(80, 0, 16, 16));
+
+					} else if (chance.firstChoose(0.10)) {
+
+						listOfItems[i] = new Taco1Item(countOfFood, ItemID.TACO_1,
+								Game.ITEM_TEXTRA_ALICE.getImageFrom(96, 0, 16, 16));
+
+					} else if (chance.firstChoose(0.19563)) {
+
+						listOfItems[i] = new Cookie1FoodItem(countOfFood, ItemID.COOKIE_1,
+								Game.ITEM_TEXTRA_ALICE.getImageFrom(304, 0, 16, 16));
+
+					} else {
+
+						if (chance.lastChoose(0.50)) {
+
+							listOfItems[i] = new Banana1Item(countOfFood, ItemID.BANANA_1,
+									Game.ITEM_TEXTRA_ALICE.getImageFrom(240, 0, 16, 16));
+
+						} else {
+
+							listOfItems[i] = new Apple1Item(countOfFood, ItemID.APPLE_1,
+									Game.ITEM_TEXTRA_ALICE.getImageFrom(64, 0, 16, 16));
+
+						}
+
+					}
+
+				} else if (chance.firstChoose(0.42)) {
+
+					// Money bags
+
+					int count = (random.nextInt(7) + (int) 1);
+
+					listOfItems[i] = new MoneyBag3Item(count, ItemID.MONEY_BAG_3,
+							Game.ITEM_TEXTRA_ALICE.getImageFrom(400, 0, 16, 16));
+
+				} else if (chance.firstChoose(0.32)) {
+
+					// Potions
+
+					EffectID effect = Game.getRandomItemFrom(EffectID.values());
+
+					final int COUNT = (random.nextInt(7) + (int) 1);
+
+					final int LEVEL = (int) (random.nextInt(4) + 1);
+
+					switch (effect) {
+
+					case ATTACK_1:
+						listOfItems[i] = new BetterAttackDamageEffect1PotionItem(COUNT,
+								new BetterAttackDamgeEffect1(LEVEL, 1800));
+						break;
+
+					case FAST_REGENERATION_1:
+						listOfItems[i] = new FastGenerationEffect1PotionItem(COUNT,
+								new FastGenerationEffect1(LEVEL, 1800));
+						break;
+
+					case POISON_1:
+						listOfItems[i] = new PosionEffect1PotionItem(COUNT, new PoisonEffect1(LEVEL, 1800));
+						break;
+
+					case RESISTANCE_1:
+						listOfItems[i] = new ResistanceEffect1PotionItem(COUNT, new ResistanceEffect1(LEVEL, 1800));
+						break;
+
+					case SWIMMING_1:
+						listOfItems[i] = new SwimmingEffect1PotionItem(COUNT, new SwimmingEffect1(LEVEL, 1800));
+						break;
+
+					}
+
+				} else if (chance.firstChoose(0.27)) {
+					
+					// Bank mask
+					
+					final int COUNT = 1;
+					
+					listOfItems[i] = new BankMaskItem(COUNT);
+					
+				}
+
+			}
+
+		} while (Game.arrayContains(listOfItems, null));
+
+		return listOfItems;
+
+	}	
 
 }

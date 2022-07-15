@@ -95,6 +95,12 @@ public class Sound {
 		
 	}
 	
+	public void loop(int times) {
+		
+		this.clip.loop(times);
+		
+	}
+	
 	public void setVolumeScale(int volumeScale) {
 		
 		this.volumeScale = (short) volumeScale;

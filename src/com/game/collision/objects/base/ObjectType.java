@@ -19,7 +19,8 @@ public enum ObjectType {
 	WATER(true),
 	LAVA(true),
 	SUNFLOWER(true),
-	START_MONSTER_LEATH_FIGHT(true);
+	START_MONSTER_LEATH_FIGHT(true),
+	BANK_1(true);
 	
 	private final boolean TRANSPARENT;
 	

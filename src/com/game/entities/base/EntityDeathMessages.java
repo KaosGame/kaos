@@ -18,7 +18,8 @@ public enum EntityDeathMessages {
 	MONSTER_LEATH("You got hit hard by a monster and died with the socre of %d!"),
 	ISAWAWABUB("You got killed by a isawawabub and died with the score of %d!"),
 	KITTNASOURS("You got killed by a kittnasours and died with the score of %d!"),
-	CATACHILLER("You got killed by a catachiller and died with the score of %d!");
+	CATACHILLER("You got killed by a catachiller and died with the score of %d!"),
+	EXECUTE("You got executed and died with the score of %d!");
 	
 	
 	private final String MESSAGE;

@@ -17,6 +17,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import com.game.collision.objects.Bank1CollidableObjest;
 import com.game.collision.objects.ChestTransparentObject;
 import com.game.collision.objects.CollidableObject;
 import com.game.collision.objects.CollidableWallObject;
@@ -88,6 +89,7 @@ public class Game {
 	private static BufferedImageLoader CATACHILLER_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/catachiller-textra-alice.png");
 	
 	public static BufferedImageLoader HOUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/house_1.png");
+	public static BufferedImageLoader BANK_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/bank_1.png");
 	public static BufferedImageLoader PAUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/hud/pause.png");
 	public static BufferedImageLoader BULLET_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/entities/bullet.png");
 	public static BufferedImageLoader MONSTER_LEATH_IMAGE_LOADER = new BufferedImageLoader("/assets/images/entities/monster-leath.png");
@@ -340,6 +342,14 @@ public class Game {
 				new NextRandomMapCollisionObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16)),
 				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
 				
+			},
+			
+			{
+				
+				new Bank1CollidableObjest(610, 178),
+				new NextRandomMapCollisionObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16)),
+				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16))
+				
 			}
 			
 	};
@@ -475,7 +485,9 @@ public class Game {
 				
 				new Catachiller(256, 128)
 				
-			}
+			},
+			
+			{}
 			
 	};
 	
@@ -494,7 +506,7 @@ public class Game {
 	
 	public static RandomGen RANDOM = new RandomGen(Game.DATE.getTime());
 	
-	public static final GameVersion VERSION = new GameVersion("Pre-0.0.0.4.2");
+	public static final GameVersion VERSION = new GameVersion("Pre-0.0.1.0.0");
 	
 	public static Player PLAYER = new Player((float) ((float) (Game.WIDTH / 2) - 64), (float) ((float) (Game.HEIGHT / 2) - 64), 0f, 0f, 64, 64, EntityID.PLAYER, Game.PLAYER_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16));
 	public static HUD HUD = new HUD();
@@ -1095,6 +1107,10 @@ public class Game {
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(112, 16, 16, 16));
 					break;
 					
+				case BANK_MASK_ITEM:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(128, 16, 16, 16));
+					break;
+					
 			}
 			
 		}
@@ -1343,6 +1359,10 @@ public class Game {
 							case LEAF_BLOWER:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(112, 16, 16, 16));
 								break;
+								
+							case BANK_MASK_ITEM:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(128, 16, 16, 16));
+								break;
 							
 					
 						}
@@ -1560,6 +1580,10 @@ public class Game {
 					
 				case START_MONSTER_LEATH_FIGHT:
 					o.setImage(Game.MONSTER_LEATH_IMAGE_LOADER.getImage());
+					break;
+					
+				case BANK_1:
+					o.setImage(Game.BANK_1_IMAGE_LOADER.getImage());
 					break;
 			
 			}

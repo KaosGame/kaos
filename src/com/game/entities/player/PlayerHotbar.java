@@ -145,6 +145,26 @@ public class PlayerHotbar implements CloneableType<PlayerHotbar>, Serializable, 
 		
 	}
 	
+	public boolean hasItem(ItemID itemID) {
+		
+		for (int i = 0; i < this.list.length; i++) {
+			
+			Item<?> tempItem = this.list[i];
+			
+			if (tempItem == null || tempItem.getCount() > Item.MAX_COUNT) continue;
+			
+			if (itemID == this.list[i].getId()) {
+				
+				return true;
+				
+			}
+			
+		}
+		
+		return false;
+		
+	}
+	
 	public int hasItemValue(Item<?> item) {
 		
 		for (int i = 0; i < this.list.length; i++) {
