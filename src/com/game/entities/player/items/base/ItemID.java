@@ -50,7 +50,8 @@ public enum ItemID {
 	WATER_BOWL(new Color(0x000000)),
 	LAVA_BOWL(new Color(0x000000)),
 	LEAF_BLOWER(new Color(0x000000)),
-	BANK_MASK_ITEM(new Color(0x000000));
+	BANK_MASK_ITEM(new Color(0x000000)),
+	GOLDEN_HEART_1_ITEM(new Color(0x000000));
 	
 	private final Color COLOR;
 	

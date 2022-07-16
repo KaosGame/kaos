@@ -133,15 +133,19 @@ public class Map implements Updatable, Drawable, Serializable {
 		
 		this.entityHandler.draw(g2d);
 		
-		for (int i = 0; i < this.particleList.size(); i++) {
+		try {
 			
-			if (this.particleList.get(i) == null) continue;
+			for (int i = 0; i < this.particleList.size(); i++) {
+				
+				if (this.particleList.get(i) == null) continue;
+				
+				Particle p = this.particleList.get(i);
+				
+				if (p instanceof Drawable) ((Drawable) p).draw(g2d);
+				
+			}
 			
-			Particle p = this.particleList.get(i);
-			
-			if (p instanceof Drawable) ((Drawable) p).draw(g2d);
-			
-		}
+		} catch (NullPointerException e) {}
 		
 	}
 	

@@ -20,7 +20,8 @@ public enum Sounds {
 	ISAWAWABUB_END("/assets/music/isawawabub/end.wav"),
 	LEAF_BLOWER_MOVE("/assets/music/fun/leaf-blower-move.wav"),
 	CATACHILLER_HISS("/assets/music/catachiller/hiss.wav"),
-	BANK_ALARM("/assets/music/bank-alarm.wav");
+	BANK_ALARM("/assets/music/bank-alarm.wav"),
+	SAVE_FROM_DEATH("/assets/music/save-from-death.wav");
 	
 	private final URL URL;
 	

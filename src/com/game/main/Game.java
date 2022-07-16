@@ -1111,6 +1111,10 @@ public class Game {
 					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(128, 16, 16, 16));
 					break;
 					
+				case GOLDEN_HEART_1_ITEM:
+					item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 16, 16, 16));
+					break;
+					
 			}
 			
 		}
@@ -1362,6 +1366,10 @@ public class Game {
 								
 							case BANK_MASK_ITEM:
 								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(128, 16, 16, 16));
+								break;
+								
+							case GOLDEN_HEART_1_ITEM:
+								item.setImage(Game.ITEM_TEXTRA_ALICE.getImageFrom(144, 16, 16, 16));
 								break;
 							
 					

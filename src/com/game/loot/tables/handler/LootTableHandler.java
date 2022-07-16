@@ -9,6 +9,7 @@ import com.game.effects.PoisonEffect1;
 import com.game.effects.ResistanceEffect1;
 import com.game.effects.SwimmingEffect1;
 import com.game.effects.base.EffectID;
+import com.game.entities.player.items.GoldenHeart1Item;
 import com.game.entities.player.items.Heart1Item;
 import com.game.entities.player.items.Medkit1Item;
 import com.game.entities.player.items.base.Item;
@@ -827,27 +828,28 @@ public class LootTableHandler {
 
 					switch (effect) {
 
-					case ATTACK_1:
-						listOfItems[i] = new BetterAttackDamageEffect1PotionItem(COUNT,
-								new BetterAttackDamgeEffect1(LEVEL, 1800));
-						break;
-
-					case FAST_REGENERATION_1:
-						listOfItems[i] = new FastGenerationEffect1PotionItem(COUNT,
-								new FastGenerationEffect1(LEVEL, 1800));
-						break;
-
-					case POISON_1:
-						listOfItems[i] = new PosionEffect1PotionItem(COUNT, new PoisonEffect1(LEVEL, 1800));
-						break;
-
-					case RESISTANCE_1:
-						listOfItems[i] = new ResistanceEffect1PotionItem(COUNT, new ResistanceEffect1(LEVEL, 1800));
-						break;
-
-					case SWIMMING_1:
-						listOfItems[i] = new SwimmingEffect1PotionItem(COUNT, new SwimmingEffect1(LEVEL, 1800));
-						break;
+						case ATTACK_1:
+							listOfItems[i] = new BetterAttackDamageEffect1PotionItem(COUNT,
+									new BetterAttackDamgeEffect1(LEVEL, 1800));
+							break;
+	
+						case FAST_REGENERATION_1:
+							listOfItems[i] = new FastGenerationEffect1PotionItem(COUNT,
+									new FastGenerationEffect1(LEVEL, 1800));
+							break;
+	
+						case RESISTANCE_1:
+							listOfItems[i] = new ResistanceEffect1PotionItem(COUNT, new ResistanceEffect1(LEVEL, 1800));
+							break;
+	
+						case SWIMMING_1:
+							listOfItems[i] = new SwimmingEffect1PotionItem(COUNT, new SwimmingEffect1(LEVEL, 1800));
+							break;
+							
+						default:
+							listOfItems[i] = new BetterAttackDamageEffect1PotionItem(COUNT,
+									new BetterAttackDamgeEffect1(LEVEL, 1800));
+							break;
 
 					}
 
@@ -858,6 +860,14 @@ public class LootTableHandler {
 					final int COUNT = 1;
 					
 					listOfItems[i] = new BankMaskItem(COUNT);
+					
+				} else if (chance.firstChoose(0.31)) {
+					
+					// Golden heart
+					
+					final int COUNT = (random.nextInt(7) + (int) 1);
+					
+					listOfItems[i] = new GoldenHeart1Item(COUNT);
 					
 				}
 

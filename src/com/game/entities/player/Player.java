@@ -1,6 +1,5 @@
 package com.game.entities.player;
 
-import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -21,11 +20,12 @@ import com.game.entities.base.DamageableEntity;
 import com.game.entities.base.Entity;
 import com.game.entities.base.EntityDeathMessages;
 import com.game.entities.base.EntityID;
+import com.game.entities.player.items.GoldenHeart1Item;
 import com.game.entities.player.items.base.Item;
+import com.game.entities.player.items.base.ItemID;
 import com.game.entities.vilagers.VillagerEntity;
 import com.game.logging.LogType;
 import com.game.main.Game;
-import com.game.particles.ParticleTypes;
 import com.game.sound.Sounds;
 
 public class Player extends DamageableEntity implements Serializable {
@@ -455,6 +455,48 @@ public class Player extends DamageableEntity implements Serializable {
 	@Override
 	public void die(EntityDeathMessages message) {
 		
+		int itemSlot = this.hotbar.hasItemSlot(ItemID.GOLDEN_HEART_1_ITEM);
+		
+		if (itemSlot != -1) {
+			
+			Item<?> foundItem = this.hotbar.list[itemSlot];
+			
+			if (foundItem.getId() == ItemID.GOLDEN_HEART_1_ITEM) {
+				
+				foundItem.setCount((foundItem.getCount() - 1));
+				
+				if (foundItem.getCount() <= 0) this.hotbar.list[itemSlot] = null;
+				
+				Game.ANY_VOLUME_SOUNDS.setVolumeScale(4);
+				Game.ANY_VOLUME_SOUNDS.setSound(Sounds.SAVE_FROM_DEATH);
+				Game.ANY_VOLUME_SOUNDS.loop(4);
+				Game.ANY_VOLUME_SOUNDS.setVolumeScale(3);
+				
+				
+				for (int i = 0; i < 10; i++) {
+					
+					float[] pos = Game.getRandomItemPos();
+					
+					this.x = pos[0];
+					this.y = pos[1];
+					
+					Arrays.fill(this.keysDown, false);
+
+					this.xv = 0;
+					this.yv = 0;
+					
+				}
+				
+				
+				GoldenHeart1Item.giveEffects();
+				
+				
+				return;
+				
+			}
+			
+		}
+		
 		Game.SE_SOUND.setSound(Sounds.PLAYER_DEATH);
 		Game.SE_SOUND.play();
 
@@ -465,6 +507,9 @@ public class Player extends DamageableEntity implements Serializable {
 		this.effectHandler.clear();
 		
 		Arrays.fill(this.keysDown, false);
+		
+		this.xv = 0;
+		this.yv = 0;
 		
 		Game.PAUSED = true;
 
@@ -558,12 +603,10 @@ public class Player extends DamageableEntity implements Serializable {
 		if (tempHP <= 0) {
 			
 			this.die(deathType);
-			this.makeDamageParticle(this.x, this.y);
 			
 		} else {
 			
 			this.health -= this.calculateDamage(num);
-			this.makeDamageParticle(this.x, this.y);
 			
 		}
 		
@@ -827,10 +870,5 @@ public class Player extends DamageableEntity implements Serializable {
 		return SWIMMING_SPEED;
 	}
 	
-	private void makeDamageParticle(float x, float y) {
-		
-		ParticleTypes.FALL_3.make(x, y, 8, 8, new Color(150, 0, 0), null, null);
-		
-	}
 	
 }
