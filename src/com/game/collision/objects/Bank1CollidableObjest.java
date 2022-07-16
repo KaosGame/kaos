@@ -48,7 +48,7 @@ public class Bank1CollidableObjest extends CollisionObject implements Drawable {
 			}
 			
 			
-			Game.ANY_VOLUME_SOUNDS.setVolumeScale(4);
+			Game.ANY_VOLUME_SOUNDS.setVolumeScale(5);
 			Game.ANY_VOLUME_SOUNDS.setSound(Sounds.BANK_ALARM);
 			Game.ANY_VOLUME_SOUNDS.loop(2);
 			Game.ANY_VOLUME_SOUNDS.setVolumeScale(3);
