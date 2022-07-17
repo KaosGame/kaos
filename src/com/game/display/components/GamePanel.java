@@ -26,6 +26,7 @@ import com.game.entities.bad.zombie.rock.RockZombieEntity;
 import com.game.entities.cats.Cat;
 import com.game.entities.item.planes.ItemPlaneEntity;
 import com.game.events.listeners.keys.KeyControls;
+import com.game.gui.base.GenericGUIEventHandler;
 import com.game.logging.LogType;
 import com.game.main.Game;
 import com.game.maps.OverflowHandler;
@@ -45,6 +46,7 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	private KeyControls keyControls;
 	private OverflowHandler overflowHandler;
+	private GenericGUIEventHandler genericGUIEventHandler;
 	
 	public GamePanel() {
 		
@@ -87,7 +89,11 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		this.overflowHandler = new OverflowHandler();
 		
+		this.genericGUIEventHandler = new GenericGUIEventHandler();
+		
 		this.addKeyListener(this.keyControls);
+		this.addMouseListener(this.genericGUIEventHandler);
+		this.addMouseMotionListener(this.genericGUIEventHandler);
 		
 		Game.BG_SOUND.setSound(Sounds.BASE_BACKGROUND_MUSIC);
 		Game.BG_SOUND.setVolumeScale(2);
@@ -157,7 +163,7 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		try {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.MAP_HANDLER().currentMap().update();
 				
@@ -168,6 +174,12 @@ public class GamePanel extends JPanel implements Runnable {
 				Spawner.spwan();
 				
 				this.overflowHandler.handle();
+				
+			}
+			
+			if (Game.GUI_OPEN == true && Game.CURRENT_GUI != null) {
+				
+				Game.CURRENT_GUI.update();
 				
 			}
 			
@@ -202,6 +214,12 @@ public class GamePanel extends JPanel implements Runnable {
 			Game.HUD.draw(g2d);
 			
 			this.drawPause(g2d);
+			
+			if (Game.GUI_OPEN == true && Game.CURRENT_GUI != null) {
+				
+				Game.CURRENT_GUI.draw(g2d);
+				
+			}
 			
 			g2d.dispose();
 			g.dispose();

@@ -2,6 +2,7 @@ package com.game.events.listeners.keys;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.LinkedList;
 
 import javax.swing.JOptionPane;
 
@@ -71,7 +72,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_SPACE == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.useItem();
 				
@@ -127,7 +128,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_1 == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.getHotbar().currentItemIndex = 0;
 				Game.logln("Player switched to slot 1", LogType.MESSAGE);
@@ -138,7 +139,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_2 == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.getHotbar().currentItemIndex = 1;
 				Game.logln("Player switched to slot 2", LogType.MESSAGE);
@@ -149,7 +150,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_3 == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.getHotbar().currentItemIndex = 2;
 				Game.logln("Player switched to slot 3", LogType.MESSAGE);
@@ -160,7 +161,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_4 == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.getHotbar().currentItemIndex = 3;
 				Game.logln("Player switched to slot 4", LogType.MESSAGE);
@@ -171,7 +172,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_5 == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.getHotbar().currentItemIndex = 4;
 				Game.logln("Player switched to slot 5", LogType.MESSAGE);
@@ -182,7 +183,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_6 == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.getHotbar().currentItemIndex = 5;
 				Game.logln("Player switched to slot 6", LogType.MESSAGE);
@@ -193,7 +194,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_7 == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.getHotbar().currentItemIndex = 6;
 				Game.logln("Player switched to slot 7", LogType.MESSAGE);
@@ -204,7 +205,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_8 == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.getHotbar().currentItemIndex = 7;
 				Game.logln("Player switched to slot 8", LogType.MESSAGE);
@@ -217,7 +218,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_X == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] = null;
 				
@@ -227,7 +228,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_Z == key) {
 			
-			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null && !Game.PAUSED) {
+			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null && !Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].setCount((int) (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex].getCount() - 1));
 				
@@ -243,7 +244,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_COMMA == key) {
 			
-			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null && !Game.PAUSED) {
+			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null && !Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				float[] pos = Game.getRandomItemPos();
 				
@@ -267,7 +268,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_PERIOD == key) {
 			
-			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null && !Game.PAUSED) {
+			if (Game.PLAYER.getHotbar().list[Game.PLAYER.getHotbar().currentItemIndex] != null && !Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				float[] pos = Game.getRandomItemPos();
 				
@@ -300,7 +301,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_T == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.trade();
 				
@@ -310,7 +311,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_Y == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				Game.PLAYER.tradeAll();
 				
@@ -338,7 +339,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_I == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				for (int i = 0; i < Game.MAP_HANDLER().currentMap().getObjectList().size(); i++) {
 					
@@ -381,7 +382,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_U == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				for (int i = 0; i < Game.MAP_HANDLER().currentMap().getObjectList().size(); i++) {
 					
@@ -422,7 +423,7 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_G == key) {
 			
-			if (!Game.PAUSED) {
+			if (!Game.PAUSED && !Game.HIDE_PAUSE) {
 				
 				float[] pos = Game.getRandomItemPos();
 				
@@ -435,13 +436,42 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_P == key) {
 			
-			Game.PAUSED = !Game.PAUSED;
+			Game.PAUSED = !Game.PAUSED && !Game.HIDE_PAUSE;
 			
 		}
 		
 		if (KeyEvent.VK_EQUALS == key) {
 			
 			Game.PLAYER.getInCar();
+			
+		}
+		
+		if (KeyEvent.VK_R == key) {
+			
+			if (Game.GUI_OPEN == true && Game.CURRENT_GUI != null) {
+				
+				Game.CURRENT_GUI.close();
+				
+			} else {
+				
+				LinkedList<CollisionObject> olist = Game.MAP_HANDLER().currentMap().getObjectList();
+				
+				for (int i = 0; i < olist.size(); i++) {
+					
+					CollisionObject o = olist.get(i);
+					
+					if (Game.PLAYER.getRectangle().intersects(o.getRectangle()) && o.getGui() != null) {
+						
+						
+						Game.CURRENT_GUI = o.getGui();
+						Game.CURRENT_GUI.open();
+						
+						
+					}
+					
+				}
+				
+			}
 			
 		}
 		

@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.Serializable;
 
 import com.game.entities.base.Entity;
+import com.game.gui.base.GUI;
 
 public abstract class CollisionObject implements Serializable {
 	
@@ -24,6 +25,8 @@ public abstract class CollisionObject implements Serializable {
 	protected ObjectType type;
 	protected transient BufferedImage image;
 	
+	protected GUI gui;
+	
 	protected final boolean playerPlaced;
 	
 	
@@ -42,6 +45,27 @@ public abstract class CollisionObject implements Serializable {
 		this.image = image;
 		
 		this.playerPlaced = playerPlaced;
+		
+		this.gui = null;
+		
+	}
+	
+	public CollisionObject(int x, int y, int width, int height, ObjectType type, BufferedImage image, final boolean playerPlaced, GUI gui) {
+		
+		super();
+		
+		this.x = x;
+		this.y = y;
+		
+		this.width = width;
+		this.height = height;
+		
+		this.type = type;
+		this.image = image;
+		
+		this.playerPlaced = playerPlaced;
+		
+		this.gui = gui;
 		
 	}
 	
@@ -143,6 +167,14 @@ public abstract class CollisionObject implements Serializable {
 
 	public boolean isPlayerPlaced() {
 		return playerPlaced;
+	}
+
+	public GUI getGui() {
+		return gui;
+	}
+
+	public void setGui(GUI gui) {
+		this.gui = gui;
 	}
 	
 	

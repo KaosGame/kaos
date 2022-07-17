@@ -47,6 +47,7 @@ import com.game.entities.player.items.potions.base.PotionItem;
 import com.game.entities.vilagers.VillagerEntity;
 import com.game.entities.vilagers.VillagerTrades;
 import com.game.exceptions.image.restoring.NotEnoughInformationToRestoreImageException;
+import com.game.gui.base.GUI;
 import com.game.logging.LogType;
 import com.game.logging.Logger;
 import com.game.maps.DimensionHandler;
@@ -513,6 +514,9 @@ public class Game {
 	public static DimensionHandler DIMENSION_HANDLER = new DimensionHandler();
 	public static boolean PAUSED = false;
 	public static Logger LOGGER = new Logger();
+	public static boolean HIDE_PAUSE = false;
+	public static boolean GUI_OPEN = false;
+	public static GUI CURRENT_GUI = null;
 	
 	public static Font MAIN_GAME_FONT;
 	public static Font HOTBAR_GAME_FONT;
