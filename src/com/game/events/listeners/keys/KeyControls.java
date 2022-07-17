@@ -321,13 +321,21 @@ public class KeyControls implements KeyListener {
 		
 		if (KeyEvent.VK_9 == key) {
 			
-			Game.save();
+			if (!Game.HIDE_PAUSE) {
+				
+				Game.save();
+				
+			}
 			
 		}
 		
 		if (KeyEvent.VK_0 == key) {
 			
-			Game.load();
+			if (!Game.HIDE_PAUSE) {
+				
+				Game.load();
+				
+			}
 			
 		}
 		
