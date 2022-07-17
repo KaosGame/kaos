@@ -21,7 +21,9 @@ public enum Sounds {
 	LEAF_BLOWER_MOVE("/assets/music/fun/leaf-blower-move.wav"),
 	CATACHILLER_HISS("/assets/music/catachiller/hiss.wav"),
 	BANK_ALARM("/assets/music/bank-alarm.wav"),
-	SAVE_FROM_DEATH("/assets/music/save-from-death.wav");
+	SAVE_FROM_DEATH("/assets/music/save-from-death.wav"),
+	GAME_7_OR_2_WIN("/assets/music/game7or2/win.wav"),
+	GAME_7_OR_2_LOSE("/assets/music/game7or2/lose.wav");
 	
 	private final URL URL;
 	

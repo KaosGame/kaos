@@ -20,7 +20,8 @@ public enum ObjectType {
 	LAVA(true),
 	SUNFLOWER(true),
 	START_MONSTER_LEATH_FIGHT(true),
-	BANK_1(true);
+	BANK_1(true),
+	POT_7_OR_2(true);
 	
 	private final boolean TRANSPARENT;
 	
