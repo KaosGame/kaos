@@ -75,18 +75,6 @@ public class Game7Or2GUI extends GUI {
 			
 		} else {
 			
-			
-//			if (mouse.intersects(this.buttonClose)) {
-//				
-//				this.image = Game.GUI_7_OR_2_TEXTRA_ALICE.getImageFrom(64, 0, 64, 48);
-//				
-//			} else {
-//				
-//				this.image = Game.GUI_7_OR_2_TEXTRA_ALICE.getImageFrom(0, 0, 64, 48);
-//				
-//			}
-			
-			
 			if (this.num7 == this.btnNum7) {
 				
 				if (mouse.intersects(this.buttonClose)) {
