@@ -97,6 +97,7 @@ public class Game {
 	public static BufferedImageLoader BULLET_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/entities/bullet.png");
 	public static BufferedImageLoader MONSTER_LEATH_IMAGE_LOADER = new BufferedImageLoader("/assets/images/entities/monster-leath.png");
 	public static BufferedImageLoader POT_7_OR_2_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/7-or-2-pot_1.png");
+	public static BufferedImageLoader SLOTH_TREE_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/sloth-tree_1.png");
 	
 	public static TextraAlice OBJECT_TEXTRA_ALICE = new TextraAlice(Game.OBJECT_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice PLAYER_TEXTRA_ALICE = new TextraAlice(Game.PLAYER_TEXTRA_ALICE_LOADER.getImage());
@@ -363,6 +364,14 @@ public class Game {
 				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
 				new Pot7Or2CollidableObject(610, 178)
 				
+			},
+			
+			{
+				
+				new NextRandomMapCollisionObject((int) (Game.WIDTH - 64), 0, 64, 64, ObjectType.NEXT_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(112, 0, 16, 16)),
+				new LastMapCollidableObject(0, (int) (Game.HEIGHT - 85), 64, 64, ObjectType.LAST_MAP, Game.OBJECT_TEXTRA_ALICE.getImageFrom(128, 0, 16, 16)),
+				new CollidableObject(125, 125, 256, 128, ObjectType.SLOTH_TREE, Game.SLOTH_TREE_IMAGE_LOADER.getImage())
+				
 			}
 			
 	};
@@ -499,6 +508,8 @@ public class Game {
 				new Catachiller(256, 128)
 				
 			},
+			
+			{},
 			
 			{},
 			
@@ -1614,6 +1625,10 @@ public class Game {
 					
 				case POT_7_OR_2:
 					o.setImage(Game.POT_7_OR_2_IMAGE_LOADER.getImage());
+					break;
+					
+				case SLOTH_TREE:
+					o.setImage(Game.SLOTH_TREE_IMAGE_LOADER.getImage());
 					break;
 			
 			}

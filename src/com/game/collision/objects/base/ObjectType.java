@@ -21,7 +21,8 @@ public enum ObjectType {
 	SUNFLOWER(true),
 	START_MONSTER_LEATH_FIGHT(true),
 	BANK_1(true),
-	POT_7_OR_2(true);
+	POT_7_OR_2(true),
+	SLOTH_TREE(true);
 	
 	private final boolean TRANSPARENT;
 	
