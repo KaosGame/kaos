@@ -33,6 +33,21 @@
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
+          <configuration>
+            <outputDirectory>${basedir}/target/classes</outputDirectory>
+            <resources>
+              <resource>
+                <directory>${basedir}/resources</directory>
+                <filtering>false</filtering>
+                <excludes>
+                  <exclude>**/.DS_Store</exclude>
+                </excludes>
+                <includes>
+                  <include>**/*.*</include>
+                </includes>
+              </resource>
+            </resources>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -45,6 +60,13 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <mainClass>com.dodgydavid.kaos.main.Main</mainClass>
+              </manifest>
+            </archive>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
