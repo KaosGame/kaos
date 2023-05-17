@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.io.Serializable;
 
-import com.dodgydavid.kaos.annotations.Empty;
 import com.dodgydavid.kaos.main.Drawable;
 import com.dodgydavid.kaos.main.Game;
 import com.dodgydavid.kaos.main.Updatable;
@@ -95,7 +94,6 @@ public class PlayerStatHanlder implements Serializable, Updatable, Drawable {
 		
 	}
 	
-	@Empty
 	@Override
 	public void update() {
 		

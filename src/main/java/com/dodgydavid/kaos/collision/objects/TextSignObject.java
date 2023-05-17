@@ -5,8 +5,6 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import com.dodgydavid.kaos.annotations.Empty;
-import com.dodgydavid.kaos.annotations.Unused;
 import com.dodgydavid.kaos.collision.objects.base.CollisionObject;
 import com.dodgydavid.kaos.collision.objects.base.ObjectType;
 import com.dodgydavid.kaos.entities.base.Entity;
@@ -46,8 +44,6 @@ public class TextSignObject extends CollisionObject implements Drawable {
 		
 	}
 	
-	@Empty
-	@Unused
 	@Override
 	public void collide(Entity e) {
 		

@@ -1,6 +1,5 @@
 package com.dodgydavid.kaos.effects;
 
-import com.dodgydavid.kaos.annotations.Empty;
 import com.dodgydavid.kaos.effects.base.Effect;
 import com.dodgydavid.kaos.effects.base.EffectID;
 
@@ -37,7 +36,6 @@ public class ResistanceEffect1 extends Effect {
 		
 	}
 	
-	@Empty
 	@Override
 	public void onUpdate() {
 		

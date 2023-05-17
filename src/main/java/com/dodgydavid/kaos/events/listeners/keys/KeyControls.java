@@ -6,8 +6,6 @@ import java.util.LinkedList;
 
 import javax.swing.JOptionPane;
 
-import com.dodgydavid.kaos.annotations.Empty;
-import com.dodgydavid.kaos.annotations.Unused;
 import com.dodgydavid.kaos.collision.objects.ChestTransparentObject;
 import com.dodgydavid.kaos.collision.objects.base.CollisionObject;
 import com.dodgydavid.kaos.collision.objects.base.ObjectType;
@@ -21,8 +19,6 @@ import com.dodgydavid.kaos.sound.Sounds;
 
 public class KeyControls implements KeyListener {
 	
-	@Unused
-	@Empty
 	@Override
 	public void keyTyped(KeyEvent event) {
 		

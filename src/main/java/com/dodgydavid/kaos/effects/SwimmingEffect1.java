@@ -2,7 +2,6 @@ package com.dodgydavid.kaos.effects;
 
 import java.util.LinkedList;
 
-import com.dodgydavid.kaos.annotations.Empty;
 import com.dodgydavid.kaos.collision.objects.base.CollisionObject;
 import com.dodgydavid.kaos.collision.objects.base.ObjectType;
 import com.dodgydavid.kaos.effects.base.Effect;
@@ -22,7 +21,6 @@ public class SwimmingEffect1 extends Effect {
 		
 	}
 	
-	@Empty
 	@Override
 	public void onStart() {
 		
@@ -45,7 +43,6 @@ public class SwimmingEffect1 extends Effect {
 		
 	}
 	
-	@Empty
 	@Override
 	public void onEnd() {
 		

@@ -1,8 +1,5 @@
 package com.dodgydavid.kaos.entities.player.items.fun;
 
-import com.dodgydavid.kaos.annotations.Empty;
-import com.dodgydavid.kaos.annotations.NotNeeded;
-import com.dodgydavid.kaos.annotations.Unused;
 import com.dodgydavid.kaos.entities.player.items.base.Item;
 import com.dodgydavid.kaos.entities.player.items.base.ItemID;
 import com.dodgydavid.kaos.main.Game;
@@ -25,9 +22,6 @@ public class BankMaskItem extends Item<BankMaskItem> {
 		return new BankMaskItem(this.count);
 	}
 
-	@NotNeeded
-	@Unused
-	@Empty
 	@Override
 	public void use() {
 		
