@@ -12,7 +12,8 @@ public interface Spawnable {
 		
 		if (
 				random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() &&
-				random.nextBoolean() && !random.nextBoolean() && Math.random() < 0.50
+				random.nextBoolean() && !random.nextBoolean() && Math.random() < 0.50 && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() &&
+				!random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && random.nextBoolean() && !random.nextBoolean() && Math.random() < 0.50
 			) {
 			
 			this.spawn();
