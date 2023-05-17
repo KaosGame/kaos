@@ -90,6 +90,8 @@ public class Game {
 	private static BufferedImageLoader KITTNASOURS_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/kittnasours-textra-alice.png");
 	private static BufferedImageLoader CATACHILLER_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/entities/catachiller-textra-alice.png");
 	private static BufferedImageLoader GUI_7_OR_2_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/guis/7-or-2-textra-alice.png");
+
+	private static BufferedImageLoader MUTE_TEXTRA_ALICE_LOADER = new BufferedImageLoader("/assets/images/guis/mute-textra-alice.png");
 	
 	public static BufferedImageLoader HOUSE_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/house_1.png");
 	public static BufferedImageLoader BANK_1_IMAGE_LOADER = new BufferedImageLoader("/assets/images/objects/bank_1.png");
@@ -114,6 +116,8 @@ public class Game {
 	public static TextraAlice PARTICLE_TEXTRA_ALICE = new TextraAlice(Game.PARTICLE_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice ISAWAWABUB_TEXTRA_ALICE = new TextraAlice(Game.ISAWAWABUB_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice CAT_TEXTRA_ALICE = new TextraAlice(Game.CAT_TEXTRA_ALICE_LOADER.getImage());
+
+	public static TextraAlice MUTE_TEXTRA_ALICE = new TextraAlice(Game.MUTE_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice KITTNASOURS_TEXTRA_ALICE = new TextraAlice(Game.KITTNASOURS_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice CATACHILLER_TEXTRA_ALICE = new TextraAlice(Game.CATACHILLER_TEXTRA_ALICE_LOADER.getImage());
 	public static TextraAlice GUI_7_OR_2_TEXTRA_ALICE = new TextraAlice(Game.GUI_7_OR_2_TEXTRA_ALICE_LOADER.getImage());
@@ -542,7 +546,9 @@ public class Game {
 	public static boolean HIDE_PAUSE = false;
 	public static boolean GUI_OPEN = false;
 	public static GUI CURRENT_GUI = null;
-	
+
+	public static boolean MUTED = false;
+
 	public static Font MAIN_GAME_FONT;
 	public static Font HOTBAR_GAME_FONT;
 	public static Font VILAGER_GAME_FONT;

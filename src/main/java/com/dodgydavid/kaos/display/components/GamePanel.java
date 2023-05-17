@@ -85,7 +85,7 @@ public class GamePanel extends JPanel implements Runnable {
 		this.addMouseMotionListener(this.genericGUIEventHandler);
 		
 		Game.BG_SOUND.setSound(Sounds.BASE_BACKGROUND_MUSIC);
-		Game.BG_SOUND.setVolumeScale(2);
+		Game.BG_SOUND.setVolumeScale(1);
 		Game.BG_SOUND.loop();
 		
 		Game.SE_SOUND.setTrueVolumeScale(3);

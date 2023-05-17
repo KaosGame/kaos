@@ -1,9 +1,6 @@
 package com.dodgydavid.kaos.display;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics2D;
+import java.awt.*;
 
 import com.dodgydavid.kaos.entities.IsawawabubEntity;
 import com.dodgydavid.kaos.entities.cats.Catachiller;
@@ -41,6 +38,7 @@ public class HUD implements Drawable, Updatable {
 		this.drawHungerBar(g2d);
 		this.drawHealthBar(g2d);
 		this.drawCoins(g2d);
+		this.drawMute(g2d);
 		Game.PLAYER.getStatHandler().draw(g2d);
 		Game.PLAYER.getEffectHandler().draw(g2d);
 		
@@ -80,6 +78,20 @@ public class HUD implements Drawable, Updatable {
 		g2d.setFont(Game.HOTBAR_GAME_FONT.deriveFont(16f));
 		g2d.drawString("Health", 184, (int) (Game.HEIGHT - 150));
 		
+	}
+
+	private void drawMute(Graphics2D g2d) {
+
+		Image img = Game.MUTE_TEXTRA_ALICE.getImageFrom(0, 0, 16, 16);
+
+		if (Game.MUTED) {
+
+			img = Game.MUTE_TEXTRA_ALICE.getImageFrom(16, 0, 16, 16);
+
+		}
+
+		g2d.drawImage(img, Game.WIDTH - 80, Game.HEIGHT - 80, 48, 48, null);
+
 	}
 
 	private void drawHungerBar(Graphics2D g2d) {

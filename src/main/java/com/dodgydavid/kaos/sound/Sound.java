@@ -78,25 +78,46 @@ public class Sound {
 	}
 	
 	public void play() {
-		
+
+		if (Game.MUTED) {
+
+			this.clip.stop();
+			return;
+
+		}
+
 		this.clip.start();
 		
 	}
 	
 	public void stop() {
-		
+
 		this.clip.stop();
 		
 	}
 	
 	public void loop() {
-		
+
+		if (Game.MUTED) {
+
+			this.clip.stop();
+			return;
+
+		}
+
 		this.clip.loop(Clip.LOOP_CONTINUOUSLY);
 		
 	}
 	
 	public void loop(int times) {
-		
+
+		if (Game.MUTED) {
+
+			this.clip.stop();
+			return;
+
+		}
+
 		this.clip.loop(times);
 		
 	}
