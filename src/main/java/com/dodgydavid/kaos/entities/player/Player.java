@@ -13,6 +13,7 @@ import com.dodgydavid.kaos.collision.objects.CollidableWallObject;
 import com.dodgydavid.kaos.collision.objects.PlayerObject;
 import com.dodgydavid.kaos.collision.objects.base.CollisionObject;
 import com.dodgydavid.kaos.collision.objects.base.ObjectType;
+import com.dodgydavid.kaos.effects.NoDamageEffect1;
 import com.dodgydavid.kaos.effects.ResistanceEffect1;
 import com.dodgydavid.kaos.effects.base.EffectID;
 import com.dodgydavid.kaos.effects.components.PlayerEffectHandler;
@@ -454,7 +455,9 @@ public class Player extends DamageableEntity implements Serializable {
 
 	@Override
 	public void die(EntityDeathMessages message) {
-		
+
+		if (this.getEffectHandler().has(EffectID.NO_DAMAGE_1)) return;
+
 		int itemSlot = this.hotbar.hasItemSlot(ItemID.GOLDEN_HEART_1_ITEM);
 		
 		if (itemSlot != -1) {
@@ -510,7 +513,9 @@ public class Player extends DamageableEntity implements Serializable {
 		
 		this.xv = 0;
 		this.yv = 0;
-		
+
+		this.effectHandler.add(new NoDamageEffect1(7200));
+
 		Game.PAUSED = true;
 
 		if (message != null) {
@@ -538,8 +543,6 @@ public class Player extends DamageableEntity implements Serializable {
 		}
 		
 		Arrays.fill(this.keysDown, false);
-		
-		this.effectHandler.add(new ResistanceEffect1(5, 3600L));
 		
 	}
 	
@@ -597,6 +600,8 @@ public class Player extends DamageableEntity implements Serializable {
 		if (this.effectHandler.has(EffectID.SWIMMING_1) && (deathType.equals(EntityDeathMessages.WATER_FALL)
 				|| deathType.equals(EntityDeathMessages.WATER_DROWNED)))
 			return;
+
+		if (this.getEffectHandler().has(EffectID.NO_DAMAGE_1)) return;
 		
 		float tempHP = (float) (this.health - this.calculateDamage(num));
 		
