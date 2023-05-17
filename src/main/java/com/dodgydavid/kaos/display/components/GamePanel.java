@@ -5,19 +5,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-import com.dodgydavid.kaos.commands.DropPlayersItemsCommand;
-import com.dodgydavid.kaos.commands.ForcePlaneCommand;
-import com.dodgydavid.kaos.commands.ForceRockZombieCommand;
-import com.dodgydavid.kaos.commands.ForceZombieCommand;
-import com.dodgydavid.kaos.commands.GetNumberOfEntitiesCommand;
-import com.dodgydavid.kaos.commands.GetPlayerPosCommand;
-import com.dodgydavid.kaos.commands.GivePlayerBreadItemCommand;
-import com.dodgydavid.kaos.commands.GivePlayerMushroomStewItemCommand;
-import com.dodgydavid.kaos.commands.GivePlayerPickaxeItemCommand;
-import com.dodgydavid.kaos.commands.GivePlayerRedMushroomItemCommand;
-import com.dodgydavid.kaos.commands.KillPlayerCommand;
-import com.dodgydavid.kaos.commands.LogRandomGenSeedCommand;
-import com.dodgydavid.kaos.commands.SetSeedForRandomGenCommand;
+import com.dodgydavid.kaos.commands.*;
 import com.dodgydavid.kaos.commands.base.Commands;
 import com.dodgydavid.kaos.entities.AxolotlEntity;
 import com.dodgydavid.kaos.entities.BirdEntity;
@@ -81,6 +69,7 @@ public class GamePanel extends JPanel implements Runnable {
 		Commands.add("Game.Player.give(MushroomStew);", new GivePlayerMushroomStewItemCommand());
 		Commands.add("Game.Player.give(Bread);", new GivePlayerBreadItemCommand());
 		Commands.add("Game.force.rock.zombie();", new ForceRockZombieCommand());
+		Commands.add("Game.Player.give(GoldenHeart);", new GivePlayerGoldenHeartItemCommand());
 		
 		Game.reset();
 		
