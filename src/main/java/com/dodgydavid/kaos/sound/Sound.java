@@ -58,7 +58,14 @@ public class Sound {
 	}
 	
 	public void setSound(Sounds sound) {
-		
+
+		if (Game.MUTED) {
+
+			this.clip.stop();
+			return;
+
+		}
+
 		try {
 			
 			AudioInputStream ais = AudioSystem.getAudioInputStream(sound.getURL());
