@@ -3,7 +3,7 @@ bin/
 .project
 .settings/
 */.DS_Store
-resources/assets/images/hud/.DS_Store
+src/main/resources/assets/images/hud/.DS_Store
 target
 **/.DS_Store
 .idea
