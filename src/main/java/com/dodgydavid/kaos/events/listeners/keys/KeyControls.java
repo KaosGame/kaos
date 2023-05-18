@@ -330,7 +330,11 @@ public class KeyControls implements KeyListener {
 		if (KeyEvent.VK_9 == key) {
 			
 			if (!Game.HIDE_PAUSE) {
-				
+
+				Game.PAUSED = true;
+
+				JOptionPane.showMessageDialog(null, "This tool is unsupported", "Warning...", JOptionPane.WARNING_MESSAGE);
+
 				Game.save();
 				
 			}
@@ -340,7 +344,11 @@ public class KeyControls implements KeyListener {
 		if (KeyEvent.VK_0 == key) {
 			
 			if (!Game.HIDE_PAUSE) {
-				
+
+				Game.PAUSED = true;
+
+				JOptionPane.showMessageDialog(null, "This tool is unsupported", "Warning...", JOptionPane.WARNING_MESSAGE);
+
 				Game.load();
 				
 			}
