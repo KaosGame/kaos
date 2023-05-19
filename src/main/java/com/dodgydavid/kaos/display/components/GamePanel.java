@@ -70,6 +70,7 @@ public class GamePanel extends JPanel implements Runnable {
 		Commands.add("Game.Player.give(Bread);", new GivePlayerBreadItemCommand());
 		Commands.add("Game.force.rock.zombie();", new ForceRockZombieCommand());
 		Commands.add("Game.Player.give(GoldenHeart);", new GivePlayerGoldenHeartItemCommand());
+		Commands.add("Game.godMode();", new GodModeCommand());
 		
 		Game.reset();
 		

@@ -70,8 +70,22 @@ public class Player extends DamageableEntity implements Serializable {
 	private float moreDefence;
 	
 	private boolean inCar;
-	
-	
+
+	private boolean godMode;
+
+
+	public boolean isDashKeyDown() {
+		return dashKeyDown;
+	}
+
+	public boolean isGodMode() {
+		return godMode;
+	}
+
+	public void setGodMode(boolean godMode) {
+		this.godMode = godMode;
+	}
+
 	public Player(float x, float y, float xv, float yv, int width, int height, EntityID id, BufferedImage image) {
 		
 		super(x, y, xv, yv, width, height, id, image, Player.MAX_HEALTH, false);
@@ -94,6 +108,8 @@ public class Player extends DamageableEntity implements Serializable {
 		this.moreDefence = 0f;
 		
 		this.inCar = false;
+
+		this.godMode = false;
 		
 		
 	}
@@ -118,6 +134,7 @@ public class Player extends DamageableEntity implements Serializable {
 		
 		this.handleHunger();
 		this.handleHungerValue();
+		this.handleGodMode();
 		
 		this.dieIfNeeded();
 		
@@ -128,7 +145,17 @@ public class Player extends DamageableEntity implements Serializable {
 		this.effectHandler.update();
 		
 	}
-	
+
+	private void handleGodMode() {
+
+		if (this.godMode) {
+
+			this.coins = Integer.MAX_VALUE;
+
+		}
+
+	}
+
 	public void trade() {
 		
 		for (int i = 0; i < Game.MAP_HANDLER().currentMap().getEntityHandler().getList().size(); i++) {
@@ -168,7 +195,9 @@ public class Player extends DamageableEntity implements Serializable {
 	}
 
 	private void handleHungerValue() {
-		
+
+		if (this.godMode) return;
+
 		Random random = new Random();
 		
 		if (
@@ -209,7 +238,9 @@ public class Player extends DamageableEntity implements Serializable {
 	}
 
 	private void handleHunger() {
-		
+
+		if (this.godMode) return;
+
 		Random random = new Random();
 		
 		if (
@@ -457,6 +488,7 @@ public class Player extends DamageableEntity implements Serializable {
 	public void die(EntityDeathMessages message) {
 
 		if (this.getEffectHandler().has(EffectID.NO_DAMAGE_1)) return;
+		if (this.godMode) return;
 
 		int itemSlot = this.hotbar.hasItemSlot(ItemID.GOLDEN_HEART_1_ITEM);
 		
@@ -602,6 +634,7 @@ public class Player extends DamageableEntity implements Serializable {
 			return;
 
 		if (this.getEffectHandler().has(EffectID.NO_DAMAGE_1)) return;
+		if (this.godMode) return;
 		
 		float tempHP = (float) (this.health - this.calculateDamage(num));
 		
