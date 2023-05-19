@@ -78,13 +78,20 @@ public class KeyControls implements KeyListener {
 
 		if (KeyEvent.VK_M == key) {
 
-			Game.MUTED = !Game.MUTED;
+			if (!Game.MUTED) {
 
-			if (Game.MUTED) {
+				Game.SE_SOUND.setSound(Sounds.POP);
+				Game.SE_SOUND.setVolumeScale(0);
+				Game.SE_SOUND.setTrueVolumeScale(0);
 
-				Game.SE_SOUND.stop();
+
+				Game.ANY_VOLUME_SOUNDS.setSound(Sounds.POP);
+				Game.ANY_VOLUME_SOUNDS.setVolumeScale(0);
+				Game.ANY_VOLUME_SOUNDS.setTrueVolumeScale(0);
 
 			}
+
+			Game.MUTED = !Game.MUTED;
 
 		}
 		
