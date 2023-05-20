@@ -89,6 +89,17 @@ public class KeyControls implements KeyListener {
 				Game.ANY_VOLUME_SOUNDS.setVolumeScale(0);
 				Game.ANY_VOLUME_SOUNDS.setTrueVolumeScale(0);
 
+			} else {
+
+				Game.SE_SOUND.setSound(Sounds.POP);
+				Game.SE_SOUND.setVolumeScale(3);
+				Game.SE_SOUND.setTrueVolumeScale(3);
+
+
+				Game.ANY_VOLUME_SOUNDS.setSound(Sounds.POP);
+				Game.ANY_VOLUME_SOUNDS.setVolumeScale(3);
+				Game.ANY_VOLUME_SOUNDS.setTrueVolumeScale(3);
+
 			}
 
 			Game.MUTED = !Game.MUTED;
