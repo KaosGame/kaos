@@ -1,0 +1,4 @@
+
+rootProject.name = 'kaos'
+
+include ':game'

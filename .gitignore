@@ -7,3 +7,9 @@ src/main/resources/assets/images/hud/.DS_Store
 target
 **/.DS_Store
 .idea
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build

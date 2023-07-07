@@ -1,0 +1,25 @@
+
+plugins {
+
+    id 'java'
+    id 'application'
+
+}
+
+mainClassName = 'com.dodgydavid.kaos.main.Main'
+
+group = 'com.dodgydavid'
+version = '0.0.2.0.0-SNAPSHOT'
+
+jar {
+    manifest {
+        attributes "Main-Class": 'com.dodgydavid.kaos.main.Main'
+    }
+}
+
+java {
+
+    sourceCompatibility = 17
+    targetCompatibility = 17
+
+}
