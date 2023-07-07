@@ -6,14 +6,14 @@ plugins {
 
 }
 
-mainClassName = 'com.dodgydavid.kaos.main.Main'
+mainClassName = 'com.github.kaosgame.kaos.main.Main'
 
-group = 'com.dodgydavid'
+group = 'com.github.kaosgame'
 version = '0.0.2.0.0-SNAPSHOT'
 
 jar {
     manifest {
-        attributes "Main-Class": 'com.dodgydavid.kaos.main.Main'
+        attributes "Main-Class": 'com.github.kaosgame.kaos.main.Main'
     }
 }
 
